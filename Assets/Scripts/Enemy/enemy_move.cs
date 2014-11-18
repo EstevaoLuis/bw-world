@@ -3,67 +3,53 @@ using System.Collections;
 
 public class enemy_move : MonoBehaviour {
 
-	public float MoveSpeed = 3f;
+	public float MoveSpeed = 1f;
 	public Animator animator = null;
-	//int random_direction = Random.Range (0, 5);
-	// Use this for initialization
+
+	public int counter = 0;
+	public int max_value = 7;
+	private int random_direction = 0;
+
 	void Start () {
-	
+		ChangeDirection ();
 	}
 
-	IEnumerator wait_for_five() {
-		yield return new WaitForSeconds(5f); 
+	void ChangeDirection(){
+		random_direction = Random.Range (0, 5);
 	}
-	
 	
 	void random_movement(){
-		int counter = 0;
-		int random_direction = Random.Range (0, 5);
-
-
+		if (random_direction == 0) {}
 
 		if (random_direction == 1) {
-						while (counter<10) {
-								transform.Translate (Vector3.up * Time.deltaTime);
-								counter++;
-						}
+			transform.Translate (Vector3.up * MoveSpeed * Time.deltaTime);
 		}
-		if (random_direction == 2) {
-						while (counter<10) {
-								transform.Translate (Vector3.down * Time.deltaTime);
-								counter++;
-						}
-				}
-		
-		if (random_direction == 3) {
-						while (counter<10) {
-								transform.Translate (Vector3.left * Time.deltaTime);
-								counter++; 
-						}
-				}
-						
-		if (random_direction == 4) {
-						while (counter<10) {
-								transform.Translate (Vector3.right * Time.deltaTime);
-								counter++;
-						}
-				}
-							
-		
-		if (random_direction == 5) {
-						while (counter<20) {
-								counter++;
-						}
-				}
-	}
 
+		if (random_direction == 2) {
+			transform.Translate (Vector3.down * MoveSpeed * Time.deltaTime);
+		}
+
+		if (random_direction == 3) {
+			transform.Translate (Vector3.left * MoveSpeed * Time.deltaTime);
+		}
+
+		if (random_direction == 4) {
+			transform.Translate (Vector3.right * MoveSpeed * Time.deltaTime);
+		}
+	}
 	
 	// Update is called once per frame
 	void Update () {
-
+		if (counter == max_value) {
+			ChangeDirection();
+			counter = 0;
+				}
 		random_movement ();
-		StartCoroutine(wait_for_five ());
-
-
+		counter++;
 	}
+
+//
+//	IEnumerator WaitFunc() {
+//			yield return new WaitForSeconds(2f);
+//	}
 }
