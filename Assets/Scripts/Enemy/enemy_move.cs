@@ -12,6 +12,7 @@ public class enemy_move : MonoBehaviour {
 
 	void Start () {
 		ChangeDirection ();
+		animator = GetComponent<Animator> ();
 	}
 
 	void ChangeDirection(){
@@ -23,18 +24,22 @@ public class enemy_move : MonoBehaviour {
 
 		if (random_direction == 1) {
 			transform.Translate (Vector3.up * MoveSpeed * Time.deltaTime);
+			animator.Play("UpEnemyWalk");
 		}
 
 		if (random_direction == 2) {
 			transform.Translate (Vector3.down * MoveSpeed * Time.deltaTime);
+			animator.Play("DownEnemyWalk");
 		}
 
 		if (random_direction == 3) {
 			transform.Translate (Vector3.left * MoveSpeed * Time.deltaTime);
+			animator.Play("LeftEnemyWalk");
 		}
 
 		if (random_direction == 4) {
 			transform.Translate (Vector3.right * MoveSpeed * Time.deltaTime);
+			animator.Play("RightEnemyWalk");
 		}
 	}
 	
