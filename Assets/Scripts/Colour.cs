@@ -34,8 +34,10 @@ public class Colour : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D (Collision2D other) {
+		if (isColoured && !transition) {
+			audio.Play();
+		}
 		transition = true;
-		Debug.Log ("Collisione!!");
 	}
 
 }

@@ -4,7 +4,8 @@ using System.Collections;
 public class PlayerController : MonoBehaviour {
 
 	public float MoveSpeed = 3f;
-	
+
+	public GameObject RedSphere;
 
 	public Animator animator = null;
 
@@ -17,8 +18,6 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//var directionVector = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
-
 		
 		if(Input.GetKey(KeyCode.DownArrow))
 		{
@@ -42,6 +41,11 @@ public class PlayerController : MonoBehaviour {
 		{
 			transform.position += transform.right * MoveSpeed * Time.deltaTime;
 			animator.Play("RightWalk");
+		}
+
+		if (Input.GetMouseButtonDown(0)) {
+			GameObject Fireball = (GameObject) Instantiate(RedSphere, (transform.position + new Vector3(3,3,0)), transform.rotation);
+			Fireball.rigidbody2D.velocity = transform.TransformDirection(Vector2.right * 3);
 		}
 
 	}
