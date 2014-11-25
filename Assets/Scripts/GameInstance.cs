@@ -42,4 +42,12 @@ public class GameInstance : MonoBehaviour
 	{
 		Debug.Log ("Test singleton");
 	}
+
+	/*
+	 * //THow to use
+		GameInstance instance = GameInstance.instance;
+		instance.Test();
+	 * 
+	 * 
+	 */
 }
