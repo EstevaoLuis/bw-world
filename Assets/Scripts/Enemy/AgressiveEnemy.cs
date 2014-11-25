@@ -6,6 +6,8 @@ public class AgressiveEnemy : MonoBehaviour {
 	// Use this for initialization
 	public GameObject target;
 	public Animator animation = null;
+	public GameObject attack;
+	GameObject aux;
 
 	private float distance_to_player;
 
@@ -18,9 +20,13 @@ public class AgressiveEnemy : MonoBehaviour {
 	float y_player_pos;
 	float diff_x;
 	float diff_y;
+	float hitTime;
+	float attack_range = 3f;
+
 
 	void Start () {
 		animation = GetComponent<Animator> ();
+	//	attack = GetComponent<Animator> ();
 	}
 
 	float distance_between(){
@@ -43,7 +49,6 @@ public class AgressiveEnemy : MonoBehaviour {
 		distance_to_player = distance_between ();
 
 		if (distance_to_player < detection_distance) {
-
 			return true;
 
 		}
@@ -82,11 +87,27 @@ public class AgressiveEnemy : MonoBehaviour {
 		}
 
 	}
+	bool enemy_in_range(){
+		distance_to_player = distance_between ();
+		if (distance_to_player < attack_range) {
+						return true;
 
+				} else {
+						return false;
+				}
+	}
 
 	// Update is called once per frame
 	void Update () {
+	
+		if (enemy_in_range() && Time.time > hitTime + 1) {
+			aux = (GameObject) Instantiate (attack,target.transform.position,Quaternion.identity);
+			hitTime = Time.time;
 
+		}
+		if (aux != null && Time.time > hitTime + 0.7) {
+			Destroy(aux);
+		}
 		distance_between ();
 		detect_player ();
 		move_enemy ();
