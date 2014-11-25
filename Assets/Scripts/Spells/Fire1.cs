@@ -3,8 +3,13 @@ using System.Collections;
 
 public class Fire1 : MonoBehaviour {
 
+
 	public float speed = 3.0f;
-	//public Animation animation;
+	public GameObject animationGraphics = null;
+
+	private bool hasHit = false;
+	private float hitTime;
+	private GameObject animation = null;
 
 	// Use this for initialization
 	void Start () {
@@ -14,11 +19,24 @@ public class Fire1 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (hasHit) {
+			if(Time.time > hitTime+0.1) {
+
+			}
+		}
 	}
 
 	void OnCollisionEnter2D (Collision2D other) {
-		//Animation.Blend ("Fire1", 1.0, 0.3f);
-		//Destroy (gameObject);
+		hasHit = true;
+		hitTime = Time.time;
+		Debug.Log (transform.position);
+		animation = (GameObject) Instantiate(animationGraphics, transform.position, transform.rotation);
+		Invoke("StopAnimation", 1);
 	}
+
+	void StopAnimation() {
+		Destroy (animation.gameObject);
+		Destroy (gameObject);
+	}
+
 }
