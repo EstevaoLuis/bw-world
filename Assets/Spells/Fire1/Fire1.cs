@@ -2,11 +2,11 @@
 using System.Collections;
 
 public class Fire1 : MonoBehaviour {
-
-
-	public float speed = 3.0f;
+	
+	//public float speed = 3.0f;
 	public GameObject animationGraphics = null;
-	public float life = 2.0f;
+	public int damage = 10;
+	public float duration = 2.0f;
 
 	private bool hasHit = false;
 	private float hitTime, castTime;
@@ -25,7 +25,7 @@ public class Fire1 : MonoBehaviour {
 				Destroy (gameObject);
 			}
 		}
-		else if(Time.time > castTime+life) {
+		else if(Time.time > castTime+duration) {
 			Destroy (gameObject);
 		}
 	}
