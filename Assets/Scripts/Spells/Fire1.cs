@@ -6,15 +6,16 @@ public class Fire1 : MonoBehaviour {
 
 	public float speed = 3.0f;
 	public GameObject animationGraphics = null;
+	public float life = 2.0f;
 
 	private bool hasHit = false;
-	private float hitTime;
+	private float hitTime, castTime;
 	private GameObject animation = null;
 
 	// Use this for initialization
 	void Start () {
 		audio.Play();
-		//rigidbody2D.velocity = new Vector2(3,10);
+		castTime = Time.time;
 	}
 	
 	// Update is called once per frame
@@ -24,19 +25,26 @@ public class Fire1 : MonoBehaviour {
 
 			}
 		}
+		else if(Time.time > castTime+life) {
+			Destroy (gameObject);
+		}
 	}
 
 	void OnCollisionEnter2D (Collision2D other) {
-		hasHit = true;
-		hitTime = Time.time;
-		Debug.Log (transform.position);
-		animation = (GameObject) Instantiate(animationGraphics, transform.position, transform.rotation);
-		Invoke("StopAnimation", 1);
+		if(other.gameObject.tag!="Player") {
+			hasHit = true;
+			hitTime = Time.time;
+
+			GetComponent<SpriteRenderer> ().color = new Color (1, 1, 1, 0);
+			animation = (GameObject) Instantiate(animationGraphics, transform.position, transform.rotation);
+
+			Invoke("StopAnimation", 1);
+		}
 	}
 
 	void StopAnimation() {
 		Destroy (animation.gameObject);
-		Destroy (gameObject);
+		//Destroy (gameObject);
 	}
 
 }
