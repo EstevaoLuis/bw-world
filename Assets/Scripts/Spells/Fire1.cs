@@ -22,7 +22,7 @@ public class Fire1 : MonoBehaviour {
 	void Update () {
 		if (hasHit) {
 			if(Time.time > hitTime+0.1) {
-
+				Destroy (gameObject);
 			}
 		}
 		else if(Time.time > castTime+life) {
@@ -38,13 +38,7 @@ public class Fire1 : MonoBehaviour {
 			GetComponent<SpriteRenderer> ().color = new Color (1, 1, 1, 0);
 			animation = (GameObject) Instantiate(animationGraphics, transform.position, transform.rotation);
 
-			Invoke("StopAnimation", 1);
 		}
-	}
-
-	void StopAnimation() {
-		Destroy (animation.gameObject);
-		//Destroy (gameObject);
 	}
 
 }

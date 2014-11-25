@@ -10,36 +10,49 @@ public class enemy_move : MonoBehaviour {
 	public int max_value = 7;
 	private int random_direction = 0;
 
+	public float box_x1 = 0f;
+	public float box_x2 = 10f;
+	public float box_y1 = 0f;
+	public float box_y2 = 10f;
+
+	private float enemyPosX;
+	private float enemyPosY;
+
+	private int updownlimit;
+	private int leftrightlimit;
+
 	void Start () {
 		ChangeDirection ();
 		animator = GetComponent<Animator> ();
 	}
 
 	void ChangeDirection(){
-		random_direction = Random.Range (0, 5);
+		enemyPosX = transform.position.x;
+		enemyPosY = transform.position.y;
+
+		updownlimit = 49 * ((int) (box_y2 - enemyPosY)) / ((int) (box_y2 - box_y1));
+		leftrightlimit = 50 + (49 * ((int)(box_x2 - enemyPosX)) / ((int)(box_x2 - box_x1)));
+
+		random_direction = Random.Range (0, 125);
 	}
 	
 	void random_movement(){
-		if (random_direction == 0) {}
 
-		if (random_direction == 1) {
-			transform.Translate (Vector3.up * MoveSpeed * Time.deltaTime);
-			animator.Play("UpEnemyWalk");
+
+		if (random_direction < updownlimit) {
+			go_Up();
 		}
-
-		if (random_direction == 2) {
-			transform.Translate (Vector3.down * MoveSpeed * Time.deltaTime);
-			animator.Play("DownEnemyWalk");
+		else if (random_direction < 50) {
+			go_Down();
 		}
-
-		if (random_direction == 3) {
-			transform.Translate (Vector3.left * MoveSpeed * Time.deltaTime);
-			animator.Play("LeftEnemyWalk");
+		else if (random_direction < leftrightlimit) {
+			go_Right();
 		}
-
-		if (random_direction == 4) {
-			transform.Translate (Vector3.right * MoveSpeed * Time.deltaTime);
-			animator.Play("RightEnemyWalk");
+		else if (random_direction < 100) {
+			go_Left();
+		}
+		else {
+			stay ();
 		}
 	}
 	
@@ -51,6 +64,25 @@ public class enemy_move : MonoBehaviour {
 				}
 		random_movement ();
 		counter++;
+	}
+
+	void stay(){
+		}
+	void go_Up(){
+		transform.Translate (Vector3.up * MoveSpeed * Time.deltaTime);
+		animator.Play("UpEnemyWalk");
+	}
+	void go_Down(){
+		transform.Translate (Vector3.down * MoveSpeed * Time.deltaTime);
+		animator.Play("DownEnemyWalk");
+	}
+	void go_Left(){
+		transform.Translate (Vector3.left * MoveSpeed * Time.deltaTime);
+		animator.Play("LeftEnemyWalk");
+	}
+	void go_Right(){
+		transform.Translate (Vector3.right * MoveSpeed * Time.deltaTime);
+		animator.Play("RightEnemyWalk");
 	}
 
 //
