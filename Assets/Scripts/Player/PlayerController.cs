@@ -22,39 +22,33 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		if(Input.GetKey(KeyCode.DownArrow))
-		{
-			transform.position -= transform.up * MoveSpeed * Time.deltaTime;
-			animator.Play("DownWalk");
-			direction = new Vector2(0.0f,-1.0f);
-		} 
-
-		else if(Input.GetKey(KeyCode.UpArrow)) {
-			transform.position += transform.up * MoveSpeed * Time.deltaTime;
-			animator.Play("UpWalk");
-			direction = new Vector2(0.0f,1.0f);
-		}
-
-		else if(Input.GetKey(KeyCode.LeftArrow))
-		{
-			transform.position -= transform.right * MoveSpeed * Time.deltaTime;
-			animator.Play("LeftWalk");
-			direction = new Vector2(-1.0f,0.0f);
-		}
-
-		else if(Input.GetKey(KeyCode.RightArrow))
-		{
-			transform.position += transform.right * MoveSpeed * Time.deltaTime;
-			animator.Play("RightWalk");
-			direction = new Vector2(1.0f,0.0f);
+		if (Input.GetKey (KeyCode.DownArrow)) {
+			//transform.position -= transform.up * MoveSpeed * Time.deltaTime;
+			animator.Play ("DownWalk");
+			direction = new Vector2 (0.0f, -1.0f);
+			rigidbody2D.velocity = direction*MoveSpeed;
+		} else if (Input.GetKey (KeyCode.UpArrow)) {
+			//transform.position += transform.up * MoveSpeed * Time.deltaTime;
+			animator.Play ("UpWalk");
+			direction = new Vector2 (0.0f, 1.0f);
+			rigidbody2D.velocity = direction*MoveSpeed;
+		} else if (Input.GetKey (KeyCode.LeftArrow)) {
+			//transform.position -= transform.right * MoveSpeed * Time.deltaTime;
+			animator.Play ("LeftWalk");
+			direction = new Vector2 (-1.0f, 0.0f);
+			rigidbody2D.velocity = direction*MoveSpeed;
+		} else if (Input.GetKey (KeyCode.RightArrow)) {
+			//transform.position += transform.right * MoveSpeed * Time.deltaTime;
+			animator.Play ("RightWalk");
+			direction = new Vector2 (1.0f, 0.0f);
+			rigidbody2D.velocity = direction*MoveSpeed;
+		} else {
+			rigidbody2D.velocity = new Vector2(0,0);
 		}
 
 		if (Input.GetMouseButtonDown(0)) {
 			GameObject Fireball = (GameObject) Instantiate(RedSphere, (transform.position + new Vector3(direction.x, direction.y, 0)), transform.rotation);
 			Fireball.rigidbody2D.velocity = transform.TransformDirection(direction * 3);
-			//Test singleton
-			GameInstance instance = GameInstance.instance;
-			instance.Test();
 		}
 
 	}

@@ -10,6 +10,8 @@ public class AgressiveEnemy : MonoBehaviour {
 	GameObject aux;
 
 	private float distance_to_player;
+	private bool isHit = false;
+	//private float hitTime;
 
 	float detection_distance = 100f;
 	public float MoveSpeed = 1f;
@@ -60,31 +62,37 @@ public class AgressiveEnemy : MonoBehaviour {
 
 		bool dtc_player = detect_player();
 
-		if (dtc_player == true) {
+		if (!isHit) {
+				if (dtc_player == true) {
 
-			if(diff_x < diff_y && diff_x < 0){
-				transform.Translate (Vector3.right * MoveSpeed * Time.deltaTime);
-				animation.Play("Aggressive_E_right");
-			}
-			else if (diff_x > diff_y && diff_x > 0){
-				transform.Translate (Vector3.left * MoveSpeed * Time.deltaTime);
-				animation.Play("Aggressive_E_left");
-			}
-			else if(diff_y < diff_x && diff_y < 0){
-				transform.Translate (Vector3.up * MoveSpeed * Time.deltaTime);
-				animation.Play("Aggressive_E_up");
-			}
-			else if(diff_y > diff_x && diff_y > 0){
-				transform.Translate (Vector3.down * MoveSpeed * Time.deltaTime);
-				animation.Play("Aggressive_E_down");
-			}
-			else{}
+						if (diff_x < diff_y && diff_x < 0) {
+								//transform.Translate (Vector3.right * MoveSpeed * Time.deltaTime);
+								animation.Play ("Aggressive_E_right");
+								rigidbody2D.velocity = Vector3.right * MoveSpeed;
+						} else if (diff_x > diff_y && diff_x > 0) {
+								//transform.Translate (Vector3.left * MoveSpeed * Time.deltaTime);
+								animation.Play ("Aggressive_E_left");
+								rigidbody2D.velocity = Vector3.left * MoveSpeed;
+						} else if (diff_y < diff_x && diff_y < 0) {
+								//transform.Translate (Vector3.up * MoveSpeed * Time.deltaTime);
+								animation.Play ("Aggressive_E_up");
+								rigidbody2D.velocity = Vector3.up * MoveSpeed;
+						} else if (diff_y > diff_x && diff_y > 0) {
+								//transform.Translate (Vector3.down * MoveSpeed * Time.deltaTime);
+								animation.Play ("Aggressive_E_down");
+								rigidbody2D.velocity = Vector3.down * MoveSpeed;
+						} else {
+								rigidbody2D.velocity = new Vector3 (0, 0, 0);
+						}
 
-//			position_player = new Vector3(target.transform.position.x,target.transform.position.y,0);
+						//			position_player = new Vector3(target.transform.position.x,target.transform.position.y,0);
+				} else {
+						transform.Translate (Vector3.down * MoveSpeed * Time.deltaTime);
+				}
+		} else if(Time.time > hitTime+0.8f) {
+			isHit = false;
 		}
-		if (dtc_player == false) {
-			transform.Translate (Vector3.down * MoveSpeed * Time.deltaTime);
-		}
+
 
 	}
 	bool enemy_in_range(){
@@ -113,4 +121,12 @@ public class AgressiveEnemy : MonoBehaviour {
 		move_enemy ();
 	
 	}
+
+	void OnCollisionEnter2D (Collision2D other) {
+		if (other.gameObject.tag == "Spell") {
+			isHit = true;
+			hitTime = Time.time;
+		}
+	}
+
 }
