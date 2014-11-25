@@ -52,6 +52,9 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetMouseButtonDown(0)) {
 			GameObject Fireball = (GameObject) Instantiate(RedSphere, (transform.position + new Vector3(direction.x, direction.y, 0)), transform.rotation);
 			Fireball.rigidbody2D.velocity = transform.TransformDirection(direction * 3);
+			//Test singleton
+			GameInstance instance = GameInstance.instance;
+			instance.Test();
 		}
 
 	}
