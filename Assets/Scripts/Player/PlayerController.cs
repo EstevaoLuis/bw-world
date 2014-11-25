@@ -9,9 +9,12 @@ public class PlayerController : MonoBehaviour {
 
 	public Animator animator = null;
 
+	private Vector2 direction; //0 is face-down, then increases clockwise
+
 	// Use this for initialization
 	void Start () {
 		animator = GetComponent<Animator> ();
+		direction = new Vector2(0.0f,-1.0f);
 	}
 
 
@@ -23,29 +26,32 @@ public class PlayerController : MonoBehaviour {
 		{
 			transform.position -= transform.up * MoveSpeed * Time.deltaTime;
 			animator.Play("DownWalk");
-		}
+			direction = new Vector2(0.0f,-1.0f);
+		} 
 
-		if(Input.GetKey(KeyCode.UpArrow))
-		{
+		else if(Input.GetKey(KeyCode.UpArrow)) {
 			transform.position += transform.up * MoveSpeed * Time.deltaTime;
 			animator.Play("UpWalk");
+			direction = new Vector2(0.0f,1.0f);
 		}
 
-		if(Input.GetKey(KeyCode.LeftArrow))
+		else if(Input.GetKey(KeyCode.LeftArrow))
 		{
 			transform.position -= transform.right * MoveSpeed * Time.deltaTime;
 			animator.Play("LeftWalk");
+			direction = new Vector2(-1.0f,0.0f);
 		}
 
-		if(Input.GetKey(KeyCode.RightArrow))
+		else if(Input.GetKey(KeyCode.RightArrow))
 		{
 			transform.position += transform.right * MoveSpeed * Time.deltaTime;
 			animator.Play("RightWalk");
+			direction = new Vector2(1.0f,0.0f);
 		}
 
 		if (Input.GetMouseButtonDown(0)) {
-			GameObject Fireball = (GameObject) Instantiate(RedSphere, transform.position, transform.rotation);
-			Fireball.rigidbody2D.velocity = transform.TransformDirection(Vector2.right * 3);
+			GameObject Fireball = (GameObject) Instantiate(RedSphere, (transform.position + new Vector3(direction.x, direction.y, 0)), transform.rotation);
+			Fireball.rigidbody2D.velocity = transform.TransformDirection(direction * 3);
 		}
 
 	}
