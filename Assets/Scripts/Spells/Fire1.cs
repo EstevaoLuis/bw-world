@@ -4,6 +4,7 @@ using System.Collections;
 public class Fire1 : MonoBehaviour {
 
 	public float speed = 3.0f;
+	//public Animation animation;
 
 	// Use this for initialization
 	void Start () {
@@ -13,10 +14,11 @@ public class Fire1 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		
 	}
 
 	void OnCollisionEnter2D (Collision2D other) {
-		Destroy (gameObject);
+		//Animation.Blend ("Fire1", 1.0, 0.3f);
+		//Destroy (gameObject);
 	}
 }
