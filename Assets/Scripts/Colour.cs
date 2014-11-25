@@ -34,10 +34,12 @@ public class Colour : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D (Collision2D other) {
-		if (isColoured && !transition) {
+		if(other.gameObject.tag == "Spell") {
+			if (isColoured && !transition) {
 			audio.Play();
+			}
+			transition = true;
 		}
-		transition = true;
 	}
 
 }
