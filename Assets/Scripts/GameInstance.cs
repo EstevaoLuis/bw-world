@@ -4,19 +4,13 @@ using System.Collections;
 public class GameInstance : MonoBehaviour 
 {
 	private static GameInstance _instance;
+
+	public TextMesh healthText = null;
 	
 	public static GameInstance instance
 	{
 		get
 		{
-			if(_instance == null)
-			{
-				_instance = GameObject.FindObjectOfType<GameInstance>();
-				
-				//Tell unity not to destroy this object when loading a new scene!
-				DontDestroyOnLoad(_instance.gameObject);
-			}
-			
 			return _instance;
 		}
 	}
@@ -38,9 +32,8 @@ public class GameInstance : MonoBehaviour
 		}
 	}
 	
-	public void Test()
-	{
-		Debug.Log ("Test singleton");
+	public void setHealth(int health) {
+		healthText.text = "Bal";
 	}
 
 	/*
