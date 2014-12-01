@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using SimpleJSON;
 
 public class GameInstance : MonoBehaviour 
 {
 	private static GameInstance _instance;
 
 	public TextMesh healthText = null;
+	private JSONNode spells;
 	
 	public static GameInstance instance
 	{
@@ -22,6 +24,12 @@ public class GameInstance : MonoBehaviour
 			//If I am the first instance, make me the Singleton
 			_instance = this;
 			DontDestroyOnLoad(this);
+
+			//SETUP SPELLS DATABASE
+			TextAsset spellsJson = Resources.Load("SpellsDatabase") as TextAsset;
+			spells = JSONNode.Parse(spellsJson.text);
+			//Debug.Log(spells["Fire 2"]["mass"]);
+
 		}
 		else
 		{
@@ -33,7 +41,7 @@ public class GameInstance : MonoBehaviour
 	}
 	
 	public void setHealth(int health) {
-		healthText.text = "Bal";
+		healthText.text = "Life: " + health;
 	}
 
 	/*

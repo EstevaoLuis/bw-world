@@ -1,0 +1,11 @@
+﻿{
+    "Fire 1": {
+        "damage": 10,
+        "mass": 20
+    },
+    
+    "Fire 2": {
+        "damage": 30,
+        "mass": 50
+    }
+}
