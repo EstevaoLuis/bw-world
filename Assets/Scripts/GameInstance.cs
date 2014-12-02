@@ -51,4 +51,12 @@ public class GameInstance : MonoBehaviour
 	 * 
 	 * 
 	 */
+
+	public static string text_to_show = "Yoshi";
+	public static bool show_text = true;
+
+
+
+
+
 }
