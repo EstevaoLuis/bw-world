@@ -12,7 +12,7 @@ public class ImprovedEnemies : MonoBehaviour {
 	private int max_move = 30;
 	private Vector2 direction;
 
-	public float detection_distance;
+	public float detection_distance = 1000f;
 	public float speed = 100f;
 	public GameObject target;
 
@@ -48,11 +48,11 @@ public class ImprovedEnemies : MonoBehaviour {
 
 		float distance = distance_between ();
 
-		if (distance > 5 && distance < 7.5) {
+		if (distance > 2.5 && distance < 10) {
 
 			return 1;
 
-		} else if (distance > 0 && distance < 10) {
+		} else if (distance > 15 ) {
 
 			return 0;		
 
@@ -67,14 +67,10 @@ public class ImprovedEnemies : MonoBehaviour {
 
 		if (choose_attack () == 1) {
 		//spell 1
-			//attack=(GameObject)Instantiate(spell_1,(transform.position),transform.rotation);
-
-
-			//float pos = transform.po
-			//attack.transform.Translate( transform.position * Time.deltaTime);
-
+			generate_spell_1();
 		} else if (choose_attack () == 0) {
 		//spell 2
+			generate_spell_2();
 		} else if (choose_attack () == -1) {
 		//melee
 		}
@@ -94,15 +90,15 @@ public class ImprovedEnemies : MonoBehaviour {
 	void generate_spell_1(){
 
 		GameObject attack;
-
-//		int direction_of_attack;
-//
-//		direction_of_attack = position_of_target_respect_enemy ();
-
 		attack=(GameObject)Instantiate(spell_1,new Vector3(transform.position.x+direction.x,transform.position.y+direction.y,0),transform.rotation);
 
-
-//		attack.transform.position.x = attack.transform.position.x + 10f;
+	}
+	
+	void generate_spell_2(){
+		
+		GameObject attack;
+		attack=(GameObject)Instantiate(spell_2,new Vector3(transform.position.x+direction.x,transform.position.y+direction.y,0),transform.rotation);
+		
 	}
 
 	bool detect_player (){
@@ -234,7 +230,7 @@ public class ImprovedEnemies : MonoBehaviour {
 		if (counter_2 == max_fire_rate) {
 			//attacking ();
 		
-			generate_spell_1();
+			attacking ();
 
 			counter_2=0;
 		} else {

@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Spell_1Enemy : MonoBehaviour {
+public class Spell_Enemy: MonoBehaviour {
 
 	// Use this for initialization
 	private float speed = 5f;
 	public int damage;
 	private GameObject target;
 	int counter = 0;
-	int max_spawn_of_spell = 20;
+	public int max_spawn_of_spell;
 	private Vector2 direction;
 
 	float x_pos;
