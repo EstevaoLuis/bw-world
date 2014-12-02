@@ -14,10 +14,19 @@ public class TextDialogue : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (GameInstance.show_text)
-						guiText.text = GameInstance.text_to_show;
+		if (GameInstance.show_text) {
+			guiText.text = GameInstance.text_to_show;
+		}
 
-		if (Input.GetKeyDown (KeyCode.A))
-						GameInstance.show_text = false;
+		if (Input.GetKey (KeyCode.A)) {
+			GameInstance.show_text = false;
+			guiText.text = "";
+			//StartCoroutine("textFalse");		
+		}
 	}
+
+	/*IEnumerator textFalse(){
+		GameInstance.show_text = false;
+		yield return WaitForSeconds (2);
+	}*/
 }

@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class NPCdialogue : MonoBehaviour {
-	
+
+	private int count = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -16,10 +17,16 @@ public class NPCdialogue : MonoBehaviour {
 
 	void OnCollisionEnter2D (Collision2D other) {
 		if(other.gameObject.tag == "Player") {
-			GameInstance.text_to_show =  "Hello guy!";
-			GameInstance.show_text =true;
+			GameInstance.text_to_show =  "Hello guy! " + count++;
+			//GameInstance.show_text = false;
+			//StartCoroutine("textTrue");
 		}
 	}
+
+	/*IEnumerator textTrue(){
+		yield return new WaitForSeconds (2);
+		GameInstance.show_text = true;
+	}*/
 
 
 }

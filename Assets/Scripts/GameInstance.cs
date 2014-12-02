@@ -8,7 +8,11 @@ public class GameInstance : MonoBehaviour
 
 	public TextMesh healthText = null;
 	private JSONNode spells;
-	
+
+	public static string text_to_show = "Yoshi"; 
+	public static bool show_text = true;
+
+
 	public static GameInstance instance
 	{
 		get
@@ -51,11 +55,6 @@ public class GameInstance : MonoBehaviour
 	 * 
 	 * 
 	 */
-
-	public static string text_to_show = "Yoshi";
-	public static bool show_text = true;
-
-
 
 
 
