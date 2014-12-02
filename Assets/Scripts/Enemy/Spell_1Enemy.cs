@@ -8,7 +8,7 @@ public class Spell_1Enemy : MonoBehaviour {
 	public int damage;
 	private GameObject target;
 	int counter = 0;
-	int max_spawn_of_spell = 15;
+	int max_spawn_of_spell = 20;
 	private Vector2 direction;
 
 	float x_pos;
@@ -18,7 +18,7 @@ public class Spell_1Enemy : MonoBehaviour {
 	float diff_x;
 	float diff_y;
 	
-	void shoot_to_player(){
+	int shoot_to_player(){
 
 		x_pos = transform.position.x;
 		y_pos = transform.position.y;
@@ -32,19 +32,25 @@ public class Spell_1Enemy : MonoBehaviour {
 		if (diff_x < diff_y && diff_x < 0) {
 			direction = new Vector2 (1.0f, 0.0f);
 			transform.Translate (Vector3.right * speed * Time.deltaTime);
+			return 0;
 			
 		} else if (diff_x > diff_y && diff_x > 0) {
 			direction = new Vector2 (-1.0f, 0.0f);
 			transform.Translate (Vector3.left * speed * Time.deltaTime);
+			return 1;
 			
 		} else if (diff_y < diff_x && diff_y < 0) {
 			direction = new Vector2 (0.0f, 1.0f);
 			transform.Translate (Vector3.up * speed * Time.deltaTime);
+			return 2;
 			
 		} else if (diff_y > diff_x && diff_y > 0) {
 			direction = new Vector2 (0.0f, -1.0f);
 			transform.Translate (Vector3.down * speed * Time.deltaTime);
+			return 3;
 		}
+		return -1;
+
 	}
 		
 
