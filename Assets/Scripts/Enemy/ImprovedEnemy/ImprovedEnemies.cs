@@ -48,7 +48,7 @@ public class ImprovedEnemies : MonoBehaviour {
 
 		float distance = distance_between ();
 
-		if (distance > 1.5 && distance < 10) {
+		if (distance > 1.5 && distance < 15) {
 
 			return 1;
 
