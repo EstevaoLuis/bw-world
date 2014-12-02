@@ -120,24 +120,23 @@ public class ImprovedEnemies : MonoBehaviour {
 
 		if (diff_x < diff_y && diff_x < 0) {
 			direction = new Vector2 (1.0f, 0.0f);
-			transform.Translate (Vector3.right * speed * Time.deltaTime);
-
+			rigidbody2D.velocity = Vector3.right * speed;
 		} else if (diff_x > diff_y && diff_x > 0) {
 			direction = new Vector2 (-1.0f, 0.0f);
-			transform.Translate (Vector3.left * speed * Time.deltaTime);
+			rigidbody2D.velocity = Vector3.left * speed;
 
 		} else if (diff_y < diff_x && diff_y < 0) {
 			direction = new Vector2 (0.0f, 1.0f);
-			transform.Translate (Vector3.up * speed * Time.deltaTime);
+			rigidbody2D.velocity = Vector3.up * speed;
 		
 		} else if (diff_y > diff_x && diff_y > 0) {
 			direction = new Vector2 (0.0f, -1.0f);
-			transform.Translate (Vector3.down * speed * Time.deltaTime);
+			rigidbody2D.velocity = Vector3.down * speed;
 
 
 		} else {
-			transform.Translate (Vector3.up * 0 * Time.deltaTime);
-			//rigidbody2D.velocity = new Vector3 (0, 0, 0);
+			//rigidbody2D.velocity = Vector3.left * speed;
+			rigidbody2D.velocity = new Vector3 (0, 0, 0);
 		}
 
 	}
@@ -167,16 +166,16 @@ public class ImprovedEnemies : MonoBehaviour {
 	}
 
 	void move_up(){
-		transform.Translate (Vector3.up * speed * Time.deltaTime);
+		rigidbody2D.velocity = Vector3.up * speed;
 	}
 	void move_down(){
-		transform.Translate (Vector3.down * speed * Time.deltaTime);
+		rigidbody2D.velocity = Vector3.down * speed;
 	}
 	void move_right(){
-		transform.Translate (Vector3.right * speed * Time.deltaTime);
+		rigidbody2D.velocity = Vector3.right * speed;
 	}
 	void move_left(){
-		transform.Translate (Vector3.left * speed * Time.deltaTime);
+		rigidbody2D.velocity = Vector3.left * speed;
 	}
 
 //	void Collision (Collider col){

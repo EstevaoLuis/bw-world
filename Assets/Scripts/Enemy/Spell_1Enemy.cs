@@ -18,7 +18,7 @@ public class Spell_1Enemy : MonoBehaviour {
 	float diff_x;
 	float diff_y;
 	
-	int shoot_to_player(){
+	void shoot_to_player(){
 
 		x_pos = transform.position.x;
 		y_pos = transform.position.y;
@@ -31,25 +31,19 @@ public class Spell_1Enemy : MonoBehaviour {
 
 		if (diff_x < diff_y && diff_x < 0) {
 			direction = new Vector2 (1.0f, 0.0f);
-			transform.Translate (Vector3.right * speed * Time.deltaTime);
-			return 0;
-			
+			rigidbody2D.velocity = Vector3.right * speed;
 		} else if (diff_x > diff_y && diff_x > 0) {
 			direction = new Vector2 (-1.0f, 0.0f);
-			transform.Translate (Vector3.left * speed * Time.deltaTime);
-			return 1;
+			rigidbody2D.velocity = Vector3.left * speed;
 			
 		} else if (diff_y < diff_x && diff_y < 0) {
 			direction = new Vector2 (0.0f, 1.0f);
-			transform.Translate (Vector3.up * speed * Time.deltaTime);
-			return 2;
+			rigidbody2D.velocity = Vector3.up * speed;
 			
 		} else if (diff_y > diff_x && diff_y > 0) {
 			direction = new Vector2 (0.0f, -1.0f);
-			transform.Translate (Vector3.down * speed * Time.deltaTime);
-			return 3;
+			rigidbody2D.velocity = Vector3.down * speed;
 		}
-		return -1;
 
 	}
 		
