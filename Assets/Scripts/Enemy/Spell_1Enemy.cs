@@ -28,23 +28,23 @@ public class Spell_1Enemy : MonoBehaviour {
 		
 		diff_x = x_pos - x_player_pos;
 		diff_y = y_pos - y_player_pos;
+
+		if (diff_x < diff_y && diff_x < 0) {
+			direction = new Vector2 (1.0f, 0.0f);
+			transform.Translate (Vector3.right * speed * Time.deltaTime);
 			
-			if (diff_x < diff_y && diff_x < 0) {
-				direction = new Vector2 (1.0f, 0.0f);
-				transform.Translate(Vector3.right * speed * Time.deltaTime);
-			}
-			if (diff_x < diff_y && diff_x > 0) {
-				direction = new Vector2 (-1.0f, 0.0f);
-				transform.Translate(Vector3.left * speed * Time.deltaTime);	
-			}
-			if (diff_x > diff_y && diff_y < 0) {
-				direction = new Vector2 (0.0f, 1.0f);
-				transform.Translate(Vector3.up * speed * Time.deltaTime);
-			}
-			if (diff_x > diff_y && diff_y > 0) {
-				direction = new Vector2 (0.0f, -1.0f);
-				transform.Translate(Vector3.down * speed * Time.deltaTime);	
-			}
+		} else if (diff_x > diff_y && diff_x > 0) {
+			direction = new Vector2 (-1.0f, 0.0f);
+			transform.Translate (Vector3.left * speed * Time.deltaTime);
+			
+		} else if (diff_y < diff_x && diff_y < 0) {
+			direction = new Vector2 (0.0f, 1.0f);
+			transform.Translate (Vector3.up * speed * Time.deltaTime);
+			
+		} else if (diff_y > diff_x && diff_y > 0) {
+			direction = new Vector2 (0.0f, -1.0f);
+			transform.Translate (Vector3.down * speed * Time.deltaTime);
+		}
 	}
 		
 
