@@ -19,7 +19,7 @@ public class ImprovedEnemies : MonoBehaviour {
 	public int life;
 	public GameObject spell_1;
 	public GameObject spell_2;
-	public GameObject spell_3;
+	public GameObject melee;
 
 	float x_pos;
 	float y_pos;
@@ -73,6 +73,7 @@ public class ImprovedEnemies : MonoBehaviour {
 			generate_spell_2();
 		} else if (choose_attack () == -1) {
 		//melee
+			generate_melee();
 		}
 
 	}
@@ -98,6 +99,12 @@ public class ImprovedEnemies : MonoBehaviour {
 		
 		GameObject attack;
 		attack=(GameObject)Instantiate(spell_2,new Vector3(transform.position.x+direction.x,transform.position.y+direction.y,0),transform.rotation);
+		
+	}
+	void generate_melee(){
+		
+		GameObject attack;
+		attack=(GameObject)Instantiate(melee,new Vector3(transform.position.x+direction.x,transform.position.y+direction.y,0),transform.rotation);
 		
 	}
 
