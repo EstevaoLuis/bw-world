@@ -47,9 +47,10 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if (Input.GetMouseButtonDown(0)) {
-			GameObject Fireball = (GameObject) Instantiate(RedSphere, (transform.position + new Vector3(direction.x, direction.y, 0)), transform.rotation);
-			Fireball.rigidbody2D.velocity = transform.TransformDirection(direction * 3);
-			GameInstance.instance.setHealth(100);
+			GameInstance.instance.castSpell("Red 1",transform,direction);
+		}
+		else if(Input.GetMouseButtonDown(1)) {
+			GameInstance.instance.castSpell("Blue 1",transform,direction);
 		}
 
 	}

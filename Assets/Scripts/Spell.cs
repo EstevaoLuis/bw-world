@@ -7,6 +7,8 @@ public class Spell : MonoBehaviour {
 	public GameObject animationGraphics1 = null;
 	public GameObject animationGraphics2 = null;
 	public GameObject animationGraphics3 = null;
+
+	//Parameters
 	public int damage = 10;
 	public float duration = 2.0f;
 

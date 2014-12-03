@@ -43,7 +43,28 @@ public class GameInstance : MonoBehaviour
 				Destroy(this.gameObject);
 		}
 	}
-	
+
+
+	public void castSpell(string spellName, Transform transform, Vector2 direction) {
+		JSONNode spellData = spells[spellName];
+		Debug.Log(spellName);
+		if(spellData != null) {
+
+			//Instances an energy sphere
+			GameObject spellPrefab = Resources.Load("Spells/" + spellData["color"] + "Spell") as GameObject;
+			GameObject energySphere = (GameObject) Instantiate(spellPrefab, (transform.position + new Vector3(direction.x, direction.y, 0)), transform.rotation);
+
+			//Set spell parameters
+			Spell spellParameters = (Spell) energySphere.GetComponent("Spell");
+			spellParameters.damage = spellData["damage"].AsInt;
+			spellParameters.duration = spellData["duration"].AsFloat;
+			spellParameters.rigidbody2D.mass = spellData["mass"].AsInt;
+
+			//Makes the sphere move
+			energySphere.rigidbody2D.velocity = transform.TransformDirection(direction * spellData["speed"].AsFloat);
+		}
+	}
+
 	public void setHealth(int health) {
 		healthText.text = "Life: " + health;
 	}

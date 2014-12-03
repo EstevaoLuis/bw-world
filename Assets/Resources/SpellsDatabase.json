@@ -1,11 +1,17 @@
 ﻿{
-    "Fire 1": {
+    "Red 1": {
+    	"color": "red",
+    	"speed": 3,
         "damage": 10,
-        "mass": 20
+        "duration": 2,
+        "mass": 100
     },
     
-    "Fire 2": {
-        "damage": 30,
-        "mass": 50
+    "Blue 1": {
+    	"color": "blue",
+    	"speed": 3,
+        "damage": 10,
+        "duration": 2,
+        "mass": 100
     }
 }
