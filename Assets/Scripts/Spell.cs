@@ -19,7 +19,7 @@ public class Spell : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		audio.Play();
+		//audio.Play();
 		castTime = Time.time;
 	}
 	

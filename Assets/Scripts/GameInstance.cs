@@ -6,13 +6,19 @@ public class GameInstance : MonoBehaviour
 {
 	private static GameInstance _instance;
 
-	public TextMesh healthText = null;
+	//Objects database
 	private JSONNode spells;
+	private JSONNode enemies;
 
+	//Tests and various stuff
+	public TextMesh healthText = null;
 	public static string text_to_show = "Yoshi"; 
 	public static bool show_text = true;
 
+	//Player data
+	private int health;
 
+	//Instance management
 	public static GameInstance instance
 	{
 		get
@@ -32,8 +38,14 @@ public class GameInstance : MonoBehaviour
 			//SETUP SPELLS DATABASE
 			TextAsset spellsJson = Resources.Load("SpellsDatabase") as TextAsset;
 			spells = JSONNode.Parse(spellsJson.text);
-			//Debug.Log(spells["Fire 2"]["mass"]);
 
+			//SETUP ENEMIES DATABASE
+			TextAsset enemiesJson = Resources.Load("EnemiesDatabase") as TextAsset;
+			enemies = JSONNode.Parse(enemiesJson.text);
+
+			//Setup player data
+			health = 200;
+		
 		}
 		else
 		{
@@ -45,7 +57,8 @@ public class GameInstance : MonoBehaviour
 	}
 
 
-	public void castSpell(string spellName, Transform transform, Vector2 direction) {
+	//Casts a spell using position and directions as parameters
+	public void castSpell(string spellName, Transform transform, Vector2 direction, string tag) {
 		JSONNode spellData = spells[spellName];
 		Debug.Log(spellName);
 		if(spellData != null) {
@@ -53,6 +66,7 @@ public class GameInstance : MonoBehaviour
 			//Instances an energy sphere
 			GameObject spellPrefab = Resources.Load("Spells/" + spellData["color"] + "Spell") as GameObject;
 			GameObject energySphere = (GameObject) Instantiate(spellPrefab, (transform.position + new Vector3(direction.x, direction.y, 0)), transform.rotation);
+			energySphere.tag = tag;
 
 			//Set spell parameters
 			Spell spellParameters = (Spell) energySphere.GetComponent("Spell");
@@ -60,13 +74,41 @@ public class GameInstance : MonoBehaviour
 			spellParameters.duration = spellData["duration"].AsFloat;
 			spellParameters.rigidbody2D.mass = spellData["mass"].AsInt;
 
+			//Set sound
+			AudioClip soundEffect = Resources.Load("Spells/Sound Effects/" + spellName) as AudioClip;
+			energySphere.audio.clip = soundEffect;
+
 			//Makes the sphere move
 			energySphere.rigidbody2D.velocity = transform.TransformDirection(direction * spellData["speed"].AsFloat);
 		}
 	}
 
-	public void setHealth(int health) {
+	public void playAudio(string name) {
+		AudioClip soundEffect = Resources.Load("Spells/Sound Effects/" + name) as AudioClip;
+		audio.clip = soundEffect;
+		audio.Play();
+	}
+
+	public void damagePlayer(int damage) {
+		health = health - damage;
+		if (health <= 0) {
+			gameOver ();
+			return;
+		}
+		updateLifeBar ();
+	}
+
+	public void updateLifeBar () {
 		healthText.text = "Life: " + health;
+	}
+
+	
+	public void gameOver() {
+
+	}
+
+	public JSONNode getEnemy(string name) {
+		return enemies[name];
 	}
 
 	/*
