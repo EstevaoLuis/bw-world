@@ -14,4 +14,12 @@
         "duration": 2,
         "mass": 100
     }
+    
+    "Black 1": {
+    	"color": "black",
+    	"speed": 3,
+        "damage": 10,
+        "duration": 2,
+        "mass": 100
+    }
 }
