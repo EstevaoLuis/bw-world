@@ -74,6 +74,10 @@ public class GameInstance : MonoBehaviour
 			spellParameters.duration = spellData["duration"].AsFloat;
 			spellParameters.rigidbody2D.mass = spellData["mass"].AsInt;
 
+			//Set animation
+			GameObject spellAnimation = Resources.Load("Spells/Animations/" + spellName) as GameObject;
+			spellParameters.animationGraphics = spellAnimation;
+
 			//Set sound
 			AudioClip soundEffect = Resources.Load("Spells/Sound Effects/" + spellName) as AudioClip;
 			energySphere.audio.clip = soundEffect;

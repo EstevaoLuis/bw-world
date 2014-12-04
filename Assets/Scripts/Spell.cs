@@ -4,9 +4,7 @@ using System.Collections;
 public class Spell : MonoBehaviour {
 	
 	//public float speed = 3.0f;
-	public GameObject animationGraphics1 = null;
-	public GameObject animationGraphics2 = null;
-	public GameObject animationGraphics3 = null;
+	public GameObject animationGraphics;
 
 	//Parameters
 	public int damage = 10;
@@ -19,7 +17,7 @@ public class Spell : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//audio.Play();
+		audio.Play();
 		castTime = Time.time;
 	}
 	
@@ -41,19 +39,7 @@ public class Spell : MonoBehaviour {
 
 						GetComponent<SpriteRenderer> ().color = new Color (1, 1, 1, 0);
 			if(!hasHit) {
-					GameObject animation = null;
-					switch (Random.Range (1, 3)) {
-					case 1:
-							animation = animationGraphics1;
-							break;
-					case 2:
-							animation = animationGraphics2;
-							break;
-					case 3:
-							animation = animationGraphics3;
-							break;
-					}
-					animation = (GameObject)Instantiate (animation, transform.position, transform.rotation);
+					animation = (GameObject)Instantiate (animationGraphics, transform.position, transform.rotation);
 			}
 
 			hasHit = true;

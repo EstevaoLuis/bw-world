@@ -1,17 +1,8 @@
 ﻿{
-    "Red 1": {
-    	"color": "red",
+    "Enemy 1": {
+    	"health": 100,
     	"speed": 3,
         "damage": 10,
-        "duration": 2,
-        "mass": 100
-    },
-    
-    "Blue 1": {
-    	"color": "blue",
-    	"speed": 3,
-        "damage": 10,
-        "duration": 2,
         "mass": 100
     }
 }
