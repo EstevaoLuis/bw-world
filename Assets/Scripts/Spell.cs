@@ -34,7 +34,7 @@ public class Spell : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D (Collision2D other) {
-		if (other.gameObject.tag != "Player") {
+		if (true/*other.gameObject.tag != "Player" || gameObject.tag == "EnemySpell"*/) {
 
 
 						GetComponent<SpriteRenderer> ().color = new Color (1, 1, 1, 0);

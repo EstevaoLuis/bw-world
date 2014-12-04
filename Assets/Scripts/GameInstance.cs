@@ -16,6 +16,7 @@ public class GameInstance : MonoBehaviour
 	public static bool show_text = true;
 
 	//Player data
+	public GameObject player;
 	private int health;
 
 	//Instance management
@@ -58,15 +59,14 @@ public class GameInstance : MonoBehaviour
 
 
 	//Casts a spell using position and directions as parameters
-	public void castSpell(string spellName, Transform transform, Vector2 direction, string tag) {
+	public void castSpell(string spellName, Transform transform, Vector2 direction, string spellTag) {
 		JSONNode spellData = spells[spellName];
-		Debug.Log(spellName);
 		if(spellData != null) {
 
 			//Instances an energy sphere
 			GameObject spellPrefab = Resources.Load("Spells/" + spellData["color"] + "Spell") as GameObject;
 			GameObject energySphere = (GameObject) Instantiate(spellPrefab, (transform.position + new Vector3(direction.x, direction.y, 0)), transform.rotation);
-			energySphere.tag = tag;
+			energySphere.tag = spellTag; 
 
 			//Set spell parameters
 			Spell spellParameters = (Spell) energySphere.GetComponent("Spell");
@@ -95,7 +95,10 @@ public class GameInstance : MonoBehaviour
 
 	public void damagePlayer(int damage) {
 		health = health - damage;
+		Debug.Log (health);
 		if (health <= 0) {
+			health = 0;
+			updateLifeBar ();
 			gameOver ();
 			return;
 		}
@@ -108,7 +111,7 @@ public class GameInstance : MonoBehaviour
 
 	
 	public void gameOver() {
-
+		Destroy (player);
 	}
 
 	public JSONNode getEnemy(string name) {

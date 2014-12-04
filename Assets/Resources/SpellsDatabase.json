@@ -2,7 +2,7 @@
     "Red 1": {
     	"color": "red",
     	"speed": 3,
-        "damage": 10,
+        "damage": 40,
         "duration": 2,
         "mass": 100
     },

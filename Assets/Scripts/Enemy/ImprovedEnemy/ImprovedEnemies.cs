@@ -153,7 +153,6 @@ public class ImprovedEnemies : MonoBehaviour {
 
 	int random_number(){
 		int rand = Random.Range (0, 5);
-		print (rand);
 		return rand;
 	}
 
