@@ -1,7 +1,7 @@
 ﻿{
     "Enemy 1": {
     	"health": 100,
-    	"speed": 3,
+    	"speed": 2,
         "attack": 10,
         "defense": 10,
         "mass": 100,

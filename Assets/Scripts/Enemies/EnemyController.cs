@@ -8,10 +8,10 @@ public class EnemyController : MonoBehaviour {
 	public string enemyName;
 
 	//Parameters
-	public int health;
+	private int health;
 	private int attack;
 	private int defense;
-	public int speed;
+	public float speed;
 
 	//Spells & Melees
 	private JSONNode spells;
@@ -56,7 +56,7 @@ public class EnemyController : MonoBehaviour {
 		health = parameters ["health"].AsInt;
 		attack = parameters ["attack"].AsInt;
 		defense = parameters ["defense"].AsInt;
-		speed = parameters ["speed"].AsInt;
+		speed = parameters ["speed"].AsFloat;
 		rigidbody2D.mass = parameters ["mass"].AsInt;
 		spells = parameters ["spells"];
 		melees = parameters ["melees"];
@@ -101,14 +101,31 @@ public class EnemyController : MonoBehaviour {
 			}
 		}
 	}
-
+	
 
 	string choose_melee () {
 		if (melees == null || melees.Count == 0) return null;
-		return "";
+		float probability = Random.Range (0, 1);
+		float partial = 0f;
+		string selectedMelee = melees[0]["name"];
+		for (int i=0; i<melees.Count; i++) {
+			if(probability>partial && (i==(melees.Count+1) || probability<partial+melees[i]["probability"].AsFloat)) selectedMelee = melees[i]["name"];
+			partial += melees[i]["probability"].AsFloat;
+		}
+		return selectedMelee;
 	}
 
-
+	string choose_spell () {
+		if (spells == null || spells.Count == 0) return null;
+		float probability = Random.Range (0f, 1f);
+		float partial = 0f;
+		string selectedSpell = spells[0]["name"];
+		for (int i=0; i<spells.Count; i++) {
+			if(probability>partial && (i==(spells.Count+1) || probability<(partial+spells[i]["probability"].AsFloat))) selectedSpell = spells[i]["name"];
+			partial += spells[i]["probability"].AsFloat;
+		}
+		return selectedSpell;
+	}
 
 	float distance_between(){
 		
@@ -143,8 +160,8 @@ public class EnemyController : MonoBehaviour {
 	}
 	void attacking(){
 
-
-
+		GameInstance.instance.castSpell(choose_spell(),transform,direction,"SpellEnemy");
+		/*
 		if (choose_attack () == 1) {
 		//spell 1
 			GameInstance.instance.castSpell("Red 1",transform,direction,"SpellEnemy");
@@ -155,6 +172,7 @@ public class EnemyController : MonoBehaviour {
 		//melee
 			generate_melee();
 		}
+		*/
 
 	}
 	int position_of_target_respect_enemy(){
