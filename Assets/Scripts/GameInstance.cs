@@ -60,31 +60,32 @@ public class GameInstance : MonoBehaviour
 
 	//Casts a spell using position and directions as parameters
 	public void castSpell(string spellName, Transform transform, Vector2 direction, string spellTag) {
+		//Check if spell is available
+		if (spellName == null) return;
 		JSONNode spellData = spells[spellName];
-		if(spellData != null) {
+		if (spellData == null) return;
 
-			//Instances an energy sphere
-			GameObject spellPrefab = Resources.Load("Spells/" + spellData["color"] + "Spell") as GameObject;
-			GameObject energySphere = (GameObject) Instantiate(spellPrefab, (transform.position + new Vector3(direction.x, direction.y, 0)), transform.rotation);
-			energySphere.tag = spellTag; 
+		//Instances an energy sphere
+		GameObject spellPrefab = Resources.Load("Spells/" + spellData["color"] + "Spell") as GameObject;
+		GameObject energySphere = (GameObject) Instantiate(spellPrefab, (transform.position + new Vector3(direction.x, direction.y, 0)), transform.rotation);
+		energySphere.tag = spellTag; 
 
-			//Set spell parameters
-			Spell spellParameters = (Spell) energySphere.GetComponent("Spell");
-			spellParameters.damage = spellData["damage"].AsInt;
-			spellParameters.duration = spellData["duration"].AsFloat;
-			spellParameters.rigidbody2D.mass = spellData["mass"].AsInt;
+		//Set spell parameters
+		Spell spellParameters = (Spell) energySphere.GetComponent("Spell");
+		spellParameters.damage = spellData["damage"].AsInt;
+		spellParameters.duration = spellData["duration"].AsFloat;
+		spellParameters.rigidbody2D.mass = spellData["mass"].AsInt;
 
-			//Set animation
-			GameObject spellAnimation = Resources.Load("Spells/Animations/" + spellName) as GameObject;
-			spellParameters.animationGraphics = spellAnimation;
+		//Set animation
+		GameObject spellAnimation = Resources.Load("Spells/Animations/" + spellName) as GameObject;
+		spellParameters.animationGraphics = spellAnimation;
 
-			//Set sound
-			AudioClip soundEffect = Resources.Load("Spells/Sound Effects/" + spellName) as AudioClip;
-			energySphere.audio.clip = soundEffect;
+		//Set sound
+		AudioClip soundEffect = Resources.Load("Spells/Sound Effects/" + spellName) as AudioClip;
+		energySphere.audio.clip = soundEffect;
 
-			//Makes the sphere move
-			energySphere.rigidbody2D.velocity = transform.TransformDirection(direction * spellData["speed"].AsFloat);
-		}
+		//Makes the sphere move
+		energySphere.rigidbody2D.velocity = transform.TransformDirection(direction * spellData["speed"].AsFloat);
 	}
 
 	public void playAudio(string name) {
@@ -114,7 +115,7 @@ public class GameInstance : MonoBehaviour
 		Destroy (player);
 	}
 
-	public JSONNode getEnemy(string name) {
+	public JSONNode getEnemyParameters(string name) {
 		return enemies[name];
 	}
 

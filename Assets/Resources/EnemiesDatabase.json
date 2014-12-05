@@ -2,7 +2,13 @@
     "Enemy 1": {
     	"health": 100,
     	"speed": 3,
-        "damage": 10,
-        "mass": 100
+        "attack": 10,
+        "defense": 10,
+        "mass": 100,
+        "melee": [],
+    	"spells": [
+    		{"name": "Red 1", "probability": 0.5},
+    		{"name": "Black 1", "probability": 0.5}
+    	]
     }
 }
