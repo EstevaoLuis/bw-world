@@ -4,7 +4,8 @@
     	"speed": 3,
         "damage": 40,
         "duration": 2,
-        "mass": 100
+        "mass": 100,
+        "mana": 50
     },
     
     "Blue 1": {
@@ -12,7 +13,8 @@
     	"speed": 3,
         "damage": 10,
         "duration": 2,
-        "mass": 100
+        "mass": 100,
+        "mana": 20
     }
     
     "Black 1": {
@@ -20,6 +22,7 @@
     	"speed": 3,
         "damage": 10,
         "duration": 2,
-        "mass": 100
+        "mass": 100,
+        "mana": 30
     }
 }

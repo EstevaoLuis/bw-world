@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using SimpleJSON;
 
@@ -9,17 +10,25 @@ public class GameInstance : MonoBehaviour
 	//Objects database
 	private JSONNode spells;
 	private JSONNode enemies;
+	private JSONNode gameData;
+
+	//Black mood
+	public GameObject blackMood;
+	public Camera mainCamera;
 
 	//Tests and various stuff
-	public TextMesh healthText = null;
+	public Slider lifeBar,manaBar;
 	public static string text_to_show = "Yoshi"; 
 	public static bool show_text = true;
 
 	//Player data
 	public GameObject player;
-	private int health;
+	private int health, maxHealth, mana, maxMana;
 
-	//Cametra system
+	//Time variables
+	private float lastSpell, lastRegeneration;
+
+	//Camera system
 	public GameObject cameraSystem;
 
 	//Instance management
@@ -48,8 +57,14 @@ public class GameInstance : MonoBehaviour
 			enemies = JSONNode.Parse(enemiesJson.text);
 
 			//Setup player data
-			health = 200;
-		
+			maxHealth = 200;
+			health = maxHealth;
+			maxMana = 300;
+			mana = maxMana;
+
+			startAllScripts();
+
+			refreshUI();
 		}
 		else
 		{
@@ -102,24 +117,106 @@ public class GameInstance : MonoBehaviour
 		Debug.Log (health);
 		if (health <= 0) {
 			health = 0;
-			updateLifeBar ();
+			updateLifeBar();
 			gameOver ();
 			return;
 		}
+		setBlackMood ((float) health / maxHealth);
 		updateLifeBar ();
 	}
 
-	public void updateLifeBar () {
-		healthText.text = "Life: " + health;
+	public void playerCastSpell(string spellName, Transform transform, Vector2 direction) {
+		//Check if enough mana and if time has passed
+		if (mana > spells [spellName] ["mana"].AsInt && Time.time>lastSpell+0.3f) {
+				mana -= spells [spellName] ["mana"].AsInt;
+				updateManaBar ();
+				castSpell (spellName, transform, direction, "Spell");
+				lastSpell = Time.time;
+		} else {
+			//Not enough mana
+		}
 	}
 
+	public void updateLifeBar () {
+		lifeBar.value = (float) health / maxHealth;
+	}
+
+	public void updateManaBar () {
+		manaBar.value = (float) mana / maxMana;
+	}
+
+	public void refreshUI() {
+			updateLifeBar ();
+	}
+
+	public void setBlackMood(float amount) {
+		if (amount < 0.5f) {
+			amount = amount / 0.5f;
+			blackMood.transform.localScale = new Vector3 (Mathf.Clamp (amount * 1.5f, 0.4f, 1.5f), Mathf.Clamp (amount * 1.5f, 0.4f, 1.5f), 0);
+			mainCamera.orthographicSize = Mathf.Clamp (2.5f + amount * 5f, 2f, 5f);
+		}
+	}
 	
 	public void gameOver() {
+		stopAllScripts ();
 		Destroy (player);
 	}
 
 	public JSONNode getEnemyParameters(string name) {
 		return enemies[name];
+	}
+
+	public void saveGame() {
+		TextAsset gameJson = Resources.Load("GameData") as TextAsset;
+		gameData = JSONNode.Parse(gameJson.text);
+		gameData["scene"].AsInt = Application.loadedLevel;
+		gameData ["health"].AsInt = health;
+		gameData ["xPosition"].AsFloat = player.transform.position.x;
+		gameData ["yPosition"].AsFloat = player.transform.position.y;
+		Debug.Log (gameData);
+		System.IO.File.WriteAllText("Assets/Resources/GameData.json",gameData.ToString());
+	}
+
+	public void loadGame() {
+		UnityEditor.AssetDatabase.Refresh (); 
+		TextAsset gameJson = Resources.Load("GameData") as TextAsset;
+		gameData = JSONNode.Parse(gameJson.text);
+
+		//Load scene & set parameters
+		Application.LoadLevel (gameData["scene"].AsInt);
+		maxHealth = gameData["health"].AsInt;
+		health = maxHealth;
+		player.transform.position = new Vector3(gameData["xPosition"].AsFloat,gameData["yPosition"].AsFloat,0);
+		cameraSystem.transform.position = new Vector3(gameData["xPosition"].AsFloat,gameData["yPosition"].AsFloat,0);
+	}
+
+	public void stopAllScripts() {
+		MonoBehaviour[] scripts = (MonoBehaviour[]) FindObjectsOfTypeAll(typeof(MonoBehaviour));
+		foreach (MonoBehaviour script in scripts) {
+			//if(script == this) continue;
+			if(script.gameObject.tag == "Enemy") script.enabled = false;
+		}
+	}
+
+	public void startAllScripts() {
+		MonoBehaviour[] scripts = (MonoBehaviour[]) FindObjectsOfTypeAll(typeof(MonoBehaviour));
+		foreach (MonoBehaviour script in scripts) {
+			if(script == this) continue;
+			script.enabled = true;
+		}
+	}
+
+	public void regenerateMana() {
+		mana = mana + Mathf.RoundToInt(maxMana / 10);
+		if (mana > maxMana)	mana = maxMana;
+		updateManaBar ();
+	}
+
+	void Update() {
+		if (Time.time > lastSpell + 2f && Time.time > lastRegeneration + 3f) {
+			regenerateMana();
+			lastRegeneration = Time.time;
+		}
 	}
 
 }

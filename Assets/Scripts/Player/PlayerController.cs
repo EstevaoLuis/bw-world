@@ -47,10 +47,17 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if (Input.GetMouseButtonDown(0)) {
-			GameInstance.instance.castSpell("Red 1",transform,direction,"Spell");
+			GameInstance.instance.playerCastSpell("Red 1",transform,direction);
 		}
 		else if(Input.GetMouseButtonDown(1)) {
-			GameInstance.instance.castSpell("Blue 1",transform,direction,"Spell");
+			GameInstance.instance.playerCastSpell("Blue 1",transform,direction);
+		}
+
+		if (Input.GetKey (KeyCode.L)) {
+			GameInstance.instance.loadGame();
+		}
+		else if (Input.GetKey (KeyCode.S)) {
+			GameInstance.instance.saveGame();
 		}
 
 	}

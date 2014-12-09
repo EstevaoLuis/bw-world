@@ -9,6 +9,7 @@
     	"spells": [
     		{"name": "Red 1", "probability": 0.5},
     		{"name": "Black 1", "probability": 0.5}
-    	]
+    	],
+    	"experience": 30
     }
 }
