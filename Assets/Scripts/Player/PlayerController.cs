@@ -63,4 +63,5 @@ public class PlayerController : MonoBehaviour {
 			GameInstance.instance.damagePlayer(spellParameters.damage);
 		} 
 	}
+
 }

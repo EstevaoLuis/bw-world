@@ -19,6 +19,9 @@ public class GameInstance : MonoBehaviour
 	public GameObject player;
 	private int health;
 
+	//Cametra system
+	public GameObject cameraSystem;
+
 	//Instance management
 	public static GameInstance instance
 	{
@@ -118,15 +121,5 @@ public class GameInstance : MonoBehaviour
 	public JSONNode getEnemyParameters(string name) {
 		return enemies[name];
 	}
-
-	/*
-	 * //THow to use
-		GameInstance instance = GameInstance.instance;
-		instance.Test();
-	 * 
-	 * 
-	 */
-
-
 
 }
