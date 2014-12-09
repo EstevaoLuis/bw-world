@@ -9,7 +9,23 @@
     	"spells": [
     		{"name": "Red 1", "probability": 0.5},
     		{"name": "Black 1", "probability": 0.5}
+<<<<<<< Updated upstream
     	],
     	"experience": 30
+=======
+    	]
+    },
+        "Enemy 2": {
+    	"health": 100,
+    	"speed": 2,
+        "attack": 10,
+        "defense": 10,
+        "mass": 100,
+        "melee": [],
+    	"spells": [
+    		{"name": "Red 1", "probability": 0.5},
+    		{"name": "Black 1", "probability": 0.5}
+    	]
+>>>>>>> Stashed changes
     }
 }
