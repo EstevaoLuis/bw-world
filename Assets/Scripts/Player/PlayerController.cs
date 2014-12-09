@@ -57,7 +57,6 @@ public class PlayerController : MonoBehaviour {
 
 
 	void OnCollisionEnter2D (Collision2D other) {
-		Debug.Log (other.gameObject.tag);
 		if (other.gameObject.tag == "SpellEnemy") {
 			Spell spellParameters = (Spell)other.gameObject.GetComponent ("Spell");
 			GameInstance.instance.damagePlayer(spellParameters.damage);

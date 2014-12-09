@@ -8,7 +8,6 @@ public class CameraController : MonoBehaviour {
 
 	private bool isColliding = false;
 	private Vector2 movementSpeed;
-	//private Vector3 direction;
 
 	// Use this for initialization
 	void Start () {
@@ -24,7 +23,6 @@ public class CameraController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		Debug.Log ("Collisione");
 		if(other.gameObject.tag == "Player") {
 			isColliding = true;
 			movementSpeed = other.gameObject.rigidbody2D.velocity;
