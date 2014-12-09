@@ -210,6 +210,7 @@ public class GameInstance : MonoBehaviour
 		mana = mana + Mathf.RoundToInt(maxMana / 10);
 		if (mana > maxMana)	mana = maxMana;
 		updateManaBar ();
+		setBlackMood ((float) health / maxHealth);
 	}
 
 	public void regenerateHealth() {
@@ -218,10 +219,17 @@ public class GameInstance : MonoBehaviour
 		updateLifeBar ();
 	}
 
+	public void damageValueAnimation(int damageValue, Vector3 position) {
+		GameObject damageValuePrefab = Resources.Load("UI/Damage") as GameObject;
+		GameObject damageValueText = (GameObject) Instantiate(damageValuePrefab, position, Quaternion.Euler(new Vector3(0,0,0)));
+		DamageValue damageValueScript = (DamageValue) damageValueText.GetComponent("DamageValue");
+		damageValueScript.damageValue = damageValue;
+	}
+
 	void Update() {
-		if (Time.time > lastSpell + 2f && Time.time > lastRegeneration + 3f) {
+		if (health>0 && Time.time > lastSpell + 2f && Time.time > lastRegeneration + 3f) {
 			if(mana < maxMana) regenerateMana();
-			if(health < (maxHealth / 2)) regenerateMana ();
+			if(health < (maxHealth / 2)) regenerateHealth ();
 			lastRegeneration = Time.time;
 		}
 	}

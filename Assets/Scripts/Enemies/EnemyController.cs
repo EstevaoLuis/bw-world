@@ -285,6 +285,7 @@ public class EnemyController : MonoBehaviour {
 		if (other.gameObject.tag == "Spell") {
 				Spell spellParameters = (Spell)other.gameObject.GetComponent ("Spell");
 				health -= spellParameters.damage;
+			GameInstance.instance.damageValueAnimation(spellParameters.damage, transform.position);
 				if (health <= 0) {
 						isAlive = false;
 						deadTime = Time.time;
