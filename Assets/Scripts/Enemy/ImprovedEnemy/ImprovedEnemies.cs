@@ -22,8 +22,8 @@ public class ImprovedEnemies : MonoBehaviour {
 	private float deadTime;
 	private bool isAlive = true;
 
-	public GameObject spell_1;
-	public GameObject spell_2;
+//	public GameObject spell_1;
+//	public GameObject spell_2;
 	public GameObject melee;
 
 	float x_pos;
