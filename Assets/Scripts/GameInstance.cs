@@ -212,9 +212,16 @@ public class GameInstance : MonoBehaviour
 		updateManaBar ();
 	}
 
+	public void regenerateHealth() {
+		health = health + Mathf.RoundToInt(maxHealth / 20);
+		if (health > maxHealth)	mana = maxHealth;
+		updateLifeBar ();
+	}
+
 	void Update() {
 		if (Time.time > lastSpell + 2f && Time.time > lastRegeneration + 3f) {
-			regenerateMana();
+			if(mana < maxMana) regenerateMana();
+			if(health < (maxHealth / 2)) regenerateMana ();
 			lastRegeneration = Time.time;
 		}
 	}
