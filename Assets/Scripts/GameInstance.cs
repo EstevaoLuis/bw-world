@@ -17,13 +17,13 @@ public class GameInstance : MonoBehaviour
 	public Camera mainCamera;
 
 	//Tests and various stuff
-	public Slider lifeBar,manaBar;
+	public Slider lifeBar,manaBar,expBar;
 	public static string text_to_show = "Yoshi"; 
 	public static bool show_text = true;
 
 	//Player data
 	public GameObject player;
-	private int health, maxHealth, mana, maxMana;
+	private int health, maxHealth, mana, maxMana, experience, maxExperience;
 
 	//Time variables
 	private float lastSpell, lastRegeneration;
@@ -61,6 +61,8 @@ public class GameInstance : MonoBehaviour
 			health = maxHealth;
 			maxMana = 300;
 			mana = maxMana;
+			experience = 0;
+			maxExperience = 1000;
 
 			startAllScripts();
 
@@ -145,8 +147,14 @@ public class GameInstance : MonoBehaviour
 		manaBar.value = (float) mana / maxMana;
 	}
 
+	public void updateExpBar () {
+		expBar.value = (float) experience / maxExperience;
+	}
+
 	public void refreshUI() {
-			updateLifeBar ();
+		updateLifeBar ();
+		updateManaBar ();
+		updateExpBar ();
 	}
 
 	public void setBlackMood(float amount) {
@@ -171,6 +179,7 @@ public class GameInstance : MonoBehaviour
 		gameData = JSONNode.Parse(gameJson.text);
 		gameData["scene"].AsInt = Application.loadedLevel;
 		gameData ["health"].AsInt = health;
+		gameData ["experience"].AsInt = experience;
 		gameData ["xPosition"].AsFloat = player.transform.position.x;
 		gameData ["yPosition"].AsFloat = player.transform.position.y;
 		Debug.Log (gameData);
@@ -186,6 +195,7 @@ public class GameInstance : MonoBehaviour
 		Application.LoadLevel (gameData["scene"].AsInt);
 		maxHealth = gameData["health"].AsInt;
 		health = maxHealth;
+		experience = gameData["experience"].AsInt;
 		player.transform.position = new Vector3(gameData["xPosition"].AsFloat,gameData["yPosition"].AsFloat,0);
 		cameraSystem.transform.position = new Vector3(gameData["xPosition"].AsFloat,gameData["yPosition"].AsFloat,0);
 	}
@@ -224,6 +234,11 @@ public class GameInstance : MonoBehaviour
 		GameObject damageValueText = (GameObject) Instantiate(damageValuePrefab, position, Quaternion.Euler(new Vector3(0,0,0)));
 		DamageValue damageValueScript = (DamageValue) damageValueText.GetComponent("DamageValue");
 		damageValueScript.damageValue = damageValue;
+	}
+
+	public void increaseExperience(int amount) {
+		experience += amount;
+		updateExpBar ();
 	}
 
 	void Update() {

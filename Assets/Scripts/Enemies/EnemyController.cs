@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour {
 	private int attack;
 	private int defense;
 	public float speed;
+	private int experience;
 
 	//Spells & Melees
 	private JSONNode spells;
@@ -60,6 +61,7 @@ public class EnemyController : MonoBehaviour {
 		rigidbody2D.mass = parameters ["mass"].AsInt;
 		spells = parameters ["spells"];
 		melees = parameters ["melees"];
+		experience = parameters ["experience"].AsInt;
 
 
 		rand = random_number ();
@@ -287,8 +289,9 @@ public class EnemyController : MonoBehaviour {
 				health -= spellParameters.damage;
 			GameInstance.instance.damageValueAnimation(spellParameters.damage, transform.position);
 				if (health <= 0) {
-						isAlive = false;
-						deadTime = Time.time;
+					isAlive = false;
+					deadTime = Time.time;
+					GameInstance.instance.increaseExperience(experience);
 						//Destroy(gameObject);
 				}
 		} else if (other.gameObject.tag == "SpellEnemy") {
