@@ -70,6 +70,7 @@ public class EnemyController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
 		if (isAlive) {
 			if (detect_player () != true) {
 				if (counter == max_move) {
@@ -98,12 +99,26 @@ public class EnemyController : MonoBehaviour {
 				counter_2++;
 			}
 		} else {
+
+
 			if(Time.time>deadTime+0.2) {
+
 				Destroy (gameObject);
+
 			}
 		}
+
 	}
 	
+	public int getHealth(){
+
+		return this.health;
+	}
+
+	public bool getIsAlive(){
+
+		return this.isAlive;
+	}
 
 	string choose_melee () {
 		if (melees == null || melees.Count == 0) return null;

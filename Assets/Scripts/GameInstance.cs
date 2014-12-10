@@ -59,7 +59,7 @@ public class GameInstance : MonoBehaviour
 			//Setup player data
 			maxHealth = 200;
 			health = maxHealth;
-			maxMana = 300;
+			maxMana = 5000;
 			mana = maxMana;
 			experience = 0;
 			maxExperience = 1000;

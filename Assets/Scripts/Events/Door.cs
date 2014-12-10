@@ -3,8 +3,8 @@ using System.Collections;
 
 public class Door : MonoBehaviour {
 
-	public GameObject lever_1;
-	public GameObject lever_2;
+	private GameObject lever_1;
+	private GameObject lever_2;
 
 	private Lever lv_1;
 	private Lever lv_2;
@@ -16,10 +16,10 @@ public class Door : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 
-		lever_1 = GameObject.FindGameObjectWithTag ("lever");
+		lever_1 = GameObject.Find ("lever_1");
 		lv_1 =  lever_1.GetComponent<Lever> ();
 		//lever_1 = GameObject.FindGameObjectWithTag ("lever");
-		lever_2 = GameObject.FindGameObjectWithTag ("lever");
+		lever_2 = GameObject.Find("lever_2");
 		lv_2 = lever_2.GetComponent<Lever> ();
 		//lever_2 = GameObject.FindGameObjectWithTag ("lever");
 	
