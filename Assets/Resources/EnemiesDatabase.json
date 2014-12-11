@@ -13,7 +13,7 @@
     	"experience": 30
     },
         "Enemy 2": {
-    	"health": 100,
+    	"health": 10,
     	"speed": 2,
         "attack": 10,
         "defense": 10,
