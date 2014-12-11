@@ -8,7 +8,7 @@ public class npc_talks : MonoBehaviour {
 	public string text_to_say;
 	private GUIText txt;
 	float dist;
-	float distance_to_talk = 2f;
+	public float distance_to_talk = 3f;
 
 	void Start () {
 	
@@ -22,7 +22,7 @@ public class npc_talks : MonoBehaviour {
 
 		if (dist < distance_to_talk) {
 
-			GUI.Label (new Rect (this.transform.position.x, this.transform.position.y, 100, 100), text_to_say);
+			GUI.Label (new Rect (50, 0, 100, 1000), text_to_say);
 
 		}
 
