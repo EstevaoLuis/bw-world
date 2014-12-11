@@ -17,19 +17,20 @@ public class GameInstance : MonoBehaviour
 	public Camera mainCamera;
 
 	//Tests and various stuff
-	public Slider lifeBar,manaBar,expBar;
 	public static string text_to_show = "Yoshi"; 
 	public static bool show_text = true;
 
+	//Object references
+	private GameObject player;
+	private GameObject cameraSystem;
+	private UserInterface userInterface;
+
 	//Player data
-	public GameObject player;
 	private int health, maxHealth, mana, maxMana, experience, maxExperience;
 
 	//Time variables
 	private float lastSpell, lastRegeneration;
 
-	//Camera system
-	public GameObject cameraSystem;
 
 	//Instance management
 	public static GameInstance instance
@@ -46,7 +47,10 @@ public class GameInstance : MonoBehaviour
 		{
 			//If I am the first instance, make me the Singleton
 			_instance = this;
-			DontDestroyOnLoad(this);
+			//DontDestroyOnLoad(this);
+
+			//GET OTHER OBJECTS
+			getObjectReferences();
 
 			//SETUP SPELLS DATABASE
 			TextAsset spellsJson = Resources.Load("SpellsDatabase") as TextAsset;
@@ -77,6 +81,11 @@ public class GameInstance : MonoBehaviour
 		}
 	}
 
+	private void getObjectReferences() {
+		player = GameObject.FindWithTag ("Player");
+		cameraSystem = GameObject.FindWithTag ("CameraSystem");
+		userInterface = UserInterface.instance;
+	}
 
 	//Casts a spell using position and directions as parameters
 	public void castSpell(string spellName, Transform transform, Vector2 direction, string spellTag) {
@@ -140,15 +149,15 @@ public class GameInstance : MonoBehaviour
 	}
 
 	public void updateLifeBar () {
-		lifeBar.value = (float) health / maxHealth;
+		userInterface.setHealthValue((float) health / maxHealth);
 	}
 
 	public void updateManaBar () {
-		manaBar.value = (float) mana / maxMana;
+		userInterface.setManaValue((float) mana / maxMana);
 	}
 
 	public void updateExpBar () {
-		expBar.value = (float) experience / maxExperience;
+		userInterface.setExpValue((float) experience / maxExperience);
 	}
 
 	public void refreshUI() {

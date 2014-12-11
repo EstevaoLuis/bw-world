@@ -4,11 +4,8 @@ using System.Collections;
 public class PlayerController : MonoBehaviour {
 
 	public float MoveSpeed = 3f;
-
-	public GameObject RedSphere;
 	
-	public Animator animator = null;
-	//private GameInstance game = GameInstance.instance;
+	private Animator animator = null;
 	private Vector2 direction; //0 is face-down, then increases clockwise
 
 	// Use this for initialization
