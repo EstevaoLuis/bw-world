@@ -26,7 +26,7 @@ public class npc_talks : MonoBehaviour {
 
 		}
 
-		GUI.TextField(new Rect (this.transform.position.x, this.transform.position.y, 100, 100), "");	
+		//GUI.TextField(new Rect (this.transform.position.x, this.transform.position.y, 100, 100), "");	
 
 	}
 	
