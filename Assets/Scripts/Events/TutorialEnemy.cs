@@ -38,7 +38,7 @@ public class TutorialEnemy : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		print (status_lever);
+	//	print (status_lever);
 
 	}
 }
