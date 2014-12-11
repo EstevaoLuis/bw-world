@@ -21,7 +21,7 @@ public class DoorEneTutEnemy : MonoBehaviour {
 		enem_2 = GameObject.Find ("TutEnemy_2");
 		lv_2 = enem_2.GetComponent<TutorialEnemy> ();
 
-		door = GameObject.Find ("Door");
+		door = GameObject.FindGameObjectWithTag ("Door");
 		col = gameObject.GetComponent<BoxCollider2D> ();
 
 
@@ -29,6 +29,8 @@ public class DoorEneTutEnemy : MonoBehaviour {
 
 
 	void unlock(){
+
+		col.isTrigger = false;
 
 		if (lv_1.getStatus_Lever() == 1 && lv_2.getStatus_Lever() == 1) {
 
@@ -41,7 +43,7 @@ public class DoorEneTutEnemy : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		col.isTrigger = false;
+		//col.isTrigger = false;
 		unlock ();
 	}
 }

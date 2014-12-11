@@ -14,12 +14,10 @@ public class StrongWall : MonoBehaviour {
 
 	}
 
-
-	
 	// Update is called once per frame
 	void Update () {
 	
-		col.isTrigger = false;
+		//col.isTrigger = true;
 
 	}
 }
