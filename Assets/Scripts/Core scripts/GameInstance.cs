@@ -84,7 +84,15 @@ public class GameInstance : MonoBehaviour
 	private void getObjectReferences() {
 		player = GameObject.FindWithTag ("Player");
 		cameraSystem = GameObject.FindWithTag ("CameraSystem");
-		userInterface = UserInterface.instance;
+		//userInterface = UserInterface.instance;
+		userInterface = GameObject.FindWithTag ("UserInterface").GetComponent("UserInterface") as UserInterface;
+	}
+
+	//Loads new map
+	public void loadMap(string mapName, float xPosition, float yPosition) {
+		Application.LoadLevel (mapName);
+		player.transform.position = new Vector3 (xPosition, yPosition, 0f);
+		cameraSystem.transform.position = new Vector3 (xPosition, yPosition, 0f);
 	}
 
 	//Casts a spell using position and directions as parameters

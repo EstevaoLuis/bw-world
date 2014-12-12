@@ -50,13 +50,6 @@ public class PlayerController : MonoBehaviour {
 			GameInstance.instance.playerCastSpell("Blue 1",transform,direction);
 		}
 
-		if (Input.GetKey (KeyCode.L)) {
-			GameInstance.instance.loadGame();
-		}
-		else if (Input.GetKey (KeyCode.S)) {
-			GameInstance.instance.saveGame();
-		}
-
 	}
 
 
