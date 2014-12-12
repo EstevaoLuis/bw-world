@@ -21,22 +21,22 @@ public class PlayerController : MonoBehaviour {
 		
 		if (Input.GetKey (KeyCode.DownArrow)) {
 			//transform.position -= transform.up * MoveSpeed * Time.deltaTime;
-			animator.Play ("DownWalk");
+			animator.Play ("WalkDown");
 			direction = new Vector2 (0.0f, -1.0f);
 			rigidbody2D.velocity = direction*MoveSpeed;
 		} else if (Input.GetKey (KeyCode.UpArrow)) {
 			//transform.position += transform.up * MoveSpeed * Time.deltaTime;
-			animator.Play ("UpWalk");
+			animator.Play ("WalkUp");
 			direction = new Vector2 (0.0f, 1.0f);
 			rigidbody2D.velocity = direction*MoveSpeed;
 		} else if (Input.GetKey (KeyCode.LeftArrow)) {
 			//transform.position -= transform.right * MoveSpeed * Time.deltaTime;
-			animator.Play ("LeftWalk");
+			animator.Play ("WalkLeft");
 			direction = new Vector2 (-1.0f, 0.0f);
 			rigidbody2D.velocity = direction*MoveSpeed;
 		} else if (Input.GetKey (KeyCode.RightArrow)) {
 			//transform.position += transform.right * MoveSpeed * Time.deltaTime;
-			animator.Play ("RightWalk");
+			animator.Play ("WalkRight");
 			direction = new Vector2 (1.0f, 0.0f);
 			rigidbody2D.velocity = direction*MoveSpeed;
 		} else {
