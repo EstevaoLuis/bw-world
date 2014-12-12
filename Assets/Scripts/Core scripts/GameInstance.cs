@@ -11,6 +11,7 @@ public class GameInstance : MonoBehaviour
 	private JSONNode spells;
 	private JSONNode enemies;
 	private JSONNode gameData;
+	private JSONNode talking;
 
 	//Black mood
 	public GameObject blackMood;
@@ -59,6 +60,10 @@ public class GameInstance : MonoBehaviour
 			//SETUP ENEMIES DATABASE
 			TextAsset enemiesJson = Resources.Load("EnemiesDatabase") as TextAsset;
 			enemies = JSONNode.Parse(enemiesJson.text);
+
+			//SETUP TALKING DATABASE
+			TextAsset TalkJson = Resources.Load("TalkDatabase") as TextAsset;
+			talking = JSONNode.Parse(TalkJson.text);
 
 			//Setup player data
 			maxHealth = 200;
@@ -182,6 +187,11 @@ public class GameInstance : MonoBehaviour
 	public JSONNode getEnemyParameters(string name) {
 		return enemies[name];
 	}
+
+	public JSONNode getNPCTalkingParameters(string name) {
+		return talking[name];
+	}
+
 
 	public void saveGame() {
 		TextAsset gameJson = Resources.Load("GameData") as TextAsset;

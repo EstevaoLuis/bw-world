@@ -1,28 +1,55 @@
 ﻿using UnityEngine;
 using System.Collections;
+using SimpleJSON;
 
 public class npc_talks : MonoBehaviour {
 
 	// Use this for initialization
 	private GameObject player;
-	public string text_to_say;
-	private GUIText txt;
-	float dist;
-	public float distance_to_talk = 3f;
+	private JSONNode Talk;
 
+	private string text_to_say;
+	private string color;
+	private float distance_to_talk;
+	private float actual_dist;
+	private float x;
+	private float y;
+	private float w;
+	private float h;
+	public string type_of_npc;
+		
 	void Start () {
 	
-		player = GameObject.FindGameObjectWithTag("Player");
+
+		 Talk = GameInstance.instance.getNPCTalkingParameters (type_of_npc);
+		if (Talk == null) {
+			Destroy (gameObject);
+			//print ("deadObj");
+		}
+
+		text_to_say = Talk ["phrase"];
+		color = Talk ["color"];
+		distance_to_talk = Talk ["distance"].AsFloat;
+		x = Talk ["x"].AsFloat;
+		y = Talk ["y"].AsFloat;
+		w = Talk ["w"].AsFloat;
+		h = Talk ["h"].AsFloat;
+
 	  
+		player = GameObject.FindGameObjectWithTag("Player");
 
 	}
+
 	void OnGUI() {
 
-		dist = Vector3.Distance (player.transform.position, this.transform.position);
+		actual_dist = Vector3.Distance (player.transform.position, this.transform.position);
 
-		if (dist < distance_to_talk) {
+		if (actual_dist < distance_to_talk) {
+			//Color col = color as Color;
+//			//color = (color)
+//			GUI.color = col;
+			GUI.Label (new Rect (x, y, w, h), text_to_say);
 
-			GUI.Label (new Rect (50, 0, 100, 1000), text_to_say);
 
 		}
 
@@ -37,7 +64,7 @@ public class npc_talks : MonoBehaviour {
 //				
 //		Txt = GameObject.FindGameObjectWithTag("Text");
 
-		print (dist);
+		//print (dist);
 
 //			this.guiText.enabled = true;
 //			this.guiText.text = text_to_say;
