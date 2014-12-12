@@ -1,0 +1,34 @@
+{
+    "npc 1": {
+    
+    	"phrase": "Hi there, do you know the nature of colors?",
+    	"color": "green",
+    	"distance": 3,
+    	"x":10,
+    	"y":10,
+    	"w":1000,
+    	"h":1000
+    },
+    
+    "npc 2": {
+    
+    	"phrase": "I need your help, quick, the contrast is running low",
+    	"color": "red",
+    	"distance": 2,
+    	"x":10,
+    	"y":10,
+    	"w":1000,
+    	"h":1000
+    }
+    
+    "npc 3": {
+    
+    	"phrase": "YOU CANNOT HIDE!!!!!!!!",
+    	"color": "green",
+    	"distance": 3,
+    	"x":10,
+    	"y":10,
+    	"w":1000,
+    	"h":1000
+    }
+}
