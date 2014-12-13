@@ -34,7 +34,10 @@ public class Spell : MonoBehaviour {
 
 	void OnCollisionEnter2D (Collision2D other) {
 		if (!(gameObject.tag == other.gameObject.tag) && !(gameObject.tag == "SpellEnemy" && other.gameObject.tag == "Enemy") && !(gameObject.tag == "Spell" && other.gameObject.tag == "Player")) {
-
+			if(other.gameObject.tag == "SpellEnemy") {
+				Spell otherSpell = (Spell) other.gameObject.GetComponent<Spell>() as Spell;
+				if(damage > 2*otherSpell.damage) return;
+			}
 			GetComponent<SpriteRenderer> ().color = new Color (1, 1, 1, 0);
 			if(!hasHit) {
 					Instantiate (animationGraphics, transform.position, transform.rotation);
@@ -42,7 +45,6 @@ public class Spell : MonoBehaviour {
 
 			hasHit = true;
 			hitTime = Time.time;
-
 		}
 	}
 
