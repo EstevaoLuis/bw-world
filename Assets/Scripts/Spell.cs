@@ -13,7 +13,6 @@ public class Spell : MonoBehaviour {
 
 	private bool hasHit = false;
 	private float hitTime, castTime;
-	private GameObject animation = null;
 
 	// Use this for initialization
 	void Start () {
