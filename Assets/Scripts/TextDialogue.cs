@@ -19,7 +19,7 @@ public class TextDialogue : MonoBehaviour {
 		}
 
 		if (Input.GetKey (KeyCode.A)) {
-			GameInstance.show_text = false;
+			//GameInstance.show_text = false;
 			guiText.text = "";
 			//StartCoroutine("textFalse");		
 		}
