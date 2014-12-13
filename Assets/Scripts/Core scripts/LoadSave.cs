@@ -8,7 +8,7 @@ public class LoadSave : MonoBehaviour {
 		if (Input.GetKey (KeyCode.L)) {
 			GameInstance.instance.loadGame();
 		}
-		else if (Input.GetKey (KeyCode.S)) {
+		else if (Input.GetKey (KeyCode.X)) {
 			GameInstance.instance.saveGame();
 		}
 		else if(Input.GetKey (KeyCode.T)) {

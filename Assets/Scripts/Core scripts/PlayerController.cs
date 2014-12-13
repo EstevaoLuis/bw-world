@@ -6,7 +6,8 @@ public class PlayerController : MonoBehaviour {
 	public float MoveSpeed = 3f;
 	
 	private Animator animator = null;
-	private Vector2 direction; //0 is face-down, then increases clockwise
+	private Vector2 direction;
+	private float lastSpell;
 
 	// Use this for initialization
 	void Start () {
@@ -43,13 +44,25 @@ public class PlayerController : MonoBehaviour {
 			rigidbody2D.velocity = new Vector2(0,0);
 		}
 
-		if (Input.GetMouseButtonDown(0)) {
-			GameInstance.instance.playerCastSpell("Red 1",transform,direction);
+		//Input.GetMouseButtonDown(0)
+		if(Time.time > lastSpell + 0.1f) {
+			if (Input.GetKey (KeyCode.W)) {
+				GameInstance.instance.playerCastSpell("Red 1",transform,direction);
+				lastSpell = Time.time;
+			}
+			else if(Input.GetKey (KeyCode.A)) {
+				GameInstance.instance.playerCastSpell("Blue 1",transform,direction);
+				lastSpell = Time.time;
+			}
+			else if(Input.GetKey (KeyCode.D)) {
+				GameInstance.instance.playerCastSpell("Green 1",transform,direction);
+				lastSpell = Time.time;
+			}
+			else if(Input.GetKey (KeyCode.S)) {
+				GameInstance.instance.playerCastSpell("Red 4",transform,direction);
+				lastSpell = Time.time;
+			}
 		}
-		else if(Input.GetMouseButtonDown(1)) {
-			GameInstance.instance.playerCastSpell("Blue 1",transform,direction);
-		}
-
 	}
 
 

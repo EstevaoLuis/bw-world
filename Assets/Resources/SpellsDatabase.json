@@ -8,6 +8,33 @@
         "mana": 50
     },
     
+    "Red 2": {
+    	"color": "red",
+    	"speed": 3,
+        "damage": 80,
+        "duration": 2,
+        "mass": 100,
+        "mana": 80
+    },
+    
+    "Red 4": {
+    	"color": "red",
+    	"speed": 3,
+        "damage": 200,
+        "duration": 2,
+        "mass": 1000,
+        "mana": 200
+    },
+    
+    "Green 1": {
+    	"color": "green",
+    	"speed": 3,
+        "damage": 10,
+        "duration": 2,
+        "mass": 100,
+        "mana": 20
+    },
+    
     "Blue 1": {
     	"color": "blue",
     	"speed": 3,

@@ -65,6 +65,7 @@ public class GameInstance : MonoBehaviour
 			TextAsset TalkJson = Resources.Load("TalkDatabase") as TextAsset;
 			talking = JSONNode.Parse(TalkJson.text);
 
+
 			//Setup player data
 			maxHealth = 200;
 			health = maxHealth;
@@ -132,6 +133,12 @@ public class GameInstance : MonoBehaviour
 
 	public void playAudio(string name) {
 		AudioClip soundEffect = Resources.Load("Spells/Sound Effects/" + name) as AudioClip;
+		audio.clip = soundEffect;
+		audio.Play();
+	}
+
+	public void playMusic(string name) {
+		AudioClip soundEffect = Resources.Load("Music/" + name) as AudioClip;
 		audio.clip = soundEffect;
 		audio.Play();
 	}
