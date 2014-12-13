@@ -28,6 +28,7 @@ public class GameInstance : MonoBehaviour
 
 	//Player data
 	private int level, health, maxHealth, mana, maxMana, experience, maxExperience;
+	private float playerColliderRadius;
 
 	//Time variables
 	private float lastSpell, lastRegeneration;
@@ -90,6 +91,9 @@ public class GameInstance : MonoBehaviour
 
 	private void getObjectReferences() {
 		player = GameObject.FindWithTag ("Player");
+		BoxCollider2D collider = player.GetComponent<BoxCollider2D> () as BoxCollider2D;
+		playerColliderRadius = Mathf.Max (collider.size.x, collider.size.y);
+
 		cameraSystem = GameObject.FindWithTag ("CameraSystem");
 		//userInterface = UserInterface.instance;
 		userInterface = GameObject.FindWithTag ("UserInterface").GetComponent("UserInterface") as UserInterface;
@@ -103,7 +107,7 @@ public class GameInstance : MonoBehaviour
 	}
 
 	//Casts a spell using position and directions as parameters
-	public void castSpell(string spellName, Transform transform, Vector2 direction, string spellTag) {
+	public void castSpell(string spellName, Transform transform, Vector2 direction, string spellTag, float distance) {
 		//Check if spell is available
 		if (spellName == null) return;
 		JSONNode spellData = spells[spellName];
@@ -111,7 +115,7 @@ public class GameInstance : MonoBehaviour
 
 		//Instances an energy sphere
 		GameObject spellPrefab = Resources.Load("Spells/" + spellData["color"] + "Spell") as GameObject;
-		GameObject energySphere = (GameObject) Instantiate(spellPrefab, (transform.position + new Vector3(direction.x, direction.y, 0)), transform.rotation);
+		GameObject energySphere = (GameObject) Instantiate(spellPrefab, (transform.position + (new Vector3(direction.x, direction.y, 0)*distance)), transform.rotation);
 		energySphere.tag = spellTag; 
 
 		//Set spell parameters
@@ -165,7 +169,7 @@ public class GameInstance : MonoBehaviour
 		if (mana > spells [spellName] ["mana"].AsInt && Time.time>lastSpell+0.3f) {
 				mana -= spells [spellName] ["mana"].AsInt;
 				updateManaBar ();
-				castSpell (spellName, transform, direction, "Spell");
+				castSpell (spellName, transform, direction, "Spell", playerColliderRadius/2+(playerColliderRadius/10));
 				lastSpell = Time.time;
 		} else {
 			//Not enough mana

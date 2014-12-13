@@ -28,6 +28,8 @@ public class EnemyController : MonoBehaviour {
 	private int max_fire_rate = 50;
 	private int max_move = 30;
 	private Vector2 direction;
+
+	private float colliderRadius;
 	
 	private GameObject target;
 
@@ -55,6 +57,10 @@ public class EnemyController : MonoBehaviour {
 
 		//Animator
 		animator = GetComponent<Animator> () as Animator;
+
+		//Collider
+		BoxCollider2D collider = GetComponent<BoxCollider2D> () as BoxCollider2D;
+		colliderRadius = Mathf.Max (collider.size.x, collider.size.y);
 
 		//Set up target
 		target = GameObject.FindGameObjectWithTag ("Player");
@@ -183,7 +189,7 @@ public class EnemyController : MonoBehaviour {
 	}
 	void attacking(){
 
-		GameInstance.instance.castSpell(choose_spell(),transform,direction,"SpellEnemy");
+		GameInstance.instance.castSpell(choose_spell(),transform,direction,"SpellEnemy",colliderRadius/2+(colliderRadius/10));
 		/*
 		if (choose_attack () == 1) {
 		//spell 1
