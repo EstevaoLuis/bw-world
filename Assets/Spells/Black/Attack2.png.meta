@@ -1,16 +1,15 @@
 fileFormatVersion: 2
-guid: 470dcf54f05236145876bb71c4aa5dd1
+guid: efbd7e1e9f006d946905cca03165b162
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Black 1_0
-    21300002: Black 1_1
-    21300004: Black 1_2
-    21300006: Black 1_3
-    21300008: Black 1_4
-    21300010: Black 1_5
-    21300012: Black 1_6
-    21300014: Black 1_7
-    21300016: Black 1_8
+    21300000: Attack2_0
+    21300002: Attack2_1
+    21300004: Attack2_2
+    21300006: Attack2_3
+    21300008: Attack2_4
+    21300010: Attack2_5
+    21300012: Attack2_6
+    21300014: Attack2_7
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -46,13 +45,13 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 30
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Black 1_0
+    - name: Attack2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -62,7 +61,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Black 1_1
+    - name: Attack2_1
       rect:
         serializedVersion: 2
         x: 192
@@ -72,7 +71,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Black 1_2
+    - name: Attack2_2
       rect:
         serializedVersion: 2
         x: 384
@@ -82,7 +81,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Black 1_3
+    - name: Attack2_3
       rect:
         serializedVersion: 2
         x: 576
@@ -92,7 +91,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Black 1_4
+    - name: Attack2_4
       rect:
         serializedVersion: 2
         x: 768
@@ -102,7 +101,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Black 1_5
+    - name: Attack2_5
       rect:
         serializedVersion: 2
         x: 0
@@ -112,7 +111,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Black 1_6
+    - name: Attack2_6
       rect:
         serializedVersion: 2
         x: 192
@@ -122,20 +121,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Black 1_7
+    - name: Attack2_7
       rect:
         serializedVersion: 2
         x: 384
-        y: 0
-        width: 192
-        height: 192
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Black 1_8
-      rect:
-        serializedVersion: 2
-        x: 576
         y: 0
         width: 192
         height: 192

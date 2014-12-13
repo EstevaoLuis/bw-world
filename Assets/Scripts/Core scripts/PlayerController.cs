@@ -5,13 +5,13 @@ public class PlayerController : MonoBehaviour {
 
 	public float MoveSpeed = 3f;
 	
-	private Animator animator = null;
+	private Animator animator;
 	private Vector2 direction;
 	private float lastSpell;
 
 	// Use this for initialization
 	void Start () {
-		animator = GetComponent<Animator> ();
+		animator = GetComponent<Animator> () as Animator;
 		direction = new Vector2(0.0f,-1.0f);
 	}
 

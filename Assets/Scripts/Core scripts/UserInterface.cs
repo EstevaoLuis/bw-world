@@ -16,7 +16,7 @@ public class UserInterface : MonoBehaviour
 	public static UserInterface instance
 	{
 		get
-		{
+		{	
 			return _instance;
 		}
 	}
@@ -25,7 +25,6 @@ public class UserInterface : MonoBehaviour
 	{
 		if(_instance == null)
 		{
-			//If I am the first instance, make me the Singleton
 			_instance = this;
 
 			//GET OTHER OBJECTS

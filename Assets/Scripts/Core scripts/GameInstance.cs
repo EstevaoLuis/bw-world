@@ -283,12 +283,14 @@ public class GameInstance : MonoBehaviour
 		return level;
 	}
 
-	void Update() {
-		if (health>0 && Time.time > lastSpell + 2f && Time.time > lastRegeneration + 3f) {
+	public bool regeneration() {
+		if (health>0 && Time.time > lastSpell + 2f) {
 			if(mana < maxMana) regenerateMana();
 			if(health < (maxHealth / 2)) regenerateHealth ();
-			lastRegeneration = Time.time;
+			Debug.Log("Rigenera!");
+			return true;
 		}
+		return false;
 	}
 
 }

@@ -10,6 +10,9 @@ public class Colour : MonoBehaviour {
 	private float time = 0.0f; 
 	private Color hidden = new Color (1, 1, 1, 0);
 	private Color visible = new Color (1, 1, 1, 1);
+
+	private Color from;
+	private Color to;
 	private bool transition = false;
 
 	// Use this for initialization
@@ -35,7 +38,6 @@ public class Colour : MonoBehaviour {
 
 	void OnCollisionEnter2D (Collision2D other) {
 		if(other.gameObject.tag == "Spell") {
-			//Debug.Log(other.gameObject.damage);
 			if (isColoured && !transition) {
 			audio.Play();
 			}
@@ -43,4 +45,11 @@ public class Colour : MonoBehaviour {
 		}
 	}
 
+	void color() {
+		
+	}
+
+	void decolor() {
+
+	}
 }

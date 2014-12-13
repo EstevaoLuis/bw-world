@@ -5,10 +5,11 @@
         "attack": 10,
         "defense": 10,
         "mass": 100,
+        "detection": 5,
         "melee": [],
     	"spells": [
-    		{"name": "Red 1", "probability": 0.5},
-    		{"name": "Black 1", "probability": 0.5}
+    		{"name": "Black 1", "probability": 0.5},
+    		{"name": "Black 2", "probability": 0.5}
 		],
     	"experience": 30
     },
@@ -18,10 +19,12 @@
         "attack": 10,
         "defense": 10,
         "mass": 100,
+        "detection": 5,
         "melee": [],
     	"spells": [
-    		{"name": "Red 1", "probability": 0.5},
-    		{"name": "Black 1", "probability": 0.5}
+    		{"name": "Black 1", "probability": 0.5},
+    		{"name": "Black 3", "probability": 0.3},
+    		{"name": "Black 4", "probability": 0.2}
     	],
     	"experience": 30
     }
@@ -31,6 +34,7 @@
         "attack": 50,
         "defense": 10,
         "mass": 100,
+        "detection": 5,
         "melee": [],
     	"spells": [
     		{"name": "Red 1", "probability": 0.5},

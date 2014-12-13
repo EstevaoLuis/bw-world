@@ -7,12 +7,16 @@ public class EnemyController : MonoBehaviour {
 	//Enemy name to retrieve parameters
 	public string enemyName;
 
+	//Animator
+	private Animator animator;
+
 	//Parameters
 	private int health;
 	private int attack;
 	private int defense;
-	public float speed;
+	private float speed;
 	private int experience;
+	private float detectionDistance;
 
 	//Spells & Melees
 	private JSONNode spells;
@@ -24,8 +28,7 @@ public class EnemyController : MonoBehaviour {
 	private int max_fire_rate = 50;
 	private int max_move = 30;
 	private Vector2 direction;
-
-	public float detection_distance = 5f;
+	
 	private GameObject target;
 
 	private float deadTime;
@@ -43,11 +46,15 @@ public class EnemyController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
 		//Get enemy parameters
 		JSONNode parameters = GameInstance.instance.getEnemyParameters (enemyName);
 
 		//If not found, destroy
 		if (parameters == null) Destroy (gameObject);
+
+		//Animator
+		animator = GetComponent<Animator> () as Animator;
 
 		//Set up target
 		target = GameObject.FindGameObjectWithTag ("Player");
@@ -61,6 +68,7 @@ public class EnemyController : MonoBehaviour {
 		spells = parameters ["spells"];
 		melees = parameters ["melees"];
 		experience = parameters ["experience"].AsInt;
+		detectionDistance = parameters["detection"].AsFloat;
 
 
 		rand = random_number ();
@@ -69,7 +77,6 @@ public class EnemyController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
 		if (isAlive) {
 			if (detect_player () != true) {
 				if (counter == max_move) {
@@ -213,7 +220,7 @@ public class EnemyController : MonoBehaviour {
 		
 		distance_to_player = distance_between ();
 		
-		if (distance_to_player < detection_distance) {
+		if (distance_to_player < detectionDistance) {
 			return true;
 			
 		}
@@ -270,15 +277,19 @@ public class EnemyController : MonoBehaviour {
 
 	void move_up(){
 		rigidbody2D.velocity = Vector3.up * speed;
+		animator.Play ("WalkUp");
 	}
 	void move_down(){
 		rigidbody2D.velocity = Vector3.down * speed;
+		animator.Play ("WalkDown");
 	}
 	void move_right(){
 		rigidbody2D.velocity = Vector3.right * speed;
+		animator.Play ("WalkRight");
 	}
 	void move_left(){
 		rigidbody2D.velocity = Vector3.left * speed;
+		animator.Play ("WalkLeft");
 	}
 
 
