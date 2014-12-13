@@ -27,7 +27,7 @@ public class GameInstance : MonoBehaviour
 	private UserInterface userInterface;
 
 	//Player data
-	private int health, maxHealth, mana, maxMana, experience, maxExperience;
+	private int level, health, maxHealth, mana, maxMana, experience, maxExperience;
 
 	//Time variables
 	private float lastSpell, lastRegeneration;
@@ -67,6 +67,7 @@ public class GameInstance : MonoBehaviour
 
 
 			//Setup player data
+			level = 1;
 			maxHealth = 200;
 			health = maxHealth;
 			maxMana = 5000;
@@ -144,7 +145,10 @@ public class GameInstance : MonoBehaviour
 	}
 
 	public void damagePlayer(int damage) {
-		health = health - damage;
+		int randomModification = damage / 10;
+		int levelModification = damage / 100;
+		int finalDamage = damage + Random.Range(-randomModification,randomModification) - levelModification*(getPlayerLevel()-1);
+		health = health - finalDamage;
 		Debug.Log (health);
 		if (health <= 0) {
 			health = 0;
@@ -273,6 +277,10 @@ public class GameInstance : MonoBehaviour
 	public void increaseExperience(int amount) {
 		experience += amount;
 		updateExpBar ();
+	}
+
+	public int getPlayerLevel() {
+		return level;
 	}
 
 	void Update() {

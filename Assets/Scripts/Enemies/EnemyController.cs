@@ -25,15 +25,11 @@ public class EnemyController : MonoBehaviour {
 	private int max_move = 30;
 	private Vector2 direction;
 
-	public float detection_distance = 1000f;
-	public GameObject target;
+	public float detection_distance = 5f;
+	private GameObject target;
 
 	private float deadTime;
 	private bool isAlive = true;
-
-	public GameObject spell_1;
-	public GameObject spell_2;
-	public GameObject melee;
 
 	float x_pos;
 	float y_pos;
@@ -52,6 +48,9 @@ public class EnemyController : MonoBehaviour {
 
 		//If not found, destroy
 		if (parameters == null) Destroy (gameObject);
+
+		//Set up target
+		target = GameObject.FindGameObjectWithTag ("Player");
 
 		//Set parameters
 		health = parameters ["health"].AsInt;
@@ -202,26 +201,11 @@ public class EnemyController : MonoBehaviour {
 
 	}
 
-	/*
-	void generate_spell_1(){
-
-		GameObject attack;
-		attack=(GameObject)Instantiate(spell_1,new Vector3(transform.position.x+direction.x,transform.position.y+direction.y,0),transform.rotation);
-
-	}
-	
-	void generate_spell_2(){
-		
-		GameObject attack;
-		attack=(GameObject)Instantiate(spell_2,new Vector3(transform.position.x+direction.x,transform.position.y+direction.y,0),transform.rotation);
-		
-	}
-	*/
 
 	void generate_melee(){
 		
-		GameObject attack;
-		attack=(GameObject)Instantiate(melee,new Vector3(transform.position.x+direction.x,transform.position.y+direction.y,0),transform.rotation);
+		//GameObject attack;
+		//attack=(GameObject)Instantiate(melee,new Vector3(transform.position.x+direction.x,transform.position.y+direction.y,0),transform.rotation);
 		
 	}
 
@@ -301,13 +285,16 @@ public class EnemyController : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D other){
 		if (other.gameObject.tag == "Spell") {
 				Spell spellParameters = (Spell)other.gameObject.GetComponent ("Spell");
-				health -= spellParameters.damage;
-			GameInstance.instance.damageValueAnimation(spellParameters.damage, transform.position);
+				int randomModification = spellParameters.damage / 10;
+				int levelModification = spellParameters.damage / 10;
+				int finalDamage = spellParameters.damage + Random.Range(-randomModification,randomModification) + levelModification*(GameInstance.instance.getPlayerLevel()-1);
+				health -= finalDamage;
+			GameInstance.instance.damageValueAnimation(finalDamage, transform.position);
 				if (health <= 0) {
 					isAlive = false;
 					deadTime = Time.time;
 					GameInstance.instance.increaseExperience(experience);
-						//Destroy(gameObject);
+					//Destroy(gameObject);
 				}
 		} else if (other.gameObject.tag == "SpellEnemy") {
 			Destroy (other.gameObject);
