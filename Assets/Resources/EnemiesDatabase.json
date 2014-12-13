@@ -1,45 +1,67 @@
 ﻿{
-    "Enemy 1": {
+    "Spider": {
     	"health": 100,
     	"speed": 2,
         "attack": 10,
-        "defense": 10,
-        "mass": 100,
+        "defense": 0,
+        "mass": 1,
+        "scale": 1,
+        "delay": 1,
         "detection": 5,
+        "melee": [],
+    	"spells": [
+    		{"name": "Black 1", "probability": 1}
+		],
+    	"experience": 10
+    },
+    
+    "Spider (Fast)": {
+    	"health": 50,
+    	"speed": 3,
+        "attack": 10,
+        "defense": 0,
+        "mass": 1,
+        "scale": 1,
+        "delay": 0.5,
+        "detection": 8,
+        "melee": [],
+    	"spells": [
+    		{"name": "Black 1", "probability": 0.5}
+		],
+    	"experience": 20
+    },
+    
+    "Spider (Heavy)": {
+    	"health": 60,
+    	"speed": 1,
+        "attack": 10,
+        "defense": 5,
+        "mass": 100,
+        "scale": 1,
+        "delay": 1,
+        "detection": 4,
+        "melee": [],
+    	"spells": [
+    		{"name": "Black 2", "probability": 1}
+		],
+    	"experience": 10
+    },
+    
+    "Spider (Improved)": {
+    	"health": 150,
+    	"speed": 2.5,
+        "attack": 10,
+        "defense": 2,
+        "mass": 5,
+        "scale": 1.5,
+        "delay": 1,
+        "detection": 10,
         "melee": [],
     	"spells": [
     		{"name": "Black 1", "probability": 0.5},
     		{"name": "Black 2", "probability": 0.5}
 		],
-    	"experience": 30
-    },
-        "Enemy 2": {
-    	"health": 10,
-    	"speed": 2,
-        "attack": 10,
-        "defense": 10,
-        "mass": 100,
-        "detection": 5,
-        "melee": [],
-    	"spells": [
-    		{"name": "Black 1", "probability": 0.5},
-    		{"name": "Black 3", "probability": 0.3},
-    		{"name": "Black 4", "probability": 0.2}
-    	],
-    	"experience": 30
+    	"experience": 10
     }
-    "Enemy B": {
-    	"health": 500,
-    	"speed": 2,
-        "attack": 50,
-        "defense": 10,
-        "mass": 100,
-        "detection": 5,
-        "melee": [],
-    	"spells": [
-    		{"name": "Red 1", "probability": 0.5},
-    		{"name": "Black 1", "probability": 0.5}
-    	],
-    	"experience": 30
-    };
+    
 }

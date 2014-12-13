@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 
-	public float MoveSpeed = 3f;
+	private float speed = 5f;
 	
 	private Animator animator;
 	private Vector2 direction;
@@ -24,22 +24,22 @@ public class PlayerController : MonoBehaviour {
 			//transform.position -= transform.up * MoveSpeed * Time.deltaTime;
 			animator.Play ("WalkDown");
 			direction = new Vector2 (0.0f, -1.0f);
-			rigidbody2D.velocity = direction*MoveSpeed;
+			rigidbody2D.velocity = direction*speed;
 		} else if (Input.GetKey (KeyCode.UpArrow)) {
 			//transform.position += transform.up * MoveSpeed * Time.deltaTime;
 			animator.Play ("WalkUp");
 			direction = new Vector2 (0.0f, 1.0f);
-			rigidbody2D.velocity = direction*MoveSpeed;
+			rigidbody2D.velocity = direction*speed;
 		} else if (Input.GetKey (KeyCode.LeftArrow)) {
 			//transform.position -= transform.right * MoveSpeed * Time.deltaTime;
 			animator.Play ("WalkLeft");
 			direction = new Vector2 (-1.0f, 0.0f);
-			rigidbody2D.velocity = direction*MoveSpeed;
+			rigidbody2D.velocity = direction*speed;
 		} else if (Input.GetKey (KeyCode.RightArrow)) {
 			//transform.position += transform.right * MoveSpeed * Time.deltaTime;
 			animator.Play ("WalkRight");
 			direction = new Vector2 (1.0f, 0.0f);
-			rigidbody2D.velocity = direction*MoveSpeed;
+			rigidbody2D.velocity = direction*speed;
 		} else {
 			rigidbody2D.velocity = new Vector2(0,0);
 		}

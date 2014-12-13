@@ -17,6 +17,9 @@ public class EnemyController : MonoBehaviour {
 	private float speed;
 	private int experience;
 	private float detectionDistance;
+	private float scale;
+	private float delay;
+	private float mass;
 
 	//Spells & Melees
 	private JSONNode spells;
@@ -30,11 +33,13 @@ public class EnemyController : MonoBehaviour {
 	private Vector2 direction;
 
 	private float colliderRadius;
+
 	
 	private GameObject target;
 
 	private float deadTime;
 	private bool isAlive = true;
+	private float lastAttack;
 
 	float x_pos;
 	float y_pos;
@@ -58,10 +63,6 @@ public class EnemyController : MonoBehaviour {
 		//Animator
 		animator = GetComponent<Animator> () as Animator;
 
-		//Collider
-		BoxCollider2D collider = GetComponent<BoxCollider2D> () as BoxCollider2D;
-		colliderRadius = Mathf.Max (collider.size.x, collider.size.y);
-
 		//Set up target
 		target = GameObject.FindGameObjectWithTag ("Player");
 
@@ -70,12 +71,20 @@ public class EnemyController : MonoBehaviour {
 		attack = parameters ["attack"].AsInt;
 		defense = parameters ["defense"].AsInt;
 		speed = parameters ["speed"].AsFloat;
-		rigidbody2D.mass = parameters ["mass"].AsInt;
+		delay = parameters ["delay"].AsFloat;
+		scale = parameters ["scale"].AsFloat;
+		mass = parameters ["mass"].AsInt;
 		spells = parameters ["spells"];
 		melees = parameters ["melees"];
 		experience = parameters ["experience"].AsInt;
 		detectionDistance = parameters["detection"].AsFloat;
 
+		rigidbody2D.mass = mass;
+		rigidbody2D.transform.localScale = new Vector3 (scale,scale,1);
+
+		//Collider
+		BoxCollider2D collider = GetComponent<BoxCollider2D> () as BoxCollider2D;
+		colliderRadius = Mathf.Max (collider.size.x, collider.size.y);
 
 		rand = random_number ();
 		direction = new Vector2(0.0f,-1.0f);
@@ -98,9 +107,7 @@ public class EnemyController : MonoBehaviour {
 				move_towards_player ();
 				
 			}
-			//collision_detected ();
-			//		Collision (this.collider);
-			//		Death_of_Enemy ();
+
 			if (counter_2 == max_fire_rate) {
 				//attacking ();
 				
@@ -188,22 +195,13 @@ public class EnemyController : MonoBehaviour {
 		}
 	}
 	void attacking(){
-
-		GameInstance.instance.castSpell(choose_spell(),transform,direction,"SpellEnemy",colliderRadius/2+(colliderRadius/10));
-		/*
-		if (choose_attack () == 1) {
-		//spell 1
-			GameInstance.instance.castSpell("Red 1",transform,direction,"SpellEnemy");
-		} else if (choose_attack () == 0) {
-		//spell 2
-			GameInstance.instance.castSpell("Black 1",transform,direction,"SpellEnemy");
-		} else if (choose_attack () == -1) {
-		//melee
-			generate_melee();
+		if (Time.time > lastAttack + delay) {
+				GameInstance.instance.castSpell (choose_spell (), transform, direction, "SpellEnemy", colliderRadius / 2 + (colliderRadius / 10), speed);
+				lastAttack = Time.time;
 		}
-		*/
-
 	}
+
+
 	int position_of_target_respect_enemy(){
 
 		if (diff_x < diff_y) {
@@ -304,7 +302,8 @@ public class EnemyController : MonoBehaviour {
 				Spell spellParameters = (Spell)other.gameObject.GetComponent ("Spell");
 				int randomModification = spellParameters.damage / 10;
 				int levelModification = spellParameters.damage / 10;
-				int finalDamage = spellParameters.damage + Random.Range(-randomModification,randomModification) + levelModification*(GameInstance.instance.getPlayerLevel()-1);
+				int finalDamage = spellParameters.damage + Random.Range(-randomModification,randomModification) + levelModification*(GameInstance.instance.getPlayerLevel()-1) - defense;
+				if(finalDamage<=1) finalDamage = 1;
 				health -= finalDamage;
 			GameInstance.instance.damageValueAnimation(finalDamage, transform.position);
 				if (health <= 0) {

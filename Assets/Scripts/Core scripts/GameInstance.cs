@@ -107,7 +107,7 @@ public class GameInstance : MonoBehaviour
 	}
 
 	//Casts a spell using position and directions as parameters
-	public void castSpell(string spellName, Transform transform, Vector2 direction, string spellTag, float distance) {
+	public void castSpell(string spellName, Transform transform, Vector2 direction, string spellTag, float distance, float minSpeed) {
 		//Check if spell is available
 		if (spellName == null) return;
 		JSONNode spellData = spells[spellName];
@@ -133,7 +133,7 @@ public class GameInstance : MonoBehaviour
 		energySphere.audio.clip = soundEffect;
 
 		//Makes the sphere move
-		energySphere.rigidbody2D.velocity = transform.TransformDirection(direction * spellData["speed"].AsFloat);
+		energySphere.rigidbody2D.velocity = transform.TransformDirection(direction * Mathf.Max(spellData["speed"].AsFloat,minSpeed));
 	}
 
 	public void playAudio(string name) {
@@ -169,7 +169,7 @@ public class GameInstance : MonoBehaviour
 		if (mana > spells [spellName] ["mana"].AsInt && Time.time>lastSpell+0.3f) {
 				mana -= spells [spellName] ["mana"].AsInt;
 				updateManaBar ();
-				castSpell (spellName, transform, direction, "Spell", playerColliderRadius/2+(playerColliderRadius/10));
+				castSpell (spellName, transform, direction, "Spell", playerColliderRadius/2+(playerColliderRadius/10), 0f);
 				lastSpell = Time.time;
 		} else {
 			//Not enough mana
