@@ -23,7 +23,7 @@ public class Lever : MonoBehaviour {
 
 	void Update () {
 	
-		print (status_lever);
+		//print (status_lever);
 
 
 	}

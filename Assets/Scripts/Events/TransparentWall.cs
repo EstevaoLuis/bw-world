@@ -6,6 +6,8 @@ public class TransparentWall : MonoBehaviour {
 	// Use this for initialization
 	private GameObject transpWall;
 	private BoxCollider2D col;
+//	int counter;
+//	int counter_max;
 
 
 	void Start () {
@@ -22,14 +24,18 @@ public class TransparentWall : MonoBehaviour {
 						//print (9);
 						col.isTrigger = true;
 				} 
+
+			col.isTrigger = false;
+
 	
 
 	}
+
 	
 	// Update is called once per frame
 	void Update () {
 	
-		col.isTrigger = false;
+
 
 	}
 }
