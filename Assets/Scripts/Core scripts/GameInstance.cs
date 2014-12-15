@@ -76,9 +76,7 @@ public class GameInstance : MonoBehaviour
 			experience = 0;
 			maxExperience = 1000;
 
-			startAllScripts();
-
-			refreshUI();
+			//startAllScripts();
 		}
 		else
 		{
@@ -87,6 +85,10 @@ public class GameInstance : MonoBehaviour
 			if(this != _instance)
 				Destroy(this.gameObject);
 		}
+	}
+
+	void Start() {
+		refreshUI();
 	}
 
 	private void getObjectReferences() {
