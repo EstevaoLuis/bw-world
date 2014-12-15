@@ -20,20 +20,21 @@ public class EnemyController : MonoBehaviour {
 	private float scale;
 	private float delay;
 	private float mass;
+	private int behaviourA, behaviourB, behaviourC;
 
 	//Spells & Melees
 	private JSONNode spells;
 	private JSONNode melees;
 
-	private float distance_to_player;
-	private int counter = 0;
-	private int counter_2 =0;
-	private int max_fire_rate = 50;
-	private int max_move = 30;
+	private float distanceToPlayer;
 	private Vector2 direction;
+	private float minMovementDuration = 0.3f;
+	private float lastDirectionChange = 0f;
+	private float meleeDistance = 2.5f;
+	private float range;
 
 	private float colliderRadius;
-
+	private float initialPositionX, initialPositionY;
 	
 	private GameObject target;
 
@@ -48,7 +49,7 @@ public class EnemyController : MonoBehaviour {
 	float diff_x;
 	float diff_y;
 
-	int rand;
+	int randomDirection;
 
 
 	// Use this for initialization
@@ -59,6 +60,10 @@ public class EnemyController : MonoBehaviour {
 
 		//If not found, destroy
 		if (parameters == null) Destroy (gameObject);
+
+		//Initial coordinates
+		initialPositionX = transform.position.x;
+		initialPositionY = transform.position.y;
 
 		//Animator
 		animator = GetComponent<Animator> () as Animator;
@@ -78,6 +83,9 @@ public class EnemyController : MonoBehaviour {
 		melees = parameters ["melees"];
 		experience = parameters ["experience"].AsInt;
 		detectionDistance = parameters["detection"].AsFloat;
+		behaviourA = parameters["behaviour"][0].AsInt;
+		behaviourB = parameters["behaviour"][1].AsInt;
+		behaviourC = parameters["behaviour"][2].AsInt;
 
 		rigidbody2D.mass = mass;
 		rigidbody2D.transform.localScale = new Vector3 (scale,scale,1);
@@ -86,42 +94,67 @@ public class EnemyController : MonoBehaviour {
 		BoxCollider2D collider = GetComponent<BoxCollider2D> () as BoxCollider2D;
 		colliderRadius = Mathf.Max (collider.size.x, collider.size.y);
 
-		rand = random_number ();
+		//Calculate range
+		range = 0f;
+		for (int i=0; i < spells.Count; i++) {
+			if(spells[i]["speed"].AsFloat*spells[i]["duration"].AsFloat > range) range = spells[i]["speed"].AsFloat*spells[i]["duration"].AsFloat;
+		}
+
+		randomDirection = random_number ();
 		direction = new Vector2(0.0f,-1.0f);
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		//Enemy not already dead
 		if (isAlive) {
-			if (detect_player () != true) {
-				if (counter == max_move) {
-					rand = random_number ();
-					counter = 0;
-				}
-				movement_random (rand);
-				//print (counter);
-				counter++;
-				
+
+			detectDistance();
+
+			//If player NOT detected
+			if (distanceToPlayer > detectionDistance) {
+
+				randomMovement();
+
+			//If player detected
 			} else {
-				
-				move_towards_player ();
-				
+
+				//If too distant
+				if(distanceToPlayer > range) {
+
+					behaviour (behaviourA);
+
+				}
+				//In spell range
+				else if(distanceToPlayer > meleeDistance) {
+
+					if(spells.Count > 0 && Time.time > lastAttack + delay) {
+						//Close attack
+						castSpell();
+					}
+
+					behaviour (behaviourB);
+
+				}
+				//Melee attack
+				else if(Time.time > lastAttack + delay) {
+
+					if(Time.time > lastAttack + delay) {
+						//Close attack
+						if(melees.Count > 0) meleeAttack();
+						else castSpell();
+					}
+					
+					behaviour (behaviourC);
+
+				}
 			}
 
-			if (counter_2 == max_fire_rate) {
-				//attacking ();
-				
-				attacking ();
-				
-				counter_2 = 0;
-			} else {
-				counter_2++;
-			}
+		//If hit by a death spell
 		} else {
 
-
 			if(Time.time>deadTime+0.2) {
-
+				//Destroy the enemy
 				Destroy (gameObject);
 
 			}
@@ -129,15 +162,6 @@ public class EnemyController : MonoBehaviour {
 
 	}
 	
-	public int getHealth(){
-
-		return this.health;
-	}
-
-	public bool getIsAlive(){
-
-		return this.isAlive;
-	}
 
 	string choose_melee () {
 		if (melees == null || melees.Count == 0) return null;
@@ -163,7 +187,7 @@ public class EnemyController : MonoBehaviour {
 		return selectedSpell;
 	}
 
-	float distance_between(){
+	float detectDistance(){
 		
 		x_pos = transform.position.x;
 		y_pos = transform.position.y;
@@ -177,28 +201,10 @@ public class EnemyController : MonoBehaviour {
 		return Mathf.Sqrt ((diff_x) * (diff_x) + (diff_y) * (diff_y));
 		
 	}
-	int choose_attack(){
 
-		float distance = distance_between ();
-
-		if (distance > 1.5 && distance < 15) {
-
-			return 1;
-
-		} else if (distance > 15 ) {
-
-			return 0;		
-
-		} else {
-
-			return -1;
-		}
-	}
-	void attacking(){
-		if (Time.time > lastAttack + delay) {
-				GameInstance.instance.castSpell (choose_spell (), transform, direction, "SpellEnemy", colliderRadius / 2 + (colliderRadius / 10), speed);
-				lastAttack = Time.time;
-		}
+	void castSpell(){
+		GameInstance.instance.castSpell (choose_spell (), transform, getPlayerDirection(), "SpellEnemy", colliderRadius / 2 + (colliderRadius / 10), speed);
+		lastAttack = Time.time;
 	}
 
 
@@ -212,26 +218,30 @@ public class EnemyController : MonoBehaviour {
 
 	}
 
-
-	void generate_melee(){
-		
-		//GameObject attack;
-		//attack=(GameObject)Instantiate(melee,new Vector3(transform.position.x+direction.x,transform.position.y+direction.y,0),transform.rotation);
-		
+	void behaviour(int type) {
+		switch(type) {
+			case 0: standStill(); break;
+			case 1: randomMovement (); break;
+			case 2: moveTowardsPlayer (); break;
+		}
 	}
 
-	bool detect_player (){
+	void meleeAttack(){
+		Debug.Log ("Melee");
+	}
+
+	bool detectPlayer (){
 		
-		distance_to_player = distance_between ();
+		distanceToPlayer = detectDistance ();
 		
-		if (distance_to_player < detectionDistance) {
+		if (distanceToPlayer < detectionDistance) {
 			return true;
 			
 		}
 		return false;
 	}
 
-	void move_towards_player(){
+	void moveTowardsPlayer(){
 
 		if (diff_x < diff_y && diff_x < 0) {
 			direction = new Vector2 (1.0f, 0.0f);
@@ -248,12 +258,18 @@ public class EnemyController : MonoBehaviour {
 			direction = new Vector2 (0.0f, -1.0f);
 			rigidbody2D.velocity = Vector3.down * speed;
 
-
 		} else {
-			//rigidbody2D.velocity = Vector3.left * speed;
-			rigidbody2D.velocity = new Vector3 (0, 0, 0);
+			standStill();
 		}
 
+	}
+
+	Vector2 getPlayerDirection() {
+		if (diff_x < diff_y && diff_x < 0) return new Vector2 (1.0f, 0.0f);
+		if (diff_x > diff_y && diff_x > 0) return new Vector2 (-1.0f, 0.0f);
+		if (diff_y < diff_x && diff_y < 0) return new Vector2 (0.0f, 1.0f);
+		if (diff_y > diff_x && diff_y > 0) return new Vector2 (0.0f, -1.0f);
+		return new Vector2 (1.0f, 0.0f);
 	}
 
 	int random_number(){
@@ -261,41 +277,44 @@ public class EnemyController : MonoBehaviour {
 		return rand;
 	}
 
-	void movement_random(int r){
-
-		//int rand = random_number ();
-
-		if (rand == 0) {
-						//stay still
-		} else if (rand == 1) {
-			move_up();			//move_up
-		} else if (rand == 2) {
-			move_down ();		//move_down
-		} else if (rand == 3) {
-			move_left();		//move_left		
-		} else if (rand == 4) {
-			move_right();		//move right
+	void randomMovement(){
+		if (Time.time > lastDirectionChange + minMovementDuration) {
+				randomDirection = random_number ();
+				lastDirectionChange = Time.time;
+				if (randomDirection == 0) {
+						standStill ();
+				} else if (randomDirection == 1) {
+						moveUp ();			//move_up
+				} else if (randomDirection == 2) {
+						moveDown ();		//move_down
+				} else if (randomDirection == 3) {
+						moveLeft ();		//move_left		
+				} else if (randomDirection == 4) {
+						moveRight ();		//move right
+				}
 		}
-
 	}
 
-	void move_up(){
+	//Moving functions
+	void moveUp(){
 		rigidbody2D.velocity = Vector3.up * speed;
 		animator.Play ("WalkUp");
 	}
-	void move_down(){
+	void moveDown(){
 		rigidbody2D.velocity = Vector3.down * speed;
 		animator.Play ("WalkDown");
 	}
-	void move_right(){
+	void moveRight(){
 		rigidbody2D.velocity = Vector3.right * speed;
 		animator.Play ("WalkRight");
 	}
-	void move_left(){
+	void moveLeft(){
 		rigidbody2D.velocity = Vector3.left * speed;
 		animator.Play ("WalkLeft");
 	}
-
+	void standStill() {
+		rigidbody2D.velocity = new Vector3 (0, 0, 0);
+	}
 
 	void OnCollisionEnter2D(Collision2D other){
 		if (other.gameObject.tag == "Spell") {
@@ -316,18 +335,7 @@ public class EnemyController : MonoBehaviour {
 			Destroy (other.gameObject);
 		}
 	}
-//	void collision_detected(){
-//		if (this.collider2D != true) {
-//						print ("hit!!!");
-//				}
-//	}
-//	void OnTriggerEnter (BoxCollider other){
-//		life--;
-//		if (life == 0) {
-//			Destroy(this);
-//		}
-//	}
-			
+
 
 }
 

@@ -14,7 +14,7 @@ public class CameraController : MonoBehaviour {
 	
 	}
 
-
+	/*
 	// Update is called once per frame
 	void Update () {
 		if (isColliding) {
@@ -34,6 +34,13 @@ public class CameraController : MonoBehaviour {
 			isColliding = false;
 		}
 	}
+	*/
 
+	void OnTriggerStay2D(Collider2D other) {
+		if(other.gameObject.tag == "Player") {
+			movementSpeed = other.gameObject.rigidbody2D.velocity;
+			cameraSystem.transform.position += new Vector3(movementSpeed.x,movementSpeed.y,0f) * Time.deltaTime;
+		}
+	}
 
 }

@@ -33,7 +33,7 @@ public class Colour : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (isTransition() && time <= duration) {
+		if (isTransition() && time <= duration+0.2f) {
 			renderer.color = Color.Lerp(lastColor,finalColor,time/duration);
 			time += Time.deltaTime;
 		}

@@ -115,7 +115,7 @@ public class GameInstance : MonoBehaviour
 
 		//Instances an energy sphere
 		GameObject spellPrefab = Resources.Load("Spells/" + spellData["color"] + "Spell") as GameObject;
-		GameObject energySphere = (GameObject) Instantiate(spellPrefab, (transform.position + (new Vector3(direction.x, direction.y, 0)*distance)), transform.rotation);
+		GameObject energySphere = (GameObject) Instantiate(spellPrefab, (transform.position + (new Vector3(direction.x, direction.y, 0)*distance)), new Quaternion(0,0,0,1));
 		energySphere.tag = spellTag; 
 
 		//Set spell parameters
@@ -288,10 +288,10 @@ public class GameInstance : MonoBehaviour
 	}
 
 	public bool regeneration() {
-		if (health>0 && Time.time > lastSpell + 2f) {
+		if (health>0 && Time.time > lastSpell + 2f && Time.time > lastRegeneration + 3f) {
 			if(mana < maxMana) regenerateMana();
-			//if(health < (maxHealth / 2)) regenerateHealth ();
 			if(health < maxHealth) regenerateHealth ();
+			lastRegeneration = Time.time;
 			return true;
 		}
 		return false;

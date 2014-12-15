@@ -79,7 +79,6 @@ public class PlayerController : MonoBehaviour {
 			Colour colorScript = other.gameObject.GetComponent("Colour") as Colour;
 			if(colorScript.isColored()) {
 				if (Time.time > lastRegeneration + 3.0f) {
-					Debug.Log("E' coloratoooo!");
 					if(GameInstance.instance.regeneration()) lastRegeneration = Time.time;
 				}
 			}
