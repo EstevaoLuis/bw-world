@@ -7,7 +7,7 @@
         "mass": 1,
         "scale": 1,
         "delay": 1,
-        "detection": 5,
+        "detection": 6,
         "melee": [],
     	"spells": [
     		{"name": "Black 1", "probability": 1}
@@ -41,7 +41,7 @@
         "mass": 100,
         "scale": 1,
         "delay": 1,
-        "detection": 4,
+        "detection": 6,
         "melee": [],
     	"spells": [
     		{"name": "Black 2", "probability": 1}

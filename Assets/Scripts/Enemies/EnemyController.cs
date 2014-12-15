@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour {
 	private int attack;
 	private int defense;
 	private float speed;
+	private float maxSpeed;
 	private int experience;
 	private float detectionDistance;
 	private float scale;
@@ -28,7 +29,8 @@ public class EnemyController : MonoBehaviour {
 
 	private float distanceToPlayer;
 	private Vector2 direction;
-	private float minMovementDuration = 0.3f;
+	private float minMovementDuration = 0.8f;
+	private float minDashDuration = 0.3f;
 	private float lastDirectionChange = 0f;
 	private float meleeDistance = 2.5f;
 	private float range;
@@ -75,7 +77,7 @@ public class EnemyController : MonoBehaviour {
 		health = parameters ["health"].AsInt;
 		attack = parameters ["attack"].AsInt;
 		defense = parameters ["defense"].AsInt;
-		speed = parameters ["speed"].AsFloat;
+		maxSpeed = parameters ["speed"].AsFloat;
 		delay = parameters ["delay"].AsFloat;
 		scale = parameters ["scale"].AsFloat;
 		mass = parameters ["mass"].AsInt;
@@ -97,10 +99,10 @@ public class EnemyController : MonoBehaviour {
 		//Calculate range
 		range = 0f;
 		for (int i=0; i < spells.Count; i++) {
-			if(spells[i]["speed"].AsFloat*spells[i]["duration"].AsFloat > range) range = spells[i]["speed"].AsFloat*spells[i]["duration"].AsFloat;
+			if(GameInstance.instance.getSpellRange(spells[i]["name"]) > range) range = GameInstance.instance.getSpellRange(spells[i]["name"]);
 		}
 
-		randomDirection = random_number ();
+		randomDirection = randomNumber ();
 		direction = new Vector2(0.0f,-1.0f);
 	}
 	
@@ -109,16 +111,18 @@ public class EnemyController : MonoBehaviour {
 		//Enemy not already dead
 		if (isAlive) {
 
-			detectDistance();
+			distanceToPlayer = detectDistance();
 
 			//If player NOT detected
 			if (distanceToPlayer > detectionDistance) {
 
+				speed = maxSpeed / 1.5f;
 				randomMovement();
 
 			//If player detected
 			} else {
 
+				speed = maxSpeed;
 				//If too distant
 				if(distanceToPlayer > range) {
 
@@ -223,6 +227,7 @@ public class EnemyController : MonoBehaviour {
 			case 0: standStill(); break;
 			case 1: randomMovement (); break;
 			case 2: moveTowardsPlayer (); break;
+			case 3: runAway (); break;
 		}
 	}
 
@@ -241,23 +246,32 @@ public class EnemyController : MonoBehaviour {
 		return false;
 	}
 
+	void runAway() {
+
+		if (diff_x < diff_y && diff_x < 0) {
+			moveLeft();
+		} else if (diff_x > diff_y && diff_x > 0) {
+			moveRight();
+		} else if (diff_y < diff_x && diff_y < 0) {
+			moveDown();
+		} else if (diff_y > diff_x && diff_y > 0) {
+			moveUp();
+		} else {
+			standStill();
+		}
+
+	}
+
 	void moveTowardsPlayer(){
 
 		if (diff_x < diff_y && diff_x < 0) {
-			direction = new Vector2 (1.0f, 0.0f);
-			rigidbody2D.velocity = Vector3.right * speed;
+			moveRight();
 		} else if (diff_x > diff_y && diff_x > 0) {
-			direction = new Vector2 (-1.0f, 0.0f);
-			rigidbody2D.velocity = Vector3.left * speed;
-
+			moveLeft();
 		} else if (diff_y < diff_x && diff_y < 0) {
-			direction = new Vector2 (0.0f, 1.0f);
-			rigidbody2D.velocity = Vector3.up * speed;
-		
+			moveUp();
 		} else if (diff_y > diff_x && diff_y > 0) {
-			direction = new Vector2 (0.0f, -1.0f);
-			rigidbody2D.velocity = Vector3.down * speed;
-
+			moveDown();
 		} else {
 			standStill();
 		}
@@ -272,15 +286,14 @@ public class EnemyController : MonoBehaviour {
 		return new Vector2 (1.0f, 0.0f);
 	}
 
-	int random_number(){
+	int randomNumber(){
 		int rand = Random.Range (0, 5);
 		return rand;
 	}
 
 	void randomMovement(){
 		if (Time.time > lastDirectionChange + minMovementDuration) {
-				randomDirection = random_number ();
-				lastDirectionChange = Time.time;
+				randomDirection = randomNumber ();
 				if (randomDirection == 0) {
 						standStill ();
 				} else if (randomDirection == 1) {
@@ -297,23 +310,47 @@ public class EnemyController : MonoBehaviour {
 
 	//Moving functions
 	void moveUp(){
-		rigidbody2D.velocity = Vector3.up * speed;
-		animator.Play ("WalkUp");
+		if (Time.time > lastDirectionChange + minDashDuration) {
+			direction = new Vector2 (0.0f, 1.0f);
+			rigidbody2D.velocity = Vector3.up * speed;
+			animator.Play ("WalkUp");
+			lastDirectionChange = Time.time;
+		}
 	}
 	void moveDown(){
-		rigidbody2D.velocity = Vector3.down * speed;
-		animator.Play ("WalkDown");
+		if (Time.time > lastDirectionChange + minDashDuration) {
+			direction = new Vector2 (0.0f, -1.0f);
+			rigidbody2D.velocity = Vector3.down * speed;
+			animator.Play ("WalkDown");
+			lastDirectionChange = Time.time;
+		}
 	}
 	void moveRight(){
-		rigidbody2D.velocity = Vector3.right * speed;
-		animator.Play ("WalkRight");
+		if (Time.time > lastDirectionChange + minDashDuration) {
+			direction = new Vector2 (1.0f, 0.0f);
+			rigidbody2D.velocity = Vector3.right * speed;
+			animator.Play ("WalkRight");
+			lastDirectionChange = Time.time;
+		}
 	}
 	void moveLeft(){
-		rigidbody2D.velocity = Vector3.left * speed;
-		animator.Play ("WalkLeft");
+		if (Time.time > lastDirectionChange + minDashDuration) {
+			direction = new Vector2 (-1.0f, 0.0f);
+			rigidbody2D.velocity = Vector3.left * speed;
+			animator.Play ("WalkLeft");
+			lastDirectionChange = Time.time;
+		}
 	}
 	void standStill() {
-		rigidbody2D.velocity = new Vector3 (0, 0, 0);
+		if (Time.time > lastDirectionChange + minDashDuration) {
+			rigidbody2D.velocity = new Vector3 (0, 0, 0);
+			lastDirectionChange = Time.time;
+			Vector3 standDirection = new Vector3(direction.x,direction.y,0);
+			if(standDirection == Vector3.up) animator.Play ("StandUp");
+			else if(standDirection == Vector3.left) animator.Play ("StandLeft");
+			else if(standDirection == Vector3.right) animator.Play ("StandRight");
+			else if(standDirection == Vector3.down) animator.Play ("StandDown");
+		}
 	}
 
 	void OnCollisionEnter2D(Collision2D other){

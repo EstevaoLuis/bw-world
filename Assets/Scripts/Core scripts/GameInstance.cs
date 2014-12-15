@@ -287,6 +287,10 @@ public class GameInstance : MonoBehaviour
 		return level;
 	}
 
+	public float getSpellRange(string spellName) {
+		return spells[spellName]["duration"].AsFloat * spells[spellName]["speed"].AsFloat;
+	}
+
 	public bool regeneration() {
 		if (health>0 && Time.time > lastSpell + 2f && Time.time > lastRegeneration + 3f) {
 			if(mana < maxMana) regenerateMana();
