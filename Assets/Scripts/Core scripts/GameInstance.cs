@@ -153,7 +153,6 @@ public class GameInstance : MonoBehaviour
 		int levelModification = damage / 100;
 		int finalDamage = damage + Random.Range(-randomModification,randomModification) - levelModification*(getPlayerLevel()-1);
 		health = health - finalDamage;
-		Debug.Log (health);
 		if (health <= 0) {
 			health = 0;
 			updateLifeBar();
@@ -290,8 +289,8 @@ public class GameInstance : MonoBehaviour
 	public bool regeneration() {
 		if (health>0 && Time.time > lastSpell + 2f) {
 			if(mana < maxMana) regenerateMana();
-			if(health < (maxHealth / 2)) regenerateHealth ();
-			Debug.Log("Rigenera!");
+			//if(health < (maxHealth / 2)) regenerateHealth ();
+			if(health < maxHealth) regenerateHealth ();
 			return true;
 		}
 		return false;

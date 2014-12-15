@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour {
 	private Animator animator;
 	private Vector2 direction;
 	private float lastSpell;
+	private float lastRegeneration = 0f;
 
 	// Use this for initialization
 	void Start () {
@@ -71,6 +72,18 @@ public class PlayerController : MonoBehaviour {
 			Spell spellParameters = (Spell)other.gameObject.GetComponent ("Spell");
 			GameInstance.instance.damagePlayer(spellParameters.damage);
 		} 
+	}
+
+	void OnTriggerStay2D (Collider2D other) {
+		if(other.gameObject.tag == "Color") {
+			Colour colorScript = other.gameObject.GetComponent("Colour") as Colour;
+			if(colorScript.isColored()) {
+				if (Time.time > lastRegeneration + 3.0f) {
+					Debug.Log("E' coloratoooo!");
+					if(GameInstance.instance.regeneration()) lastRegeneration = Time.time;
+				}
+			}
+		}
 	}
 
 }

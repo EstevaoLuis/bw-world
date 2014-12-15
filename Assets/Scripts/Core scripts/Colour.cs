@@ -11,45 +11,71 @@ public class Colour : MonoBehaviour {
 	private Color hidden = new Color (1, 1, 1, 0);
 	private Color visible = new Color (1, 1, 1, 1);
 
-	private Color from;
-	private Color to;
-	private bool transition = false;
+	private SpriteRenderer renderer;
+	private Color lastColor;
+	private Color finalColor;
+	//private bool transition = false;
 
 	// Use this for initialization
 	void Start () {
+		renderer = GetComponent<SpriteRenderer> ();
 		if (isColoured) {
-			GetComponent<SpriteRenderer> ().color = hidden;
+			renderer.color = hidden;
+			finalColor = hidden;
+			lastColor = hidden;
+
 		} else {
-			GetComponent<SpriteRenderer> ().color = visible;
+			renderer.color = visible;
+			finalColor = visible;
+			lastColor = visible;
 		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (transition && time <= duration) {
-			if (isColoured) {
-				GetComponent<SpriteRenderer> ().color = Color.Lerp(hidden,visible,time/duration);
-			} else {
-				GetComponent<SpriteRenderer> ().color = Color.Lerp(visible,hidden,time/duration);
-			}
+		if (isTransition() && time <= duration) {
+			renderer.color = Color.Lerp(lastColor,finalColor,time/duration);
 			time += Time.deltaTime;
 		}
 	}
 
 	void OnCollisionEnter2D (Collision2D other) {
 		if(other.gameObject.tag == "Spell") {
-			if (isColoured && !transition) {
+			if (isColoured) {
 			audio.Play();
 			}
-			transition = true;
+			color();
+		}
+		else if(other.gameObject.tag == "SpellEnemy") {
+			decolor ();
 		}
 	}
 
 	void color() {
-		
+		lastColor = renderer.color;
+		if (isColoured) {
+				finalColor = visible;
+		} else {
+			finalColor = hidden;
+		}
+		time = 0f;
 	}
 
 	void decolor() {
+		lastColor = renderer.color;
+		if (isColoured) {
+			finalColor = hidden;
+		} else {
+			finalColor = visible;
+		}
+		time = 0f;
+	}
 
+	public bool isColored() {
+		return isColoured && renderer.color == visible; 
+	}
+
+	bool isTransition() {
+		return renderer.color != finalColor;
 	}
 }
