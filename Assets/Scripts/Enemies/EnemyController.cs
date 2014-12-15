@@ -53,6 +53,8 @@ public class EnemyController : MonoBehaviour {
 
 	int randomDirection;
 
+	private Color hidden = new Color (1, 1, 1, 0);
+	private Color visible = new Color (1, 1, 1, 1);
 
 	// Use this for initialization
 	void Start () {
@@ -156,8 +158,8 @@ public class EnemyController : MonoBehaviour {
 
 		//If hit by a death spell
 		} else {
-
-			if(Time.time>deadTime+0.2) {
+			GetComponent<SpriteRenderer> ().color = Color.Lerp(visible,hidden,(Time.time-deadTime)/ 1f);
+			if(Time.time>deadTime+1f) {
 				//Destroy the enemy
 				Destroy (gameObject);
 
@@ -362,7 +364,7 @@ public class EnemyController : MonoBehaviour {
 				if(finalDamage<=1) finalDamage = 1;
 				health -= finalDamage;
 			GameInstance.instance.damageValueAnimation(finalDamage, transform.position);
-				if (health <= 0) {
+				if (health <= 0 && isAlive) {
 					isAlive = false;
 					deadTime = Time.time;
 					GameInstance.instance.increaseExperience(experience);
