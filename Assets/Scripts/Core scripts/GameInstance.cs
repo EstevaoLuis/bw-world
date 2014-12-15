@@ -204,6 +204,7 @@ public class GameInstance : MonoBehaviour
 	public void gameOver() {
 		stopAllScripts ();
 		Destroy (player);
+		Application.LoadLevel ("Game Over");
 	}
 
 	public JSONNode getEnemyParameters(string name) {
