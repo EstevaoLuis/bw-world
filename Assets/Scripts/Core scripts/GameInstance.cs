@@ -68,14 +68,11 @@ public class GameInstance : MonoBehaviour
 
 
 			//Setup player data
-			level = 1;
-			maxHealth = 200;
-			health = maxHealth;
-			maxMana = 5000;
+			experience = 95;
+			setPlayerLevel (2);
 			mana = maxMana;
-			experience = 0;
-			maxExperience = 1000;
-
+			health = maxHealth;
+			
 			//startAllScripts();
 		}
 		else
@@ -89,6 +86,16 @@ public class GameInstance : MonoBehaviour
 
 	void Start() {
 		refreshUI();
+	}
+	
+	private void setPlayerLevel (int lev) {
+		level = lev;
+		//1 + Mathf.Clamp(Mathf.FloorToInt (Mathf.Sqrt ((experience - 100)/10)),0,99);
+		maxExperience = 100 + 10 * (int) Mathf.Pow ((level-1),2f);
+		maxHealth = 80 + 8 * (int) Mathf.Pow ((level-1),2f);
+		maxMana = 200 + 12 * (int) Mathf.Pow ((level-1),2f);
+		Debug.Log ("Player level: " + level);
+		Debug.Log ("Health: " + maxHealth + ", Mana: " + maxMana);
 	}
 
 	private void getObjectReferences() {
@@ -268,7 +275,7 @@ public class GameInstance : MonoBehaviour
 	}
 
 	public void regenerateHealth() {
-		health = health + Mathf.RoundToInt(maxHealth / 20);
+		health = health + Mathf.RoundToInt(maxHealth / 15);
 		if (health > maxHealth)	mana = maxHealth;
 		updateLifeBar ();
 	}
@@ -280,9 +287,26 @@ public class GameInstance : MonoBehaviour
 		damageValueScript.damageValue = damageValue;
 	}
 
+	public void playAnimation(string animationName, Vector3 position) {
+		GameObject animationPrefab = Resources.Load("Animations/" + animationName) as GameObject;
+		GameObject animation = (GameObject) Instantiate(animationPrefab, position, new Quaternion(0,0,0,1));
+	}
+
 	public void increaseExperience(int amount) {
 		experience += amount;
+		if (experience >= maxExperience) {
+			experience = experience - maxExperience;
+			levelUp();
+		}
 		updateExpBar ();
+	}
+
+	private void levelUp() {
+		setPlayerLevel (level + 1);
+		mana = maxMana;
+		health = maxHealth;
+		playAnimation ("Level Up",player.transform.position);
+		refreshUI ();
 	}
 
 	public int getPlayerLevel() {

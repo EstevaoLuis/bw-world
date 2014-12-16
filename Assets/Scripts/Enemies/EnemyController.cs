@@ -28,6 +28,7 @@ public class EnemyController : MonoBehaviour {
 	private JSONNode melees;
 
 	private float distanceToPlayer;
+	private float distanceToInitialPosition;
 	private Vector2 direction;
 	private float minMovementDuration = 0.8f;
 	private float minDashDuration = 0.3f;
@@ -38,7 +39,7 @@ public class EnemyController : MonoBehaviour {
 	private float colliderRadius;
 	private float initialPositionX, initialPositionY;
 	
-	private GameObject target;
+	private GameObject player;
 
 	private float deadTime;
 	private bool isAlive = true;
@@ -46,8 +47,7 @@ public class EnemyController : MonoBehaviour {
 
 	float x_pos;
 	float y_pos;
-	float x_player_pos;
-	float y_player_pos;
+	Vector2 target;
 	float diff_x;
 	float diff_y;
 
@@ -73,7 +73,7 @@ public class EnemyController : MonoBehaviour {
 		animator = GetComponent<Animator> () as Animator;
 
 		//Set up target
-		target = GameObject.FindGameObjectWithTag ("Player");
+		player = GameObject.FindGameObjectWithTag ("Player");
 
 		//Set parameters
 		health = parameters ["health"].AsInt;
@@ -113,13 +113,26 @@ public class EnemyController : MonoBehaviour {
 		//Enemy not already dead
 		if (isAlive) {
 
+			setTarget(0);
 			distanceToPlayer = detectDistance();
 
 			//If player NOT detected
 			if (distanceToPlayer > detectionDistance) {
 
 				speed = maxSpeed / 1.5f;
-				randomMovement();
+
+				setTarget(1);
+				distanceToInitialPosition = detectDistance();
+
+				//Movimento casuale
+				if(distanceToInitialPosition > detectionDistance * (3f/4f)) {
+					Debug.Log("Torno a " + target + ", distanze = " + distanceToInitialPosition);
+					moveTowardsTarget();
+				}
+				//Torna alla base
+				else {
+					randomMovement();
+				}
 
 			//If player detected
 			} else {
@@ -198,14 +211,18 @@ public class EnemyController : MonoBehaviour {
 		x_pos = transform.position.x;
 		y_pos = transform.position.y;
 		
-		x_player_pos = target.transform.position.x;
-		y_player_pos = target.transform.position.y;
-		
-		diff_x = x_pos - x_player_pos;
-		diff_y = y_pos - y_player_pos;
+		diff_x = x_pos - target.x;
+		diff_y = y_pos - target.y;
 		
 		return Mathf.Sqrt ((diff_x) * (diff_x) + (diff_y) * (diff_y));
 		
+	}
+
+	void setTarget(int type) {
+		switch(type) {
+			case 0: target = new Vector2(player.transform.position.x,player.transform.position.y); break;
+			case 1:	target = new Vector2(initialPositionX,initialPositionY); break;
+		}
 	}
 
 	void castSpell(){
@@ -228,7 +245,7 @@ public class EnemyController : MonoBehaviour {
 		switch(type) {
 			case 0: standStill(); break;
 			case 1: randomMovement (); break;
-			case 2: moveTowardsPlayer (); break;
+			case 2: moveTowardsTarget (); break;
 			case 3: runAway (); break;
 		}
 	}
@@ -237,16 +254,6 @@ public class EnemyController : MonoBehaviour {
 		Debug.Log ("Melee");
 	}
 
-	bool detectPlayer (){
-		
-		distanceToPlayer = detectDistance ();
-		
-		if (distanceToPlayer < detectionDistance) {
-			return true;
-			
-		}
-		return false;
-	}
 
 	void runAway() {
 
@@ -264,7 +271,7 @@ public class EnemyController : MonoBehaviour {
 
 	}
 
-	void moveTowardsPlayer(){
+	void moveTowardsTarget(){
 
 		if (diff_x < diff_y && diff_x < 0) {
 			moveRight();
