@@ -16,8 +16,7 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
 		animator = GetComponent<Animator> () as Animator;
 		direction = new Vector2(0.0f,-1.0f);
-//		spell= GameObject.FindGameObjectWithTag("Spell");
-//		used = spell.GetComponent <Spell> ();
+
 	}
 
 

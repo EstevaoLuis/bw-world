@@ -97,13 +97,14 @@ public class EnemyController : MonoBehaviour {
 		//Collider
 		BoxCollider2D collider = GetComponent<BoxCollider2D> () as BoxCollider2D;
 		colliderDiameter = Mathf.Max (collider.size.x, collider.size.y);
-		//Debug.Log ("Diametro: " + colliderDiameter);
+
 
 		//Calculate range
 		range = 0f;
 		for (int i=0; i < spells.Count; i++) {
 			if(GameInstance.instance.getSpellRange(spells[i]["name"]) > range) range = GameInstance.instance.getSpellRange(spells[i]["name"]);
 		}
+		if (range == 0) range = detectionDistance * (3f / 4f);
 		meleeDistance = colliderDiameter / 2 + 2.5f;
 
 		randomDirection = randomNumber ();
