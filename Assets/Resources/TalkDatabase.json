@@ -1,7 +1,7 @@
 {
     "npc 1": {
     
-    	"phrase": "Hi there, do you know the nature of colors?",
+    	"phrase": "Hey, navigate through your adventure with the arrow keys, touch the red button to open the door",
     	"color": "green",
     	"distance": 3,
     	"x":10,
@@ -13,7 +13,7 @@
     
     "npc 2": {
     
-    	"phrase": "I need your help, quick, the contrast is running low",
+    	"phrase": "Good job, now try to eliminate the following enemies using the boxes as cover. Remember you can move them around for your adv",
     	"color": "red",
     	"distance": 2,
     	"x":10,

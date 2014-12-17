@@ -9,11 +9,15 @@ public class PlayerController : MonoBehaviour {
 	private Vector2 direction;
 	private float lastSpell;
 	private float lastRegeneration = 0f;
+	private Spell used;
+	private GameObject spell;
 
 	// Use this for initialization
 	void Start () {
 		animator = GetComponent<Animator> () as Animator;
 		direction = new Vector2(0.0f,-1.0f);
+//		spell= GameObject.FindGameObjectWithTag("Spell");
+//		used = spell.GetComponent <Spell> ();
 	}
 
 
@@ -49,18 +53,22 @@ public class PlayerController : MonoBehaviour {
 		if(Time.time > lastSpell + 0.1f) {
 			if (Input.GetKey (KeyCode.W)) {
 				GameInstance.instance.playerCastSpell("Red 1",transform,direction);
+				//used.setType(1);
 				lastSpell = Time.time;
 			}
 			else if(Input.GetKey (KeyCode.A)) {
 				GameInstance.instance.playerCastSpell("Blue 1",transform,direction);
+				//used.setType(3);
 				lastSpell = Time.time;
 			}
 			else if(Input.GetKey (KeyCode.D)) {
 				GameInstance.instance.playerCastSpell("Green 1",transform,direction);
+				//used.setType(2);
 				lastSpell = Time.time;
 			}
 			else if(Input.GetKey (KeyCode.S)) {
 				GameInstance.instance.playerCastSpell("Red 4",transform,direction);
+				//used.setType(1);
 				lastSpell = Time.time;
 			}
 		}

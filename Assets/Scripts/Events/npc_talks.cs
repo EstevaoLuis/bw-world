@@ -59,6 +59,7 @@ public class npc_talks : MonoBehaviour {
 			GUI.Label (new Rect (x,y, w, h), text_to_say);
 
 
+
 		}
 
 		//GUI.TextField(new Rect (this.transform.position.x, this.transform.position.y, 100, 100), "");	

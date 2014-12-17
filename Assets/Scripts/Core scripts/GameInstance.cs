@@ -94,8 +94,8 @@ public class GameInstance : MonoBehaviour
 		maxExperience = 100 + 10 * (int) Mathf.Pow ((level-1),2f);
 		maxHealth = 80 + 8 * (int) Mathf.Pow ((level-1),2f);
 		maxMana = 200 + 12 * (int) Mathf.Pow ((level-1),2f);
-		Debug.Log ("Player level: " + level);
-		Debug.Log ("Health: " + maxHealth + ", Mana: " + maxMana);
+//		Debug.Log ("Player level: " + level);
+//		Debug.Log ("Health: " + maxHealth + ", Mana: " + maxMana);
 	}
 
 	private void getObjectReferences() {

@@ -9,7 +9,7 @@ public class Spell : MonoBehaviour {
 	//Parameters
 	public int damage = 10;
 	public float duration = 2.0f;
-
+	private int type;
 
 	private bool hasHit = false;
 	private float hitTime, castTime;
@@ -19,7 +19,7 @@ public class Spell : MonoBehaviour {
 		audio.Play();
 		castTime = Time.time;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		if (hasHit) {
@@ -30,6 +30,14 @@ public class Spell : MonoBehaviour {
 		else if(Time.time > castTime+duration) {
 			Destroy (gameObject);
 		}
+	}
+	public int setType(int t){
+		this.type = t;
+		return type;
+	}
+
+	public int getType(){
+		return type;
 	}
 
 	void OnCollisionEnter2D (Collision2D other) {

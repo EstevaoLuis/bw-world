@@ -1,6 +1,6 @@
 ﻿{
     "Spider": {
-    	"health": 100,
+    	"health": 20,
     	"speed": 2,
         "attack": 10,
         "defense": 0,

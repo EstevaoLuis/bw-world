@@ -20,8 +20,13 @@ public class TutorialEnemy : MonoBehaviour {
 		tut_enem = Tutorial_Enemy.GetComponent<EnemyController> ();
 	}
 
-	void OnCollisionEnter2D(Collision2D other){
-		if (other.gameObject.tag == "Spell") {
+//	void OnCollisionEnter2D(Collision2D other){
+//		if (other.gameObject.tag == "Spell") {
+//			status_lever = 1;
+//		}
+//	}
+	void check_health(){
+		if (tut_enem.getHealth () <= 0) {
 			status_lever = 1;
 		}
 	}
@@ -38,6 +43,7 @@ public class TutorialEnemy : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		check_health ();
 	//	print (status_lever);
 
 	}

@@ -107,6 +107,9 @@ public class EnemyController : MonoBehaviour {
 		randomDirection = randomNumber ();
 		direction = new Vector2(0.0f,-1.0f);
 	}
+	public int getHealth(){
+		return health;
+	}
 	
 	// Update is called once per frame
 	void Update () {
