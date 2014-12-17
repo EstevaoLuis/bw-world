@@ -31,7 +31,7 @@ public class GameInstance : MonoBehaviour
 	private float playerColliderRadius;
 
 	//Time variables
-	private float lastSpell, lastRegeneration;
+	private float lastSpell, lastRegeneration, lastBattle = 0f;
 
 
 	//Instance management
@@ -154,7 +154,7 @@ public class GameInstance : MonoBehaviour
 	}
 
 	public void playAudio(string name) {
-		AudioClip soundEffect = Resources.Load("Spells/Sound Effects/" + name) as AudioClip;
+		AudioClip soundEffect = Resources.Load("Audio/" + name) as AudioClip;
 		audio.clip = soundEffect;
 		audio.Play();
 	}
@@ -343,4 +343,7 @@ public class GameInstance : MonoBehaviour
 		return false;
 	}
 
+	public bool isInBattle() {
+		return lastBattle != 0 && Time.time < lastBattle + 5f;
+	}
 }
