@@ -8,9 +8,11 @@
         "scale": 1,
         "delay": 1,
         "detection": 6,
-        "melee": [],
     	"spells": [
     		{"name": "Black 1", "probability": 1}
+		],
+		"melees": [
+			{"name": "Melee 1", "probability": 1}
 		],
 		"behaviour": [1,2,2],
     	"experience": 10
@@ -25,7 +27,9 @@
         "scale": 1,
         "delay": 0.5,
         "detection": 8,
-        "melee": [],
+        "melees": [
+			{"name": "Melee 1", "probability": 1}
+		],
     	"spells": [
     		{"name": "Black 1", "probability": 0.5}
 		],
@@ -42,7 +46,9 @@
         "scale": 1,
         "delay": 1,
         "detection": 6,
-        "melee": [],
+        "melees": [
+			{"name": "Melee 2", "probability": 1}
+		],
     	"spells": [
     		{"name": "Black 2", "probability": 1}
 		],
@@ -59,7 +65,10 @@
         "scale": 1.5,
         "delay": 1,
         "detection": 10,
-        "melee": [],
+        "melees": [
+			{"name": "Melee 1", "probability": 0.5},
+			{"name": "Melee 2", "probability": 0.5}
+		],
     	"spells": [
     		{"name": "Black 1", "probability": 0.5},
     		{"name": "Black 2", "probability": 0.5}

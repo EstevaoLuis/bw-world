@@ -145,6 +145,14 @@ public class GameInstance : MonoBehaviour
 		energySphere.rigidbody2D.velocity = transform.TransformDirection(direction * Mathf.Max(spellData["speed"].AsFloat,minSpeed));
 	}
 
+	public void meleeAttack(string meleeName, int enemyAttack, Vector2 forceDirection) {
+		//Load animation
+		GameObject meleePrefab = Resources.Load("Melees/Animations/" + meleeName) as GameObject;
+		GameObject melee = (GameObject) Instantiate(meleePrefab, player.transform.position, new Quaternion(0,0,0,1));
+		player.rigidbody2D.AddForce (forceDirection*enemyAttack*100);
+		damagePlayer (enemyAttack);
+	}
+
 	public void playAudio(string name) {
 		AudioClip soundEffect = Resources.Load("Spells/Sound Effects/" + name) as AudioClip;
 		audio.clip = soundEffect;

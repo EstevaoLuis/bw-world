@@ -33,10 +33,10 @@ public class EnemyController : MonoBehaviour {
 	private float minMovementDuration = 0.8f;
 	private float minDashDuration = 0.3f;
 	private float lastDirectionChange = 0f;
-	private float meleeDistance = 2.5f;
+	private float meleeDistance;
 	private float range;
 
-	private float colliderRadius;
+	private float colliderDiameter;
 	private float initialPositionX, initialPositionY;
 	
 	private GameObject player;
@@ -96,13 +96,14 @@ public class EnemyController : MonoBehaviour {
 
 		//Collider
 		BoxCollider2D collider = GetComponent<BoxCollider2D> () as BoxCollider2D;
-		colliderRadius = Mathf.Max (collider.size.x, collider.size.y);
+		colliderDiameter = Mathf.Max (collider.size.x, collider.size.y);
 
 		//Calculate range
 		range = 0f;
 		for (int i=0; i < spells.Count; i++) {
 			if(GameInstance.instance.getSpellRange(spells[i]["name"]) > range) range = GameInstance.instance.getSpellRange(spells[i]["name"]);
 		}
+		meleeDistance = colliderDiameter / 2 + 2.5f;
 
 		randomDirection = randomNumber ();
 		direction = new Vector2(0.0f,-1.0f);
@@ -129,7 +130,7 @@ public class EnemyController : MonoBehaviour {
 
 				//Movimento casuale
 				if(distanceToInitialPosition > detectionDistance * (3f/4f)) {
-					Debug.Log("Torno a " + target + ", distanze = " + distanceToInitialPosition);
+					//Debug.Log("Torno a " + target + ", distanze = " + distanceToInitialPosition);
 					moveTowardsTarget();
 				}
 				//Torna alla base
@@ -229,7 +230,7 @@ public class EnemyController : MonoBehaviour {
 	}
 
 	void castSpell(){
-		GameInstance.instance.castSpell (choose_spell (), transform, getPlayerDirection(), "SpellEnemy", colliderRadius / 2 + (colliderRadius / 10), speed);
+		GameInstance.instance.castSpell (choose_spell (), transform, getPlayerDirection(), "SpellEnemy", colliderDiameter / 2 + (colliderDiameter / 10), speed);
 		lastAttack = Time.time;
 	}
 
@@ -254,7 +255,8 @@ public class EnemyController : MonoBehaviour {
 	}
 
 	void meleeAttack(){
-		Debug.Log ("Melee");
+		GameInstance.instance.meleeAttack (choose_melee(), attack, direction);
+		lastAttack = Time.time;
 	}
 
 
