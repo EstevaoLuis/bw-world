@@ -149,6 +149,9 @@ public class GameInstance : MonoBehaviour
 		//Load animation
 		GameObject meleePrefab = Resources.Load("Melees/Animations/" + meleeName) as GameObject;
 		GameObject melee = (GameObject) Instantiate(meleePrefab, player.transform.position, new Quaternion(0,0,0,1));
+
+		melee.audio.clip = Resources.Load("Melees/Sound Effects/" + meleeName) as AudioClip;
+
 		player.rigidbody2D.AddForce (forceDirection*enemyAttack*100);
 		damagePlayer (enemyAttack);
 	}
@@ -248,7 +251,7 @@ public class GameInstance : MonoBehaviour
 	}
 
 	public void loadGame() {
-		UnityEditor.AssetDatabase.Refresh (); 
+		//UnityEditor.AssetDatabase.Refresh (); 
 		TextAsset gameJson = Resources.Load("GameData") as TextAsset;
 		gameData = JSONNode.Parse(gameJson.text);
 
