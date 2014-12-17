@@ -32,8 +32,6 @@ public class GameInstance : MonoBehaviour
 
 	//Time variables
 	private float lastSpell, lastRegeneration;
-	
-	private float battleTime = 0f;
 
 
 	//Instance management
@@ -89,11 +87,7 @@ public class GameInstance : MonoBehaviour
 	void Start() {
 		refreshUI();
 	}
-
-	public bool isInBattle() {
-		return battleTime > 5f;
-	}
-
+	
 	private void setPlayerLevel (int lev) {
 		level = lev;
 		//1 + Mathf.Clamp(Mathf.FloorToInt (Mathf.Sqrt ((experience - 100)/10)),0,99);
@@ -155,12 +149,6 @@ public class GameInstance : MonoBehaviour
 		//Load animation
 		GameObject meleePrefab = Resources.Load("Melees/Animations/" + meleeName) as GameObject;
 		GameObject melee = (GameObject) Instantiate(meleePrefab, player.transform.position, new Quaternion(0,0,0,1));
-
-		//Set sound
-		AudioClip soundEffect = Resources.Load("Melees/Sound Effects/" + meleeName) as AudioClip;
-		melee.audio.clip = soundEffect;
-
-
 		player.rigidbody2D.AddForce (forceDirection*enemyAttack*100);
 		damagePlayer (enemyAttack);
 	}
@@ -233,7 +221,8 @@ public class GameInstance : MonoBehaviour
 	public void gameOver() {
 		//stopAllScripts ();
 		Destroy (player);
-		Destroy (GameObject.FindWithTag("GameSystem").gameObject);
+		Destroy (GameObject.FindWithTag("GameSystem"));
+		Destroy (this);
 		Application.LoadLevel ("Game Over");
 	}
 
