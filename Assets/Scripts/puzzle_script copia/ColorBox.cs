@@ -26,16 +26,18 @@ public class ColorBox : MonoBehaviour {
 			if (color != pm.correctSequence[pm.attempt]){
 				Debug.Log("WRONG! " + pm.attempt);
 				pm.attempt = 0;
-				return;
+				//return;
 			}
-			var a = ++pm.attempt;
-			Debug.Log("CORRECT! " + pm.attempt);
-			//Debug.Log("HEYSUKE! " + pm.Size ());
-			if (pm.Size() == a){
-				Debug.Log("COMPLETE! " + pm.attempt);
-				Destroy(pm.door);
-				pm.active = false;
-			} 
+			if (color == pm.correctSequence[pm.attempt]){
+				var a = ++pm.attempt;
+				Debug.Log("CORRECT! " + pm.attempt);
+				//Debug.Log("HEYSUKE! " + pm.Size ());
+				if (pm.Size() == a){
+					Debug.Log("COMPLETE! " + pm.attempt);
+					Destroy(pm.door);
+					pm.active = false;
+				}
+			}
 		}
 	}
 }
