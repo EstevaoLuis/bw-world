@@ -36,8 +36,8 @@ public class npc_talks : MonoBehaviour {
 		color = Talk ["color"];
 		distance_to_talk = Talk ["distance"].AsFloat;
 		tag = Talk ["tag"];
-		x = Talk ["x"].AsFloat;
-		y = Talk ["y"].AsFloat;
+//		x = Talk ["x"].AsFloat;
+//		y = Talk ["y"].AsFloat;
 		w = Talk ["w"].AsFloat;
 		h = Talk ["h"].AsFloat;
 
@@ -56,7 +56,12 @@ public class npc_talks : MonoBehaviour {
 			//Color col = color as Color;
 //			//color = (color)
 //			GUI.color = col;
-			GUI.Label (new Rect (x,y, w, h), text_to_say);
+			pos_x = npc.transform.position.x;
+			pos_y = npc.transform.position.y;
+			
+
+			GUI.Label (new Rect (pos_x,pos_y + y, w, h), text_to_say);
+		
 
 
 
@@ -68,11 +73,7 @@ public class npc_talks : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
-//		pos_x = npc.transform.position.x;
-//		pos_y = npc.transform.position.y;
-
-				//guiText.text = "HELLOOOOOOO";
+//guiText.text = "HELLOOOOOOO";
 //				
 //		Txt = GameObject.FindGameObjectWithTag("Text");
 

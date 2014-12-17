@@ -220,8 +220,10 @@ public class GameInstance : MonoBehaviour
 	
 	public void gameOver() {
 		//stopAllScripts ();
-		Destroy (player);
+		//Destroy (player);
+		Destroy (GameObject.FindWithTag("User Interface"));
 		Destroy (GameObject.FindWithTag("GameSystem"));
+		Destroy (this);
 		Application.LoadLevel ("Game Over");
 	}
 
