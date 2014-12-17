@@ -8,7 +8,8 @@ public class Regeneration : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Time.time > lastRegeneration + 3.0f) {
-			if(GameInstance.instance.regeneration()) lastRegeneration = Time.time;
+			GameInstance.instance.alwaysRegenerateMana();
+			lastRegeneration = Time.time;
 		}
 	}
 }

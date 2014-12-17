@@ -275,17 +275,23 @@ public class GameInstance : MonoBehaviour
 		}
 	}
 
+	public void alwaysRegenerateMana() {
+		mana = mana + Mathf.RoundToInt(maxMana / 20);
+		if (mana > maxMana)	mana = maxMana;
+		updateManaBar ();
+	}
+
 	public void regenerateMana() {
 		mana = mana + Mathf.RoundToInt(maxMana / 10);
 		if (mana > maxMana)	mana = maxMana;
 		updateManaBar ();
-		setBlackMood ((float) health / maxHealth);
 	}
 
 	public void regenerateHealth() {
-		health = health + Mathf.RoundToInt(maxHealth / 15);
+		health = health + Mathf.RoundToInt(maxHealth / 10);
 		if (health > maxHealth)	mana = maxHealth;
 		updateLifeBar ();
+		setBlackMood ((float) health / maxHealth);
 	}
 
 	public void damageValueAnimation(int damageValue, Vector3 position) {
