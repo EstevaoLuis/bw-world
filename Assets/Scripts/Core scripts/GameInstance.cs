@@ -332,7 +332,7 @@ public class GameInstance : MonoBehaviour
 	}
 
 	public bool regeneration() {
-		if (health>0 && Time.time > lastSpell + 2f && Time.time > lastRegeneration + 3f) {
+		if (health>0 && Time.time > lastSpell + 3f && Time.time > lastRegeneration + 3f) {
 			if(mana < maxMana) regenerateMana();
 			if(health < maxHealth) regenerateHealth ();
 			lastRegeneration = Time.time;

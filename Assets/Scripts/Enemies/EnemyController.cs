@@ -97,6 +97,7 @@ public class EnemyController : MonoBehaviour {
 		//Collider
 		BoxCollider2D collider = GetComponent<BoxCollider2D> () as BoxCollider2D;
 		colliderDiameter = Mathf.Max (collider.size.x, collider.size.y);
+		//Debug.Log ("Diametro: " + colliderDiameter);
 
 		//Calculate range
 		range = 0f;
@@ -230,7 +231,7 @@ public class EnemyController : MonoBehaviour {
 	}
 
 	void castSpell(){
-		GameInstance.instance.castSpell (choose_spell (), transform, getPlayerDirection(), "SpellEnemy", colliderDiameter / 2 + (colliderDiameter / 10), speed);
+		GameInstance.instance.castSpell (choose_spell (), transform, getPlayerDirection(), "SpellEnemy", colliderDiameter / 2 + 1.5f, speed);
 		lastAttack = Time.time;
 	}
 
