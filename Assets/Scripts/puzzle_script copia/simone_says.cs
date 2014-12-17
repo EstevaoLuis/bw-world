@@ -156,15 +156,6 @@ public class simone_says : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		i = 0;
-
-		while (i < actual) {
-			if (Time.time > timer_two) {
-				disp ();
-				print ("fast");
-					timer_two = Time.time + 3;
-				i++;
-			}
-		}
+		disp ();
 	}
 }
