@@ -3,17 +3,38 @@ using System.Collections;
 
 public class NPC : MonoBehaviour {
 
-	GameObject textObject;
+	public string message;
+
+	private GameObject textObject;
+
+	private bool isCentered = false;
+	private bool isVisible = false;
+
+	FadeObjectInOut fadingText;
 
 	// Use this for initialization
 	void Start () {
-		Collider collider = GetComponent<Collider> () as Collider;
+		BoxCollider2D collider = GetComponent<BoxCollider2D> () as BoxCollider2D;
 		Vector3 textPosition = new Vector3 (transform.position.x, transform.position.y + collider.bounds.size.y, -1);
-		textObject = GameInstance.instance.showNPCText ("Ciao!!", textPosition);
+		textObject = GameInstance.instance.showNPCText (message, textPosition);
+		fadingText = textObject.GetComponent("FadeObjectInOut") as FadeObjectInOut;
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (!isCentered) {
+			textObject.transform.position = new Vector3(textObject.transform.position.x - (textObject.renderer.bounds.size.x / 2f),textObject.transform.position.y + (textObject.renderer.bounds.size.y), -1);
+			isCentered = true;
+		}
+
+	}
+
+	void OnTriggerEnter2D(Collider2D other) {
+		fadingText.FadeIn (1);
+	}
+
+	void OnTriggerExit2D(Collider2D other) {
+		fadingText.FadeOut (1);
 	}
 }

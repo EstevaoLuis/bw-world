@@ -2,10 +2,7 @@
 using System.Collections;
 
 public class FloatingText : MonoBehaviour {
-	
-	
-	private float hidden = 1f;
-	private float visible = 20f;
+
 
 	public string message;
 	private TextMesh displayText;

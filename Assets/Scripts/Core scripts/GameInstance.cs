@@ -316,6 +316,8 @@ public class GameInstance : MonoBehaviour
 		GameObject displayText = (GameObject) Instantiate(textPrefab, position, Quaternion.Euler(new Vector3(0,0,0)));
 		FloatingText textScript = (FloatingText) displayText.GetComponent("FloatingText");
 		textScript.message = text;
+		//displayText.transform.position.x -= displayText.renderer.bounds.size.x / 2f;
+		//GameObject finalText = displayText;
 		return displayText;
 	}
 
