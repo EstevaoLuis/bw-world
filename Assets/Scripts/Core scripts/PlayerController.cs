@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 
 		if (useJoystick) {
+
 				if (leftJoystick.position.y != 0 && Mathf.Abs (leftJoystick.position.y) > Mathf.Abs (leftJoystick.position.x)) {
 						if (leftJoystick.position.y < 0) {
 								animator.Play ("WalkDown");
