@@ -145,8 +145,6 @@ public class EnemyController : MonoBehaviour {
 			//If player detected
 			} else {
 
-				Debug.Log (distanceToPlayer);
-
 				speed = maxSpeed;
 				//If too distant
 				if(distanceToPlayer > range + (colliderDiameter / 2f)) {

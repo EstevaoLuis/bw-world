@@ -230,6 +230,7 @@ public class GameInstance : MonoBehaviour
 	
 	public void gameOver() {
 		//stopAllScripts ();
+		playAudio ("Death");
 		Destroy (player);
 		Destroy (GameObject.FindWithTag("GameSystemActive").gameObject);
 		Destroy (this);
@@ -342,6 +343,7 @@ public class GameInstance : MonoBehaviour
 	}
 
 	private void levelUp() {
+		playAudio ("LevelUp");
 		setPlayerLevel (level + 1);
 		mana = maxMana;
 		health = maxHealth;
