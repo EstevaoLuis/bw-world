@@ -10,7 +10,10 @@ public class NewGameMenu : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKey (KeyCode.Space))
-			Application.LoadLevel ("Level01");
+		if (Input.GetKey (KeyCode.Space)) startGame ();
+	}
+
+	public void startGame() {
+		Application.LoadLevel ("Level01");
 	}
 }

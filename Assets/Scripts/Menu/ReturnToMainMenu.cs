@@ -11,6 +11,10 @@ public class ReturnToMainMenu : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKey (KeyCode.Space))
-			Application.LoadLevel ("Main Menu");
+						backToMainMenu ();
+	}
+
+	public void backToMainMenu() {
+		Application.LoadLevel ("Main Menu");
 	}
 }
