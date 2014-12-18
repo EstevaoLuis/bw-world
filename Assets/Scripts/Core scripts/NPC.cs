@@ -18,7 +18,7 @@ public class NPC : MonoBehaviour {
 		Vector3 textPosition = new Vector3 (transform.position.x, transform.position.y + collider.bounds.size.y, -1);
 		textObject = GameInstance.instance.showNPCText (message, textPosition);
 		fadingText = textObject.GetComponent("FadeObjectInOut") as FadeObjectInOut;
-
+		fadingText.FadeOut (0);
 	}
 	
 	// Update is called once per frame
@@ -32,13 +32,13 @@ public class NPC : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if(other.gameObject.tag == "Player") {
-			fadingText.FadeIn ();
+			fadingText.FadeIn (5);
 		}
 	}
 
 	void OnTriggerExit2D(Collider2D other) {
 		if (other.gameObject.tag == "Player") {
-			fadingText.FadeOut ();
+			fadingText.FadeOut (5);
 		}
 	}
 }
