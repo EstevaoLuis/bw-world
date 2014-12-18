@@ -1,0 +1,245 @@
+fileFormatVersion: 2
+guid: df874a6e3267e4d8dbaf13e8e2bb4f37
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Special5_0
+    21300002: Special5_1
+    21300004: Special5_2
+    21300006: Special5_3
+    21300008: Special5_4
+    21300010: Special5_5
+    21300012: Special5_6
+    21300014: Special5_7
+    21300016: Special5_8
+    21300018: Special5_9
+    21300020: Special5_10
+    21300022: Special5_11
+    21300024: Special5_12
+    21300026: Special5_13
+    21300028: Special5_14
+    21300030: Special5_15
+    21300032: Special5_16
+    21300034: Special5_17
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Special5_0
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 496
+        width: 26
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Special5_1
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 520
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Special5_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 498
+        width: 11
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Special5_3
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 494
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Special5_4
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 513
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Special5_5
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 443
+        width: 98
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Special5_6
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 438
+        width: 110
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Special5_7
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 433
+        width: 118
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Special5_8
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 492
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Special5_9
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 237
+        width: 128
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Special5_10
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 233
+        width: 136
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Special5_11
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 230
+        width: 141
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Special5_12
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 225
+        width: 146
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Special5_13
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 235
+        width: 148
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Special5_14
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 39
+        width: 151
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Special5_15
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 40
+        width: 144
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Special5_16
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 37
+        width: 137
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Special5_17
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 33
+        width: 143
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
