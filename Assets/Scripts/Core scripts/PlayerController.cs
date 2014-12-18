@@ -20,16 +20,54 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
 		animator = GetComponent<Animator> () as Animator;
 		direction = new Vector2(0.0f,-1.0f);
+<<<<<<< HEAD
+		GameObject virtualPad = GameObject.FindGameObjectWithTag ("joystick");
+		//joystick = virtualPad.GetComponent("Joystick") as Joystick;
+=======
 		//GameObject virtualPad = GameObject.FindGameObjectWithTag ("joystick");
 		//joystick = virtualPad.GetComponent("Joystick") as Joystick;
 		//GameObject[] joysticks = GameObject.FindGameObjectsWithTag ("joystick");
 		//joystick = joysticks [0].GetComponent("Joystick") as Joystick;
+>>>>>>> FETCH_HEAD
 	}
 
 
 	
 	// Update is called once per frame
 	void Update () {
+<<<<<<< HEAD
+//		if (useJoystick) {
+//			if (joystick.position.y!=0 && Mathf.Abs(joystick.position.y)>Mathf.Abs(joystick.position.x)) {
+//				if(joystick.position.y < 0) {
+//					animator.Play ("WalkDown");
+//					direction = new Vector2 (0.0f, -1.0f);
+//					rigidbody2D.velocity = direction * speed * Mathf.Abs(joystick.position.y);
+//				}
+//				else {
+//					animator.Play ("WalkUp");
+//					direction = new Vector2 (0.0f, 1.0f);
+//					rigidbody2D.velocity = direction * speed * Mathf.Abs(joystick.position.y);
+//				}
+//			}
+//			else if(joystick.position.x!=0) {
+//				if(joystick.position.x < 0) {
+//					animator.Play ("WalkLeft");
+//					direction = new Vector2 (-1.0f, 0.0f);
+//					rigidbody2D.velocity = direction * speed * Mathf.Abs(joystick.position.x);
+//				}
+//				else {
+//					animator.Play ("WalkRight");
+//					direction = new Vector2 (1.0f, 0.0f);
+//					rigidbody2D.velocity = direction * speed * Mathf.Abs(joystick.position.x);
+//				}
+//			}
+//			else {
+//				rigidbody2D.velocity = new Vector2 (0, 0);
+//			}
+//				
+//		} else {
+
+=======
 		if (useJoystick) {
 			if (leftJoystick.position.y!=0 && Mathf.Abs(leftJoystick.position.y)>Mathf.Abs(leftJoystick.position.x)) {
 				if(leftJoystick.position.y < 0) {
@@ -60,6 +98,7 @@ public class PlayerController : MonoBehaviour {
 			}
 				
 		} else {
+>>>>>>> FETCH_HEAD
 			if (Input.GetKey (KeyCode.DownArrow)) {
 				animator.Play ("WalkDown");
 				direction = new Vector2 (0.0f, -1.0f);
@@ -82,10 +121,30 @@ public class PlayerController : MonoBehaviour {
 			} else {
 				rigidbody2D.velocity = new Vector2 (0, 0);
 			}
-		}
-		
-		
+
 		if(Time.time > lastSpell + 0.1f) {
+<<<<<<< HEAD
+
+//			if(joystick.tapCount >1) {
+//				GameInstance.instance.playerCastSpell("Green 1",transform,direction);
+//				lastSpell = Time.time;
+//			}
+
+			if (Input.GetKey (KeyCode.W)) {
+				GameInstance.instance.playerCastSpell("Red 1",transform,direction);
+				//used.setType(1);
+				lastSpell = Time.time;
+			}
+			else if(Input.GetKey (KeyCode.A)) {
+				GameInstance.instance.playerCastSpell("Blue 1",transform,direction);
+				//used.setType(3);
+				lastSpell = Time.time;
+			}
+			else if(Input.GetKey (KeyCode.D)) {
+				GameInstance.instance.playerCastSpell("Green 1",transform,direction);
+				//used.setType(2);
+				lastSpell = Time.time;
+=======
 			if (useJoystick){
 				if(Mathf.Abs (rightJoystick.position.x) > Mathf.Abs (rightJoystick.position.y)) {
 					if(rightJoystick.position.x < -0.5f) {
@@ -107,6 +166,7 @@ public class PlayerController : MonoBehaviour {
 						lastSpell = Time.time;
 					}
 				}
+>>>>>>> FETCH_HEAD
 			}
 			else {
 				if (Input.GetKey (KeyCode.W)) {
