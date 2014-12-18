@@ -38,7 +38,11 @@ public class ColorBox : MonoBehaviour {
 					pm.active = false;
 				}
 			}
+			GameInstance.instance.damageValueAnimation(pm.attempt, transform.position);
 		}
-		GameInstance.instance.damageValueAnimation(pm.attempt, transform.position);
+		if (!pm.active) {
+			Destroy(gameObject.GetComponent<Rigidbody2D>());
+			Destroy(gameObject.GetComponent<PolygonCollider2D>());
+		}
 	}
 }
