@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour {
 				animator.Play ("WalkDown");
 				direction = new Vector2 (0.0f, -1.0f);
 				rigidbody2D.velocity = direction * speed;
-			} else if (Input.GetKey (KeyCode.UpArrow) || (joystick.position.y > 0)) {
+			} else if (Input.GetKey (KeyCode.UpArrow)) {
 				//transform.position += transform.up * MoveSpeed * Time.deltaTime;
 				animator.Play ("WalkUp");
 				direction = new Vector2 (0.0f, 1.0f);
@@ -84,34 +84,35 @@ public class PlayerController : MonoBehaviour {
 		
 		
 		if(Time.time > lastSpell + 0.1f) {
-
-			if(joystick.tapCount >1) {
-				GameInstance.instance.playerCastSpell("Green 1",transform,direction);
-				lastSpell = Time.time;
+			if (useJoystick){
+				if(joystick.tapCount >1) {
+					GameInstance.instance.playerCastSpell("Green 1",transform,direction);
+					lastSpell = Time.time;
+				}
 			}
-
-			if (Input.GetKey (KeyCode.W)) {
-				GameInstance.instance.playerCastSpell("Red 1",transform,direction);
-				//used.setType(1);
-				lastSpell = Time.time;
-			}
-			else if(Input.GetKey (KeyCode.A)) {
-				GameInstance.instance.playerCastSpell("Blue 1",transform,direction);
-				//used.setType(3);
-				lastSpell = Time.time;
-			}
-			else if(Input.GetKey (KeyCode.D)) {
-				GameInstance.instance.playerCastSpell("Green 1",transform,direction);
-				//used.setType(2);
-				lastSpell = Time.time;
-			}
-			else if(Input.GetKey (KeyCode.S)) {
-				GameInstance.instance.playerCastSpell("Red 4",transform,direction);
-				//used.setType(1);
-				lastSpell = Time.time;
+			else {
+				if (Input.GetKey (KeyCode.W)) {
+					GameInstance.instance.playerCastSpell("Red 1",transform,direction);
+					//used.setType(1);
+					lastSpell = Time.time;
+				}
+				else if(Input.GetKey (KeyCode.A)) {
+					GameInstance.instance.playerCastSpell("Blue 1",transform,direction);
+					//used.setType(3);
+					lastSpell = Time.time;
+				}
+				else if(Input.GetKey (KeyCode.D)) {
+					GameInstance.instance.playerCastSpell("Green 1",transform,direction);
+					//used.setType(2);
+					lastSpell = Time.time;
+				}
+				else if(Input.GetKey (KeyCode.S)) {
+					GameInstance.instance.playerCastSpell("Red 4",transform,direction);
+					//used.setType(1);
+					lastSpell = Time.time;
+				}
 			}
 		}
-
 	}
 
 
