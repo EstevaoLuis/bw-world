@@ -11,6 +11,7 @@ public class UserInterface : MonoBehaviour
 	private Slider healthBar;
 	private Slider manaBar;
 	private Slider expBar;
+	private Text levelText;
 	
 	//Instance management
 	public static UserInterface instance
@@ -44,6 +45,7 @@ public class UserInterface : MonoBehaviour
 		healthBar = GameObject.FindWithTag ("HealthBar").GetComponent<Slider>() as Slider;
 		manaBar = GameObject.FindWithTag ("ManaBar").GetComponent<Slider>() as Slider;
 		expBar = GameObject.FindWithTag ("ExpBar").GetComponent<Slider>() as Slider;
+		levelText = GameObject.FindWithTag ("LevelText").GetComponent<Text>() as Text;
 	}
 
 	public void setHealthValue(float value) {
@@ -56,6 +58,10 @@ public class UserInterface : MonoBehaviour
 
 	public void setExpValue(float value) {
 		expBar.value = Mathf.Clamp (value, 0, 1);
+	}
+
+	public void setLevel(int value) {
+		levelText.text = value.ToString ();
 	}
 
 }

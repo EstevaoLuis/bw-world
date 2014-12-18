@@ -31,10 +31,14 @@ public class NPC : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		fadingText.FadeIn (1);
+		if(other.gameObject.tag == "Player") {
+			fadingText.FadeIn ();
+		}
 	}
 
 	void OnTriggerExit2D(Collider2D other) {
-		fadingText.FadeOut (1);
+		if (other.gameObject.tag == "Player") {
+			fadingText.FadeOut ();
+		}
 	}
 }

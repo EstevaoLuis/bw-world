@@ -216,6 +216,7 @@ public class GameInstance : MonoBehaviour
 		updateLifeBar ();
 		updateManaBar ();
 		updateExpBar ();
+		userInterface.setLevel (level);
 	}
 
 	public void setBlackMood(float amount) {
