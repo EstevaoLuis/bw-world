@@ -39,5 +39,6 @@ public class ColorBox : MonoBehaviour {
 				}
 			}
 		}
+		GameInstance.instance.damageValueAnimation(pm.attempt, transform.position);
 	}
 }
