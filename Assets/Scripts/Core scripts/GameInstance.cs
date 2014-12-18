@@ -311,6 +311,14 @@ public class GameInstance : MonoBehaviour
 		damageValueScript.damageValue = damageValue;
 	}
 
+	public GameObject showNPCText(string text, Vector3 position) {
+		GameObject textPrefab = Resources.Load("UI/FloatingText") as GameObject;
+		GameObject displayText = (GameObject) Instantiate(textPrefab, position, Quaternion.Euler(new Vector3(0,0,0)));
+		FloatingText textScript = (FloatingText) displayText.GetComponent("FloatingText");
+		textScript.message = text;
+		return displayText;
+	}
+
 	public void playAnimation(string animationName, Vector3 position) {
 		GameObject animationPrefab = Resources.Load("Animations/" + animationName) as GameObject;
 		GameObject animation = (GameObject) Instantiate(animationPrefab, position, new Quaternion(0,0,0,1));

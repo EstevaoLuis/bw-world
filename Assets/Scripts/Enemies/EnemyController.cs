@@ -377,7 +377,7 @@ public class EnemyController : MonoBehaviour {
 				int finalDamage = spellParameters.damage + Random.Range(-randomModification,randomModification) + levelModification*(GameInstance.instance.getPlayerLevel()-1) - defense;
 				if(finalDamage<=1) finalDamage = 1;
 				health -= finalDamage;
-			GameInstance.instance.damageValueAnimation(finalDamage, transform.position);
+				GameInstance.instance.damageValueAnimation(finalDamage, transform.position);
 				if (health <= 0 && isAlive) {
 					isAlive = false;
 					deadTime = Time.time;
