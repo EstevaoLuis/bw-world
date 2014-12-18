@@ -86,6 +86,7 @@ public class GameInstance : MonoBehaviour
 
 	void Start() {
 		refreshUI();
+		GameObject.FindWithTag ("GameSystem").gameObject.tag = "GameSystemActive";
 	}
 
 	//public bool isInBattle() {
@@ -98,8 +99,8 @@ public class GameInstance : MonoBehaviour
 		maxExperience = 100 + 10 * (int) Mathf.Pow ((level-1),2f);
 		maxHealth = 80 + 8 * (int) Mathf.Pow ((level-1),2f);
 		maxMana = 200 + 12 * (int) Mathf.Pow ((level-1),2f);
-//		Debug.Log ("Player level: " + level);
-//		Debug.Log ("Health: " + maxHealth + ", Mana: " + maxMana);
+		Debug.Log ("Player level: " + level);
+		Debug.Log ("Health: " + maxHealth + ", Mana: " + maxMana);
 	}
 
 	private void getObjectReferences() {
@@ -230,7 +231,7 @@ public class GameInstance : MonoBehaviour
 	public void gameOver() {
 		//stopAllScripts ();
 		Destroy (player);
-		Destroy (GameObject.FindWithTag("GameSystem").gameObject);
+		Destroy (GameObject.FindWithTag("GameSystemActive").gameObject);
 		Destroy (this);
 		Application.LoadLevel ("Game Over");
 	}
@@ -257,17 +258,21 @@ public class GameInstance : MonoBehaviour
 	}
 
 	public void loadGame() {
-		//UnityEditor.AssetDatabase.Refresh (); 
-		TextAsset gameJson = Resources.Load("GameData") as TextAsset;
-		gameData = JSONNode.Parse(gameJson.text);
+		string gameJsonText = System.IO.File.ReadAllText("Assets/Resources/GameData.json");
+		//TextAsset gameJson = Resources.Load("GameData") as TextAsset;
+		gameData = JSONNode.Parse(gameJsonText);
 
 		//Load scene & set parameters
 		Application.LoadLevel (gameData["scene"].AsInt);
-		maxHealth = gameData["health"].AsInt;
-		health = maxHealth;
+
+		setPlayerLevel (gameData["level"].AsInt);
 		experience = gameData["experience"].AsInt;
+		health = gameData["health"].AsInt;
+		mana = gameData["mana"].AsInt;
 		player.transform.position = new Vector3(gameData["xPosition"].AsFloat,gameData["yPosition"].AsFloat,0);
 		cameraSystem.transform.position = new Vector3(gameData["xPosition"].AsFloat,gameData["yPosition"].AsFloat,0);
+
+
 	}
 
 	public void stopAllScripts() {

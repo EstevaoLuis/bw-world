@@ -1,19 +1,43 @@
 ﻿using UnityEngine;
 using System.Collections;
+using SimpleJSON;
 
 public class NewGameMenu : MonoBehaviour {
 
+	private bool isLoadedGame = false;
+	private JSONNode gameData;
+
 	// Use this for initialization
 	void Start () {
-	
+		DontDestroyOnLoad (this);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (Input.GetKey (KeyCode.Space)) startGame ();
-	}
+
 
 	public void startGame() {
 		Application.LoadLevel ("Level01");
 	}
+
+	public void loadGame() {
+		string gameJsonText = System.IO.File.ReadAllText ("Assets/Resources/GameData.json");
+		gameData = JSONNode.Parse (gameJsonText);
+		//Load scene & set parameters
+		Application.LoadLevel (gameData ["scene"].AsInt);
+		isLoadedGame = true;
+	}
+
+	void Update() {
+		if (Input.GetKey (KeyCode.Space)) startGame ();
+
+		if (isLoadedGame) {
+			GameObject player = GameObject.FindWithTag ("Player");
+			if(player != null) {
+				player.transform.position = new Vector3(gameData["xPosition"].AsFloat,gameData["yPosition"].AsFloat,0);
+				GameObject cameraSystem = GameObject.FindWithTag ("CameraSystem");
+				cameraSystem.transform.position = new Vector3(gameData["xPosition"].AsFloat,gameData["yPosition"].AsFloat,0);
+				isLoadedGame = false;
+				Destroy (this.gameObject);
+			}
+		}
+	}
+
 }
