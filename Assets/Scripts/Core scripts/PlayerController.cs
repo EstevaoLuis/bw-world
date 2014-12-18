@@ -21,48 +21,49 @@ public class PlayerController : MonoBehaviour {
 		animator = GetComponent<Animator> () as Animator;
 		direction = new Vector2(0.0f,-1.0f);
 		GameObject virtualPad = GameObject.FindGameObjectWithTag ("joystick");
-		joystick = virtualPad.GetComponent("Joystick") as Joystick;
+		//joystick = virtualPad.GetComponent("Joystick") as Joystick;
 	}
 
 
 	
 	// Update is called once per frame
 	void Update () {
-		if (useJoystick) {
-			if (joystick.position.y!=0 && Mathf.Abs(joystick.position.y)>Mathf.Abs(joystick.position.x)) {
-				if(joystick.position.y < 0) {
-					animator.Play ("WalkDown");
-					direction = new Vector2 (0.0f, -1.0f);
-					rigidbody2D.velocity = direction * speed * Mathf.Abs(joystick.position.y);
-				}
-				else {
-					animator.Play ("WalkUp");
-					direction = new Vector2 (0.0f, 1.0f);
-					rigidbody2D.velocity = direction * speed * Mathf.Abs(joystick.position.y);
-				}
-			}
-			else if(joystick.position.x!=0) {
-				if(joystick.position.x < 0) {
-					animator.Play ("WalkLeft");
-					direction = new Vector2 (-1.0f, 0.0f);
-					rigidbody2D.velocity = direction * speed * Mathf.Abs(joystick.position.x);
-				}
-				else {
-					animator.Play ("WalkRight");
-					direction = new Vector2 (1.0f, 0.0f);
-					rigidbody2D.velocity = direction * speed * Mathf.Abs(joystick.position.x);
-				}
-			}
-			else {
-				rigidbody2D.velocity = new Vector2 (0, 0);
-			}
-				
-		} else {
+//		if (useJoystick) {
+//			if (joystick.position.y!=0 && Mathf.Abs(joystick.position.y)>Mathf.Abs(joystick.position.x)) {
+//				if(joystick.position.y < 0) {
+//					animator.Play ("WalkDown");
+//					direction = new Vector2 (0.0f, -1.0f);
+//					rigidbody2D.velocity = direction * speed * Mathf.Abs(joystick.position.y);
+//				}
+//				else {
+//					animator.Play ("WalkUp");
+//					direction = new Vector2 (0.0f, 1.0f);
+//					rigidbody2D.velocity = direction * speed * Mathf.Abs(joystick.position.y);
+//				}
+//			}
+//			else if(joystick.position.x!=0) {
+//				if(joystick.position.x < 0) {
+//					animator.Play ("WalkLeft");
+//					direction = new Vector2 (-1.0f, 0.0f);
+//					rigidbody2D.velocity = direction * speed * Mathf.Abs(joystick.position.x);
+//				}
+//				else {
+//					animator.Play ("WalkRight");
+//					direction = new Vector2 (1.0f, 0.0f);
+//					rigidbody2D.velocity = direction * speed * Mathf.Abs(joystick.position.x);
+//				}
+//			}
+//			else {
+//				rigidbody2D.velocity = new Vector2 (0, 0);
+//			}
+//				
+//		} else {
+
 			if (Input.GetKey (KeyCode.DownArrow)) {
 				animator.Play ("WalkDown");
 				direction = new Vector2 (0.0f, -1.0f);
 				rigidbody2D.velocity = direction * speed;
-			} else if (Input.GetKey (KeyCode.UpArrow) || (joystick.position.y > 0)) {
+			} else if (Input.GetKey (KeyCode.UpArrow)) {
 				//transform.position += transform.up * MoveSpeed * Time.deltaTime;
 				animator.Play ("WalkUp");
 				direction = new Vector2 (0.0f, 1.0f);
@@ -80,15 +81,13 @@ public class PlayerController : MonoBehaviour {
 			} else {
 				rigidbody2D.velocity = new Vector2 (0, 0);
 			}
-		}
-		
-		
+
 		if(Time.time > lastSpell + 0.1f) {
 
-			if(joystick.tapCount >1) {
-				GameInstance.instance.playerCastSpell("Green 1",transform,direction);
-				lastSpell = Time.time;
-			}
+//			if(joystick.tapCount >1) {
+//				GameInstance.instance.playerCastSpell("Green 1",transform,direction);
+//				lastSpell = Time.time;
+//			}
 
 			if (Input.GetKey (KeyCode.W)) {
 				GameInstance.instance.playerCastSpell("Red 1",transform,direction);
