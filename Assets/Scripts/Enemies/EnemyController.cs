@@ -109,6 +109,8 @@ public class EnemyController : MonoBehaviour {
 
 		randomDirection = randomNumber ();
 		direction = new Vector2(0.0f,-1.0f);
+
+		Debug.Log ("Range: " + range);
 	}
 	public int getHealth(){
 		return health;
@@ -143,9 +145,11 @@ public class EnemyController : MonoBehaviour {
 			//If player detected
 			} else {
 
+				Debug.Log (distanceToPlayer);
+
 				speed = maxSpeed;
 				//If too distant
-				if(distanceToPlayer > range) {
+				if(distanceToPlayer > range + (colliderDiameter / 2f)) {
 
 					behaviour (behaviourA);
 
@@ -154,7 +158,7 @@ public class EnemyController : MonoBehaviour {
 				else if(distanceToPlayer > meleeDistance) {
 
 					if(spells.Count > 0 && Time.time > lastAttack + delay) {
-						Debug.Log("Spell!!");
+
 						castSpell();
 					}
 

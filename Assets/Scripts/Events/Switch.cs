@@ -4,7 +4,7 @@ using System.Collections;
 public class Switch : MonoBehaviour {
 
 	public GameObject door = null;
-
+	public GameObject pressed;
 	// Use this for initialization
 	void Start () {
 	
@@ -18,7 +18,9 @@ public class Switch : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D other){
 		if (other.gameObject.tag == "Player") {
 			Destroy(door);
+			Vector2 aux = new Vector2(transform.position.x,transform.position.y);
 			Destroy(gameObject);
+			Instantiate(pressed, aux, transform.rotation);
 			// TODO Animation switch pressed
 		}
 	}
