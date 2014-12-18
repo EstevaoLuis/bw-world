@@ -92,6 +92,28 @@
 		],
 		"behaviour": [2,2,2],
     	"experience": 10
+    },
+    
+    "Mantis": {
+    	"health": 1000,
+    	"speed": 2,
+        "attack": 20,
+        "defense": 5,
+        "mass": 5000,
+        "scale": 1,
+        "delay": 2,
+        "detection": 20,
+        "melees": [
+			{"name": "Melee 2", "probability": 0.5},
+			{"name": "Melee 3", "probability": 0.5}
+		],
+    	"spells": [
+    		{"name": "Black 3", "probability": 0.2},
+    		{"name": "Black 4", "probability": 0.4},
+    		{"name": "Black 5", "probability": 0.4}
+		],
+		"behaviour": [2,2,2],
+    	"experience": 10
     }
     
 }

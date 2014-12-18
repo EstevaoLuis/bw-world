@@ -154,7 +154,7 @@ public class EnemyController : MonoBehaviour {
 				else if(distanceToPlayer > meleeDistance) {
 
 					if(spells.Count > 0 && Time.time > lastAttack + delay) {
-						//Close attack
+						Debug.Log("Spell!!");
 						castSpell();
 					}
 

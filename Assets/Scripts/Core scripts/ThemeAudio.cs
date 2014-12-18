@@ -9,7 +9,7 @@ public class ThemeAudio : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		sceneAudio = Resources.Load ("Music/Theme1") as AudioClip;
+		sceneAudio = Resources.Load ("Music/Field4") as AudioClip;
 		battleAudio = Resources.Load ("Music/Battle1") as AudioClip;
 		audio.clip = sceneAudio;
 		audio.Play ();

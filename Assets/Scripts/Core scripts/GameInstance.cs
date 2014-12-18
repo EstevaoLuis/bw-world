@@ -185,7 +185,7 @@ public class GameInstance : MonoBehaviour
 			gameOver ();
 			return;
 		}
-		setBlackMood ((float) health / maxHealth);
+		//setBlackMood ((float) health / maxHealth);
 		updateLifeBar ();
 	}
 

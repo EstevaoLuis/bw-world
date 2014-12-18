@@ -1,0 +1,256 @@
+fileFormatVersion: 2
+guid: 144e8a395479cbb4297120de061cd1e9
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: movimenti boss impaginati-01_0
+    21300002: movimenti boss impaginati-01_1
+    21300004: movimenti boss impaginati-01_2
+    21300006: movimenti boss impaginati-01_3
+    21300008: movimenti boss impaginati-01_4
+    21300010: movimenti boss impaginati-01_5
+    21300012: movimenti boss impaginati-01_6
+    21300014: movimenti boss impaginati-01_7
+    21300016: movimenti boss impaginati-01_8
+    21300018: movimenti boss impaginati-01_9
+    21300020: movimenti boss impaginati-01_10
+    21300022: movimenti boss impaginati-01_11
+    21300024: movimenti boss impaginati-01_12
+    21300026: movimenti boss impaginati-01_13
+    21300028: movimenti boss impaginati-01_14
+    21300030: movimenti boss impaginati-01_15
+    21300032: movimenti boss impaginati-01_16
+    21300034: movimenti boss impaginati-01_17
+    21300036: movimenti boss impaginati-01_18
+    21300038: movimenti boss impaginati-01_19
+    21300040: movimenti boss impaginati-01_20
+    21300042: movimenti boss impaginati-01_21
+    21300044: movimenti boss impaginati-01_22
+    21300046: movimenti boss impaginati-01_23
+    21300048: movimenti boss impaginati-01_24
+    21300050: movimenti boss impaginati-01_25
+    21300052: movimenti boss impaginati-01_26
+    21300054: movimenti boss impaginati-01_27
+    21300056: movimenti boss impaginati-01_28
+    21300058: movimenti boss impaginati-01_29
+    21300060: movimenti boss impaginati-01_30
+    21300062: movimenti boss impaginati-01_31
+    21300064: movimenti boss impaginati-01_32
+    21300066: movimenti boss impaginati-01_33
+    21300068: movimenti boss impaginati-01_34
+    21300070: movimenti boss impaginati-01_35
+    21300072: movimenti boss impaginati-01_36
+    21300074: movimenti boss impaginati-01_37
+    21300076: movimenti boss impaginati-01_38
+    21300078: movimenti boss impaginati-01_39
+    21300080: movimenti boss impaginati-01_40
+    21300082: movimenti boss impaginati-01_41
+    21300084: movimenti boss impaginati-01_42
+    21300086: movimenti boss impaginati-01_43
+    21300088: movimenti boss impaginati-01_44
+    21300090: movimenti boss impaginati-01_45
+    21300092: movimenti boss impaginati-01_46
+    21300094: movimenti boss impaginati-01_47
+    21300096: movimenti boss impaginati-01_48
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 200
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: movimenti boss impaginati-01_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4252
+        width: 1417
+        height: 1417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: movimenti boss impaginati-01_1
+      rect:
+        serializedVersion: 2
+        x: 1417
+        y: 4252
+        width: 1417
+        height: 1417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: movimenti boss impaginati-01_2
+      rect:
+        serializedVersion: 2
+        x: 2834
+        y: 4252
+        width: 1417
+        height: 1417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: movimenti boss impaginati-01_3
+      rect:
+        serializedVersion: 2
+        x: 4251
+        y: 4252
+        width: 1417
+        height: 1417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: movimenti boss impaginati-01_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2835
+        width: 1417
+        height: 1417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: movimenti boss impaginati-01_5
+      rect:
+        serializedVersion: 2
+        x: 1417
+        y: 2835
+        width: 1417
+        height: 1417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: movimenti boss impaginati-01_6
+      rect:
+        serializedVersion: 2
+        x: 2834
+        y: 2835
+        width: 1417
+        height: 1417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: movimenti boss impaginati-01_7
+      rect:
+        serializedVersion: 2
+        x: 4251
+        y: 2835
+        width: 1417
+        height: 1417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: movimenti boss impaginati-01_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1418
+        width: 1417
+        height: 1417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: movimenti boss impaginati-01_9
+      rect:
+        serializedVersion: 2
+        x: 1417
+        y: 1418
+        width: 1417
+        height: 1417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: movimenti boss impaginati-01_10
+      rect:
+        serializedVersion: 2
+        x: 2834
+        y: 1418
+        width: 1417
+        height: 1417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: movimenti boss impaginati-01_11
+      rect:
+        serializedVersion: 2
+        x: 4251
+        y: 1418
+        width: 1417
+        height: 1417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: movimenti boss impaginati-01_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 1417
+        height: 1417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: movimenti boss impaginati-01_13
+      rect:
+        serializedVersion: 2
+        x: 1417
+        y: 1
+        width: 1417
+        height: 1417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: movimenti boss impaginati-01_14
+      rect:
+        serializedVersion: 2
+        x: 2834
+        y: 1
+        width: 1417
+        height: 1417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: movimenti boss impaginati-01_15
+      rect:
+        serializedVersion: 2
+        x: 4251
+        y: 1
+        width: 1417
+        height: 1417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
