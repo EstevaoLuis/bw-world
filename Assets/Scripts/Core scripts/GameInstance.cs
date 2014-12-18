@@ -88,9 +88,9 @@ public class GameInstance : MonoBehaviour
 		refreshUI();
 	}
 
-	public bool isInBattle() {
-		return battleTime > 5f;
-	}
+	//public bool isInBattle() {
+	//	return battleTime > 5f;
+	//}
 
 	private void setPlayerLevel (int lev) {
 		level = lev;
