@@ -31,9 +31,7 @@ public class GameInstance : MonoBehaviour
 	private float playerColliderRadius;
 
 	//Time variables
-	private float lastSpell, lastRegeneration;
-	
-	private float battleTime = 0f;
+	private float lastSpell, lastRegeneration, lastBattle = 0f;
 
 
 	//Instance management
@@ -157,16 +155,14 @@ public class GameInstance : MonoBehaviour
 		GameObject melee = (GameObject) Instantiate(meleePrefab, player.transform.position, new Quaternion(0,0,0,1));
 
 		//Set sound
-		AudioClip soundEffect = Resources.Load("Melees/Sound Effects/" + meleeName) as AudioClip;
-		melee.audio.clip = soundEffect;
-
+		melee.audio.clip = Resources.Load("Melees/Sound Effects/" + meleeName) as AudioClip;
 
 		player.rigidbody2D.AddForce (forceDirection*enemyAttack*100);
 		damagePlayer (enemyAttack);
 	}
 
 	public void playAudio(string name) {
-		AudioClip soundEffect = Resources.Load("Spells/Sound Effects/" + name) as AudioClip;
+		AudioClip soundEffect = Resources.Load("Audio/" + name) as AudioClip;
 		audio.clip = soundEffect;
 		audio.Play();
 	}
@@ -260,7 +256,7 @@ public class GameInstance : MonoBehaviour
 	}
 
 	public void loadGame() {
-		UnityEditor.AssetDatabase.Refresh (); 
+		//UnityEditor.AssetDatabase.Refresh (); 
 		TextAsset gameJson = Resources.Load("GameData") as TextAsset;
 		gameData = JSONNode.Parse(gameJson.text);
 
@@ -355,4 +351,7 @@ public class GameInstance : MonoBehaviour
 		return false;
 	}
 
+	public bool isInBattle() {
+		return lastBattle != 0 && Time.time < lastBattle + 5f;
+	}
 }

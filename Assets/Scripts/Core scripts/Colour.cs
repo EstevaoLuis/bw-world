@@ -41,8 +41,8 @@ public class Colour : MonoBehaviour {
 
 	void OnCollisionEnter2D (Collision2D other) {
 		if(other.gameObject.tag == "Spell") {
-			if (isColoured) {
-			audio.Play();
+			if (isColoured && finalColor!=visible) {
+				audio.Play();
 			}
 			color();
 		}
