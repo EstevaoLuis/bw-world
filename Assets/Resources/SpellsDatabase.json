@@ -1,9 +1,9 @@
 ﻿{
     "Red 1": {
     	"color": "red",
-    	"speed": 3,
+    	"speed": 4,
         "damage": 20,
-        "duration": 2,
+        "duration": 1.5,
         "mass": 1000,
         "mana": 15
     },
@@ -28,18 +28,18 @@
     
     "Green 1": {
     	"color": "green",
-    	"speed": 3,
+    	"speed": 4,
         "damage": 10,
-        "duration": 3,
+        "duration": 2,
         "mass": 1000,
         "mana": 10
     },
     
     "Blue 1": {
     	"color": "blue",
-    	"speed": 3,
+    	"speed": 4,
         "damage": 15,
-        "duration": 2,
+        "duration": 1.5,
         "mass": 1000,
         "mana": 10
     }

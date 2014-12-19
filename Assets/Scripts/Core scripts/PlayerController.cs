@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour {
 		
 		if (useJoystick) {
 			
-			if (leftJoystick.position.y != 0 && Mathf.Abs (leftJoystick.position.y) > Mathf.Abs (leftJoystick.position.x)) {
+			if (Mathf.Abs (leftJoystick.position.y) > 0.1f && Mathf.Abs (leftJoystick.position.y) > Mathf.Abs (leftJoystick.position.x)) {
 				if (leftJoystick.position.y < 0) {
 					animator.Play ("WalkDown");
 					direction = new Vector2 (0.0f, -1.0f);
@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour {
 					direction = new Vector2 (0.0f, 1.0f);
 					rigidbody2D.velocity = direction * speed; // * Mathf.Abs (leftJoystick.position.y);
 				}
-			} else if (leftJoystick.position.x != 0) {
+			} else if (Mathf.Abs(leftJoystick.position.x) > 0.1f) {
 				if (leftJoystick.position.x < 0) {
 					animator.Play ("WalkLeft");
 					direction = new Vector2 (-1.0f, 0.0f);
