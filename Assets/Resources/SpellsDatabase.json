@@ -2,10 +2,10 @@
     "Red 1": {
     	"color": "red",
     	"speed": 3,
-        "damage": 40,
+        "damage": 20,
         "duration": 2,
         "mass": 1000,
-        "mana": 50
+        "mana": 15
     },
     
     "Red 2": {
@@ -30,18 +30,18 @@
     	"color": "green",
     	"speed": 3,
         "damage": 10,
-        "duration": 2,
+        "duration": 3,
         "mass": 1000,
-        "mana": 20
+        "mana": 10
     },
     
     "Blue 1": {
     	"color": "blue",
     	"speed": 3,
-        "damage": 10,
+        "damage": 15,
         "duration": 2,
         "mass": 1000,
-        "mana": 20
+        "mana": 10
     }
     
     "Black 1": {

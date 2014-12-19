@@ -33,21 +33,21 @@ public class PlayerController : MonoBehaviour {
 				if (leftJoystick.position.y < 0) {
 					animator.Play ("WalkDown");
 					direction = new Vector2 (0.0f, -1.0f);
-					rigidbody2D.velocity = direction * speed * Mathf.Abs (leftJoystick.position.y);
+					rigidbody2D.velocity = direction * speed; // * Mathf.Abs (leftJoystick.position.y);
 				} else {
 					animator.Play ("WalkUp");
 					direction = new Vector2 (0.0f, 1.0f);
-					rigidbody2D.velocity = direction * speed * Mathf.Abs (leftJoystick.position.y);
+					rigidbody2D.velocity = direction * speed; // * Mathf.Abs (leftJoystick.position.y);
 				}
 			} else if (leftJoystick.position.x != 0) {
 				if (leftJoystick.position.x < 0) {
 					animator.Play ("WalkLeft");
 					direction = new Vector2 (-1.0f, 0.0f);
-					rigidbody2D.velocity = direction * speed * Mathf.Abs (leftJoystick.position.x);
+					rigidbody2D.velocity = direction * speed; // * Mathf.Abs (leftJoystick.position.x);
 				} else {
 					animator.Play ("WalkRight");
 					direction = new Vector2 (1.0f, 0.0f);
-					rigidbody2D.velocity = direction * speed * Mathf.Abs (leftJoystick.position.x);
+					rigidbody2D.velocity = direction * speed; //* Mathf.Abs (leftJoystick.position.x);
 				}
 			} else {
 				rigidbody2D.velocity = new Vector2 (0, 0);
