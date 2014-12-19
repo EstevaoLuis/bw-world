@@ -82,6 +82,7 @@ public class PlayerController : MonoBehaviour {
 		if(Time.time > lastSpell + 0.1f) {
 			
 			if (useJoystick){
+				/*
 				if(Mathf.Abs (rightJoystick.position.x) > Mathf.Abs (rightJoystick.position.y)) {
 					if(rightJoystick.position.x < -0.5f) {
 						GameInstance.instance.playerCastSpell("Red 1",transform,direction);
@@ -102,7 +103,7 @@ public class PlayerController : MonoBehaviour {
 						lastSpell = Time.time;
 					}
 				}
-				
+				*/
 			}
 			else {
 				if (Input.GetKey (KeyCode.W)) {

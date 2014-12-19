@@ -10,19 +10,23 @@ public class NewGameMenu : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		DontDestroyOnLoad (this);
+		audio.Play ();
 	}
 
 
 	public void startGame() {
+		audio.Stop ();
 		Application.LoadLevel ("Level01");
 	}
 
 	public void loadGame() {
+		audio.Stop ();
 		string gameJsonText = System.IO.File.ReadAllText ("Assets/Resources/GameData.json");
 		gameData = JSONNode.Parse (gameJsonText);
 		//Load scene & set parameters
 		Application.LoadLevel (gameData ["scene"].AsInt);
 		isLoadedGame = true;
+
 	}
 
 	void Update() {
@@ -35,7 +39,7 @@ public class NewGameMenu : MonoBehaviour {
 				GameObject cameraSystem = GameObject.FindWithTag ("CameraSystem");
 				cameraSystem.transform.position = new Vector3(gameData["xPosition"].AsFloat,gameData["yPosition"].AsFloat,0);
 				isLoadedGame = false;
-				Destroy (this.gameObject);
+				Destroy (this);
 			}
 		}
 	}
