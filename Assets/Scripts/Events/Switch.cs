@@ -21,7 +21,7 @@ public class Switch : MonoBehaviour {
 			Vector2 aux = new Vector2(transform.position.x,transform.position.y);
 			Destroy(gameObject);
 			Instantiate(pressed, aux, transform.rotation);
-			// TODO Animation switch pressed
+			GameInstance.instance.playAudio("Switch2");
 		}
 	}
 }

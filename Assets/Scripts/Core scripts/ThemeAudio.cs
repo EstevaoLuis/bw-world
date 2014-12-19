@@ -35,4 +35,12 @@ public class ThemeAudio : MonoBehaviour {
 		audio.clip = battleAudio;
 		audio.Play ();
 	}
+
+	public void playTheme(string name) {
+		AudioClip newTheme = Resources.Load ("Music/" + name) as AudioClip;
+		Debug.Log (newTheme);
+		audio.clip = newTheme;
+		audio.Play ();
+
+	}
 }

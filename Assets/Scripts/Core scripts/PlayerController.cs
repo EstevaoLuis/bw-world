@@ -147,6 +147,39 @@ public class PlayerController : MonoBehaviour {
 			}
 		}
 	}
-	
+
+
+	public void moveDown() {
+		animator.Play ("WalkDown");
+		direction = new Vector2 (0.0f, -1.0f);
+		rigidbody2D.velocity = direction * speed;
+	}
+	public void moveUp() {
+		animator.Play ("WalkUp");
+		direction = new Vector2 (0.0f, 1.0f);
+		rigidbody2D.velocity = direction * speed;
+	}
+	public void moveLeft() {
+		animator.Play ("WalkLeft");
+		direction = new Vector2 (-1.0f, 0.0f);
+		rigidbody2D.velocity = direction * speed;
+	}
+	public void moveRight() {
+		animator.Play ("WalkRight");
+		direction = new Vector2 (1.0f, 0.0f);
+		rigidbody2D.velocity = direction * speed;
+	}
+	public void blueSpell() {
+		GameInstance.instance.playerCastSpell("Blue 1",transform,direction);
+		lastSpell = Time.time;
+	}
+	public void redSpell() {
+		GameInstance.instance.playerCastSpell("Red 1",transform,direction);
+		lastSpell = Time.time;
+	}
+	public void greenSpell() {
+		GameInstance.instance.playerCastSpell("Green 1",transform,direction);
+		lastSpell = Time.time;
+	}
 	
 }

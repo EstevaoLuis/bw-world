@@ -28,8 +28,13 @@ public class PuzzleMaster : MonoBehaviour {
 	private void RandomInitialization(){
 		var size = Random.Range (_min, _max + 1);
 		correctSequence = new int[size];
+		int addToSequence;
 		for (int i = 0; i<size; i++) {
-			correctSequence[i] = Random.Range(0,3);	
+			addToSequence = Random.Range(0,3);	
+			while(i!=0 && correctSequence[i-1]==addToSequence) {
+				addToSequence = Random.Range(0,3);
+			}
+			correctSequence[i] = addToSequence;	
 		}
 	}
 

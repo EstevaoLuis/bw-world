@@ -16,7 +16,7 @@ public class SpiderGenerator : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (isActive) {
-				if (spidersGenerated < 5 && (lastGeneration == 0f || Time.time > lastGeneration + 5f)) {
+				if (spidersGenerated < 5 && (lastGeneration == 0f || Time.time > lastGeneration + 3f)) {
 						instantiateSpider ();
 						spidersGenerated++;
 						lastGeneration = Time.time;
@@ -33,7 +33,7 @@ public class SpiderGenerator : MonoBehaviour {
 		int randType = Random.Range (0, 2);
 		if(randType > 0) (newSpider.GetComponent ("EnemyController") as EnemyController).enemyName = "Spider (Noob)";
 		else (newSpider.GetComponent ("EnemyController") as EnemyController).enemyName = "Spider";
-		//GameInstance.instance.playAnimation ();
+		GameInstance.instance.playAudio ("Darkness6");
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {

@@ -76,7 +76,7 @@ public class spider_spawn : MonoBehaviour {
 
 		for (i = 0; i< number_of_Swarm; i++) {
 		
-			exp_cop = (GameObject)Instantiate(exp, swarm[i].transform.position,transform.rotation);
+			//exp_cop = (GameObject)Instantiate(exp, swarm[i].transform.position,transform.rotation);
 		
 		}
 

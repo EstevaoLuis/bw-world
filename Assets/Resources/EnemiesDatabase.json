@@ -95,12 +95,12 @@
     },
     
     "Mantis": {
-    	"health": 500,
+    	"health": 200,
     	"speed": 2,
         "attack": 20,
         "defense": 5,
         "mass": 5000,
-        "scale": 1,
+        "scale": 0.8,
         "delay": 2,
         "detection": 20,
         "melees": [
@@ -112,7 +112,7 @@
     		{"name": "Black 5", "probability": 0.5}
 		],
 		"behaviour": [2,2,2],
-    	"experience": 10
+    	"experience": 100
     }
     
 }

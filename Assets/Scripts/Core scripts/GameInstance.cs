@@ -306,7 +306,7 @@ public class GameInstance : MonoBehaviour
 
 	public void regenerateHealth() {
 		health = health + Mathf.RoundToInt(maxHealth / 10);
-		if (health > maxHealth)	mana = maxHealth;
+		if (health > maxHealth)	health = maxHealth;
 		updateLifeBar ();
 		setBlackMood ((float) health / maxHealth);
 	}

@@ -18,7 +18,6 @@ public class NPC : MonoBehaviour {
 		Vector3 textPosition = new Vector3 (transform.position.x, transform.position.y + collider.bounds.size.y, -1);
 		textObject = GameInstance.instance.showNPCText (message, textPosition);
 		fadingText = textObject.GetComponent("FadeObjectInOut") as FadeObjectInOut;
-		fadingText.FadeOut (0);
 	}
 	
 	// Update is called once per frame
@@ -26,12 +25,14 @@ public class NPC : MonoBehaviour {
 		if (!isCentered) {
 			textObject.transform.position = new Vector3(textObject.transform.position.x - (textObject.renderer.bounds.size.x / 2f),textObject.transform.position.y + (textObject.renderer.bounds.size.y), -1);
 			isCentered = true;
+			textObject.SetActive (false);
 		}
 
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if(other.gameObject.tag == "Player") {
+			textObject.SetActive (true);
 			fadingText.FadeIn (5);
 		}
 	}

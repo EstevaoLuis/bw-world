@@ -33,6 +33,7 @@ public class ColorBox : MonoBehaviour {
 				Debug.Log("CORRECT! " + pm.attempt);
 				//Debug.Log("HEYSUKE! " + pm.Size ());
 				if (pm.Size() == a){
+					GameInstance.instance.playAudio("Up1");
 					Debug.Log("COMPLETE! " + pm.attempt);
 					Destroy(pm.door);
 					pm.active = false;
