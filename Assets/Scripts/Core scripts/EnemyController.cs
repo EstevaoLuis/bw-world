@@ -110,7 +110,6 @@ public class EnemyController : MonoBehaviour {
 		randomDirection = randomNumber ();
 		direction = new Vector2(0.0f,-1.0f);
 
-		Debug.Log ("Range: " + range);
 	}
 	public int getHealth(){
 		return health;

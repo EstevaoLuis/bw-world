@@ -5,6 +5,7 @@ public class CameraController : MonoBehaviour {
 
 	//public Vector2 direction;
 	public GameObject cameraSystem;
+	public Vector2 triggerDirection;
 
 	private bool isColliding = false;
 	private Vector2 movementSpeed;
@@ -39,7 +40,9 @@ public class CameraController : MonoBehaviour {
 	void OnTriggerStay2D(Collider2D other) {
 		if(other.gameObject.tag == "Player") {
 			movementSpeed = other.gameObject.rigidbody2D.velocity;
-			cameraSystem.transform.position += new Vector3(movementSpeed.x,movementSpeed.y,0f) * Time.deltaTime;
+			if((movementSpeed.x!=0 && movementSpeed.y!=0) || (triggerDirection == movementSpeed/5f)) {
+				cameraSystem.transform.position += new Vector3(movementSpeed.x,movementSpeed.y,0f) * Time.deltaTime;
+			}
 		}
 	}
 
