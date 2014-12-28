@@ -137,6 +137,7 @@ public class GameInstance : MonoBehaviour
 		spellParameters.damage = spellData["damage"].AsInt;
 		spellParameters.duration = spellData["duration"].AsFloat;
 		spellParameters.color = spellData["color"];
+		spellParameters.area = spellData["area"].AsFloat;
 		spellParameters.rigidbody2D.mass = spellData["mass"].AsInt;
 
 		//Set animation

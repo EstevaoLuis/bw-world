@@ -56,9 +56,10 @@ public class EnemyController : MonoBehaviour {
 	private Color hidden = new Color (1, 1, 1, 0);
 	private Color visible = new Color (1, 1, 1, 1);
 
+	private GameObject nearestColoredObject;
+
 	// Use this for initialization
 	void Start () {
-
 		//Get enemy parameters
 		JSONNode parameters = GameInstance.instance.getEnemyParameters (enemyName);
 
@@ -110,6 +111,11 @@ public class EnemyController : MonoBehaviour {
 		randomDirection = randomNumber ();
 		direction = new Vector2(0.0f,-1.0f);
 
+		//Add trigger
+		CircleCollider2D triggerArea = (CircleCollider2D) gameObject.AddComponent ("CircleCollider2D");
+		triggerArea.isTrigger = true;
+		triggerArea.radius = detectionDistance;
+
 	}
 	public int getHealth(){
 		return health;
@@ -131,12 +137,21 @@ public class EnemyController : MonoBehaviour {
 				setTarget(1);
 				distanceToInitialPosition = detectDistance();
 
-				//Movimento casuale
-				if(distanceToInitialPosition > detectionDistance * (3f/4f)) {
+				//Decolora oggetti vicini
+				if(nearestColoredObject != null && spells.Count > 0) {
+					setTarget(2);
+					detectDistance();
+					if(Time.time > lastAttack + delay) {
+						castSpell();
+					}
+
+				}
+				//Torna alla base
+				else if(distanceToInitialPosition > detectionDistance * (3f/4f)) {
 					//Debug.Log("Torno a " + target + ", distanze = " + distanceToInitialPosition);
 					moveTowardsTarget();
 				}
-				//Torna alla base
+				//Movimento casuale
 				else {
 					randomMovement();
 				}
@@ -187,7 +202,6 @@ public class EnemyController : MonoBehaviour {
 		}
 
 	}
-	
 
 	string choose_melee () {
 		if (melees == null || melees.Count == 0) return null;
@@ -229,11 +243,12 @@ public class EnemyController : MonoBehaviour {
 		switch(type) {
 			case 0: target = new Vector2(player.transform.position.x,player.transform.position.y); break;
 			case 1:	target = new Vector2(initialPositionX,initialPositionY); break;
+			case 2:	target = new Vector2(nearestColoredObject.transform.position.x,nearestColoredObject.transform.position.y); break;
 		}
 	}
 
 	void castSpell(){
-		GameInstance.instance.castSpell (choose_spell (), transform, getPlayerDirection(), "SpellEnemy", colliderDiameter / 2 + 1.5f, speed);
+		GameInstance.instance.castSpell (choose_spell (), transform, getTargetDirection(), "SpellEnemy", colliderDiameter / 2 + 1.5f, speed);
 		lastAttack = Time.time;
 	}
 
@@ -295,7 +310,7 @@ public class EnemyController : MonoBehaviour {
 
 	}
 
-	Vector2 getPlayerDirection() {
+	Vector2 getTargetDirection() {
 		if (diff_x < diff_y && diff_x < 0) return new Vector2 (1.0f, 0.0f);
 		if (diff_x > diff_y && diff_x > 0) return new Vector2 (-1.0f, 0.0f);
 		if (diff_y < diff_x && diff_y < 0) return new Vector2 (0.0f, 1.0f);
@@ -390,6 +405,25 @@ public class EnemyController : MonoBehaviour {
 		}
 	}
 
+	void OnTriggerStay2D(Collider2D other) {
+		if(other.gameObject.tag == "Color") {
+			if(other.gameObject == nearestColoredObject) {
+				Colour colourScript = other.gameObject.GetComponent("Colour") as Colour;
+				if(!colourScript.isColored()) {
+					nearestColoredObject = null;
+					Debug.Log("Oggetto decolorato correttamente: " + other.gameObject.transform.position);
+				}
+			}
+			else if(nearestColoredObject == null) {
+				Colour colourScript = other.gameObject.GetComponent("Colour") as Colour;
+				if(colourScript.isColored()) {
+					nearestColoredObject = other.gameObject;
+					Debug.Log("Trovato oggetto colorato: " + other.gameObject.transform.position);
+				}
+			}
+		}
+	}
+	
 
 }
 

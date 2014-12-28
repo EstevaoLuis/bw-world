@@ -5,7 +5,8 @@
         "damage": 20,
         "duration": 1.5,
         "mass": 1000,
-        "mana": 15
+        "mana": 15,
+        "area": 3
     },
     
     "Red 2": {
@@ -14,7 +15,8 @@
         "damage": 80,
         "duration": 2,
         "mass": 1000,
-        "mana": 80
+        "mana": 80,
+        "area": 0
     },
     
     "Red 4": {
@@ -23,7 +25,8 @@
         "damage": 200,
         "duration": 2,
         "mass": 1000,
-        "mana": 200
+        "mana": 200,
+        "area": 0
     },
     
     "Green 1": {
@@ -32,7 +35,8 @@
         "damage": 10,
         "duration": 2,
         "mass": 1000,
-        "mana": 10
+        "mana": 10,
+        "area": 0
     },
     
     "Blue 1": {
@@ -41,7 +45,8 @@
         "damage": 15,
         "duration": 1.5,
         "mass": 1000,
-        "mana": 10
+        "mana": 10,
+        "area": 0
     }
     
     "Black 1": {
@@ -50,7 +55,8 @@
         "damage": 10,
         "duration": 2,
         "mass": 1000,
-        "mana": 30
+        "mana": 30,
+        "area": 0
     },
     
     "Black 2": {
@@ -59,7 +65,8 @@
         "damage": 10,
         "duration": 2,
         "mass": 1000,
-        "mana": 30
+        "mana": 30,
+        "area": 0
     },
     
     "Black 3": {
@@ -68,7 +75,8 @@
         "damage": 10,
         "duration": 2,
         "mass": 1000,
-        "mana": 30
+        "mana": 30,
+        "area": 0
     },
     
     "Black 4": {
@@ -77,7 +85,8 @@
         "damage": 10,
         "duration": 2,
         "mass": 1000,
-        "mana": 30
+        "mana": 30,
+        "area": 0
     },
     
     "Black 5": {
@@ -86,7 +95,8 @@
         "damage": 10,
         "duration": 2,
         "mass": 1000,
-        "mana": 30
+        "mana": 30,
+        "area": 0
     }
     
 }
