@@ -136,6 +136,8 @@ public class GameInstance : MonoBehaviour
 		Spell spellParameters = (Spell) energySphere.GetComponent("Spell");
 		spellParameters.damage = spellData["damage"].AsInt;
 		spellParameters.duration = spellData["duration"].AsFloat;
+		spellParameters.color = spellData["color"];
+		spellParameters.area = spellData["area"].AsFloat;
 		spellParameters.rigidbody2D.mass = spellData["mass"].AsInt;
 
 		//Set animation
@@ -308,7 +310,7 @@ public class GameInstance : MonoBehaviour
 		health = health + Mathf.RoundToInt(maxHealth / 10);
 		if (health > maxHealth)	health = maxHealth;
 		updateLifeBar ();
-		setBlackMood ((float) health / maxHealth);
+		//setBlackMood ((float) health / maxHealth);
 	}
 
 	public void damageValueAnimation(int damageValue, Vector3 position) {

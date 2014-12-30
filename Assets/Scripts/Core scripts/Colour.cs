@@ -10,6 +10,7 @@ public class Colour : MonoBehaviour {
 	private float time = 0.0f; 
 	private Color hidden = new Color (1, 1, 1, 0);
 	private Color visible = new Color (1, 1, 1, 1);
+	private Color compositeColor = new Color (0,0,0,1);
 
 	private SpriteRenderer renderer;
 	private Color lastColor;
@@ -41,20 +42,28 @@ public class Colour : MonoBehaviour {
 
 	void OnCollisionEnter2D (Collision2D other) {
 		if(other.gameObject.tag == "Spell") {
+			Spell spell = other.gameObject.GetComponent("Spell") as Spell;
+			/*
 			if (isColoured && finalColor!=visible) {
 				audio.Play();
 			}
-			color();
+			*/
+			color(spell.color);
 		}
 		else if(other.gameObject.tag == "SpellEnemy") {
 			decolor ();
 		}
 	}
 
-	void color() {
+	void color(string spellColor) {
 		lastColor = renderer.color;
 		if (isColoured) {
-				finalColor = visible;
+			switch (spellColor) {
+			case "red": if(compositeColor.r == 0) audio.Play (); compositeColor.r = 255; break;
+			case "green": if(compositeColor.g == 0) audio.Play (); compositeColor.g = 255; break;
+			case "blue": if(compositeColor.b == 0) audio.Play (); compositeColor.b = 255; break;
+			}
+			finalColor = compositeColor;//visible;
 		} else {
 			finalColor = hidden;
 		}
@@ -72,7 +81,7 @@ public class Colour : MonoBehaviour {
 	}
 
 	public bool isColored() {
-		return isColoured && renderer.color == visible; 
+		return isColoured && (renderer.color.r == 255 || renderer.color.g == 255 || renderer.color.b == 255); 
 	}
 
 	bool isTransition() {

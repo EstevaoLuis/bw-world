@@ -20,6 +20,11 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
 		animator = GetComponent<Animator> () as Animator;
 		direction = new Vector2(0.0f,-1.0f);
+
+		if (!useJoystick) {
+			leftJoystick.gameObject.SetActive(false);
+			rightJoystick.gameObject.SetActive(false);
+		}
 	}
 	
 	
@@ -122,9 +127,9 @@ public class PlayerController : MonoBehaviour {
 					lastSpell = Time.time;
 				}
 				else if(Input.GetKey (KeyCode.S)) {
-					GameInstance.instance.playerCastSpell("Red 4",transform,direction);
+					//GameInstance.instance.playerCastSpell("Red 4",transform,direction);
 					//used.setType(1);
-					lastSpell = Time.time;
+					//lastSpell = Time.time;
 				}
 			}
 		}

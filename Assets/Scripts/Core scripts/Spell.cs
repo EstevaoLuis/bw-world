@@ -9,20 +9,27 @@ public class Spell : MonoBehaviour {
 	//Parameters
 	public int damage = 10;
 	public float duration = 2.0f;
+	public string color;
+	public float area;
 	private int type;
 
 	private bool hasHit = false;
 	private float hitTime, castTime;
+	private CircleCollider2D collider;
+	private float initialRadius;
 
 	// Use this for initialization
 	void Start () {
 		audio.Play();
 		castTime = Time.time;
+		collider = GetComponent ("CircleCollider2D") as CircleCollider2D;
+		initialRadius = collider.radius;
 	}
 
 	// Update is called once per frame
 	void Update () {
 		if (hasHit) {
+			if(area>0f) collider.radius = Mathf.Lerp(initialRadius,initialRadius + area, (Time.time - hitTime)/0.1f);
 			if(Time.time > hitTime+0.1) {
 				Destroy (gameObject);
 			}
