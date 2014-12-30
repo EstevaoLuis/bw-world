@@ -7,6 +7,7 @@ public class SnakeMovement : MonoBehaviour {
 	public GameObject Target;
 	private Vector2 direction;
 	public float speed;
+	private float speed_2 = 200;
 	private float distance;
 	private float diff_x;
 	private float diff_y;
@@ -60,20 +61,24 @@ public class SnakeMovement : MonoBehaviour {
 		rigidbody2D.velocity = new Vector3 (0, 0, 0);
 	}
 
-//	void OnCollisionEnter2D(Collision2D other){
-//		if (direction == new Vector2 (0.0f, 1.0f)) {
-//			moveDown();
-//		}
-//		if (direction == new Vector2 (0.0f, -1.0f)) {
-//			moveUp();
-//		}
-//		if (direction == new Vector2 (1.0f, 0.0f)) {
-//			moveRight();
-//		}
-//		if (direction == new Vector2 (-1.0f, 0.0f)) {
-//			moveLeft();
-//		}
-//	}
+	void OnCollisionEnter2D(Collision2D other){
+
+		if(other.gameObject != Target){
+
+			if (direction == new Vector2 (0.0f, 1.0f)) {
+				rigidbody2D.velocity = Vector3.down * speed_2;
+			}
+			if (direction == new Vector2 (0.0f, -1.0f)) {
+				rigidbody2D.velocity = Vector3.up * speed_2;
+			}
+			if (direction == new Vector2 (1.0f, 0.0f)) {
+				rigidbody2D.velocity = Vector3.left * speed_2;
+			}
+			if (direction == new Vector2 (-1.0f, 0.0f)) {
+				rigidbody2D.velocity = Vector3.right * speed_2;
+			}
+		}
+	}
 
 
 	

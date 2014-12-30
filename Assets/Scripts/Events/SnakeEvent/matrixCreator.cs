@@ -25,17 +25,17 @@ public class matrixCreator : MonoBehaviour {
 		while(row_counter < 9){
 
 			if (row_counter < 3) {
-				Instantiate (cellTrap, new Vector3 (transform.position.x, transform.position.y + 6.5f * i), transform.rotation);
+				Instantiate (cellTrap, new Vector3 (transform.position.x, transform.position.y + 7f * i), transform.rotation);
 				i++;
 				row_counter++;
 			}
 			if (row_counter >= 3 && row_counter < 6) {
-				Instantiate (cellTrap, new Vector3 (transform.position.x + 6.5f, transform.position.y + 6.5f * j), transform.rotation);
+				Instantiate (cellTrap, new Vector3 (transform.position.x + 7f, transform.position.y + 7f * j), transform.rotation);
 				j++;
 				row_counter++;
 			}
 			if (row_counter >= 6 && row_counter <= 8) {
-				Instantiate (cellTrap, new Vector3 (transform.position.x + 13f, transform.position.y + 6.5f * k), transform.rotation);
+				Instantiate (cellTrap, new Vector3 (transform.position.x + 14f, transform.position.y + 7f * k), transform.rotation);
 				k++;
 				row_counter++;
 			}
