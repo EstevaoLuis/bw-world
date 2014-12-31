@@ -187,5 +187,15 @@ public class PlayerController : MonoBehaviour {
 		GameInstance.instance.playerCastSpell("Green 1",transform,direction);
 		lastSpell = Time.time;
 	}
+
+	public float GetSpeed(){
+				return speed;
+		}
+
+	public void SetSpeed(float Speed){
+		if (Speed>0f)
+				speed = Speed;
+		}
+
 	
 }
