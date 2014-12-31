@@ -38,11 +38,11 @@ public class Mushroom : MonoBehaviour {
 
 
 	IEnumerator normalSpeed(){
-		Debug.Log ("AAAAA");
+		//Debug.Log ("AAAAA");
 		yield return new WaitForSeconds(mush_time_effect);
-		Debug.Log ("BBBB");
+		//Debug.Log ("BBBB");
 		p.SetSpeed (prev_speed);
-		Debug.Log ("CCCC");
+		//Debug.Log ("CCCC");
 		Destroy(gameObject);
 	}
 }
