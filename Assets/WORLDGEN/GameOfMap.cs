@@ -4,8 +4,8 @@ using System.Collections;
 //By Felix Hazen
 public class GameOfMap : MonoBehaviour {
 
-	private int numbElements_x = 50;
-	private int numbElements_y = 50;
+	private int numbElements_x = 100;
+	private int numbElements_y = 100;
 	public GameObject water;
 	public GameObject terrain;
 	public GameObject high_terrain;
@@ -22,7 +22,7 @@ public class GameOfMap : MonoBehaviour {
 		for (i = 1; i< numbElements_x-1; i++) {
 		for (j = 1; j < numbElements_y-1; j++) {
 			for (a = 0; a < 2; a++) {
-					if (status [i, j] != status [i + points [a], j] || status [i, j] != status [i, j + points [a]] /**||status [i, j] != status [i + points [a], j + points [a]]**/ ) {
+					if (status [i, j] != status [i + points [a], j] && status [i, j] != status [i, j + points [a]] /**||status [i, j] != status [i + points [a], j + points [a]]**/ ) {
 					if (status [i, j] == 1) {
 						status [i, j] = 0;
 					} else {
