@@ -13,10 +13,27 @@ public class GameOfMap : MonoBehaviour {
 
 	private int [,] status;
 
-	bool check_if_survives(){
+	void check_if_survives(){
 
-		return false;
+		int i = 0;
+		int j = 0;
+		int a = 0;
+		int [] points = {1,-1}; 
+		for (i = 1; i< numbElements_x-1; i++) {
+		for (j = 1; j < numbElements_y-1; j++) {
+			for (a = 0; a < 2; a++) {
+				if (status [i, j] != status [i + points [a], j] || status [i, j] != status [i, j + points [a]]) {
+					if (status [i, j] == 1) {
+						status [i, j] = 0;
+					} else {
+						status [i, j] = 1;
+					}
+				}
+			}
+		}
 	}
+}
+
 	void create_level(){
 		int i = 0;
 		int j = 0;
@@ -31,6 +48,7 @@ public class GameOfMap : MonoBehaviour {
 			}
 		}
 	}
+
 	void draw_terrain(){
 		int i = 0;
 		int j = 0;
@@ -60,15 +78,21 @@ public class GameOfMap : MonoBehaviour {
 	void Start () {
 		status = new int[numbElements_x, numbElements_y];
 		set_first_status ();
+		create_level ();
+		check_if_survives();
+		draw_terrain ();
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Time.deltaTime > timer) {
-			create_level ();
-			draw_terrain ();
-			timer = timer + 5;
-		}
+//		if (Time.deltaTime > timer) {
+//			create_level ();
+//			check_if_survives();
+//			draw_terrain ();
+//			timer = timer + 5;
+//		}
+//	}
 	}
 }
+
