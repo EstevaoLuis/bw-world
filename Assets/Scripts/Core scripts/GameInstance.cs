@@ -129,7 +129,15 @@ public class GameInstance : MonoBehaviour
 
 		//Instances an energy sphere
 		GameObject spellPrefab = Resources.Load("Spells/" + spellData["color"] + "Spell") as GameObject;
-		GameObject energySphere = (GameObject) Instantiate(spellPrefab, (transform.position + (new Vector3(direction.x, direction.y, 0)*distance)), new Quaternion(0,0,0,1));
+		Vector3 newPosition = transform.position + (new Vector3(direction.x, direction.y, 0)*distance);
+		if(spellTag == "SpellEnemy") {
+			Debug.Log (newPosition);
+			float randomPositionModification = 0f;
+			if(direction.x == 0f) newPosition.x += Random.Range(-1f, 1f) * distance / 2;
+			else newPosition.y += Random.Range(-1f, 1f) * distance / 2;
+			Debug.Log ("Modificato: " + newPosition);
+		}
+		GameObject energySphere = (GameObject) Instantiate(spellPrefab, newPosition, new Quaternion(0,0,0,1));
 		energySphere.tag = spellTag; 
 
 		//Set spell parameters
@@ -345,6 +353,13 @@ public class GameInstance : MonoBehaviour
 			levelUp();
 		}
 		updateExpBar ();
+	}
+
+	public void pauseGame() {     
+		if (Time.timeScale == 1.0f)            
+			Time.timeScale = 0.0f;        
+		else
+			Time.timeScale = 1.0f;                
 	}
 
 	private void levelUp() {
