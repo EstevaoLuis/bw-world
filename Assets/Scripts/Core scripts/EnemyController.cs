@@ -31,10 +31,14 @@ public class EnemyController : MonoBehaviour {
 	private float distanceToInitialPosition;
 	private Vector2 direction;
 	private float minMovementDuration = 0.8f;
+	private float minChangeDuration = 1f;
 	private float minDashDuration = 0.3f;
 	private float lastDirectionChange = 0f;
 	private float meleeDistance;
 	private float range;
+	private float hitTime;
+	private float obstacleDetected;
+	private bool hasTarget = false;
 
 	private float colliderDiameter;
 	private float initialPositionX, initialPositionY;
@@ -291,7 +295,7 @@ public class EnemyController : MonoBehaviour {
 		} else {
 			standStill();
 		}
-
+		hasTarget = false;
 	}
 
 	void moveTowardsTarget(){
@@ -307,7 +311,7 @@ public class EnemyController : MonoBehaviour {
 		} else {
 			standStill();
 		}
-
+		hasTarget = true;
 	}
 
 	Vector2 getTargetDirection() {
@@ -325,24 +329,74 @@ public class EnemyController : MonoBehaviour {
 
 	void randomMovement(){
 		if (Time.time > lastDirectionChange + minMovementDuration) {
-				randomDirection = randomNumber ();
-				if (randomDirection == 0) {
-						standStill ();
-				} else if (randomDirection == 1) {
-						moveUp ();			//move_up
-				} else if (randomDirection == 2) {
-						moveDown ();		//move_down
-				} else if (randomDirection == 3) {
-						moveLeft ();		//move_left		
-				} else if (randomDirection == 4) {
-						moveRight ();		//move right
-				}
+			randomDirection = randomNumber ();
+			if (randomDirection == 0) {
+					standStill ();
+			} else if (randomDirection == 1) {
+					moveUp ();			//move_up
+			} else if (randomDirection == 2) {
+					moveDown ();		//move_down
+			} else if (randomDirection == 3) {
+					moveLeft ();		//move_left		
+			} else if (randomDirection == 4) {
+					moveRight ();		//move right
+			}
 		}
+		hasTarget = false;
+	}
+
+	void changeDirection(Vector2 obstaclePath) {
+		Vector2 newDirection;
+
+		//Not going to target
+		if (!hasTarget) {
+			float x, y;
+			do {
+					x = Random.Range (-1, 1);
+					if (x == 0)
+							y = Random.Range (-1, 1);
+					else
+							y = 0;
+					newDirection = new Vector2 (x, y);
+			} while(newDirection == direction || (newDirection.x == 0f && newDirection.y == 0f));
+
+			//Chose time to proceed based on direction
+			if ((newDirection.x == -direction.x && newDirection.y == direction.y) || (newDirection.x == direction.x && newDirection.y == -direction.y))
+					minChangeDuration = 1f;
+			else
+					minChangeDuration = 1f;
+		//Enemy is directed towards player or object
+		} else {
+			float x, y;
+			if(direction.x == 0) {
+				y = 0f;
+				if(target.x > transform.position.x) x = 1f;
+				else x = -1f;
+				minChangeDuration = obstaclePath.x / speed;
+			}
+			else {
+				x = 0f;
+				if(target.y > transform.position.y) y = 1f;
+				else y = -1f;
+				minChangeDuration = obstaclePath.y / speed;
+			}
+			newDirection = new Vector2 (x, y);
+		}
+		Debug.Log ("Ho sbattuto! Durata " + minChangeDuration);
+
+		direction = newDirection;
+		rigidbody2D.velocity = (new Vector3(newDirection.x, newDirection.y, 0f)) * speed;
+		if(direction == new Vector2(-1f,0f)) animator.Play ("WalkLeft");  
+		else if(direction == new Vector2(1f,0f)) animator.Play ("WalkRight");  
+		else if(direction == new Vector2(0f,1f)) animator.Play ("WalkUp");  
+		else if(direction == new Vector2(0f,-1f)) animator.Play ("WalkDown");  
+		lastDirectionChange = Time.time;
+		obstacleDetected = Time.time;
 	}
 
 	//Moving functions
 	void moveUp(){
-		if (Time.time > lastDirectionChange + minDashDuration) {
+		if (Time.time > lastDirectionChange + minDashDuration && Time.time > obstacleDetected + minChangeDuration) {
 			direction = new Vector2 (0.0f, 1.0f);
 			rigidbody2D.velocity = Vector3.up * speed;
 			animator.Play ("WalkUp");
@@ -350,7 +404,7 @@ public class EnemyController : MonoBehaviour {
 		}
 	}
 	void moveDown(){
-		if (Time.time > lastDirectionChange + minDashDuration) {
+		if (Time.time > lastDirectionChange + minDashDuration && Time.time > obstacleDetected + minChangeDuration) {
 			direction = new Vector2 (0.0f, -1.0f);
 			rigidbody2D.velocity = Vector3.down * speed;
 			animator.Play ("WalkDown");
@@ -358,7 +412,7 @@ public class EnemyController : MonoBehaviour {
 		}
 	}
 	void moveRight(){
-		if (Time.time > lastDirectionChange + minDashDuration) {
+		if (Time.time > lastDirectionChange + minDashDuration && Time.time > obstacleDetected + minChangeDuration) {
 			direction = new Vector2 (1.0f, 0.0f);
 			rigidbody2D.velocity = Vector3.right * speed;
 			animator.Play ("WalkRight");
@@ -366,7 +420,7 @@ public class EnemyController : MonoBehaviour {
 		}
 	}
 	void moveLeft(){
-		if (Time.time > lastDirectionChange + minDashDuration) {
+		if (Time.time > lastDirectionChange + minDashDuration && Time.time > obstacleDetected + minChangeDuration) {
 			direction = new Vector2 (-1.0f, 0.0f);
 			rigidbody2D.velocity = Vector3.left * speed;
 			animator.Play ("WalkLeft");
@@ -374,7 +428,7 @@ public class EnemyController : MonoBehaviour {
 		}
 	}
 	void standStill() {
-		if (Time.time > lastDirectionChange + minDashDuration) {
+		if (Time.time > lastDirectionChange + minDashDuration && Time.time > obstacleDetected + minChangeDuration) {
 			rigidbody2D.velocity = new Vector3 (0, 0, 0);
 			lastDirectionChange = Time.time;
 			Vector3 standDirection = new Vector3(direction.x,direction.y,0);
@@ -383,25 +437,42 @@ public class EnemyController : MonoBehaviour {
 			else if(standDirection == Vector3.right) animator.Play ("StandRight");
 			else if(standDirection == Vector3.down) animator.Play ("StandDown");
 		}
+		hasTarget = false;
 	}
 
 	void OnCollisionEnter2D(Collision2D other){
 		if (other.gameObject.tag == "Spell") {
-				Spell spellParameters = (Spell)other.gameObject.GetComponent ("Spell");
-				int randomModification = spellParameters.damage / 10;
-				int levelModification = spellParameters.damage / 10;
-				int finalDamage = spellParameters.damage + Random.Range(-randomModification,randomModification) + levelModification*(GameInstance.instance.getPlayerLevel()-1) - defense;
-				if(finalDamage<=1) finalDamage = 1;
+			Spell spellParameters = (Spell)other.gameObject.GetComponent ("Spell");
+			int randomModification = spellParameters.damage / 10;
+			int levelModification = spellParameters.damage / 10;
+			int finalDamage = spellParameters.damage + Random.Range (-randomModification, randomModification) + levelModification * (GameInstance.instance.getPlayerLevel () - 1) - defense;
+			if (finalDamage <= 1)
+					finalDamage = 1;
+			//Damage only if minimum amount of time is passed
+			if(Time.time > hitTime + 0.1f) {
 				health -= finalDamage;
-				GameInstance.instance.damageValueAnimation(finalDamage, transform.position);
-				if (health <= 0 && isAlive) {
+				GameInstance.instance.damageValueAnimation (finalDamage, transform.position);
+			}
+			if (health <= 0 && isAlive) {
 					isAlive = false;
 					deadTime = Time.time;
-					GameInstance.instance.increaseExperience(experience);
+					GameInstance.instance.increaseExperience (experience);
 					//Destroy(gameObject);
-				}
+			}
+			hitTime = Time.time;
 		} else if (other.gameObject.tag == "SpellEnemy") {
 			Destroy (other.gameObject);
+		}
+	}
+
+	void OnCollisionStay2D(Collision2D other){
+		if(other.gameObject.tag != "Player" && other.gameObject.tag != "Spell" && other.gameObject.tag != "SpellEnemy") {
+			if (Time.time > obstacleDetected + minChangeDuration) {
+				float x, y;
+				x = (other.gameObject.transform.position.x - transform.position.x) + other.gameObject.collider2D.bounds.size.x / 2 + colliderDiameter;
+				y = (other.gameObject.transform.position.y - transform.position.y) + other.gameObject.collider2D.bounds.size.y / 2 + colliderDiameter;
+				changeDirection (new Vector2(Mathf.Abs (x),Mathf.Abs (y)));
+			}
 		}
 	}
 
