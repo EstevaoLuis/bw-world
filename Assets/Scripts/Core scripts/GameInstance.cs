@@ -14,7 +14,7 @@ public class GameInstance : MonoBehaviour
 	private JSONNode talking;
 
 	//Black mood
-	public GameObject blackMood;
+	public GameObject mainLight;
 	public Camera mainCamera;
 
 	//Tests and various stuff
@@ -187,7 +187,7 @@ public class GameInstance : MonoBehaviour
 			gameOver ();
 			return;
 		}
-		//setBlackMood ((float) health / maxHealth);
+		setBlackMood ((float) health / maxHealth);
 		updateLifeBar ();
 	}
 
@@ -223,11 +223,14 @@ public class GameInstance : MonoBehaviour
 	}
 
 	public void setBlackMood(float amount) {
+		mainLight.light.intensity = amount / 2;
+		/*
 		if (amount < 0.5f) {
 			amount = amount / 0.5f;
-			blackMood.transform.localScale = new Vector3 (Mathf.Clamp (amount * 1.5f, 0.4f, 1.5f), Mathf.Clamp (amount * 1.5f, 0.4f, 1.5f), 0);
+			mainLight.transform.localScale = new Vector3 (Mathf.Clamp (amount * 1.5f, 0.4f, 1.5f), Mathf.Clamp (amount * 1.5f, 0.4f, 1.5f), 0);
 			mainCamera.orthographicSize = Mathf.Clamp (2.5f + amount * 5f, 2f, 5f);
 		}
+		*/
 	}
 	
 	public void gameOver() {
@@ -310,7 +313,7 @@ public class GameInstance : MonoBehaviour
 		health = health + Mathf.RoundToInt(maxHealth / 10);
 		if (health > maxHealth)	health = maxHealth;
 		updateLifeBar ();
-		//setBlackMood ((float) health / maxHealth);
+		setBlackMood ((float) health / maxHealth);
 	}
 
 	public void damageValueAnimation(int damageValue, Vector3 position) {

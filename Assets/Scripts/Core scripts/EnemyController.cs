@@ -62,6 +62,13 @@ public class EnemyController : MonoBehaviour {
 
 	private GameObject nearestColoredObject;
 
+	//Color enemy when hit
+	private Color redColor = new Color (1, 0, 0, 1);
+	private Color greenColor = new Color (0, 1, 0, 1);
+	private Color blueColor = new Color (0, 0, 1, 1);
+	private Color normalColor = new Color (1, 1, 1, 1);
+	private SpriteRenderer renderer;
+
 	// Use this for initialization
 	void Start () {
 		//Get enemy parameters
@@ -103,6 +110,8 @@ public class EnemyController : MonoBehaviour {
 		BoxCollider2D collider = GetComponent<BoxCollider2D> () as BoxCollider2D;
 		colliderDiameter = Mathf.Max (collider.size.x, collider.size.y);
 
+		//Renderer
+		renderer = GetComponent<SpriteRenderer> ();
 
 		//Calculate range
 		range = 0f;
@@ -129,6 +138,10 @@ public class EnemyController : MonoBehaviour {
 	void Update () {
 		//Enemy not already dead
 		if (isAlive) {
+
+			if(renderer.color != normalColor && Time.time > hitTime + 0.4f) {
+				resetColor();
+			}
 
 			setTarget(0);
 			distanceToPlayer = detectDistance();
@@ -382,7 +395,11 @@ public class EnemyController : MonoBehaviour {
 			}
 			newDirection = new Vector2 (x, y);
 		}
-		Debug.Log ("Ho sbattuto! Durata " + minChangeDuration);
+		if (minChangeDuration > 3f) {
+			Debug.Log ("Ho sbattuto! Durata sospetta: " + minChangeDuration + ", oggetto di dimensioni " + obstaclePath.x + "x" +obstaclePath.y);
+			minChangeDuration = 1f;
+		}
+		//Debug.Log ("Ho sbattuto! Durata " + minChangeDuration);
 
 		direction = newDirection;
 		rigidbody2D.velocity = (new Vector3(newDirection.x, newDirection.y, 0f)) * speed;
@@ -440,16 +457,29 @@ public class EnemyController : MonoBehaviour {
 		hasTarget = false;
 	}
 
+	void setColor (string color) {
+		switch (color) {
+			case "red": renderer.color = redColor; break;
+			case "green": renderer.color = greenColor; break;
+			case "blue": renderer.color = blueColor; break;
+		}
+	}
+
+	void resetColor() {
+		renderer.color = normalColor;
+	}
+
 	void OnCollisionEnter2D(Collision2D other){
 		if (other.gameObject.tag == "Spell") {
 			Spell spellParameters = (Spell)other.gameObject.GetComponent ("Spell");
+			setColor(spellParameters.color);
 			int randomModification = spellParameters.damage / 10;
 			int levelModification = spellParameters.damage / 10;
 			int finalDamage = spellParameters.damage + Random.Range (-randomModification, randomModification) + levelModification * (GameInstance.instance.getPlayerLevel () - 1) - defense;
 			if (finalDamage <= 1)
 					finalDamage = 1;
 			//Damage only if minimum amount of time is passed
-			if(Time.time > hitTime + 0.1f) {
+			if(Time.time > hitTime + 0.2f) {
 				health -= finalDamage;
 				GameInstance.instance.damageValueAnimation (finalDamage, transform.position);
 			}
@@ -468,6 +498,7 @@ public class EnemyController : MonoBehaviour {
 	void OnCollisionStay2D(Collision2D other){
 		if(other.gameObject.tag != "Player" && other.gameObject.tag != "Spell" && other.gameObject.tag != "SpellEnemy") {
 			if (Time.time > obstacleDetected + minChangeDuration) {
+				//GameInstance.instance.playAnimation("Level Up",other.gameObject.transform.position);
 				float x, y;
 				x = (other.gameObject.transform.position.x - transform.position.x) + other.gameObject.collider2D.bounds.size.x / 2 + colliderDiameter;
 				y = (other.gameObject.transform.position.y - transform.position.y) + other.gameObject.collider2D.bounds.size.y / 2 + colliderDiameter;
