@@ -4,8 +4,8 @@ using System.Collections;
 //By Felix Hazen
 public class GameOfMap : MonoBehaviour {
 
-	private int numbElements_x = 100;
-	private int numbElements_y = 100;
+	private int numbElements_x = 16;
+	private int numbElements_y = 16;
 	public GameObject water;
 	public GameObject terrain;
 	public GameObject high_terrain;
@@ -55,9 +55,9 @@ public class GameOfMap : MonoBehaviour {
 		for (i = 0; i< numbElements_x; i++) {
 			for (j=0; j < numbElements_y; j++) {
 				if(status[i,j] == 1){
-					Instantiate(terrain,new Vector3(i,j), transform.rotation);
+					Instantiate(terrain,new Vector3(i*5,j*5), transform.rotation);
 				}else{
-					Instantiate(water,new Vector3(i,j), transform.rotation);
+					Instantiate(water,new Vector3(i*5,j*5), transform.rotation);
 				}
 			}
 		}
