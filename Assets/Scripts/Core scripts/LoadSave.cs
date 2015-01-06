@@ -3,7 +3,7 @@ using System.Collections;
 
 public class LoadSave : MonoBehaviour {
 
-	private bool isNewScene = false;
+	//private bool isNewScene = false;
 	private GameObject gameSystem;
 
 	// Update is called once per frame
@@ -18,7 +18,7 @@ public class LoadSave : MonoBehaviour {
 		else if(Input.GetKey (KeyCode.T)) {
 			GameInstance.instance.loadMap("Tutorial",0f,0f);
 		}
-
+		/*
 		if (isNewScene) {
 			gameSystem = GameObject.FindWithTag("GameSystem");
 			if(gameSystem!= null) {
@@ -26,13 +26,13 @@ public class LoadSave : MonoBehaviour {
 				isNewScene = false;
 			}
 		}
-
+		*/
 	}
 
 	public void load() {
 		GameInstance.instance.loadGame();
-		Debug.Log ("GS: " + GameObject.FindWithTag("GameSystemActive"));
-		isNewScene = true;
+		//Debug.Log ("GS: " + GameObject.FindWithTag("GameSystemActive"));
+		//isNewScene = true;
 	}
 
 	public void save() {

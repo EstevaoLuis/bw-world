@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if(Time.timeScale != 0.0f) {
+		if(Time.timeScale > 0.2f) {
 			if (useJoystick) {
 				
 				if (Mathf.Abs (leftJoystick.position.y) > 0.1f && Mathf.Abs (leftJoystick.position.y) > Mathf.Abs (leftJoystick.position.x)) {

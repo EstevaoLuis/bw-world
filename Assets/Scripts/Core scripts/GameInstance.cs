@@ -2,6 +2,9 @@
 using UnityEngine.UI;
 using System.Collections;
 using SimpleJSON;
+using System;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 public class GameInstance : MonoBehaviour 
 {
@@ -16,6 +19,9 @@ public class GameInstance : MonoBehaviour
 	//Black mood
 	public GameObject mainLight;
 	public Camera mainCamera;
+
+	//Music
+	private ThemeAudio audioController;
 
 	//Tests and various stuff
 	public static string text_to_show = "Yoshi"; 
@@ -80,13 +86,13 @@ public class GameInstance : MonoBehaviour
 			//If a Singleton already exists and you find
 			//another reference in scene, destroy it!
 			if(this != _instance)
-				Destroy(this.gameObject);
+				Destroy(this.gameObject.transform.parent.gameObject);
 		}
 	}
 
 	void Start() {
 		refreshUI();
-		GameObject.FindWithTag ("GameSystem").gameObject.tag = "GameSystemActive";
+		//GameObject.FindWithTag ("GameSystem").gameObject.tag = "GameSystemActive";
 	}
 
 	//public bool isInBattle() {
@@ -105,6 +111,7 @@ public class GameInstance : MonoBehaviour
 
 	private void getObjectReferences() {
 		player = GameObject.FindWithTag ("Player");
+		audioController = GameObject.FindWithTag ("AudioController").GetComponent("ThemeAudio") as ThemeAudio;
 		BoxCollider2D collider = player.GetComponent<BoxCollider2D> () as BoxCollider2D;
 		playerColliderRadius = Mathf.Max (collider.size.x, collider.size.y);
 
@@ -133,8 +140,8 @@ public class GameInstance : MonoBehaviour
 		if(spellTag == "SpellEnemy") {
 			Debug.Log (newPosition);
 			float randomPositionModification = 0f;
-			if(direction.x == 0f) newPosition.x += Random.Range(-1f, 1f) * distance / 2;
-			else newPosition.y += Random.Range(-1f, 1f) * distance / 2;
+			if(direction.x == 0f) newPosition.x += UnityEngine.Random.Range(-1f, 1f) * distance / 2;
+			else newPosition.y += UnityEngine.Random.Range(-1f, 1f) * distance / 2;
 			Debug.Log ("Modificato: " + newPosition);
 		}
 		GameObject energySphere = (GameObject) Instantiate(spellPrefab, newPosition, new Quaternion(0,0,0,1));
@@ -187,15 +194,14 @@ public class GameInstance : MonoBehaviour
 	public void damagePlayer(int damage) {
 		int randomModification = damage / 10;
 		int levelModification = damage / 100;
-		int finalDamage = damage + Random.Range(-randomModification,randomModification) - levelModification*(getPlayerLevel()-1);
+		int finalDamage = damage + UnityEngine.Random.Range(-randomModification,randomModification) - levelModification*(getPlayerLevel()-1);
 		health = health - finalDamage;
 		if (health <= 0) {
 			health = 0;
 			updateLifeBar();
-			gameOver ();
+			playerDeath ();
 			return;
 		}
-		setBlackMood ((float) health / maxHealth);
 		updateLifeBar ();
 	}
 
@@ -213,6 +219,7 @@ public class GameInstance : MonoBehaviour
 
 	public void updateLifeBar () {
 		userInterface.setHealthValue((float) health / maxHealth);
+		setBlackMood ();
 	}
 
 	public void updateManaBar () {
@@ -230,7 +237,8 @@ public class GameInstance : MonoBehaviour
 		userInterface.setLevel (level);
 	}
 
-	public void setBlackMood(float amount) {
+	public void setBlackMood() {
+		float amount = (float) health / maxHealth;
 		mainLight.light.intensity = amount / 2;
 		/*
 		if (amount < 0.5f) {
@@ -241,13 +249,18 @@ public class GameInstance : MonoBehaviour
 		*/
 	}
 	
-	public void gameOver() {
+	public void playerDeath() {
 		//stopAllScripts ();
 		playAudio ("Death");
-		Destroy (player);
-		Destroy (GameObject.FindWithTag("GameSystemActive").gameObject);
-		Destroy (this);
+		Time.timeScale = 0.05f;
+		audioController.audio.Stop ();
+		Invoke ("gameOver", 0.25f);
+	}
+
+	public void gameOver() {
+		Time.timeScale = 1.0f;
 		Application.LoadLevel ("Game Over");
+		Destroy (this.transform.parent.gameObject);
 	}
 
 	public JSONNode getEnemyParameters(string name) {
@@ -260,6 +273,7 @@ public class GameInstance : MonoBehaviour
 
 
 	public void saveGame() {
+		/*
 		TextAsset gameJson = Resources.Load("GameData") as TextAsset;
 		gameData = JSONNode.Parse(gameJson.text);
 		gameData["scene"].AsInt = Application.loadedLevel;
@@ -269,9 +283,23 @@ public class GameInstance : MonoBehaviour
 		gameData ["yPosition"].AsFloat = player.transform.position.y;
 		Debug.Log (gameData);
 		System.IO.File.WriteAllText("Assets/Resources/GameData.json",gameData.ToString());
+		*/
+		BinaryFormatter bf = new BinaryFormatter ();
+		FileStream file = File.Open (Application.persistentDataPath + "/playerInfo.dat", FileMode.OpenOrCreate);
+		PlayerData data = new PlayerData ();
+		data.level = level;
+		data.scene = Application.loadedLevel;
+		data.xPosition = player.transform.position.x;
+		data.yPosition = player.transform.position.y;
+		data.health = health;
+		data.mana = mana;
+		data.experience = experience;
+		bf.Serialize (file, data);
+		file.Close ();
 	}
 
 	public void loadGame() {
+		/*
 		string gameJsonText = System.IO.File.ReadAllText("Assets/Resources/GameData.json");
 		//TextAsset gameJson = Resources.Load("GameData") as TextAsset;
 		gameData = JSONNode.Parse(gameJsonText);
@@ -285,7 +313,21 @@ public class GameInstance : MonoBehaviour
 		mana = gameData["mana"].AsInt;
 		player.transform.position = new Vector3(gameData["xPosition"].AsFloat,gameData["yPosition"].AsFloat,0);
 		cameraSystem.transform.position = new Vector3(gameData["xPosition"].AsFloat,gameData["yPosition"].AsFloat,0);
-
+		*/
+		if (File.Exists (Application.persistentDataPath + "/playerInfo.dat")) {
+			BinaryFormatter bf = new BinaryFormatter();
+			FileStream file = File.Open(Application.persistentDataPath + "/playerInfo.dat", FileMode.Open);
+			PlayerData data = (PlayerData) bf.Deserialize(file);
+			file.Close();
+			Application.LoadLevel (data.scene);
+			setPlayerLevel(data.level);
+			player.transform.position = new Vector3(data.xPosition,data.yPosition,0f);
+			cameraSystem.transform.position = new Vector3(data.xPosition,data.yPosition,0f);
+			health = data.health;
+			mana = data.mana;
+			experience = data.experience;
+			refreshUI();
+		}
 
 	}
 
@@ -321,7 +363,6 @@ public class GameInstance : MonoBehaviour
 		health = health + Mathf.RoundToInt(maxHealth / 10);
 		if (health > maxHealth)	health = maxHealth;
 		updateLifeBar ();
-		setBlackMood ((float) health / maxHealth);
 	}
 
 	public void damageValueAnimation(int damageValue, Vector3 position) {
@@ -392,4 +433,15 @@ public class GameInstance : MonoBehaviour
 	public bool isInBattle() {
 		return lastBattle != 0 && Time.time < lastBattle + 5f;
 	}
+}
+
+[Serializable]
+class PlayerData {
+	public int scene;
+	public float xPosition;
+	public float yPosition;
+	public int level;
+	public int health;
+	public int mana;
+	public int experience;
 }
