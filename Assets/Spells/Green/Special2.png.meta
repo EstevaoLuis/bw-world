@@ -1,21 +1,26 @@
 fileFormatVersion: 2
-guid: 0604fb3ea7dca594299f06a5b200a0e3
+guid: fe556d70875d61a4aab2f11d344494d4
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Fire1_0
-    21300002: Fire1_1
-    21300004: Fire1_2
-    21300006: Fire1_3
-    21300008: Fire1_4
-    21300010: Fire1_5
-    21300012: Fire1_6
-    21300014: Fire1_7
-    21300016: Fire1_8
-    21300018: Fire1_9
+    21300000: Special2_0
+    21300002: Special2_1
+    21300004: Special2_2
+    21300006: Special2_3
+    21300008: Special2_4
+    21300010: Special2_5
+    21300012: Special2_6
+    21300014: Special2_7
+    21300016: Special2_8
+    21300018: Special2_9
+    21300020: Special2_10
+    21300022: Special2_11
+    21300024: Special2_12
+    21300026: Special2_13
+    21300028: Special2_14
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -35,7 +40,7 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: 1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -47,73 +52,123 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 35
+  spritePixelsToUnits: 25
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Fire1_0
+    - name: Special2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Special2_1
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Special2_2
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Special2_3
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Special2_4
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Special2_5
       rect:
         serializedVersion: 2
         x: 0
         y: 192
         width: 192
         height: 192
-      alignment: 9
-      pivot: {x: .5, y: .25}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Fire1_1
+    - name: Special2_6
       rect:
         serializedVersion: 2
         x: 192
         y: 192
         width: 192
         height: 192
-      alignment: 9
-      pivot: {x: .5, y: .25}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Fire1_2
+    - name: Special2_7
       rect:
         serializedVersion: 2
         x: 384
         y: 192
         width: 192
         height: 192
-      alignment: 9
-      pivot: {x: .5, y: .25}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Fire1_3
+    - name: Special2_8
       rect:
         serializedVersion: 2
         x: 576
         y: 192
         width: 192
         height: 192
-      alignment: 9
-      pivot: {x: .5, y: .25}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Fire1_4
+    - name: Special2_9
       rect:
         serializedVersion: 2
         x: 768
         y: 192
         width: 192
         height: 192
-      alignment: 9
-      pivot: {x: .5, y: .25}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Fire1_5
+    - name: Special2_10
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 192
         height: 192
-      alignment: 9
-      pivot: {x: .5, y: .25}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Fire1_6
+    - name: Special2_11
       rect:
         serializedVersion: 2
         x: 192
@@ -121,9 +176,9 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Fire1_7
+    - name: Special2_12
       rect:
         serializedVersion: 2
         x: 384
@@ -131,9 +186,9 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Fire1_8
+    - name: Special2_13
       rect:
         serializedVersion: 2
         x: 576
@@ -141,9 +196,9 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Fire1_9
+    - name: Special2_14
       rect:
         serializedVersion: 2
         x: 768
@@ -151,7 +206,7 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

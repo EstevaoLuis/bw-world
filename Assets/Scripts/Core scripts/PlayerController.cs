@@ -113,17 +113,17 @@ public class PlayerController : MonoBehaviour {
 				}
 				else {
 					if (Input.GetKey (KeyCode.W)) {
-						GameInstance.instance.playerCastSpell("Red 1",transform,direction);
+						GameInstance.instance.playerCastSpell("red",transform,direction);
 						//used.setType(1);
 						lastSpell = Time.time;
 					}
 					else if(Input.GetKey (KeyCode.A)) {
-						GameInstance.instance.playerCastSpell("Blue 1",transform,direction);
+						GameInstance.instance.playerCastSpell("blue",transform,direction);
 						//used.setType(3);
 						lastSpell = Time.time;
 					}
 					else if(Input.GetKey (KeyCode.D)) {
-						GameInstance.instance.playerCastSpell("Green 1",transform,direction);
+						GameInstance.instance.playerCastSpell("green",transform,direction);
 						//used.setType(2);
 						lastSpell = Time.time;
 					}

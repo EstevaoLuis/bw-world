@@ -265,7 +265,7 @@ public class EnemyController : MonoBehaviour {
 	}
 
 	void castSpell(){
-		GameInstance.instance.castSpell (choose_spell (), transform, getTargetDirection(), "SpellEnemy", colliderDiameter / 2 + 1.5f, speed);
+		GameInstance.instance.castSpell (choose_spell (), transform, getTargetDirection(), "SpellEnemy", colliderDiameter / 2 + 1.5f, speed, 0);
 		lastAttack = Time.time;
 	}
 
@@ -473,6 +473,7 @@ public class EnemyController : MonoBehaviour {
 		if (other.gameObject.tag == "Spell") {
 			Spell spellParameters = (Spell)other.gameObject.GetComponent ("Spell");
 			setColor(spellParameters.color);
+			GameInstance.instance.increaseSpellUsage(spellParameters.color);
 			int randomModification = spellParameters.damage / 10;
 			int levelModification = spellParameters.damage / 10;
 			int finalDamage = spellParameters.damage + Random.Range (-randomModification, randomModification) + levelModification * (GameInstance.instance.getPlayerLevel () - 1) - defense;

@@ -34,6 +34,7 @@ public class GameInstance : MonoBehaviour
 
 	//Player data
 	private int level, health, maxHealth, mana, maxMana, experience, maxExperience;
+	private int red = 0, green = 0, blue = 0;
 	private float playerColliderRadius;
 
 	//Time variables
@@ -128,7 +129,7 @@ public class GameInstance : MonoBehaviour
 	}
 
 	//Casts a spell using position and directions as parameters
-	public void castSpell(string spellName, Transform transform, Vector2 direction, string spellTag, float distance, float minSpeed) {
+	public void castSpell(string spellName, Transform transform, Vector2 direction, string spellTag, float distance, float minSpeed, int bonusDamage) {
 		//Check if spell is available
 		if (spellName == null) return;
 		JSONNode spellData = spells[spellName];
@@ -149,7 +150,8 @@ public class GameInstance : MonoBehaviour
 
 		//Set spell parameters
 		Spell spellParameters = (Spell) energySphere.GetComponent("Spell");
-		spellParameters.damage = spellData["damage"].AsInt;
+		spellParameters.damage = spellData["damage"].AsInt + bonusDamage;
+
 		spellParameters.duration = spellData["duration"].AsFloat;
 		spellParameters.color = spellData["color"];
 		spellParameters.area = spellData["area"].AsFloat;
@@ -205,12 +207,36 @@ public class GameInstance : MonoBehaviour
 		updateLifeBar ();
 	}
 
-	public void playerCastSpell(string spellName, Transform transform, Vector2 direction) {
+	public void playerCastSpell(string spellColor, Transform transform, Vector2 direction) {
+		//Choose spell
+		string spellName = "";
+		int bonusDamage = 0;
+		int secondSpell = -1, thirdSpell = 50;
+		switch(spellColor) {
+			case "red": 
+				if(red>thirdSpell) spellName = "Red 3";
+				else if(red>secondSpell) spellName = "Red 2";
+				else spellName = "Red 1";
+				bonusDamage = Mathf.RoundToInt(red/15);
+				break;
+			case "green": 
+				if(green>thirdSpell) spellName = "Green 3";
+				else if(green>secondSpell) spellName = "Green 2";
+				else spellName = "Green 1";
+				bonusDamage = Mathf.RoundToInt(green/15);
+				break;
+			case "blue": 
+				if(blue>thirdSpell)  spellName = "Blue 3";
+				else if(blue>secondSpell) spellName = "Blue 2";
+				else spellName = "Blue 1";
+				bonusDamage = Mathf.RoundToInt(blue/15);
+				break;
+		}
 		//Check if enough mana and if time has passed
 		if (mana > spells [spellName] ["mana"].AsInt && Time.time>lastSpell+0.3f) {
 				mana -= spells [spellName] ["mana"].AsInt;
 				updateManaBar ();
-				castSpell (spellName, transform, direction, "Spell", playerColliderRadius/2+(playerColliderRadius/10), 0f);
+				castSpell (spellName, transform, direction, "Spell", playerColliderRadius/2+(playerColliderRadius/10), 0f, bonusDamage);
 				lastSpell = Time.time;
 		} else {
 			//Not enough mana
@@ -294,6 +320,9 @@ public class GameInstance : MonoBehaviour
 		data.health = health;
 		data.mana = mana;
 		data.experience = experience;
+		data.red = red;
+		data.green = green;
+		data.blue = blue;
 		bf.Serialize (file, data);
 		file.Close ();
 	}
@@ -326,6 +355,9 @@ public class GameInstance : MonoBehaviour
 			health = data.health;
 			mana = data.mana;
 			experience = data.experience;
+			red = data.red;
+			green = data.green;
+			blue = data.blue;
 			refreshUI();
 		}
 
@@ -416,6 +448,12 @@ public class GameInstance : MonoBehaviour
 		return level;
 	}
 
+	public void increaseSpellUsage(string color) {
+		if (color == "red") red++;
+		else if (color == "green") green++;
+		else if(color == "blue") blue++;
+	}
+
 	public float getSpellRange(string spellName) {
 		return spells[spellName]["duration"].AsFloat * spells[spellName]["speed"].AsFloat;
 	}
@@ -444,4 +482,7 @@ class PlayerData {
 	public int health;
 	public int mana;
 	public int experience;
+	public int red;
+	public int blue;
+	public int green;
 }
