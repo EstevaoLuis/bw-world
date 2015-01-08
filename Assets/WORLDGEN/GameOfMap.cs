@@ -81,21 +81,23 @@ public class GameOfMap : MonoBehaviour {
 			for(j=1; j < numbElements_y-1; j++){
 				r=Random.Range(0,40);
 				r_h = Random.Range(0,40);
-				if(r_h == 0){
+
+				if(r_h == 0 ){
+
 				if(status[i,j] == 0  && status[i ,j + 1] == 0 && status[i,j-1]==0 && status[i + 1,j] == 0 && status[i-1,j]==0 && status[i ,j + 1] == 0 && status[i-1,j-1]==0 && status[i+1,j+1]==0){
 					Instantiate(building,new Vector3(5*i,5*j),transform.rotation);
-					//status[i,j] = 0;
+					status[i,j] = 1;
 					}
 				}
 				if(r == 0){
 
 					if(status[i,j] == 0  && status[i + 1,j] == 0){
 						Instantiate(wall,new Vector3(5*i+5,5*j),transform.rotation);
-						status[i,j]= 1;
+						status[i,j]= 2;
 					}
 					if(status[i,j] == 0  && status[i - 1,j] == 0){
 						Instantiate(wall,new Vector3(5*i-5,5*j),transform.rotation);
-						status[i,j]= 1;
+						status[i,j]= 2;
 					}
 //					if(status[i,j] == 0  && status[i ,j + 1] == 0 && status[i,j-1]==0 && status[i + 1,j] == 0 && status[i-1,j]==0 && status[i ,j + 1] == 0 && status[i-1,j-1]==0 && status[i+1,j+1]==0){
 //						Instantiate(building,new Vector3(5*i,5*j),transform.rotation);
@@ -162,8 +164,8 @@ public class GameOfMap : MonoBehaviour {
 		set_first_status ();
 		create_level ();
 		check_if_survives();
-		ruin_creator ();
 		draw_terrain ();
+		ruin_creator ();
 //		draw_minimap ();
 //		icon.transform.position = new Vector3 (player.transform.position.x/5 + minimapCoordinates.x , 
 //		                                       player.transform.position.y/5 + minimapCoordinates.y,-1);
