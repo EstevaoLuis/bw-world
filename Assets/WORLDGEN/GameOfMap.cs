@@ -84,7 +84,7 @@ public class GameOfMap : MonoBehaviour {
 				if(r_h == 0){
 				if(status[i,j] == 0  && status[i ,j + 1] == 0 && status[i,j-1]==0 && status[i + 1,j] == 0 && status[i-1,j]==0 && status[i ,j + 1] == 0 && status[i-1,j-1]==0 && status[i+1,j+1]==0){
 					Instantiate(building,new Vector3(5*i,5*j),transform.rotation);
-					status[i,j] = 1;
+					//status[i,j] = 0;
 					}
 				}
 				if(r == 0){
