@@ -213,7 +213,7 @@ public class GameInstance : MonoBehaviour
 		//Choose spell
 		string spellName = "";
 		int bonusDamage = 0;
-		int secondSpell = -1, thirdSpell = 50;
+		int secondSpell = 20, thirdSpell = 50;
 		switch(spellColor) {
 			case "red": 
 				if(red>thirdSpell) spellName = "Red 3";
