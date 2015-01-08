@@ -12,8 +12,8 @@ public class PuzzleMaster : MonoBehaviour {
 	public bool active = true;
 	public GameObject door;
 
-	private int _min = 3;
-	private int _max = 5;
+	public int _min = 3;
+	public int _max = 5;
 
 	// Use this for initialization
 	void Start () {
