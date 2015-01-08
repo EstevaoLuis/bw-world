@@ -5,8 +5,9 @@ public class SuperStar : MonoBehaviour {
 
 	private PlayerController p;
 	private Rigidbody2D rigid;
-	private bool prev_status;
-	private float prev_mass;
+
+	//private bool prev_status;
+	//private float prev_mass;
 
 	public float inv_time_effect = 5f;
 	
@@ -25,14 +26,17 @@ public class SuperStar : MonoBehaviour {
 	
 	void OnCollisionEnter2D(Collision2D other){
 		if (other.gameObject.tag == "Player" && !inv_lock) {
-			//Destroy(gameObject);
 			inv_lock = true;
 			GetComponent<SpriteRenderer>().enabled = false;
 			GetComponent<PolygonCollider2D>().enabled = false;
 			p = other.gameObject.GetComponent<PlayerController>();
-			prev_status = p.GetInvincibility();
 			rigid = other.gameObject.GetComponent<Rigidbody2D>();
-			prev_mass = rigid.mass;
+
+			if (GameInstance.instance.star_tot == 0){
+				GameInstance.instance.star_prev_mass = rigid.mass;
+			}
+
+			GameInstance.instance.star_tot++;
 			p.SetInvincibility();
 			rigid.mass = 100;
 			StartCoroutine("normalStatus");
@@ -45,8 +49,11 @@ public class SuperStar : MonoBehaviour {
 		Debug.Log ("You are INV");
 		yield return new WaitForSeconds(inv_time_effect);
 		Debug.Log ("Time ended");
-		rigid.mass = prev_mass;
-		p.SetInvincibility (prev_status);
+		GameInstance.instance.star_tot--;
+		if (GameInstance.instance.star_tot == 0) {
+			rigid.mass = GameInstance.instance.star_prev_mass;
+			p.SetInvincibility (false);
+		}
 		Debug.Log ("NOT INV ANYMORE");
 		Destroy(gameObject);
 	}

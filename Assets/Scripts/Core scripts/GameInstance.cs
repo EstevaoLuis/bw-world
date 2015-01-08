@@ -483,7 +483,12 @@ public class GameInstance : MonoBehaviour
 	public bool isInBattle() {
 		return lastBattle != 0 && Time.time < lastBattle + 5f;
 	}
-
+	
+	// items management
+	public int mush_tot = 0;
+	public float mush_prev_speed;
+	public int star_tot = 0;
+	public float star_prev_mass;
 
 
 }
