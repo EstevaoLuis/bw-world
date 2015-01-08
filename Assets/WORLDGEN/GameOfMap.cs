@@ -124,9 +124,9 @@ public class GameOfMap : MonoBehaviour {
 		create_level ();
 		check_if_survives();
 		draw_terrain ();
-		draw_minimap ();
-		icon.transform.position = new Vector3 (player.transform.position.x/5 + minimapCoordinates.x , 
-		                                       player.transform.position.y/5 + minimapCoordinates.y,-1);
+//		draw_minimap ();
+//		icon.transform.position = new Vector3 (player.transform.position.x/5 + minimapCoordinates.x , 
+//		                                       player.transform.position.y/5 + minimapCoordinates.y,-1);
 	}
 	
 	// Update is called once per frame
