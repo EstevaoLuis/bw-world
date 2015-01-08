@@ -7,17 +7,19 @@ public class PuzzleMaster : MonoBehaviour {
 	// 1 = Green
 	// 2 = Blue
 	public int[] correctSequence = new int[]{0,1,2};
+	public bool RandomSequence = false;
 
 	public int attempt = 0;
 	public bool active = true;
 	public GameObject door;
 
-	private int _min = 3;
-	private int _max = 5;
+	public int _min = 3;
+	public int _max = 5;
 
 	// Use this for initialization
 	void Start () {
-		RandomInitialization ();
+		if (RandomSequence)
+			RandomInitialization ();
 	}
 	
 	// Update is called once per frame
