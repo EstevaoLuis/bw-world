@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 //This program is my adapted version of Conway's game of Life. 
-//By Felix Hazen
+//By Felix Hazen Gonzalez
 public class GameOfMap : MonoBehaviour {
 
 	private int numbElements_x = 16;
@@ -9,15 +9,16 @@ public class GameOfMap : MonoBehaviour {
 	public GameObject water;
 	public GameObject terrain;
 	public GameObject icon;
+	public GameObject building;
 	private GameObject icon_s = null;
-	public GameObject high_terrain;
+	public GameObject wall;
 	public GameObject minimap;
 	private float timer;
 	private GameObject player;
 	private Vector3 minimapCoordinates = new Vector3(100,100);
 	private float iconCoordinate_x = 100;
 	private float iconCoordinate_y = 100;
-	private float time_map = 5f;
+	//private float time_map = 5f;
 
 	private int [,] status;
 
@@ -70,22 +71,60 @@ public class GameOfMap : MonoBehaviour {
 			}
 		}
 	}
-
-	void draw_minimap(){
+	void ruin_creator(){
 		int i = 0;
 		int j = 0;
-
-		for (i = 0; i< numbElements_x; i++) {
-			for (j=0; j < numbElements_y; j++) {
-				if(status[i,j] == 1){
-					Instantiate(terrain,minimapCoordinates + new Vector3(i,j), transform.rotation);
-				}else{
-					Instantiate(water,minimapCoordinates+new Vector3(i,j), transform.rotation);
+		int r = 0;
+		int r_h = 0;
+		int [] points = {1,-1}; 
+		for (i = 1; i< numbElements_x-1; i++) {
+			for(j=1; j < numbElements_y-1; j++){
+				r=Random.Range(0,40);
+				r_h = Random.Range(0,40);
+				if(r_h == 0){
+				if(status[i,j] == 0  && status[i ,j + 1] == 0 && status[i,j-1]==0 && status[i + 1,j] == 0 && status[i-1,j]==0 && status[i ,j + 1] == 0 && status[i-1,j-1]==0 && status[i+1,j+1]==0){
+					Instantiate(building,new Vector3(5*i,5*j),transform.rotation);
+					status[i,j] = 1;
+					}
 				}
+				if(r == 0){
 
+					if(status[i,j] == 0  && status[i + 1,j] == 0){
+						Instantiate(wall,new Vector3(5*i+5,5*j),transform.rotation);
+						status[i,j]= 1;
+					}
+					if(status[i,j] == 0  && status[i - 1,j] == 0){
+						Instantiate(wall,new Vector3(5*i-5,5*j),transform.rotation);
+						status[i,j]= 1;
+					}
+//					if(status[i,j] == 0  && status[i ,j + 1] == 0 && status[i,j-1]==0 && status[i + 1,j] == 0 && status[i-1,j]==0 && status[i ,j + 1] == 0 && status[i-1,j-1]==0 && status[i+1,j+1]==0){
+//						Instantiate(building,new Vector3(5*i,5*j),transform.rotation);
+//					}
+//					if(status[i,j] == 0  && status[i ,j - 1] == 0){
+//					Instantiate(wall,new Vector3(5*i,j+1),transform.rotation);
+//					}
+				}
 			}
 		}
 	}
+	
+
+
+//	void draw_minimap(){
+//		int i = 0;
+//		int j = 0;
+//
+//		for (i = 0; i< numbElements_x; i++) {
+//			for (j=0; j < numbElements_y; j++) {
+//				if(status[i,j] == 1){
+//					Instantiate(terrain,minimapCoordinates + new Vector3(i,j), transform.rotation);
+//				}else{
+//					Instantiate(water,minimapCoordinates+new Vector3(i,j), transform.rotation);
+//				}
+//
+//			}
+//		}
+//	}
 
 //	void where_is_player(){
 //
@@ -123,6 +162,7 @@ public class GameOfMap : MonoBehaviour {
 		set_first_status ();
 		create_level ();
 		check_if_survives();
+		ruin_creator ();
 		draw_terrain ();
 //		draw_minimap ();
 //		icon.transform.position = new Vector3 (player.transform.position.x/5 + minimapCoordinates.x , 
