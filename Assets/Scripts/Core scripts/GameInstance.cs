@@ -393,9 +393,19 @@ public class GameInstance : MonoBehaviour
 		updateManaBar ();
 	}
 
+	public void regenerateAllMana() {
+		mana = maxMana;
+		updateManaBar ();
+	}
+
 	public void regenerateHealth() {
 		health = health + Mathf.RoundToInt(maxHealth / 10);
 		if (health > maxHealth)	health = maxHealth;
+		updateLifeBar ();
+	}
+
+	public void regenerateAllHealth() {
+		health = maxHealth;
 		updateLifeBar ();
 	}
 
