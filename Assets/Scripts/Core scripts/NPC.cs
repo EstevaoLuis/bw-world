@@ -39,6 +39,7 @@ public class NPC : MonoBehaviour {
 
 	void OnTriggerExit2D(Collider2D other) {
 		if (other.gameObject.tag == "Player") {
+			textObject.SetActive (true);
 			fadingText.FadeOut (5);
 		}
 	}

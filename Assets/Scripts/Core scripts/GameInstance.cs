@@ -325,6 +325,7 @@ public class GameInstance : MonoBehaviour
 		data.red = red;
 		data.green = green;
 		data.blue = blue;
+		data.storyLevel = QuestManager.instance.getStoryLevel ();
 		bf.Serialize (file, data);
 		file.Close ();
 	}
@@ -360,6 +361,7 @@ public class GameInstance : MonoBehaviour
 			red = data.red;
 			green = data.green;
 			blue = data.blue;
+			QuestManager.instance.setStoryLevel(data.storyLevel);
 			refreshUI();
 		}
 
@@ -483,7 +485,7 @@ public class GameInstance : MonoBehaviour
 	public bool isInBattle() {
 		return lastBattle != 0 && Time.time < lastBattle + 5f;
 	}
-	
+
 	// items management
 	public int mush_tot = 0;
 	public float mush_prev_speed;
@@ -505,4 +507,5 @@ class PlayerData {
 	public int red;
 	public int blue;
 	public int green;
+	public int storyLevel;
 }

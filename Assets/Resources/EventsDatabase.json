@@ -1,0 +1,13 @@
+﻿{
+    "Test event": {
+    	"storyLevel": 1,
+    	"preMessage": "",
+    	"postMessage": "",
+    	"minimumStoryLevel": 0,
+    	"maximumStoryLevel": 5,
+    	"experience": 100,
+    	"targetX": -10,
+    	"targetY": -10,
+    	"targetZ": 0
+    }
+}

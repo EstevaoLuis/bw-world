@@ -12,6 +12,8 @@ public class UserInterface : MonoBehaviour
 	private Slider manaBar;
 	private Slider expBar;
 	private Text levelText;
+	private GameObject directionalArrow;
+	private RectTransform arrowTransform;
 	
 	//Instance management
 	public static UserInterface instance
@@ -30,7 +32,6 @@ public class UserInterface : MonoBehaviour
 
 			//GET OTHER OBJECTS
 			getObjectReferences();
-
 		}
 		else
 		{
@@ -46,6 +47,9 @@ public class UserInterface : MonoBehaviour
 		manaBar = GameObject.FindWithTag ("ManaBar").GetComponent<Slider>() as Slider;
 		expBar = GameObject.FindWithTag ("ExpBar").GetComponent<Slider>() as Slider;
 		levelText = GameObject.FindWithTag ("LevelText").GetComponent<Text>() as Text;
+		directionalArrow = GameObject.FindWithTag ("DirectionalArrow") as GameObject;
+		directionalArrow.SetActive (false);
+		arrowTransform = directionalArrow.GetComponent<RectTransform>();
 	}
 
 	public void setHealthValue(float value) {
@@ -62,6 +66,14 @@ public class UserInterface : MonoBehaviour
 
 	public void setLevel(int value) {
 		levelText.text = value.ToString ();
+	}
+
+	public void setArrowDirection(float angle) {
+		arrowTransform.eulerAngles = new Vector3 (0f,0f,angle-90f);
+	}
+
+	public void enableArrowDirection(bool isActive) {
+		directionalArrow.SetActive (isActive);
 	}
 
 }
