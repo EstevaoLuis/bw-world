@@ -15,6 +15,7 @@ public class CameraController : MonoBehaviour {
 	
 	}
 
+
 	/*
 	// Update is called once per frame
 	void Update () {
@@ -40,7 +41,9 @@ public class CameraController : MonoBehaviour {
 	void OnTriggerStay2D(Collider2D other) {
 		if(other.gameObject.tag == "Player") {
 			movementSpeed = other.gameObject.rigidbody2D.velocity;
-			if((movementSpeed.x!=0 && movementSpeed.y!=0) || (triggerDirection == movementSpeed/5f)) {
+			PlayerController p = other.gameObject.GetComponent<PlayerController>();
+
+			if((movementSpeed.x!=0 && movementSpeed.y!=0) || (triggerDirection == movementSpeed/p.GetSpeed())) {
 				cameraSystem.transform.position += new Vector3(movementSpeed.x,movementSpeed.y,0f) * Time.deltaTime;
 			}
 		}

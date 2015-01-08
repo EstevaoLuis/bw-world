@@ -483,6 +483,9 @@ public class GameInstance : MonoBehaviour
 	public bool isInBattle() {
 		return lastBattle != 0 && Time.time < lastBattle + 5f;
 	}
+
+
+
 }
 
 [Serializable]

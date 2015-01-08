@@ -46,3 +46,7 @@ public class Mushroom : MonoBehaviour {
 		Destroy(gameObject);
 	}
 }
+
+
+public class Mushroom
+
