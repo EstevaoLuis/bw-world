@@ -10,7 +10,7 @@ public class GameOfMap : MonoBehaviour {
 	public GameObject terrain;
 	public GameObject icon;
 	public GameObject building;
-	private GameObject icon_s = null;
+	//private GameObject icon_s = null;
 	public GameObject wall;
 	public GameObject minimap;
 	private float timer;
