@@ -6,7 +6,8 @@ public class PlayerController : MonoBehaviour {
 	public bool useJoystick = false;
 	
 	private float speed = 5f;
-	
+	private bool invincibility = false;
+
 	private Animator animator;
 	private Vector2 direction;
 	private float lastSpell;
@@ -198,6 +199,15 @@ public class PlayerController : MonoBehaviour {
 		if (Speed>0f)
 				speed = Speed;
 		}
+
+	public void SetInvincibility(bool value = true){
+		invincibility = value;
+	}
+
+	public bool GetInvincibility(){
+		return invincibility;
+	}
+
 
 	
 }

@@ -194,17 +194,19 @@ public class GameInstance : MonoBehaviour
 	}
 
 	public void damagePlayer(int damage) {
-		int randomModification = damage / 10;
-		int levelModification = damage / 100;
-		int finalDamage = damage + UnityEngine.Random.Range(-randomModification,randomModification) - levelModification*(getPlayerLevel()-1);
-		health = health - finalDamage;
-		if (health <= 0) {
-			health = 0;
-			updateLifeBar();
-			playerDeath ();
-			return;
+		if (!player.GetComponent<PlayerController> ().GetInvincibility()) {
+			int randomModification = damage / 10;
+			int levelModification = damage / 100;
+			int finalDamage = damage + UnityEngine.Random.Range (-randomModification, randomModification) - levelModification * (getPlayerLevel () - 1);
+			health = health - finalDamage;
+			if (health <= 0) {
+					health = 0;
+					updateLifeBar ();
+					playerDeath ();
+					return;
+			}
+			updateLifeBar ();
 		}
-		updateLifeBar ();
 	}
 
 	public void playerCastSpell(string spellColor, Transform transform, Vector2 direction) {
