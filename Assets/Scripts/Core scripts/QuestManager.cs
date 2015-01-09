@@ -85,6 +85,7 @@ public class QuestManager : MonoBehaviour {
 			cancelTarget ();
 			GameInstance.instance.increaseExperience(events[name]["experience"].AsInt);
 			setStoryLevel(events[name]["storyLevel"].AsInt);
+			if(events[name]["postMessage"] != "") UserInterface.instance.displayMessage(events[name]["postMessage"]);
 			return true;
 		}
 		return false;
@@ -96,8 +97,9 @@ public class QuestManager : MonoBehaviour {
 				Debug.Log ("Event started: " + name);
 				setNewTarget(new Vector3(events[name]["targetX"].AsFloat,events[name]["targetY"].AsFloat,events[name]["targetZ"].AsFloat));
 				currentEvent = name;
+				if(events[name]["preMessage"] != "") UserInterface.instance.displayMessage(events[name]["preMessage"]);
+				return true;
 			}
-			return true;
 		}
 		return false;
 	}
@@ -109,6 +111,18 @@ public class QuestManager : MonoBehaviour {
 	public void setStoryLevel(int lv) {
 		storyLevel = lv;
 		Debug.Log ("Story level: " + storyLevel);
+	}
+
+	public int getEventState(string name) {
+		if (events [name] != null) {
+			//In course
+			if(name == currentEvent) return 1;
+			//Event finished
+			if(storyLevel >= events [name]["storyLevel"].AsInt) return 2;
+			//Event not begun
+			return 0;
+		}
+		return -1;
 	}
 
 }

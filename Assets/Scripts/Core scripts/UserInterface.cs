@@ -7,6 +7,9 @@ public class UserInterface : MonoBehaviour
 {
 	private static UserInterface _instance;
 
+	public GameObject messagePanel;
+	public Text displayedMessage;
+
 	//UI objects
 	private Slider healthBar;
 	private Slider manaBar;
@@ -74,6 +77,16 @@ public class UserInterface : MonoBehaviour
 
 	public void enableArrowDirection(bool isActive) {
 		directionalArrow.SetActive (isActive);
+	}
+
+	public void displayMessage(string text) {
+		messagePanel.SetActive (true);
+		displayedMessage.text = text;
+
+	}
+
+	public void closeMessagePanel() {
+		messagePanel.SetActive (false);
 	}
 
 }

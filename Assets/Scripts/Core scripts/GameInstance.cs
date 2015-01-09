@@ -428,9 +428,10 @@ public class GameInstance : MonoBehaviour
 		return displayText;
 	}
 
-	public void playAnimation(string animationName, Vector3 position) {
+	public GameObject playAnimation(string animationName, Vector3 position) {
 		GameObject animationPrefab = Resources.Load("Animations/" + animationName) as GameObject;
 		GameObject animation = (GameObject) Instantiate(animationPrefab, position, new Quaternion(0,0,0,1));
+		return animation;
 	}
 
 	public void increaseExperience(int amount) {

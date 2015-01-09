@@ -1,8 +1,8 @@
 ﻿{
     "Test event": {
     	"storyLevel": 1,
-    	"preMessage": "",
-    	"postMessage": "",
+    	"preMessage": "Go back to the left and speak to the other cube",
+    	"postMessage": "Yeah! You completed your first quest ;)",
     	"minimumStoryLevel": 0,
     	"maximumStoryLevel": 0,
     	"experience": 100,
