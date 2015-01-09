@@ -12,7 +12,7 @@ public class QuestManager : MonoBehaviour {
 	private GameObject player;
 	private JSONNode events;
 	private string currentEvent;
-	private int storyLevel;
+	private int storyLevel = 0;
 
 	//Instance management
 	public static QuestManager instance
@@ -84,16 +84,19 @@ public class QuestManager : MonoBehaviour {
 			Debug.Log ("Event ended: " + name);
 			cancelTarget ();
 			GameInstance.instance.increaseExperience(events[name]["experience"].AsInt);
+			setStoryLevel(events[name]["storyLevel"].AsInt);
 			return true;
 		}
 		return false;
 	}
 
 	public bool startEvent(string name) {
-		if (events [name] != null) {
-			Debug.Log ("Event started: " + name);
-			setNewTarget(new Vector3(events[name]["targetX"].AsFloat,events[name]["targetY"].AsFloat,events[name]["targetZ"].AsFloat));
-			currentEvent = name;
+		if (events [name] != null && name != currentEvent) {
+			if(storyLevel >= events[name]["minimumStoryLevel"].AsInt && storyLevel <= events[name]["maximumStoryLevel"].AsInt && storyLevel < events[name]["storyLevel"].AsInt) {
+				Debug.Log ("Event started: " + name);
+				setNewTarget(new Vector3(events[name]["targetX"].AsFloat,events[name]["targetY"].AsFloat,events[name]["targetZ"].AsFloat));
+				currentEvent = name;
+			}
 			return true;
 		}
 		return false;
@@ -105,6 +108,7 @@ public class QuestManager : MonoBehaviour {
 
 	public void setStoryLevel(int lv) {
 		storyLevel = lv;
+		Debug.Log ("Story level: " + storyLevel);
 	}
 
 }

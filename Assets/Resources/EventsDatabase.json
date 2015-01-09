@@ -4,7 +4,7 @@
     	"preMessage": "",
     	"postMessage": "",
     	"minimumStoryLevel": 0,
-    	"maximumStoryLevel": 5,
+    	"maximumStoryLevel": 0,
     	"experience": 100,
     	"targetX": -10,
     	"targetY": -10,
