@@ -4,11 +4,12 @@ using System.Collections;
 //By Felix Hazen Gonzalez
 public class GameOfMap : MonoBehaviour {
 
-	private int numbElements_x = 16;
-	private int numbElements_y = 16;
-	public GameObject water;
-	public GameObject terrain;
-	public GameObject icon;
+	private int numbElements_x = 30;
+	private int numbElements_y = 30;
+	public GameObject road;
+	public GameObject tree;
+	public GameObject tree_sprite;
+	//public GameObject icon;
 	public GameObject building;
 	//private GameObject icon_s = null;
 	public GameObject wall;
@@ -49,11 +50,8 @@ public class GameOfMap : MonoBehaviour {
 		int r;
 		for (i = 0; i< numbElements_x; i++) {
 			for(j=0; j < numbElements_y; j++){
-				r=Random.Range(0,2);
-				print (r);
-				if(status [i,j] != 1){
 				status[i,j] = Random.Range(0,2);
-				}
+
 			}
 		}
 	}
@@ -62,15 +60,18 @@ public class GameOfMap : MonoBehaviour {
 		int i = 0;
 		int j = 0;
 		for (i = 0; i< numbElements_x; i++) {
-			for (j=0; j < numbElements_y; j++) {
-				if(status[i,j] == 1){
-					Instantiate(terrain,new Vector3(i*5,j*5), transform.rotation);
+		for (j=0; j < numbElements_y; j++) {
+				if (status [i, j] == 1  /**|| status [i,j] == 0**/) {
+//					if(5*i < numbElements_x && 5*j < numbElements_y){
+					Instantiate (tree_sprite, new Vector3 (transform.position.x + i * 5, transform.position.y + j * 5), transform.rotation);
+					//}
 				}else{
-					Instantiate(water,new Vector3(i*5,j*5), transform.rotation);
+					Instantiate (tree, new Vector3 (transform.position.x + i * 5, transform.position.y + j * 5), transform.rotation);				
 				}
 			}
 		}
 	}
+		
 	void ruin_creator(){
 		int i = 0;
 		int j = 0;
@@ -85,18 +86,18 @@ public class GameOfMap : MonoBehaviour {
 				if(r_h == 0 ){
 
 				if(status[i,j] == 0  && status[i ,j + 1] == 0 && status[i,j-1]==0 && status[i + 1,j] == 0 && status[i-1,j]==0 && status[i ,j + 1] == 0 && status[i-1,j-1]==0 && status[i+1,j+1]==0){
-					Instantiate(building,new Vector3(5*i,5*j),transform.rotation);
+						Instantiate(building,new Vector3(transform.position.x+5*i,transform.position.y+5*j),transform.rotation);
 					status[i,j] = 1;
 					}
 				}
 				if(r == 0){
 
 					if(status[i,j] == 0  && status[i + 1,j] == 0){
-						Instantiate(wall,new Vector3(5*i+5,5*j),transform.rotation);
+						Instantiate(wall,new Vector3(transform.position.x+5*i+5,transform.position.y+5*j),transform.rotation);
 						status[i,j]= 2;
 					}
 					if(status[i,j] == 0  && status[i - 1,j] == 0){
-						Instantiate(wall,new Vector3(5*i-5,5*j),transform.rotation);
+						Instantiate(wall,new Vector3(transform.position.x+5*i-5,transform.position.y+5*j),transform.rotation);
 						status[i,j]= 2;
 					}
 //					if(status[i,j] == 0  && status[i ,j + 1] == 0 && status[i,j-1]==0 && status[i + 1,j] == 0 && status[i-1,j]==0 && status[i ,j + 1] == 0 && status[i-1,j-1]==0 && status[i+1,j+1]==0){
@@ -150,7 +151,7 @@ public class GameOfMap : MonoBehaviour {
 		int j = 0;
 		for (i = 0; i< numbElements_x; i++) {
 			for(j=0; j < numbElements_y; j++){
-				status[i,j] = 0;
+				status[i,j] = -1;
 			}
 		}
 	}
@@ -165,7 +166,7 @@ public class GameOfMap : MonoBehaviour {
 		create_level ();
 		check_if_survives();
 		draw_terrain ();
-		ruin_creator ();
+		//ruin_creator ();
 //		draw_minimap ();
 //		icon.transform.position = new Vector3 (player.transform.position.x/5 + minimapCoordinates.x , 
 //		                                       player.transform.position.y/5 + minimapCoordinates.y,-1);
