@@ -33,6 +33,8 @@ public class UserInterface : MonoBehaviour
 		{
 			_instance = this;
 
+			transform.position = new Vector3(0f,0f,0f);
+
 			//GET OTHER OBJECTS
 			getObjectReferences();
 		}

@@ -21,6 +21,7 @@ public class LeftTouchJoystick : MonoBehaviour {
 	private Image renderer;
 
 	void Start() {
+		playerController = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController> ();
 		renderer = GetComponent<Image> ();
 		isActive = playerController.usingJoystick ();
 		if(!isActive) renderer.color = hidden;
