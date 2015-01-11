@@ -6,7 +6,7 @@ public class PuzzleMaster : MonoBehaviour {
 	// 0 = Red
 	// 1 = Green
 	// 2 = Blue
-	public int[] correctSequence = new int[]{0,1,2};
+	public int[] correctSequence;
 	public bool RandomSequence = false;
 
 	public int attempt = 0;
