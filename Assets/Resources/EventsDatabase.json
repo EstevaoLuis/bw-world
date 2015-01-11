@@ -1,13 +1,24 @@
 ﻿{
-    "Test event": {
+    "Welcome": {
     	"storyLevel": 1,
-    	"preMessage": "Go back to the left and speak to the other cube",
+    	"preMessage": "Hey, welcome back to the village! You can move by touching the screen with your left thumb, and then moving it in the direction you want to go. Now press 'Ok' and go to speak to the other villagers.",
+    	"postMessage": "I'm glad to see you again.",
+    	"minimumStoryLevel": 0,
+    	"maximumStoryLevel": 0,
+    	"experience": 0,
+    	"targetX": 0,
+    	"targetY": 0,
+    	"targetZ": 0
+    },
+    "Initial story": {
+    	"storyLevel": 2,
+    	"preMessage": "",
     	"postMessage": "Yeah! You completed your first quest ;)",
     	"minimumStoryLevel": 0,
     	"maximumStoryLevel": 0,
-    	"experience": 100,
-    	"targetX": -10,
-    	"targetY": -10,
+    	"experience": 0,
+    	"targetX": 0,
+    	"targetY": 0,
     	"targetZ": 0
     }
 }

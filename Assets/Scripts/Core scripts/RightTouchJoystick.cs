@@ -20,7 +20,8 @@ public class RightTouchJoystick : MonoBehaviour {
 	void Update() {
 		int fingerCount = 0;
 		foreach (Touch touch in Input.touches) {
-			if(touch.position.x > 480) {
+			//Half screen is 480
+			if(touch.position.x > 560) {
 						if (touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled) {
 								fingerCount++;
 								if (touch.phase == TouchPhase.Began) {
@@ -31,11 +32,16 @@ public class RightTouchJoystick : MonoBehaviour {
 										print ("Spostato in: " + touch.position);
 										float deltaX = touch.position.x - lastPosition.x;
 										float deltaY = touch.position.y - lastPosition.y;
-										if(deltaX > 0) {
+										if(deltaY > 10) {
 											playerController.redSpell();
 										}
-										else if(deltaX < 0) {
-											playerController.blueSpell();
+										else if(deltaY < -10) {
+											if(deltaX < -10) {
+												playerController.greenSpell();
+											}
+											else if(deltaX > 10) {
+												playerController.blueSpell();
+											}
 										}
 								}
 

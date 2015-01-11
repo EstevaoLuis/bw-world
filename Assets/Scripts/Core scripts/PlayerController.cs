@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour {
 	private float lastRegeneration = 0f;
 	private Spell used;
 	private GameObject spell;
+
+	//test
+	private float lastMovement;
 	
 	// Use this for initialization
 	void Start () {
@@ -58,8 +61,8 @@ public class PlayerController : MonoBehaviour {
 			}
 		}
 	}
-	
-	
+
+
 	void OnCollisionEnter2D (Collision2D other) {
 		if (other.gameObject.tag == "SpellEnemy") {
 			Spell spellParameters = (Spell)other.gameObject.GetComponent ("Spell");
@@ -82,25 +85,35 @@ public class PlayerController : MonoBehaviour {
 	public void moveDown() {
 		animator.Play ("WalkDown");
 		direction = new Vector2 (0.0f, -1.0f);
-		rigidbody2D.velocity = direction * speed;
+		Vector2 newVelocity = direction * speed;
+		rigidbody2D.velocity = new Vector2 ((rigidbody2D.velocity.x + newVelocity.x) / 2, (rigidbody2D.velocity.y + newVelocity.y) / 2);
+		lastMovement = Time.time;
 	}
 	public void moveUp() {
 		animator.Play ("WalkUp");
 		direction = new Vector2 (0.0f, 1.0f);
-		rigidbody2D.velocity = direction * speed;
+		Vector2 newVelocity = direction * speed;
+		rigidbody2D.velocity = new Vector2 ((rigidbody2D.velocity.x + newVelocity.x) / 2, (rigidbody2D.velocity.y + newVelocity.y) / 2);
+		lastMovement = Time.time;
 	}
 	public void moveLeft() {
 		animator.Play ("WalkLeft");
 		direction = new Vector2 (-1.0f, 0.0f);
-		rigidbody2D.velocity = direction * speed;
+		Vector2 newVelocity = direction * speed;
+		rigidbody2D.velocity = new Vector2 ((rigidbody2D.velocity.x + newVelocity.x) / 2, (rigidbody2D.velocity.y + newVelocity.y) / 2);
+		lastMovement = Time.time;
 	}
 	public void moveRight() {
 		animator.Play ("WalkRight");
 		direction = new Vector2 (1.0f, 0.0f);
-		rigidbody2D.velocity = direction * speed;
+		Vector2 newVelocity = direction * speed;
+		rigidbody2D.velocity = new Vector2 ((rigidbody2D.velocity.x + newVelocity.x) / 2, (rigidbody2D.velocity.y + newVelocity.y) / 2);
+		lastMovement = Time.time;
 	}
 	public void stopMovement() {
-		rigidbody2D.velocity = new Vector2 (0, 0);
+		Vector2 newVelocity = new Vector2 (0, 0);
+		rigidbody2D.velocity = new Vector2 ((rigidbody2D.velocity.x + newVelocity.x) / 2, (rigidbody2D.velocity.y + newVelocity.y) / 2);
+		lastMovement = Time.time;
 	}
 	public void blueSpell() {
 		GameInstance.instance.playerCastSpell("blue",transform,direction);
@@ -132,6 +145,8 @@ public class PlayerController : MonoBehaviour {
 		return invincibility;
 	}
 
-
+	public bool usingJoystick() {
+		return useJoystick;
+	}
 	
 }

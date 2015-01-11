@@ -85,6 +85,7 @@ public class QuestManager : MonoBehaviour {
 			cancelTarget ();
 			GameInstance.instance.increaseExperience(events[name]["experience"].AsInt);
 			setStoryLevel(events[name]["storyLevel"].AsInt);
+			GameInstance.instance.playAudio("Item3");
 			if(events[name]["postMessage"] != "") UserInterface.instance.displayMessage(events[name]["postMessage"]);
 			return true;
 		}
@@ -95,7 +96,7 @@ public class QuestManager : MonoBehaviour {
 		if (events [name] != null && name != currentEvent) {
 			if(storyLevel >= events[name]["minimumStoryLevel"].AsInt && storyLevel <= events[name]["maximumStoryLevel"].AsInt && storyLevel < events[name]["storyLevel"].AsInt) {
 				Debug.Log ("Event started: " + name);
-				setNewTarget(new Vector3(events[name]["targetX"].AsFloat,events[name]["targetY"].AsFloat,events[name]["targetZ"].AsFloat));
+				if(events[name]["targetX"].AsFloat>0f || events[name]["targetY"].AsFloat>0f) setNewTarget(new Vector3(events[name]["targetX"].AsFloat,events[name]["targetY"].AsFloat,events[name]["targetZ"].AsFloat));
 				currentEvent = name;
 				if(events[name]["preMessage"] != "") UserInterface.instance.displayMessage(events[name]["preMessage"]);
 				return true;

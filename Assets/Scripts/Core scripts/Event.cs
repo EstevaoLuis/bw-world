@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Event : MonoBehaviour {
 
-	public float radius = 3f;
+	public float radius = 1f;
 	public string endEvent;
 	public string startEvent;
 
