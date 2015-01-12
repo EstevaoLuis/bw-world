@@ -14,7 +14,7 @@
 		"melees": [
 			{"name": "Melee 1", "probability": 1}
 		],
-		"behaviour": [1,2,2],
+		"behaviour": [1,2,2,0],
     	"experience": 10
     },
     
@@ -31,7 +31,7 @@
 		"melees": [
 			{"name": "Melee 1", "probability": 1}
 		],
-		"behaviour": [1,2,2],
+		"behaviour": [1,2,2,0],
     	"experience": 10
     },
     
@@ -50,7 +50,7 @@
     	"spells": [
     		{"name": "Black 1", "probability": 0.5}
 		],
-		"behaviour": [1,2,2],
+		"behaviour": [1,2,2,0],
     	"experience": 20
     },
     
@@ -69,8 +69,25 @@
     	"spells": [
     		{"name": "Black 2", "probability": 1}
 		],
-		"behaviour": [1,2,2],
+		"behaviour": [1,2,2,0],
     	"experience": 10
+    },
+    
+    "Spider (Kamikaze)": {
+    	"health": 10,
+    	"speed": 6,
+        "attack": 20,
+        "defense": 5,
+        "mass": 100,
+        "scale": 0.5,
+        "delay": 1,
+        "detection": 8,
+        "melees": [
+			{"name": "Melee 2", "probability": 1}
+		],
+    	"spells": [],
+		"behaviour": [1,2,2,1],
+    	"experience": 8
     },
     
     "Spider (Improved)": {
@@ -90,18 +107,18 @@
     		{"name": "Black 1", "probability": 0.5},
     		{"name": "Black 2", "probability": 0.5}
 		],
-		"behaviour": [2,2,2],
+		"behaviour": [2,2,2,0],
     	"experience": 10
     },
     
     "Mantis": {
-    	"health": 200,
+    	"health": 2000,
     	"speed": 2,
         "attack": 20,
         "defense": 5,
         "mass": 5000,
         "scale": 0.8,
-        "delay": 2,
+        "delay": 0.8,
         "detection": 20,
         "melees": [
 			{"name": "Melee 3", "probability": 0.5},
@@ -111,7 +128,7 @@
     		{"name": "Black 4", "probability": 0.5},
     		{"name": "Black 5", "probability": 0.5}
 		],
-		"behaviour": [2,2,2],
+		"behaviour": [2,2,2,0],
     	"experience": 100
     }
     

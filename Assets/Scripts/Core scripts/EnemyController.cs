@@ -21,7 +21,7 @@ public class EnemyController : MonoBehaviour {
 	private float scale;
 	private float delay;
 	private float mass;
-	private int behaviourA, behaviourB, behaviourC;
+	private int behaviourA, behaviourB, behaviourC, behaviourD;
 
 	//Spells & Melees
 	private JSONNode spells;
@@ -102,6 +102,7 @@ public class EnemyController : MonoBehaviour {
 		behaviourA = parameters["behaviour"][0].AsInt;
 		behaviourB = parameters["behaviour"][1].AsInt;
 		behaviourC = parameters["behaviour"][2].AsInt;
+		behaviourD= parameters["behaviour"][3].AsInt;
 
 		rigidbody2D.mass = mass;
 		rigidbody2D.transform.localScale = new Vector3 (scale,scale,1);
@@ -198,9 +199,21 @@ public class EnemyController : MonoBehaviour {
 				else if(Time.time > lastAttack + delay) {
 
 					if(Time.time > lastAttack + delay) {
-						//Close attack
-						if(melees.Count > 0) meleeAttack();
-						else castSpell();
+						//Kamikaze
+						if(behaviourD == 1) {
+								GameInstance.instance.damagePlayer(attack);
+								GameInstance.instance.playAnimation("Explosion", transform.position);
+								GameInstance.instance.playAudio("Explosion1");
+								GameInstance.instance.increaseExperience (experience);
+								player.rigidbody2D.AddForce(direction*5000);
+								Destroy (gameObject);
+						}
+						//Normal behaviour
+						else {
+							//Close attack
+							if(melees.Count > 0) meleeAttack();
+							else castSpell();
+						}
 					}
 					
 					behaviour (behaviourC);
