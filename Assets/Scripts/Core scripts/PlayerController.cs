@@ -85,34 +85,39 @@ public class PlayerController : MonoBehaviour {
 	public void moveDown() {
 		animator.Play ("WalkDown");
 		direction = new Vector2 (0.0f, -1.0f);
-		Vector2 newVelocity = direction * speed;
-		rigidbody2D.velocity = new Vector2 ((rigidbody2D.velocity.x + newVelocity.x) / 2, (rigidbody2D.velocity.y + newVelocity.y) / 2);
+		//Vector2 newVelocity = direction * speed;
+		//rigidbody2D.velocity = new Vector2 ((rigidbody2D.velocity.x + newVelocity.x) / 2, (rigidbody2D.velocity.y + newVelocity.y) / 2);
+		rigidbody2D.velocity = direction * speed;
 		lastMovement = Time.time;
 	}
 	public void moveUp() {
 		animator.Play ("WalkUp");
 		direction = new Vector2 (0.0f, 1.0f);
-		Vector2 newVelocity = direction * speed;
-		rigidbody2D.velocity = new Vector2 ((rigidbody2D.velocity.x + newVelocity.x) / 2, (rigidbody2D.velocity.y + newVelocity.y) / 2);
+		//Vector2 newVelocity = direction * speed;
+		//rigidbody2D.velocity = new Vector2 ((rigidbody2D.velocity.x + newVelocity.x) / 2, (rigidbody2D.velocity.y + newVelocity.y) / 2);
+		rigidbody2D.velocity = direction * speed;
 		lastMovement = Time.time;
 	}
 	public void moveLeft() {
 		animator.Play ("WalkLeft");
 		direction = new Vector2 (-1.0f, 0.0f);
-		Vector2 newVelocity = direction * speed;
-		rigidbody2D.velocity = new Vector2 ((rigidbody2D.velocity.x + newVelocity.x) / 2, (rigidbody2D.velocity.y + newVelocity.y) / 2);
+		//Vector2 newVelocity = direction * speed;
+		//rigidbody2D.velocity = new Vector2 ((rigidbody2D.velocity.x + newVelocity.x) / 2, (rigidbody2D.velocity.y + newVelocity.y) / 2);
+		rigidbody2D.velocity = direction * speed;
 		lastMovement = Time.time;
 	}
 	public void moveRight() {
 		animator.Play ("WalkRight");
 		direction = new Vector2 (1.0f, 0.0f);
-		Vector2 newVelocity = direction * speed;
-		rigidbody2D.velocity = new Vector2 ((rigidbody2D.velocity.x + newVelocity.x) / 2, (rigidbody2D.velocity.y + newVelocity.y) / 2);
+		//Vector2 newVelocity = direction * speed;
+		//rigidbody2D.velocity = new Vector2 ((rigidbody2D.velocity.x + newVelocity.x) / 2, (rigidbody2D.velocity.y + newVelocity.y) / 2);
+		rigidbody2D.velocity = direction * speed;
 		lastMovement = Time.time;
 	}
 	public void stopMovement() {
 		Vector2 newVelocity = new Vector2 (0, 0);
-		rigidbody2D.velocity = new Vector2 ((rigidbody2D.velocity.x + newVelocity.x) / 2, (rigidbody2D.velocity.y + newVelocity.y) / 2);
+		//rigidbody2D.velocity = new Vector2 ((rigidbody2D.velocity.x + newVelocity.x) / 2, (rigidbody2D.velocity.y + newVelocity.y) / 2);
+		rigidbody2D.velocity = newVelocity;
 		lastMovement = Time.time;
 	}
 	public void blueSpell() {

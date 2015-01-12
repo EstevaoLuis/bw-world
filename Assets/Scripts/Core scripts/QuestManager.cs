@@ -86,7 +86,7 @@ public class QuestManager : MonoBehaviour {
 			GameInstance.instance.increaseExperience(events[name]["experience"].AsInt);
 			setStoryLevel(events[name]["storyLevel"].AsInt);
 			GameInstance.instance.playAudio("Item3");
-			if(events[name]["postMessage"] != "") UserInterface.instance.displayMessage(events[name]["postMessage"]);
+			if(events[name]["postMessage"] != null) UserInterface.instance.displayMessage(events[name]["postMessage"]);
 			return true;
 		}
 		return false;
@@ -98,7 +98,7 @@ public class QuestManager : MonoBehaviour {
 				Debug.Log ("Event started: " + name);
 				if(events[name]["targetX"].AsFloat>0f || events[name]["targetY"].AsFloat>0f) setNewTarget(new Vector3(events[name]["targetX"].AsFloat,events[name]["targetY"].AsFloat,events[name]["targetZ"].AsFloat));
 				currentEvent = name;
-				if(events[name]["preMessage"] != "") UserInterface.instance.displayMessage(events[name]["preMessage"]);
+				if(events[name]["preMessage"] != null) UserInterface.instance.displayMessage(events[name]["preMessage"]);
 				return true;
 			}
 		}

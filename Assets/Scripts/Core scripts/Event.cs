@@ -25,7 +25,7 @@ public class Event : MonoBehaviour {
 			if (eventState == -1) Destroy (gameObject);
 			//Not yet begun
 			if(eventState == 0) {
-				animation = GameInstance.instance.playAnimation("Dialog",new Vector3(transform.position.x + animationOffsetX, transform.position.y + animationOffsetY , 1f));
+				animation = GameInstance.instance.playAnimation("Dialog",new Vector3(transform.position.x + animationOffsetX, transform.position.y + animationOffsetY , -1f));
 			}
 		}
 	}

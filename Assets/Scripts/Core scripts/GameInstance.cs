@@ -10,6 +10,8 @@ public class GameInstance : MonoBehaviour
 {
 	private static GameInstance _instance;
 
+	public int initialStoryLevel = 0;
+
 	//Objects database
 	private JSONNode spells;
 	private JSONNode enemies;
@@ -75,10 +77,12 @@ public class GameInstance : MonoBehaviour
 
 
 			//Setup player data
-			experience = 95;
-			setPlayerLevel (2);
+			experience = 0;
+			setPlayerLevel (1);
 			mana = maxMana;
 			health = maxHealth;
+
+			QuestManager.instance.setStoryLevel(initialStoryLevel);
 			
 			//startAllScripts();
 		}

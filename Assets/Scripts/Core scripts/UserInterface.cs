@@ -17,7 +17,8 @@ public class UserInterface : MonoBehaviour
 	private Text levelText;
 	private GameObject directionalArrow;
 	private RectTransform arrowTransform;
-	
+	private GameObject textScrollbar;
+
 	//Instance management
 	public static UserInterface instance
 	{
@@ -37,6 +38,7 @@ public class UserInterface : MonoBehaviour
 
 			//GET OTHER OBJECTS
 			getObjectReferences();
+			closeMessagePanel ();
 		}
 		else
 		{
@@ -47,6 +49,10 @@ public class UserInterface : MonoBehaviour
 		}
 	}
 
+	void Start() {
+
+	}
+
 	private void getObjectReferences() {
 		healthBar = GameObject.FindWithTag ("HealthBar").GetComponent<Slider>() as Slider;
 		manaBar = GameObject.FindWithTag ("ManaBar").GetComponent<Slider>() as Slider;
@@ -55,6 +61,7 @@ public class UserInterface : MonoBehaviour
 		directionalArrow = GameObject.FindWithTag ("DirectionalArrow") as GameObject;
 		directionalArrow.SetActive (false);
 		arrowTransform = directionalArrow.GetComponent<RectTransform>();
+		textScrollbar = GameObject.FindWithTag ("TextScrollbar") as GameObject;
 	}
 
 	public void setHealthValue(float value) {
@@ -83,6 +90,8 @@ public class UserInterface : MonoBehaviour
 
 	public void displayMessage(string text) {
 		messagePanel.SetActive (true);
+		textScrollbar.SetActive (true);
+		Debug.Log (text);
 		displayedMessage.text = text;
 
 	}

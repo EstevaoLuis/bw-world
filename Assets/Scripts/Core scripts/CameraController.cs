@@ -34,7 +34,7 @@ public class CameraController : MonoBehaviour {
 
 			movementSpeed = other.gameObject.rigidbody2D.velocity;
 
-			if((movementSpeed.x!=0 && movementSpeed.y!=0) || (triggerDirection == movementSpeed/player.GetSpeed())) {
+			if(/*(movementSpeed.x!=0 && movementSpeed.y!=0) ||*/ (triggerDirection == movementSpeed/player.GetSpeed())) {
 				cameraSystem.transform.position += new Vector3(movementSpeed.x,movementSpeed.y,0f) * Time.deltaTime;
 			}
 
