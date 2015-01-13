@@ -4,7 +4,7 @@ using System.Collections;
 public class SpellSwitch : MonoBehaviour {
 	public string Colour; // green, blue, red, all
 	public bool activated = false;
-	public GameObject gameObject;
+	public GameObject[] gameObjects;
 
 	// Use this for initialization
 	void Start () {
@@ -25,7 +25,8 @@ public class SpellSwitch : MonoBehaviour {
 				if ((Colour == "all") || (color == Colour)){
 					activated = true;
 					// TODO animation
-					Destroy(gameObject); // Maybe add more events
+					foreach(GameObject gameObject in gameObjects)
+						Destroy(gameObject); // Maybe add more events
 				}
 			}
 		}
