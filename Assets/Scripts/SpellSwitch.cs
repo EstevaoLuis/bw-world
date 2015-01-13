@@ -24,7 +24,8 @@ public class SpellSwitch : MonoBehaviour {
 
 				if ((Colour == "all") || (color == Colour)){
 					activated = true;
-					Destroy(gameObject);
+					// TODO animation
+					Destroy(gameObject); // Maybe add more events
 				}
 			}
 		}
