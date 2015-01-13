@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Spears : MonoBehaviour {
+public class Spikes : MonoBehaviour {
 
 	public int damage;
 	public float period = 4f;
@@ -14,7 +14,7 @@ public class Spears : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		renderer = GetComponent < SpriteRenderer >();
+		renderer = GetComponent <SpriteRenderer>();
 		renderer.sprite = disabledSprite;
 	}
 	
