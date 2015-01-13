@@ -46,11 +46,10 @@ public class GemBullet : MonoBehaviour {
 		if (other.gameObject.tag != "gem") {
 			Destroy (gameObject);
 		}
+
 		if (other.gameObject.tag == "Enemy") {
-//			int health = enemy.getHealth();
-//			enemy = other.gameObject.GetComponent<EnemyController> ();
-			//health = enemy.getHealth() - 50;
-			Destroy(other.gameObject);
+			enemy = other.gameObject.GetComponent<EnemyController>();
+			enemy.damageEnemy(50);
 		}
 	
 	}
