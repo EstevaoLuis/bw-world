@@ -97,7 +97,6 @@ public class GameInstance : MonoBehaviour
 
 	void Start() {
 		refreshUI();
-		//GameObject.FindWithTag ("GameSystem").gameObject.tag = "GameSystemActive";
 	}
 
 	//public bool isInBattle() {
@@ -132,6 +131,16 @@ public class GameInstance : MonoBehaviour
 		cameraSystem.transform.position = new Vector3 (xPosition, yPosition, 0f);
 	}
 
+	//Change player position
+	public void moveCamera(Vector3 newPosition) {
+		cameraSystem.transform.position = newPosition;
+	}
+
+	//Change camera position
+	public void movePlayer(Vector3 newPosition) {
+		player.transform.position = newPosition;
+	}
+
 	//Casts a spell using position and directions as parameters
 	public void castSpell(string spellName, Transform transform, Vector2 direction, string spellTag, float distance, float minSpeed, int bonusDamage) {
 		//Check if spell is available
@@ -143,11 +152,9 @@ public class GameInstance : MonoBehaviour
 		GameObject spellPrefab = Resources.Load("Spells/" + spellData["color"] + "Spell") as GameObject;
 		Vector3 newPosition = transform.position + (new Vector3(direction.x, direction.y, 0)*distance);
 		if(spellTag == "SpellEnemy") {
-			Debug.Log (newPosition);
 			float randomPositionModification = 0f;
 			if(direction.x == 0f) newPosition.x += UnityEngine.Random.Range(-1f, 1f) * distance / 2;
 			else newPosition.y += UnityEngine.Random.Range(-1f, 1f) * distance / 2;
-			Debug.Log ("Modificato: " + newPosition);
 		}
 		GameObject energySphere = (GameObject) Instantiate(spellPrefab, newPosition, new Quaternion(0,0,0,1));
 		energySphere.tag = spellTag; 

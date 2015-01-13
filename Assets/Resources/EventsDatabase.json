@@ -52,5 +52,23 @@
     	"targetX": 0,
     	"targetY": 0,
     	"targetZ": 0
+    },
+    "Village under attack": {
+    	"storyLevel": 7,
+    	"preMessage": "Thank god you're back!! Enemies are coming from west and are attacking our people!! Go and help the villagers!!",
+    	"postMessage": "",
+    	"experience": 0,
+    	"targetX": 44.3,
+    	"targetY": -7.5,
+    	"targetZ": 0
+    },
+    "Using spells": {
+    	"storyLevel": 7,
+    	"preMessage": "You'll have to use your new spell!! Use your right thumb to cast spell against enemies!!",
+    	"postMessage": "",
+    	"experience": 0,
+    	"targetX": 24.13515,
+    	"targetY": -4.697723,
+    	"targetZ": 0
     }
 }
