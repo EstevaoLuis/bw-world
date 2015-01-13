@@ -4,8 +4,8 @@ using System.Collections;
 //By Felix Hazen Gonzalez
 public class GameOfMap : MonoBehaviour {
 
-	private int numbElements_x = 30;
-	private int numbElements_y = 30;
+	private int numbElements_x = 10;
+	private int numbElements_y = 10;
 	public GameObject road;
 	public GameObject tree;
 	public GameObject tree_sprite;
