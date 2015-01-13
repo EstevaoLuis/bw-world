@@ -104,6 +104,7 @@ public class QuestManager : MonoBehaviour {
 				if(events[name]["targetX"].AsFloat>0f || events[name]["targetY"].AsFloat>0f) setNewTarget(new Vector3(events[name]["targetX"].AsFloat,events[name]["targetY"].AsFloat,events[name]["targetZ"].AsFloat));
 				currentEvent = name;
 				if(events[name]["preMessage"] != null) UserInterface.instance.displayMessage(events[name]["preMessage"]);
+				GameInstance.instance.checkpoint();
 				return true;
 			}
 		}

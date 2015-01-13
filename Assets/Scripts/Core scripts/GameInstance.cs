@@ -514,7 +514,7 @@ public class GameInstance : MonoBehaviour
 	}
 
 	public bool isInBattle() {
-		return lastBattle != 0 && Time.time < lastBattle + 3f;
+		return lastBattle != 0 && Time.time < lastBattle + 1f;
 	}
 
 	public void setInBattle() {

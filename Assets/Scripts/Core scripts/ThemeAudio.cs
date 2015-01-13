@@ -7,10 +7,14 @@ public class ThemeAudio : MonoBehaviour {
 	public AudioSource audio2;
 	public AudioSource audio3;
 
+	private float fromVolume1, fromVolume2, fromVolume3;
+	private float toVolume1, toVolume2, toVolume3;
+
 	//Audio
 	private AudioClip sceneAudio, battleAudio;
 	private bool isBattleTheme = false;
 	private float crossfadeTime;
+	private float transitionTime = 4f;
 
 	// Use this for initialization
 	void Start () {
@@ -20,8 +24,12 @@ public class ThemeAudio : MonoBehaviour {
 		audio2.clip = battleAudio;
 		audio1.Play ();
 		audio1.volume = 1f;
+		fromVolume1 = 0f;
+		toVolume1 = 1f;
 		audio2.Play ();
 		audio2.volume = 0f;
+		fromVolume2 = 0f;
+		toVolume2 = 0f;
 	}
 	
 	// Update is called once per frame
@@ -31,6 +39,8 @@ public class ThemeAudio : MonoBehaviour {
 		} else {
 			if(isBattleTheme) playSceneTheme();
 		}
+		audio1.volume = Mathf.Clamp01 (Mathf.Lerp(fromVolume1,toVolume1,(Time.time - crossfadeTime) / transitionTime));
+		audio2.volume = Mathf.Clamp01 (Mathf.Lerp(fromVolume2,toVolume2,(Time.time - crossfadeTime) / transitionTime));
 	}
 	
 	public void stopAudio() {
@@ -42,8 +52,10 @@ public class ThemeAudio : MonoBehaviour {
 		isBattleTheme = false;
 		crossfadeTime = Time.time;
 		Debug.Log ("Back to normal audio theme");
-		//audio.clip = sceneAudio;
-		//audio.Play ();
+		fromVolume1 = audio1.volume;
+		fromVolume2 = audio2.volume;
+		toVolume1 = 1f;
+		toVolume2 = 0f;
 		
 	}
 	
@@ -51,15 +63,16 @@ public class ThemeAudio : MonoBehaviour {
 		isBattleTheme = true;
 		crossfadeTime = Time.time;
 		Debug.Log ("Battle theme");
-		//audio.clip = battleAudio;
-		//audio.Play ();
+		fromVolume1 = audio1.volume;
+		fromVolume2 = audio2.volume;
+		toVolume1 = 0f;
+		toVolume2 = 1f;
 	}
 
 	public void playTheme(string name) {
 		AudioClip newTheme = Resources.Load ("Music/" + name) as AudioClip;
 		Debug.Log (newTheme);
-		//audio.clip = newTheme;
-		//audio.Play ();
+
 
 	}
 }
