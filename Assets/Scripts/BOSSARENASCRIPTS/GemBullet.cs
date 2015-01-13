@@ -5,15 +5,19 @@ public class GemBullet : MonoBehaviour {
 
 	private GameObject target;
 	private GameObject origin;
+	private EnemyController enemy;
 	private float diff_x;
 	private float diff_y;
 	private float pos_x;
 	private float pos_y;
-	private float speed = 2f;
+	private float speed = 10f;
+	private float timer = 2f;
+	private float timer_2 = 8f;
 	private Vector3 direction;
-	private float timer;
 	private Vector3 pos_origin;
 	private Vector3 pos_final;
+	private int lifes = 5;
+
 	// Use this for initialization
 	void Start () {
 
@@ -21,52 +25,71 @@ public class GemBullet : MonoBehaviour {
 		origin = GameObject.Find("GemPost_1");
 
 	}
-
-	void move_towards_gemPortal(){
-	
-		pos_origin = origin.transform.position;
-		pos_final = target.transform.position;
-
-		float distance = Vector3.Distance (pos_origin, pos_final);
-
-		transform.position =new Vector3 (0.0f, 1.0f) * speed * Time.deltaTime;
-
+	void aimTowardsTarget(){
+		
+		diff_x = transform.position.x - target.transform.position.x;
+		diff_y = transform.position.y - target.transform.position.y;
+		
+		if (diff_x < diff_y && diff_x < 0) {
+			direction += new Vector3(1,0);
+		} else if (diff_x > diff_y && diff_x > 0) {
+			direction += new Vector3(-1,0);
+		} else if (diff_y < diff_x && diff_y < 0) {
+			direction += new Vector3(0,1);
+		} else if (diff_y > diff_x && diff_y > 0) {
+			direction += new Vector3(0,-1);
+		}
 	}
 
 
-//	void standStill() {
-//		rigidbody2D.velocity = new Vector3 (0, 0, 0);
-//	}
-
 	void OnCollisionEnter2D (Collision2D other){
-		
-		Destroy (gameObject);
+		if (other.gameObject.tag != "gem") {
+			Destroy (gameObject);
+		}
+
+		if (other.gameObject.tag == "Enemy") {
+			enemy = other.gameObject.GetComponent<EnemyController>();
+			enemy.damageEnemy(50);
+		}
+	
 	}
 
 	// Update is called once per frame
 	void Update () {
-	
-//		if(Time.time > timer+0.1) {
-//			Destroy (gameObject);
-//		}
-
-		diff_x =  transform.position.x- target.transform.position.x;
-		diff_y = transform.position.y - target.transform.position.y;
-
-		if (diff_x < diff_y && diff_x < 0) {
-			rigidbody2D.velocity = Vector3.right;
-		} else if (diff_x > diff_y && diff_x > 0) {
-			rigidbody2D.velocity = Vector3.left;
-		} else if (diff_y < diff_x && diff_y < 0) {
-			rigidbody2D.velocity = Vector3.up;
-		} else if (diff_y > diff_x && diff_y > 0) {
-			rigidbody2D.velocity = Vector3.down;
+		aimTowardsTarget ();
+//			if (Time.time > timer) {
+			direction.Normalize ();
+			rigidbody2D.velocity = direction * speed;
+//				timer = timer + 2f;
+//			}
 		}
-//
-//		if (Mathf.Abs (transform.position.x)>6f || Mathf.Abs (transform.position.y)>6f){
+//		}
+//		if(transform.position.x == transform.position.x + 0.5f || transform.position.y == transform.position.y + 0.5f){
 //			Destroy(gameObject);
 //		}
+
+	
+//		if(Time.time > timer_2) {
+//			Destroy (gameObject);
+//			timer_2 = timer_2 + 8;
+//		}
+				
+
+
+//		diff_x =  transform.position.x- target.transform.position.x;
+//		diff_y = transform.position.y - target.transform.position.y;
+//
+//		if (diff_x < diff_y && diff_x < 0) {
+//			rigidbody2D.velocity = Vector3.right;
+//		} else if (diff_x > diff_y && diff_x > 0) {
+//			rigidbody2D.velocity = Vector3.left;
+//		} else if (diff_y < diff_x && diff_y < 0) {
+//			rigidbody2D.velocity = Vector3.up;
+//		} else if (diff_y > diff_x && diff_y > 0) {
+//			rigidbody2D.velocity = Vector3.down;
+//		}
+//
+
 	}
-}
-//		//rigidbody2D.AddForce (direction * speed);
+
 

@@ -132,7 +132,18 @@ public class EnemyController : MonoBehaviour {
 
 	}
 	public int getHealth(){
+
 		return health;
+	}
+
+	public int damageEnemy(int value){
+		health -= value;
+		if (health <= 0 && isAlive) {
+			isAlive = false;
+			deadTime = Time.time;
+			//GameInstance.instance.increaseExperience (experience);
+		}
+		return 0;
 	}
 	
 	// Update is called once per frame
