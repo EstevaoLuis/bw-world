@@ -137,6 +137,10 @@ public class PlayerController : MonoBehaviour {
 				return speed;
 		}
 
+	public Vector2 getDirection() {
+		return direction;
+	}
+
 	public void SetSpeed(float Speed){
 		if (Speed>0f)
 				speed = Speed;

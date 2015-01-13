@@ -12,7 +12,7 @@ public class QuestManager : MonoBehaviour {
 	private GameObject player;
 	private JSONNode events;
 	private string currentEvent;
-	private int storyLevel = 0;
+	private static int storyLevel = 0;
 
 	//Instance management
 	public static QuestManager instance
@@ -94,7 +94,7 @@ public class QuestManager : MonoBehaviour {
 
 	public bool startEvent(string name) {
 		if (events [name] != null && name != currentEvent) {
-			if(storyLevel >= events[name]["minimumStoryLevel"].AsInt && storyLevel <= events[name]["maximumStoryLevel"].AsInt && storyLevel < events[name]["storyLevel"].AsInt) {
+			if(storyLevel == (events[name]["storyLevel"].AsInt-1)) {
 				Debug.Log ("Event started: " + name);
 				if(events[name]["targetX"].AsFloat>0f || events[name]["targetY"].AsFloat>0f) setNewTarget(new Vector3(events[name]["targetX"].AsFloat,events[name]["targetY"].AsFloat,events[name]["targetZ"].AsFloat));
 				currentEvent = name;
