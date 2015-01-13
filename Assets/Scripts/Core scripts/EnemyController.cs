@@ -134,6 +134,9 @@ public class EnemyController : MonoBehaviour {
 	public int getHealth(){
 		return health;
 	}
+	public void setHealth(int h){
+		this.health = h;
+	}
 	
 	// Update is called once per frame
 	void Update () {

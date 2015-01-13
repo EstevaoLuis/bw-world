@@ -5,6 +5,7 @@ public class GemBullet : MonoBehaviour {
 
 	private GameObject target;
 	private GameObject origin;
+	private EnemyController enemy;
 	private float diff_x;
 	private float diff_y;
 	private float pos_x;
@@ -15,6 +16,7 @@ public class GemBullet : MonoBehaviour {
 	private Vector3 direction;
 	private Vector3 pos_origin;
 	private Vector3 pos_final;
+	private int lifes = 5;
 
 	// Use this for initialization
 	void Start () {
@@ -44,6 +46,13 @@ public class GemBullet : MonoBehaviour {
 		if (other.gameObject.tag != "gem") {
 			Destroy (gameObject);
 		}
+		if (other.gameObject.tag == "Enemy") {
+//			int health = enemy.getHealth();
+//			enemy = other.gameObject.GetComponent<EnemyController> ();
+			//health = enemy.getHealth() - 50;
+			Destroy(other.gameObject);
+		}
+	
 	}
 
 	// Update is called once per frame

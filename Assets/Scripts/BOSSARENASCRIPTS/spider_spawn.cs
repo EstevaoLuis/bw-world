@@ -22,7 +22,7 @@ public class spider_spawn : MonoBehaviour {
 		spider = new EnemyController[number_of_Swarm];
 		int i = 0;
 		for (i = 0; i< number_of_Swarm; i++) {
-			swarm [i] = (GameObject) Instantiate (enemy,new Vector2 (-16,53) ,transform.rotation); 
+			swarm [i] = (GameObject) Instantiate (enemy,king.transform.position,transform.rotation); 
 			//Instantiate(exp, swarm[i].transform.position,transform.rotation);
 			//exp.animation.Stop();
 			//MagicAppereance.Play("AppearSpider");
