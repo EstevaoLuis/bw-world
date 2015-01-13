@@ -14,7 +14,6 @@ public class Event : MonoBehaviour {
 	public string duringMessage;
 	public string afterMessage;
 
-	private int eventState;
 	private GameObject animation;
 
 	private CircleCollider2D collider;
@@ -26,19 +25,22 @@ public class Event : MonoBehaviour {
 		collider = GetComponent<CircleCollider2D>();
 		collider.radius = radius;
 		collider.isTrigger = true;
-		if (startEvent != "") { 
-			eventState = QuestManager.instance.getEventState (startEvent);
-			if (eventState == -1) Destroy (gameObject);
-			//Not yet begun
-			if(eventState == 0) {
-				animation = GameInstance.instance.playAnimation("Dialog",new Vector3(transform.position.x + animationOffsetX, transform.position.y + animationOffsetY , -1f));
-			}
-		}
 	}
 
 	void Update() {
 		if(Time.time > lastCheck + controlPeriod) {
-			;
+			int eventState;
+			if(endEvent != "") {
+				eventState = QuestManager.instance.getEventState (endEvent);
+				if(eventState == 1 && animation == null) {
+					animation = GameInstance.instance.playAnimation("Dialog",new Vector3(transform.position.x + animationOffsetX, transform.position.y + animationOffsetY , -1f));
+				}
+			}
+			/*
+			if(startEvent != "") {
+				eventState = QuestManager.instance.getEventState (startEvent);
+			}
+			*/
 		}
 	}
 

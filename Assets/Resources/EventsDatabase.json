@@ -58,17 +58,54 @@
     	"preMessage": "Thank god you're back!! Enemies are coming from west and are attacking our people!! Go and help the villagers!!",
     	"postMessage": "",
     	"experience": 0,
-    	"targetX": 44.3,
-    	"targetY": -7.5,
+    	"targetX": 256.1248,
+    	"targetY": 344.8877,
     	"targetZ": 0
     },
     "Using spells": {
-    	"storyLevel": 7,
+    	"storyLevel": 8,
     	"preMessage": "You'll have to use your new spell!! Use your right thumb to cast spell against enemies!!",
     	"postMessage": "",
     	"experience": 0,
-    	"targetX": 24.13515,
-    	"targetY": -4.697723,
+    	"targetX": 330.9749,
+    	"targetY": 350.6877,
+    	"targetZ": 0
+    },
+    "Kill heavy spider": {
+    	"storyLevel": 9,
+    	"preMessage": "Spiders are attacking us!! Kill the big one north of our house!!",
+    	"postMessage": "",
+    	"experience": 0,
+    	"targetX": 330.4,
+    	"targetY": 381.3,
+    	"targetZ": 0
+    },
+    "Go back to house": {
+    	"storyLevel": 10,
+    	"preMessage": "",
+    	"postMessage": "",
+    	"experience": 0,
+    	"targetX": 335.4249,
+    	"targetY": 353.4877,
+    	"targetZ": 0
+    },
+    "Coloring": {
+    	"storyLevel": 11,
+    	"preMessage": "Thanks a lot for helping us!! Do you know that you can recover health by coloring an object and by staying near to it? Now try to color our house.",
+    	"postMessage": "",
+    	"experience": 0,
+    	"targetX": 330.9749,
+    	"targetY": 355,
+    	"targetZ": 0
+    },
+    "To the forest": {
+    	"storyLevel": 12,
+    	"preMessage": "Yess",
+    	"postMessage": "",
+    	"experience": 0,
+    	"targetX": 0,
+    	"targetY": 0,
     	"targetZ": 0
     }
+    
 }

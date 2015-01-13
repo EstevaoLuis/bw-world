@@ -11,7 +11,7 @@ public class LoadSave : MonoBehaviour {
 		if (Input.GetKey (KeyCode.L)) {
 			load ();
 		}
-		else if (Input.GetKey (KeyCode.X)) {
+		else if (Input.GetKey (KeyCode.S)) {
 			save ();
 
 		}
@@ -31,12 +31,9 @@ public class LoadSave : MonoBehaviour {
 
 	public void load() {
 		GameInstance.instance.loadGame();
-		//Debug.Log ("GS: " + GameObject.FindWithTag("GameSystemActive"));
-		//isNewScene = true;
 	}
 
 	public void save() {
 		GameInstance.instance.saveGame();
 	}
-
 }

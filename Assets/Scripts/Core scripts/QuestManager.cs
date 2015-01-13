@@ -13,6 +13,7 @@ public class QuestManager : MonoBehaviour {
 	private JSONNode events;
 	private string currentEvent;
 	private static int storyLevel = 0;
+	private RightTouchJoystick colorSpells;
 
 	//Instance management
 	public static QuestManager instance
@@ -34,6 +35,8 @@ public class QuestManager : MonoBehaviour {
 
 			TextAsset eventsJson = Resources.Load("EventsDatabase") as TextAsset;
 			events = JSONNode.Parse(eventsJson.text);
+
+			colorSpells = GameObject.FindWithTag("RightJoystick").GetComponent<RightTouchJoystick>();
 		}
 		else
 		{
@@ -69,6 +72,7 @@ public class QuestManager : MonoBehaviour {
 	public void setNewTarget(Vector3 newTarget) {
 		activeTarget = true;
 		currentTarget = newTarget;
+		Debug.Log ("New target: " + newTarget);
 	}
 
 	private void cancelTarget() {
@@ -87,6 +91,7 @@ public class QuestManager : MonoBehaviour {
 			setStoryLevel(events[name]["storyLevel"].AsInt);
 			GameInstance.instance.playAudio("Item3");
 			if(events[name]["postMessage"] != null) UserInterface.instance.displayMessage(events[name]["postMessage"]);
+			GameInstance.instance.checkpoint();
 			return true;
 		}
 		return false;
@@ -111,7 +116,10 @@ public class QuestManager : MonoBehaviour {
 
 	public void setStoryLevel(int lv) {
 		storyLevel = lv;
+		if(storyLevel < 6) colorSpells.setActive(false);
+		else colorSpells.setActive(true);
 		Debug.Log ("Story level: " + storyLevel);
+
 	}
 
 	public int getEventState(string name) {
@@ -124,6 +132,22 @@ public class QuestManager : MonoBehaviour {
 			return 0;
 		}
 		return -1;
+	}
+
+	public bool restartFromEvent(string name) {
+		if (events [name] != null && name != currentEvent) {
+			storyLevel = events[name]["storyLevel"].AsInt - 1;
+			Debug.Log ("Event started: " + name);
+			if(events[name]["targetX"].AsFloat>0f || events[name]["targetY"].AsFloat>0f) setNewTarget(new Vector3(events[name]["targetX"].AsFloat,events[name]["targetY"].AsFloat,events[name]["targetZ"].AsFloat));
+			currentEvent = name;
+			if(events[name]["preMessage"] != null) UserInterface.instance.displayMessage(events[name]["preMessage"]);
+			return true;
+		}
+		return false;
+	}
+
+	public string getCurrentEvent() {
+		return currentEvent;
 	}
 
 }

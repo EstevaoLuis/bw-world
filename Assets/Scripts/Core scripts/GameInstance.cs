@@ -9,8 +9,8 @@ using System.IO;
 public class GameInstance : MonoBehaviour 
 {
 	private static GameInstance _instance;
-
-	public int initialStoryLevel = 0;
+	
+	public string initialEvent;
 
 	//Objects database
 	private JSONNode spells;
@@ -82,7 +82,8 @@ public class GameInstance : MonoBehaviour
 			mana = maxMana;
 			health = maxHealth;
 
-			QuestManager.instance.setStoryLevel(initialStoryLevel);
+
+			QuestManager.instance.restartFromEvent(initialEvent);
 			
 			//startAllScripts();
 		}
@@ -98,10 +99,6 @@ public class GameInstance : MonoBehaviour
 	void Start() {
 		refreshUI();
 	}
-
-	//public bool isInBattle() {
-	//	return battleTime > 5f;
-	//}
 
 	private void setPlayerLevel (int lev) {
 		level = lev;
@@ -292,7 +289,7 @@ public class GameInstance : MonoBehaviour
 		//stopAllScripts ();
 		playAudio ("Death");
 		Time.timeScale = 0.05f;
-		audioController.audio.Stop ();
+		audioController.stopAudio ();
 		Invoke ("gameOver", 0.25f);
 	}
 
@@ -300,6 +297,7 @@ public class GameInstance : MonoBehaviour
 		Time.timeScale = 1.0f;
 		Application.LoadLevel ("Game Over");
 		Destroy (this.transform.parent.gameObject);
+		Destroy (userInterface.gameObject);
 	}
 
 	public JSONNode getEnemyParameters(string name) {
@@ -312,17 +310,7 @@ public class GameInstance : MonoBehaviour
 
 
 	public void saveGame() {
-		/*
-		TextAsset gameJson = Resources.Load("GameData") as TextAsset;
-		gameData = JSONNode.Parse(gameJson.text);
-		gameData["scene"].AsInt = Application.loadedLevel;
-		gameData ["health"].AsInt = health;
-		gameData ["experience"].AsInt = experience;
-		gameData ["xPosition"].AsFloat = player.transform.position.x;
-		gameData ["yPosition"].AsFloat = player.transform.position.y;
-		Debug.Log (gameData);
-		System.IO.File.WriteAllText("Assets/Resources/GameData.json",gameData.ToString());
-		*/
+		Debug.Log ("Saving game...");
 		BinaryFormatter bf = new BinaryFormatter ();
 		FileStream file = File.Open (Application.persistentDataPath + "/playerInfo.dat", FileMode.OpenOrCreate);
 		PlayerData data = new PlayerData ();
@@ -337,26 +325,13 @@ public class GameInstance : MonoBehaviour
 		data.green = green;
 		data.blue = blue;
 		data.storyLevel = QuestManager.instance.getStoryLevel ();
+		data.currentEvent = QuestManager.instance.getCurrentEvent ();
 		bf.Serialize (file, data);
 		file.Close ();
 	}
 
 	public void loadGame() {
-		/*
-		string gameJsonText = System.IO.File.ReadAllText("Assets/Resources/GameData.json");
-		//TextAsset gameJson = Resources.Load("GameData") as TextAsset;
-		gameData = JSONNode.Parse(gameJsonText);
-
-		//Load scene & set parameters
-		Application.LoadLevel (gameData["scene"].AsInt);
-
-		setPlayerLevel (gameData["level"].AsInt);
-		experience = gameData["experience"].AsInt;
-		health = gameData["health"].AsInt;
-		mana = gameData["mana"].AsInt;
-		player.transform.position = new Vector3(gameData["xPosition"].AsFloat,gameData["yPosition"].AsFloat,0);
-		cameraSystem.transform.position = new Vector3(gameData["xPosition"].AsFloat,gameData["yPosition"].AsFloat,0);
-		*/
+		Debug.Log ("Loading game...");
 		if (File.Exists (Application.persistentDataPath + "/playerInfo.dat")) {
 			BinaryFormatter bf = new BinaryFormatter();
 			FileStream file = File.Open(Application.persistentDataPath + "/playerInfo.dat", FileMode.Open);
@@ -373,9 +348,53 @@ public class GameInstance : MonoBehaviour
 			green = data.green;
 			blue = data.blue;
 			QuestManager.instance.setStoryLevel(data.storyLevel);
+			QuestManager.instance.restartFromEvent(data.currentEvent);
 			refreshUI();
 		}
 
+	}
+
+	public void checkpoint() {
+		BinaryFormatter bf = new BinaryFormatter ();
+		FileStream file = File.Open (Application.persistentDataPath + "/checkpoint.dat", FileMode.OpenOrCreate);
+		PlayerData data = new PlayerData ();
+		data.level = level;
+		data.scene = Application.loadedLevel;
+		data.xPosition = player.transform.position.x;
+		data.yPosition = player.transform.position.y;
+		data.health = health;
+		data.mana = mana;
+		data.experience = experience;
+		data.red = red;
+		data.green = green;
+		data.blue = blue;
+		data.storyLevel = QuestManager.instance.getStoryLevel ();
+		data.currentEvent = QuestManager.instance.getCurrentEvent ();
+		bf.Serialize (file, data);
+		file.Close ();
+		Debug.Log ("Checkpoint!!");
+	}
+
+	public void continueFromCheckpoint() {
+		if (File.Exists (Application.persistentDataPath + "/checkpoint.dat")) {
+			BinaryFormatter bf = new BinaryFormatter();
+			FileStream file = File.Open(Application.persistentDataPath + "/checkpoint.dat", FileMode.Open);
+			PlayerData data = (PlayerData) bf.Deserialize(file);
+			file.Close();
+			Application.LoadLevel (data.scene);
+			setPlayerLevel(data.level);
+			player.transform.position = new Vector3(data.xPosition,data.yPosition,0f);
+			cameraSystem.transform.position = new Vector3(data.xPosition,data.yPosition,0f);
+			health = data.health;
+			mana = data.mana;
+			experience = data.experience;
+			red = data.red;
+			green = data.green;
+			blue = data.blue;
+			QuestManager.instance.setStoryLevel(data.storyLevel);
+			QuestManager.instance.restartFromEvent(data.currentEvent);
+			refreshUI();
+		}
 	}
 
 	public void stopAllScripts() {
@@ -495,7 +514,11 @@ public class GameInstance : MonoBehaviour
 	}
 
 	public bool isInBattle() {
-		return lastBattle != 0 && Time.time < lastBattle + 5f;
+		return lastBattle != 0 && Time.time < lastBattle + 3f;
+	}
+
+	public void setInBattle() {
+		lastBattle = Time.time;
 	}
 
 	// items management
@@ -520,4 +543,5 @@ class PlayerData {
 	public int blue;
 	public int green;
 	public int storyLevel;
+	public string currentEvent;
 }

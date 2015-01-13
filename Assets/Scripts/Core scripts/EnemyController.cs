@@ -197,7 +197,7 @@ public class EnemyController : MonoBehaviour {
 				}
 				//In spell range
 				else if(distanceToPlayer > meleeDistance) {
-
+					GameInstance.instance.setInBattle();
 					if(spells.Count > 0 && Time.time > lastAttack + delay) {
 
 						castSpell();

@@ -15,6 +15,9 @@ public class PlayerController : MonoBehaviour {
 	private Spell used;
 	private GameObject spell;
 
+	private bool canMove = true;
+	private bool canShoot = true;
+
 	//test
 	private float lastMovement;
 	
@@ -83,36 +86,44 @@ public class PlayerController : MonoBehaviour {
 
 
 	public void moveDown() {
-		animator.Play ("WalkDown");
-		direction = new Vector2 (0.0f, -1.0f);
-		//Vector2 newVelocity = direction * speed;
-		//rigidbody2D.velocity = new Vector2 ((rigidbody2D.velocity.x + newVelocity.x) / 2, (rigidbody2D.velocity.y + newVelocity.y) / 2);
-		rigidbody2D.velocity = direction * speed;
-		lastMovement = Time.time;
+		if(canMove) {
+			animator.Play ("WalkDown");
+			direction = new Vector2 (0.0f, -1.0f);
+			//Vector2 newVelocity = direction * speed;
+			//rigidbody2D.velocity = new Vector2 ((rigidbody2D.velocity.x + newVelocity.x) / 2, (rigidbody2D.velocity.y + newVelocity.y) / 2);
+			rigidbody2D.velocity = direction * speed;
+			lastMovement = Time.time;
+		}
 	}
 	public void moveUp() {
-		animator.Play ("WalkUp");
-		direction = new Vector2 (0.0f, 1.0f);
-		//Vector2 newVelocity = direction * speed;
-		//rigidbody2D.velocity = new Vector2 ((rigidbody2D.velocity.x + newVelocity.x) / 2, (rigidbody2D.velocity.y + newVelocity.y) / 2);
-		rigidbody2D.velocity = direction * speed;
-		lastMovement = Time.time;
+		if (canMove) {
+			animator.Play ("WalkUp");
+			direction = new Vector2 (0.0f, 1.0f);
+			//Vector2 newVelocity = direction * speed;
+			//rigidbody2D.velocity = new Vector2 ((rigidbody2D.velocity.x + newVelocity.x) / 2, (rigidbody2D.velocity.y + newVelocity.y) / 2);
+			rigidbody2D.velocity = direction * speed;
+			lastMovement = Time.time;
+		}
 	}
 	public void moveLeft() {
-		animator.Play ("WalkLeft");
-		direction = new Vector2 (-1.0f, 0.0f);
-		//Vector2 newVelocity = direction * speed;
-		//rigidbody2D.velocity = new Vector2 ((rigidbody2D.velocity.x + newVelocity.x) / 2, (rigidbody2D.velocity.y + newVelocity.y) / 2);
-		rigidbody2D.velocity = direction * speed;
-		lastMovement = Time.time;
+		if (canMove) {
+			animator.Play ("WalkLeft");
+			direction = new Vector2 (-1.0f, 0.0f);
+			//Vector2 newVelocity = direction * speed;
+			//rigidbody2D.velocity = new Vector2 ((rigidbody2D.velocity.x + newVelocity.x) / 2, (rigidbody2D.velocity.y + newVelocity.y) / 2);
+			rigidbody2D.velocity = direction * speed;
+			lastMovement = Time.time;
+		}
 	}
 	public void moveRight() {
-		animator.Play ("WalkRight");
-		direction = new Vector2 (1.0f, 0.0f);
-		//Vector2 newVelocity = direction * speed;
-		//rigidbody2D.velocity = new Vector2 ((rigidbody2D.velocity.x + newVelocity.x) / 2, (rigidbody2D.velocity.y + newVelocity.y) / 2);
-		rigidbody2D.velocity = direction * speed;
-		lastMovement = Time.time;
+		if (canMove) {
+			animator.Play ("WalkRight");
+			direction = new Vector2 (1.0f, 0.0f);
+			//Vector2 newVelocity = direction * speed;
+			//rigidbody2D.velocity = new Vector2 ((rigidbody2D.velocity.x + newVelocity.x) / 2, (rigidbody2D.velocity.y + newVelocity.y) / 2);
+			rigidbody2D.velocity = direction * speed;
+			lastMovement = Time.time;
+		}
 	}
 	public void stopMovement() {
 		Vector2 newVelocity = new Vector2 (0, 0);
@@ -121,16 +132,22 @@ public class PlayerController : MonoBehaviour {
 		lastMovement = Time.time;
 	}
 	public void blueSpell() {
-		GameInstance.instance.playerCastSpell("blue",transform,direction);
-		lastSpell = Time.time;
+		if(canShoot) {
+			GameInstance.instance.playerCastSpell("blue",transform,direction);
+			lastSpell = Time.time;
+		}
 	}
 	public void redSpell() {
-		GameInstance.instance.playerCastSpell("red",transform,direction);
-		lastSpell = Time.time;
+		if (canShoot) {
+			GameInstance.instance.playerCastSpell ("red", transform, direction);
+			lastSpell = Time.time;
+		}
 	}
 	public void greenSpell() {
-		GameInstance.instance.playerCastSpell("green",transform,direction);
-		lastSpell = Time.time;
+		if(canShoot) {
+			GameInstance.instance.playerCastSpell("green",transform,direction);
+			lastSpell = Time.time;
+		}
 	}
 
 	public float GetSpeed(){
