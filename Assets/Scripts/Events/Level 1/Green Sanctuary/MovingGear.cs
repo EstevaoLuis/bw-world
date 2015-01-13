@@ -28,13 +28,14 @@ public class MovingGear : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionEnter2D(Collision2D other) {
+
+	void OnCollisionStay2D(Collision2D other) {
 		if (other.gameObject.tag == "Player") {
 			if(Time.time > hitTime + 1f) {
-						GameInstance.instance.damagePlayer (damage);
-						GameInstance.instance.playAnimation ("Hit", other.gameObject.transform.position);
-						hitTime = Time.time;
-				}
+				GameInstance.instance.damagePlayer (damage);
+				GameInstance.instance.playAnimation ("Hit", other.gameObject.transform.position);
+				hitTime = Time.time;
+			}
 		}
 	}
 }
