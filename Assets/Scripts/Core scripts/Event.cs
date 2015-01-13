@@ -10,10 +10,16 @@ public class Event : MonoBehaviour {
 	public float animationOffsetX = -1;
 	public float animationOffsetY = 2f;
 
+	public string beforeMessage;
+	public string duringMessage;
+	public string afterMessage;
+
 	private int eventState;
 	private GameObject animation;
 
 	private CircleCollider2D collider;
+	private float controlPeriod = 3f;
+	private float lastCheck;
 
 	// Use this for initialization
 	void Start () {
@@ -27,6 +33,12 @@ public class Event : MonoBehaviour {
 			if(eventState == 0) {
 				animation = GameInstance.instance.playAnimation("Dialog",new Vector3(transform.position.x + animationOffsetX, transform.position.y + animationOffsetY , -1f));
 			}
+		}
+	}
+
+	void Update() {
+		if(Time.time > lastCheck + controlPeriod) {
+			;
 		}
 	}
 
