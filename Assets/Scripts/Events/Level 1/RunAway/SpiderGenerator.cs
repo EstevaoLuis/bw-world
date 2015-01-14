@@ -53,16 +53,28 @@ public class SpiderGenerator : MonoBehaviour {
 	}
 
 	void checkSpiders(){
+		bool deadSpiderFound = false;
+		GameObject ragno = null;
 		foreach (GameObject arana in spiders) {
 			if (arana == null){
 				spidersKilled++;
-				spiders.Remove(arana);
+				ragno = arana;
+				deadSpiderFound = true;
+				break;
 			}
 		}
+
+		if (deadSpiderFound)
+			removeSpider(ragno);
+
 		if (spidersKilled == maxSpiders) {
 			Destroy(door);
 			Destroy(this);
 		}
+	}
+
+	void removeSpider(GameObject ragno){
+		spiders.Remove (ragno);
 	}
 
 
