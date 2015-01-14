@@ -4,8 +4,8 @@ using System.Collections;
 //By Felix Hazen Gonzalez
 public class GameOfMap : MonoBehaviour {
 
-	private int numbElements_x = 5;
-	private int numbElements_y = 5;
+	private int numbElements_x = 10;
+	private int numbElements_y = 10;
 	public GameObject road;
 	public GameObject tree;
 	public GameObject tree_sprite;
@@ -66,7 +66,7 @@ public class GameOfMap : MonoBehaviour {
 					Instantiate (tree, new Vector3 (transform.position.x + i * 5, transform.position.y + j * 5), transform.rotation);
 					//}
 				}else{
-					Instantiate (tree, new Vector3 (transform.position.x + i * 5, transform.position.y + j * 5), transform.rotation);				
+					Instantiate (tree_sprite, new Vector3 (transform.position.x + i * 5, transform.position.y + j * 5), transform.rotation);				
 				}
 			}
 		}
