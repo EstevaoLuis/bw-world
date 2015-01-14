@@ -31,7 +31,7 @@ public class Colour : MonoBehaviour {
 			lastColor = visible;
 		}
 	}
-	/*
+
 	// Update is called once per frame
 	void Update () {
 		if (isTransition() && time <= duration+0.2f) {
@@ -39,7 +39,7 @@ public class Colour : MonoBehaviour {
 			time += Time.deltaTime;
 		}
 	}
-	*/
+
 	void OnCollisionEnter2D (Collision2D other) {
 		if(other.gameObject.tag == "Spell") {
 			Spell spell = other.gameObject.GetComponent("Spell") as Spell;

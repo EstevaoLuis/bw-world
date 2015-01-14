@@ -16,7 +16,7 @@ public class NewGameMenu : MonoBehaviour {
 
 	public void startGame() {
 		audio.Stop ();
-		Application.LoadLevel (1);
+		Application.LoadLevel ("Green World");
 	}
 
 	public void loadGame() {

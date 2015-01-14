@@ -7,7 +7,7 @@ public class DestroyAfterStory : MonoBehaviour {
 	public GameObject replaceWith;
 
 	private float controlPeriod = 3f;
-	private float lastCheck;
+	private float lastCheck = 0f;
 
 
 	void Update() {
