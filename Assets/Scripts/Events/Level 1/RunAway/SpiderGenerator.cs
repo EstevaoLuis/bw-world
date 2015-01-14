@@ -40,7 +40,6 @@ public class SpiderGenerator : MonoBehaviour {
 		Debug.Log (other.gameObject.tag);
 		if(other.gameObject.tag == "Player") {
 			isActive = true;
-			Debug.Log ("Yeah");
 		}
 	}
 }
