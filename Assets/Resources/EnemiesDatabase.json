@@ -118,8 +118,8 @@
         "defense": 5,
         "mass": 5000,
         "scale": 0.8,
-        "delay": 0.8,
-        "detection": 20,
+        "delay": 2,
+        "detection": 30,
         "melees": [
 			{"name": "Melee 3", "probability": 0.5},
 			{"name": "Melee 4", "probability": 0.5}

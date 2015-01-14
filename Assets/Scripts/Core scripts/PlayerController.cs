@@ -174,5 +174,10 @@ public class PlayerController : MonoBehaviour {
 	public bool usingJoystick() {
 		return useJoystick;
 	}
+
+	public void isAvailable(bool value) {
+		canMove = value;
+		canShoot = value;
+	}
 	
 }
