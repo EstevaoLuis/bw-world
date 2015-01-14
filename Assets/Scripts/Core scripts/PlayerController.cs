@@ -46,6 +46,10 @@ public class PlayerController : MonoBehaviour {
 				} else {
 					stopMovement();
 				}
+
+				/*if (Input.GetKey (KeyCode.Space)) {
+					pause();
+				}*/
 			}
 			
 			if(Time.time > lastSpell + 0.1f) {
@@ -151,7 +155,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public float GetSpeed(){
-				return speed;
+			return speed;
 		}
 
 	public Vector2 getDirection() {
@@ -173,6 +177,12 @@ public class PlayerController : MonoBehaviour {
 
 	public bool usingJoystick() {
 		return useJoystick;
+	}
+
+	public void pause(){
+		Debug.Log ("Pausing 1");
+		GameInstance.instance.pauseGame ();
+		Debug.Log ("Pausing Complete 1");
 	}
 
 	public void isAvailable(bool value) {
