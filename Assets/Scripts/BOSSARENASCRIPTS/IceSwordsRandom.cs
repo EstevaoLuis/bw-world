@@ -30,21 +30,6 @@ public class IceSwordsRandom : MonoBehaviour {
 			timer = timer + 2f;
 
 		}
-//		if (Time.time > timer_2) {
-//			Instantiate (iceBomb, aux.transform.position, transform.rotation);
-//			timer_2 = timer_2 + 7f;
-//		}
-//		if (Time.time > timer_2) {
-//			Instantiate (iceBomb, aux.transform.position, transform.rotation);
-//			timer_2 = timer_2 + 5f;
-//		}
-
-//		Instantiate (IceSwords,random_pos, transform.rotation);
-//		aux.name = pos.ToString ();
-//		aux.rigidbody2D.velocity = (Vector3.left + Vector3.down) * speed;
-//		pos++;
-
-		//nam = nam - 1;
 
 	}
 
@@ -55,8 +40,4 @@ public class IceSwordsRandom : MonoBehaviour {
 
 	}
 }
-//		if (Time.time > timer_2) {
-//			DestroyImmediate(aux);
-//			timer_2 = timer_2 + 4f;
-//
-//		}
+

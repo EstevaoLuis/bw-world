@@ -4,7 +4,7 @@ using System.Collections;
 public class IceSwordBullet : MonoBehaviour {
 
 	private float timer = 4f;
-	public GameObject iceBomb;
+
 	private string nam;
 	//private GameObject sword;
 	// Use this for initialization
