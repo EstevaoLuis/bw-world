@@ -4,7 +4,7 @@ using System.Collections;
 public class IceSwordsRandom : MonoBehaviour {
 
 	public GameObject IceSwords;
-	public GameObject iceBomb;
+	//public GameObject iceBomb;
 	public GameObject target;
 	private GameObject aux;
 	private float timer = 2f;
@@ -29,10 +29,6 @@ public class IceSwordsRandom : MonoBehaviour {
 			aux.rigidbody2D.velocity = (Vector3.left + Vector3.down) * speed;
 			timer = timer + 2f;
 
-//			if (Time.time > timer_2) {
-//				Instantiate (iceBomb, aux.transform.position, transform.rotation);
-//				timer_2 = timer_2 + 7f;
-//			}
 		}
 //		if (Time.time > timer_2) {
 //			Instantiate (iceBomb, aux.transform.position, transform.rotation);
