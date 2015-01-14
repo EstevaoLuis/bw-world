@@ -32,11 +32,18 @@ public class IceSwordsRandom : MonoBehaviour {
 		}
 
 	}
+	void onSight(){
+		float dis = Vector3.Distance(transform.position,target.transform.position);
+		if( dis < 5){
+			random_generator_ice_sword();
+		}
+
+	}
 
 	// Update is called once per frame
 	void Update () {
 
-		random_generator_ice_sword ();
+		onSight ();
 
 	}
 }
