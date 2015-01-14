@@ -23,17 +23,6 @@ public class SpiderGenerator : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (isActive) {
-<<<<<<< HEAD:Assets/Scripts/Events/Green World/RunAway/SpiderGenerator.cs
-				if (spidersGenerated < 3 && (lastGeneration == 0f || Time.time > lastGeneration + 3f)) {
-						instantiateSpider ();
-						spidersGenerated++;
-						lastGeneration = Time.time;
-				} else if (spidersGenerated >= 3 && spidersGenerated < 10 && Time.time > lastGeneration + 2f) {
-						instantiateSpider ();
-						spidersGenerated++;
-						lastGeneration = Time.time;
-				}
-=======
 			if (spidersGenerated < 5 && (lastGeneration == 0f || Time.time > lastGeneration + 3f)) {
 					instantiateSpider ();
 					spidersGenerated++;
@@ -44,8 +33,9 @@ public class SpiderGenerator : MonoBehaviour {
 					lastGeneration = Time.time;
 			}
 			checkSpiders();
->>>>>>> origin/master:Assets/Scripts/Events/Level 1/RunAway/SpiderGenerator.cs
-		}
+					lastGeneration = Time.time;
+			}
+			checkSpiders();
 	}
 
 	void instantiateSpider() {
@@ -53,11 +43,7 @@ public class SpiderGenerator : MonoBehaviour {
 		int randType = Random.Range (0, 2);
 		if(randType > 0) (newSpider.GetComponent ("EnemyController") as EnemyController).enemyName = "Spider (Noob)";
 		else (newSpider.GetComponent ("EnemyController") as EnemyController).enemyName = "Spider";
-<<<<<<< HEAD:Assets/Scripts/Events/Green World/RunAway/SpiderGenerator.cs
-		GameInstance.instance.playAnimation ("Appear",newSpider.transform.position);
-=======
 		spiders.Add (newSpider);
->>>>>>> origin/master:Assets/Scripts/Events/Level 1/RunAway/SpiderGenerator.cs
 		GameInstance.instance.playAudio ("Darkness6");
 	}
 

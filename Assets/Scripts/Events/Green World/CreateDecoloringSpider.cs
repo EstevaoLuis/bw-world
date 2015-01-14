@@ -15,15 +15,20 @@ public class CreateDecoloringSpider : MonoBehaviour {
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController>();
 		player.isAvailable (false);
+		QuestManager.instance.startEvent("Decoloring");
 		Invoke ("createSpider", 3f);
 	}
 
 
 	void Update() {
-		if(spiderInstantiated && spiderController.getHealth() <= 0) {
-			QuestManager.instance.endEvent("Decoloring");
-			QuestManager.instance.startEvent("To the forest");
-			this.enabled = false;
+		if(spiderInstantiated) {
+			if(spiderController.getHealth() <= 0 || spider == null) {
+				QuestManager.instance.endEvent("Decoloring");
+				QuestManager.instance.startEvent("To the forest");
+				Debug.Log ("Nemico ucciso!!");
+				this.enabled = false;
+			}
+			Debug.Log (spiderController.getHealth());
 		}
 	}
 
