@@ -34,8 +34,6 @@ public class GameInstance : MonoBehaviour
 	private GameObject player;
 	private GameObject cameraSystem;
 	private UserInterface userInterface;
-	public GameObject pauseMenu;
-	private bool isPaused = false;
 
 	//Player data
 	private int level, health, maxHealth, mana, maxMana, experience, maxExperience;
@@ -87,9 +85,6 @@ public class GameInstance : MonoBehaviour
 
 			QuestManager.instance.setStoryLevel(initialStoryLevel);
 			QuestManager.instance.restartFromEvent(initialEvent);
-
-			//other
-			pauseMenu.SetActive(isPaused);
 
 			//startAllScripts();
 		}
@@ -489,9 +484,6 @@ public class GameInstance : MonoBehaviour
 			Time.timeScale = 0.0f;
 		else
 			Time.timeScale = 1.0f; 
-		/*Debug.Log ("Pausing 2");
-		TooglePauseMenu ();
-		Debug.Log ("End Toogle");*/
 	}
 
 	private void levelUp() {
@@ -533,12 +525,6 @@ public class GameInstance : MonoBehaviour
 
 	public void setInBattle() {
 		lastBattle = Time.time;
-	}
-
-	public void TooglePauseMenu(){
-		Debug.Log ("Pausing 3 toogle");
-		pauseMenu.SetActive (isPaused=!isPaused);
-		Debug.Log ("Pausing 4 :-)");
 	}
 
 	// items management
