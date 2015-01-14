@@ -1,12 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SpiderGenerator : MonoBehaviour {
 
+	public int maxSpiders = 20;
+	public GameObject door;
+
 	private int spidersGenerated = 0;
+	private int spidersKilled = 0;
 	private float lastGeneration = 0f;
 	private bool isActive = false;
 	private GameObject spider;
+
+	private IList spiders = new List<GameObject>();
 
 	// Use this for initialization
 	void Start () {
@@ -16,15 +23,16 @@ public class SpiderGenerator : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (isActive) {
-				if (spidersGenerated < 5 && (lastGeneration == 0f || Time.time > lastGeneration + 3f)) {
-						instantiateSpider ();
-						spidersGenerated++;
-						lastGeneration = Time.time;
-				} else if (spidersGenerated >= 5 && spidersGenerated < 20 && Time.time > lastGeneration + 1f) {
-						instantiateSpider ();
-						spidersGenerated++;
-						lastGeneration = Time.time;
-				}
+			if (spidersGenerated < 5 && (lastGeneration == 0f || Time.time > lastGeneration + 3f)) {
+					instantiateSpider ();
+					spidersGenerated++;
+					lastGeneration = Time.time;
+			} else if (spidersGenerated >= 5 && spidersGenerated < maxSpiders && Time.time > lastGeneration + 1f) {
+					instantiateSpider ();
+					spidersGenerated++;
+					lastGeneration = Time.time;
+			}
+			checkSpiders();
 		}
 	}
 
@@ -33,6 +41,7 @@ public class SpiderGenerator : MonoBehaviour {
 		int randType = Random.Range (0, 2);
 		if(randType > 0) (newSpider.GetComponent ("EnemyController") as EnemyController).enemyName = "Spider (Noob)";
 		else (newSpider.GetComponent ("EnemyController") as EnemyController).enemyName = "Spider";
+		spiders.Add (newSpider);
 		GameInstance.instance.playAudio ("Darkness6");
 	}
 
@@ -42,4 +51,19 @@ public class SpiderGenerator : MonoBehaviour {
 			isActive = true;
 		}
 	}
+
+	void checkSpiders(){
+		foreach (GameObject arana in spiders) {
+			if (arana == null){
+				spidersKilled++;
+				spiders.Remove(arana);
+			}
+		}
+		if (spidersKilled == maxSpiders) {
+			Destroy(door);
+			Destroy(this);
+		}
+	}
+
+
 }
