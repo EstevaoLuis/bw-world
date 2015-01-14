@@ -5,9 +5,12 @@ public class Spikes : MonoBehaviour {
 
 	public int damage;
 	public float period = 4f;
-	public Sprite enabledSprite;
-	public Sprite disabledSprite;
+	//public Sprite enabledSprite;
+	//public Sprite disabledSprite;
+	public GameObject onPrefab, offPrefab;
 
+
+	private GameObject onAnimation, offAnimation;
 	private float hitTime, lastChange;
 	private bool isEnabled = false;
 	private SpriteRenderer renderer;
@@ -15,15 +18,22 @@ public class Spikes : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		renderer = GetComponent <SpriteRenderer>();
-		renderer.sprite = disabledSprite;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if(Time.time > lastChange + period) {
 			isEnabled = !isEnabled;
-			if(isEnabled) renderer.sprite = enabledSprite;
-			else renderer.sprite = disabledSprite;
+			if(isEnabled) {
+				renderer.sprite = null;
+				onAnimation = (GameObject) GameObject.Instantiate(onPrefab, transform.position, new Quaternion(0f,0f,0f,1f));
+				if(offAnimation != null) Destroy(offAnimation);
+			}
+			else {
+				renderer.sprite = null;
+				offAnimation = (GameObject) GameObject.Instantiate(offPrefab, transform.position, new Quaternion(0f,0f,0f,1f));
+				if(onAnimation != null) Destroy(onAnimation);
+			}
 			lastChange = Time.time;
 		}
 	}
