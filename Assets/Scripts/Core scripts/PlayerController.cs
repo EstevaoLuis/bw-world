@@ -184,5 +184,10 @@ public class PlayerController : MonoBehaviour {
 		GameInstance.instance.pauseGame ();
 		Debug.Log ("Pausing Complete 1");
 	}
+
+	public void isAvailable(bool value) {
+		canMove = value;
+		canShoot = value;
+	}
 	
 }

@@ -464,6 +464,11 @@ public class GameInstance : MonoBehaviour
 		return displayText;
 	}
 
+	public GameObject instantiateEnemy(string prefabName, string enemyName, Vector3 newPosition) {
+		GameObject enemyPrefab = Resources.Load("Enemies/"+ enemyName) as GameObject;
+		return (GameObject) GameObject.Instantiate (enemyPrefab, newPosition, new Quaternion (0f,0f,0f,1f));
+	}
+
 	public GameObject playAnimation(string animationName, Vector3 position) {
 		GameObject animationPrefab = Resources.Load("Animations/" + animationName) as GameObject;
 		GameObject animation = (GameObject) Instantiate(animationPrefab, position, new Quaternion(0,0,0,1));
