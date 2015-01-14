@@ -13,7 +13,7 @@ public class IceSwordBullet : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D (Collision2D other){
-		Destroy(GameObject.Find(nam));
+		Destroy(gameObject);
 	}
 
 	// Update is called once per frame
