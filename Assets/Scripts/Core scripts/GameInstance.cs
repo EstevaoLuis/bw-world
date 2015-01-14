@@ -85,7 +85,7 @@ public class GameInstance : MonoBehaviour
 
 			QuestManager.instance.setStoryLevel(initialStoryLevel);
 			QuestManager.instance.restartFromEvent(initialEvent);
-			
+
 			//startAllScripts();
 		}
 		else
@@ -481,9 +481,9 @@ public class GameInstance : MonoBehaviour
 
 	public void pauseGame() {     
 		if (Time.timeScale == 1.0f)            
-			Time.timeScale = 0.0f;        
+			Time.timeScale = 0.0f;
 		else
-			Time.timeScale = 1.0f;                
+			Time.timeScale = 1.0f; 
 	}
 
 	private void levelUp() {
