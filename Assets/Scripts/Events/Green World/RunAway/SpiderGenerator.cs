@@ -32,10 +32,8 @@ public class SpiderGenerator : MonoBehaviour {
 					spidersGenerated++;
 					lastGeneration = Time.time;
 			}
-			checkSpiders();
-					lastGeneration = Time.time;
-			}
-			checkSpiders();
+			checkSpiders ();
+		}
 	}
 
 	void instantiateSpider() {
