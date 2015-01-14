@@ -1,12 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SpiderGenerator : MonoBehaviour {
 
+	public int maxSpiders = 20;
+	public GameObject door;
+
 	private int spidersGenerated = 0;
+	private int spidersKilled = 0;
 	private float lastGeneration = 0f;
 	private bool isActive = false;
 	private GameObject spider;
+
+	private IList spiders = new List<GameObject>();
 
 	// Use this for initialization
 	void Start () {
@@ -16,6 +23,7 @@ public class SpiderGenerator : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (isActive) {
+<<<<<<< HEAD:Assets/Scripts/Events/Green World/RunAway/SpiderGenerator.cs
 				if (spidersGenerated < 3 && (lastGeneration == 0f || Time.time > lastGeneration + 3f)) {
 						instantiateSpider ();
 						spidersGenerated++;
@@ -25,6 +33,18 @@ public class SpiderGenerator : MonoBehaviour {
 						spidersGenerated++;
 						lastGeneration = Time.time;
 				}
+=======
+			if (spidersGenerated < 5 && (lastGeneration == 0f || Time.time > lastGeneration + 3f)) {
+					instantiateSpider ();
+					spidersGenerated++;
+					lastGeneration = Time.time;
+			} else if (spidersGenerated >= 5 && spidersGenerated < maxSpiders && Time.time > lastGeneration + 1f) {
+					instantiateSpider ();
+					spidersGenerated++;
+					lastGeneration = Time.time;
+			}
+			checkSpiders();
+>>>>>>> origin/master:Assets/Scripts/Events/Level 1/RunAway/SpiderGenerator.cs
 		}
 	}
 
@@ -33,7 +53,11 @@ public class SpiderGenerator : MonoBehaviour {
 		int randType = Random.Range (0, 2);
 		if(randType > 0) (newSpider.GetComponent ("EnemyController") as EnemyController).enemyName = "Spider (Noob)";
 		else (newSpider.GetComponent ("EnemyController") as EnemyController).enemyName = "Spider";
+<<<<<<< HEAD:Assets/Scripts/Events/Green World/RunAway/SpiderGenerator.cs
 		GameInstance.instance.playAnimation ("Appear",newSpider.transform.position);
+=======
+		spiders.Add (newSpider);
+>>>>>>> origin/master:Assets/Scripts/Events/Level 1/RunAway/SpiderGenerator.cs
 		GameInstance.instance.playAudio ("Darkness6");
 	}
 
@@ -43,4 +67,31 @@ public class SpiderGenerator : MonoBehaviour {
 			isActive = true;
 		}
 	}
+
+	void checkSpiders(){
+		bool deadSpiderFound = false;
+		GameObject ragno = null;
+		foreach (GameObject arana in spiders) {
+			if (arana == null){
+				spidersKilled++;
+				ragno = arana;
+				deadSpiderFound = true;
+				break;
+			}
+		}
+
+		if (deadSpiderFound)
+			removeSpider(ragno);
+
+		if (spidersKilled == maxSpiders) {
+			Destroy(door);
+			Destroy(this);
+		}
+	}
+
+	void removeSpider(GameObject ragno){
+		spiders.Remove (ragno);
+	}
+
+
 }

@@ -1,0 +1,300 @@
+fileFormatVersion: 2
+guid: 0d032aa402b76469a8259b9e5b74ed86
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Ice1_0
+    21300002: Ice1_1
+    21300004: Ice1_2
+    21300006: Ice1_3
+    21300008: Ice1_4
+    21300010: Ice1_5
+    21300012: Ice1_6
+    21300014: Ice1_7
+    21300016: Ice1_8
+    21300018: Ice1_9
+    21300020: Ice1_10
+    21300022: Ice1_11
+    21300024: Ice1_12
+    21300026: Ice1_13
+    21300028: Ice1_14
+    21300030: Ice1_15
+    21300032: Ice1_16
+    21300034: Ice1_17
+    21300036: Ice1_18
+    21300038: Ice1_19
+    21300040: Ice1_20
+    21300042: Ice1_21
+    21300044: Ice1_22
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Ice1_0
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 207
+        width: 148
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ice1_1
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 185
+        width: 182
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ice1_2
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 185
+        width: 186
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ice1_3
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 185
+        width: 190
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ice1_4
+      rect:
+        serializedVersion: 2
+        x: 769
+        y: 193
+        width: 190
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ice1_5
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 11
+        width: 139
+        height: 134
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ice1_6
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 118
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ice1_7
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 16
+        width: 150
+        height: 164
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ice1_8
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 118
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ice1_9
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 18
+        width: 153
+        height: 162
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ice1_10
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 118
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ice1_11
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 19
+        width: 166
+        height: 164
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ice1_12
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 93
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ice1_13
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 85
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ice1_14
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 93
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ice1_15
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 85
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ice1_16
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 93
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ice1_17
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 85
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ice1_18
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 79
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ice1_19
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 26
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ice1_20
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 26
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ice1_21
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 26
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ice1_22
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 26
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

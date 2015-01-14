@@ -4,9 +4,11 @@ using System.Collections;
 public class IceSwordsRandom : MonoBehaviour {
 
 	public GameObject IceSwords;
+	//public GameObject iceBomb;
 	public GameObject target;
 	private GameObject aux;
-	private float timer = 5f;
+	private float timer = 2f;
+	private float timer_2 = 7f;
 	private float speed = 4f;
 	//private float timer_2 = 2f;
 	private int nam;
@@ -25,14 +27,9 @@ public class IceSwordsRandom : MonoBehaviour {
 		if (Time.time > timer) {
 			aux = (GameObject)Instantiate (IceSwords,random_pos, transform.rotation);
 			aux.rigidbody2D.velocity = (Vector3.left + Vector3.down) * speed;
-			timer = timer + 5f;
-		}
-//		Instantiate (IceSwords,random_pos, transform.rotation);
-//		aux.name = pos.ToString ();
-//		aux.rigidbody2D.velocity = (Vector3.left + Vector3.down) * speed;
-//		pos++;
+			timer = timer + 2f;
 
-		//nam = nam - 1;
+		}
 
 	}
 
@@ -43,8 +40,4 @@ public class IceSwordsRandom : MonoBehaviour {
 
 	}
 }
-//		if (Time.time > timer_2) {
-//			DestroyImmediate(aux);
-//			timer_2 = timer_2 + 4f;
-//
-//		}
+

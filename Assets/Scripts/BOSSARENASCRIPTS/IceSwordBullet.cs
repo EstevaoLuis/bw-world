@@ -3,7 +3,8 @@ using System.Collections;
 
 public class IceSwordBullet : MonoBehaviour {
 
-	private float timer = 5f;
+	private float timer = 4f;
+
 	private string nam;
 	//private GameObject sword;
 	// Use this for initialization
@@ -16,9 +17,5 @@ public class IceSwordBullet : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-//		if (Time.time > timer) {
-//			Destroy(GameObject.Find(nam));
-//		
-//		}
 	}
 }
