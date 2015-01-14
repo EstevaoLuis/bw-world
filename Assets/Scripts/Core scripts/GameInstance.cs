@@ -9,7 +9,8 @@ using System.IO;
 public class GameInstance : MonoBehaviour 
 {
 	private static GameInstance _instance;
-	
+
+	public int initialStoryLevel;
 	public string initialEvent;
 
 	//Objects database
@@ -82,7 +83,7 @@ public class GameInstance : MonoBehaviour
 			mana = maxMana;
 			health = maxHealth;
 
-
+			QuestManager.instance.setStoryLevel(initialStoryLevel);
 			QuestManager.instance.restartFromEvent(initialEvent);
 			
 			//startAllScripts();
