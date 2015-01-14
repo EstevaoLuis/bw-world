@@ -13,8 +13,8 @@ public class PauseMenu : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKeyDown(KeyCode.Space)) {        
-			//GameInstance.instance.pauseGame();
+		if(Input.GetKeyDown(KeyCode.Space)) {
+			Time.timeScale = 1 - Time.timeScale;
 			status = !status;
 			menuP.SetActive(status);
 		}
