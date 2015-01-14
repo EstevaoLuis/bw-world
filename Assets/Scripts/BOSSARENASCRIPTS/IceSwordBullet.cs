@@ -12,9 +12,6 @@ public class IceSwordBullet : MonoBehaviour {
 		print (nam);
 	}
 
-	void OnCollisionEnter2D (Collision2D other){
-		Destroy(gameObject);
-	}
 
 	// Update is called once per frame
 	void Update () {
