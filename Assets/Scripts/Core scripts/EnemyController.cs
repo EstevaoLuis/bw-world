@@ -126,9 +126,9 @@ public class EnemyController : MonoBehaviour {
 		direction = new Vector2(0.0f,-1.0f);
 
 		//Add trigger
-		CircleCollider2D triggerArea = (CircleCollider2D) gameObject.AddComponent ("CircleCollider2D");
+		BoxCollider2D triggerArea = (BoxCollider2D) gameObject.AddComponent ("BoxCollider2D");
 		triggerArea.isTrigger = true;
-		triggerArea.radius = detectionDistance;
+		triggerArea.size = new Vector2(detectionDistance,detectionDistance);
 
 	}
 	public int getHealth(){

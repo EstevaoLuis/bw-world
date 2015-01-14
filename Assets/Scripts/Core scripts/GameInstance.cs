@@ -52,7 +52,13 @@ public class GameInstance : MonoBehaviour
 			return _instance;
 		}
 	}
-	
+
+	/*
+	void Update() {
+		Debug.Log (1 / Time.deltaTime);
+	}
+	*/
+
 	void Awake() 
 	{
 		if(_instance == null)
