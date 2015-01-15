@@ -44,5 +44,13 @@ public class GemCannon : MonoBehaviour {
 		//shoot_to_other_portal ();
 	
 	}
+
+	void OnCollisionEnter2D (Collision2D other) {
+		if (other.gameObject.tag == "Spell") {
+				//Spell spell = other.gameObject.GetComponent("Spell") as Spell;
+				GameInstance.instance.playAnimation ("Hit", gameObject.transform.position);
+		}
+	}
+
 }
 
