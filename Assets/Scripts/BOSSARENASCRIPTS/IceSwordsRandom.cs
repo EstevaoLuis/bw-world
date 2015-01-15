@@ -7,7 +7,8 @@ public class IceSwordsRandom : MonoBehaviour {
 	//public GameObject iceBomb;
 	public GameObject target;
 	private GameObject aux;
-	private float timer = 2f;
+	private float trigger = 0;
+	private float timer = 2;
 	private float timer_2 = 7f;
 	private float speed = 4f;
 	//private float timer_2 = 2f;
@@ -19,31 +20,51 @@ public class IceSwordsRandom : MonoBehaviour {
 	}
 	void random_generator_ice_sword(){
 
-		Vector3 random_pos = new Vector3 (Random.Range (-10 + target.transform.position.x, target.transform.position.x + 10)
-		                                  , Random.Range (-10 + target.transform.position.y, target.transform.position.y + 10));
+		Vector3 random_pos = new Vector3 (Random.Range (-5 + target.transform.position.x, target.transform.position.x + 5)
+		                                  , Random.Range (-5 + target.transform.position.y, target.transform.position.y + 5));
 
 
-		
-		if (Time.time > timer) {
-			aux = (GameObject)Instantiate (IceSwords,random_pos, transform.rotation);
-			aux.rigidbody2D.velocity = (Vector3.left + Vector3.down) * speed;
-			timer = timer + 2f;
+		aux = (GameObject)Instantiate (IceSwords,random_pos, transform.rotation);
+		aux.rigidbody2D.velocity = (Vector3.left + Vector3.down) * speed;
 
+
+		}
+	
+
+//	void OnCollisionEnter2D (Collision2D other){
+//		
+//		if (other.gameObject.tag == "Player") {
+//			trigger = 1;		
+//		}
+//	}
+
+	void OnTriggerEnter2D (Collider2D other){
+
+		if (other.gameObject.tag == "Player") {
+			trigger = 1;
 		}
 
 	}
-	void onSight(){
-		float dis = Vector3.Distance(transform.position,target.transform.position);
-		if( dis < 5){
-			random_generator_ice_sword();
-		}
 
+	void start_shooting(){
+		Invoke("random_generator_ice_sword",timer);
+		timer = timer + 1;
 	}
+
+//	void onSight(){
+//		float dis = Vector3.Distance(transform.position,target.transform.position);
+//		if( dis < 5){
+//			random_generator_ice_sword();
+//		}
+//
+//	}
 
 	// Update is called once per frame
 	void Update () {
 
-		onSight ();
+	if (trigger == 1) {
+			start_shooting();
+		}
 
 	}
 }

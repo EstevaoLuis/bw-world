@@ -45,7 +45,7 @@ public class CreateDecoloringSpider : MonoBehaviour {
 	void displayMessage() {
 		Destroy (toBeKilled);
 		player.isAvailable (true);
-		UserInterface.instance.displayMessage ("Hurry up, stop the spider!!");
+		UserInterface.instance.displayMessage ("Villager","Hurry up, stop the spider!!");
 	}
 
 }

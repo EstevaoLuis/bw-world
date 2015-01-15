@@ -21,11 +21,13 @@ public class SaveController1 : MonoBehaviour {
 
 	public void Save(int slot){
 		if (mode == 0) {  // save
-			// TODO Real implementation
 			Debug.Log ("Save Slot-> " + slot);
+			GameInstance.instance.setCurrentSlot(slot);
+			GameInstance.instance.saveGame();
 		} else { //load
 			Debug.Log ("Load Slot-> " + slot);
-			// TODO Real implementation
+			GameInstance.instance.setCurrentSlot(slot);
+			GameInstance.instance.loadGame();
 		}
 		Resume ();
 	}

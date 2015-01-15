@@ -3,16 +3,17 @@ using System.Collections;
 
 public class IceSwordBullet : MonoBehaviour {
 
-	private float timer = 4f;
 
-	private string nam;
-	//private GameObject sword;
-	// Use this for initialization
 	void Start () {
-		nam = this.name;
-		print (nam);
+
 	}
 
+	void OnCollisionEnter2D (Collision2D other){
+		
+		if (other.gameObject.tag == "Player") {
+			GameInstance.instance.damagePlayer (5);
+		}
+	}
 
 	// Update is called once per frame
 	void Update () {

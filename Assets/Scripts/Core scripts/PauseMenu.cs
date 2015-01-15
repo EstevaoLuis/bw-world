@@ -19,7 +19,7 @@ public class PauseMenu : MonoBehaviour {
 		}
 	}
 
-	void pauseSwitch(){
+	public void pauseSwitch(){
 		Time.timeScale = 1 - Time.timeScale;
 		status = !status;
 		menuP.SetActive(status);

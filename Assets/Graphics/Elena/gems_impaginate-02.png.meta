@@ -1,0 +1,311 @@
+fileFormatVersion: 2
+guid: 2b672e3f64cd3994898c3a60f433d76c
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: gems_impaginate-02_0
+    21300002: gems_impaginate-02_1
+    21300004: gems_impaginate-02_2
+    21300006: gems_impaginate-02_3
+    21300008: gems_impaginate-02_4
+    21300010: gems_impaginate-02_5
+    21300012: gems_impaginate-02_6
+    21300014: gems_impaginate-02_7
+    21300016: gems_impaginate-02_8
+    21300018: gems_impaginate-02_9
+    21300020: gems_impaginate-02_10
+    21300022: gems_impaginate-02_11
+    21300024: gems_impaginate-02_12
+    21300026: gems_impaginate-02_13
+    21300028: gems_impaginate-02_14
+    21300030: gems_impaginate-02_15
+    21300032: gems_impaginate-02_16
+    21300034: gems_impaginate-02_17
+    21300036: gems_impaginate-02_18
+    21300038: gems_impaginate-02_19
+    21300040: gems_impaginate-02_20
+    21300042: gems_impaginate-02_21
+    21300044: gems_impaginate-02_22
+    21300046: gems_impaginate-02_23
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: gems_impaginate-02_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1418
+        width: 708
+        height: 708
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gems_impaginate-02_1
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 1418
+        width: 708
+        height: 708
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gems_impaginate-02_2
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 1418
+        width: 708
+        height: 708
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gems_impaginate-02_3
+      rect:
+        serializedVersion: 2
+        x: 2124
+        y: 1418
+        width: 708
+        height: 708
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gems_impaginate-02_4
+      rect:
+        serializedVersion: 2
+        x: 2832
+        y: 1418
+        width: 708
+        height: 708
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gems_impaginate-02_5
+      rect:
+        serializedVersion: 2
+        x: 3540
+        y: 1418
+        width: 708
+        height: 708
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gems_impaginate-02_6
+      rect:
+        serializedVersion: 2
+        x: 4248
+        y: 1418
+        width: 708
+        height: 708
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gems_impaginate-02_7
+      rect:
+        serializedVersion: 2
+        x: 4956
+        y: 1418
+        width: 708
+        height: 708
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gems_impaginate-02_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 710
+        width: 708
+        height: 708
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gems_impaginate-02_9
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 710
+        width: 708
+        height: 708
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gems_impaginate-02_10
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 710
+        width: 708
+        height: 708
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gems_impaginate-02_11
+      rect:
+        serializedVersion: 2
+        x: 2124
+        y: 710
+        width: 708
+        height: 708
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gems_impaginate-02_12
+      rect:
+        serializedVersion: 2
+        x: 2832
+        y: 710
+        width: 708
+        height: 708
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gems_impaginate-02_13
+      rect:
+        serializedVersion: 2
+        x: 3540
+        y: 710
+        width: 708
+        height: 708
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gems_impaginate-02_14
+      rect:
+        serializedVersion: 2
+        x: 4248
+        y: 710
+        width: 708
+        height: 708
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gems_impaginate-02_15
+      rect:
+        serializedVersion: 2
+        x: 4956
+        y: 710
+        width: 708
+        height: 708
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gems_impaginate-02_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2
+        width: 708
+        height: 708
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gems_impaginate-02_17
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 2
+        width: 708
+        height: 708
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gems_impaginate-02_18
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 2
+        width: 708
+        height: 708
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gems_impaginate-02_19
+      rect:
+        serializedVersion: 2
+        x: 2124
+        y: 2
+        width: 708
+        height: 708
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gems_impaginate-02_20
+      rect:
+        serializedVersion: 2
+        x: 2832
+        y: 2
+        width: 708
+        height: 708
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gems_impaginate-02_21
+      rect:
+        serializedVersion: 2
+        x: 3540
+        y: 2
+        width: 708
+        height: 708
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gems_impaginate-02_22
+      rect:
+        serializedVersion: 2
+        x: 4248
+        y: 2
+        width: 708
+        height: 708
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gems_impaginate-02_23
+      rect:
+        serializedVersion: 2
+        x: 4956
+        y: 2
+        width: 708
+        height: 708
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

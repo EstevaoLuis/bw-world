@@ -9,6 +9,7 @@ public class UserInterface : MonoBehaviour
 
 	public GameObject messagePanel;
 	public Text displayedMessage;
+	public Text displayedName;
 
 	//UI objects
 	private Slider healthBar;
@@ -88,12 +89,12 @@ public class UserInterface : MonoBehaviour
 		directionalArrow.SetActive (isActive);
 	}
 
-	public void displayMessage(string text) {
+	public void displayMessage(string name, string text) {
 		messagePanel.SetActive (true);
-		textScrollbar.SetActive (true);
+		//textScrollbar.SetActive (true);
 		Debug.Log (text);
-		displayedMessage.text = text;
-
+		displayedMessage.text = "\n" + text;
+		if (name != null) displayedName.text = name;
 	}
 
 	public void closeMessagePanel() {
