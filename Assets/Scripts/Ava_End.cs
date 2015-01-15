@@ -14,7 +14,7 @@ public class Ava_End : MonoBehaviour {
 	void OnCollisionEnter2D (Collision2D other){
 		if (other.gameObject.tag == "Player") {
 			Destroy (ava);
-			Instantiate (gem, transform.position-new Vector3(-5,1.1f), transform.rotation);
+			Instantiate (gem, transform.position-new Vector3(-3,1.1f), transform.rotation);
 			Destroy(gameObject);
 		}
 		
