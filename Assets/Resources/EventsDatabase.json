@@ -40,8 +40,8 @@
     	"preMessage": "Waaaa!! An enemy spider, watch out!! You can't fight enemies at the moment, so just run!! Keep on going south to the Sanctuary",
     	"postMessage": "",
     	"experience": 0,
-    	"targetX": 244.66,
-    	"targetY": 282.85,
+    	"targetX": 207,
+    	"targetY": 267,
     	"targetZ": 0
     },
     "Sanctuary gate": {
@@ -49,8 +49,8 @@
     	"preMessage": "Here you are. This is the Green Sanctuary gate.",
     	"postMessage": "",
     	"experience": 0,
-    	"targetX": 207,
-    	"targetY": 267,
+    	"targetX": 0,
+    	"targetY": 0,
     	"targetZ": 0
     },
     "Village under attack": {
