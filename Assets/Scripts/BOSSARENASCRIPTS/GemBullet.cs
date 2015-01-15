@@ -4,41 +4,19 @@ using System.Collections;
 public class GemBullet : MonoBehaviour {
 
 	private GameObject target;
-	private GameObject origin;
 	private EnemyController enemy;
-	private float diff_x;
-	private float diff_y;
-	private float pos_x;
-	private float pos_y;
 	private float speed = 10f;
-	private float timer = 2f;
-	private float timer_2 = 8f;
-	private Vector3 direction;
-	private Vector3 pos_origin;
-	private Vector3 pos_final;
-	private int lifes = 5;
 
 	// Use this for initialization
 	void Start () {
 
 		target = GameObject.Find("GemPost_2");
-		origin = GameObject.Find("GemPost_1");
 
 	}
 	void aimTowardsTarget(){
-		
-		diff_x = transform.position.x - target.transform.position.x;
-		diff_y = transform.position.y - target.transform.position.y;
-		
-		if (diff_x < diff_y && diff_x < 0) {
-			direction += new Vector3(1,0);
-		} else if (diff_x > diff_y && diff_x > 0) {
-			direction += new Vector3(-1,0);
-		} else if (diff_y < diff_x && diff_y < 0) {
-			direction += new Vector3(0,1);
-		} else if (diff_y > diff_x && diff_y > 0) {
-			direction += new Vector3(0,-1);
-		}
+
+		transform.position = Vector3.MoveTowards (transform.position, target.transform.position, Time.deltaTime * speed);
+	
 	}
 
 
@@ -49,19 +27,19 @@ public class GemBullet : MonoBehaviour {
 
 		if (other.gameObject.tag == "Enemy") {
 			enemy = other.gameObject.GetComponent<EnemyController>();
-			enemy.damageEnemy(50);
+			int damage = 50 + Random.Range(-5,5);
+			enemy.damageEnemy(damage);
+			GameInstance.instance.playAnimation("Hit",other.gameObject.transform.position);
+			GameInstance.instance.damageValueAnimation(damage,other.gameObject.transform.position);
 		}
 	
 	}
 
 	// Update is called once per frame
 	void Update () {
+
 		aimTowardsTarget ();
-//			if (Time.time > timer) {
-			direction.Normalize ();
-			rigidbody2D.velocity = direction * speed;
-//				timer = timer + 2f;
-//			}
+
 		}
 //		}
 //		if(transform.position.x == transform.position.x + 0.5f || transform.position.y == transform.position.y + 0.5f){
