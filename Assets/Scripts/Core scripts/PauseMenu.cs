@@ -29,6 +29,7 @@ public class PauseMenu : MonoBehaviour {
 
 	public void Resume(){
 		pauseSwitch ();
+		Debug.Log ("Game Resumed");
 	}
 
 	public void Save(){
