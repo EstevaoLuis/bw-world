@@ -56,13 +56,13 @@ public class PlayerController : MonoBehaviour {
 				
 				if (!useJoystick){
 					if (Input.GetKey (KeyCode.W)) {
-						redSpell();
+						redSpell(1);
 					}
 					else if(Input.GetKey (KeyCode.A)) {
-						blueSpell();
+						blueSpell(1);
 					}
 					else if(Input.GetKey (KeyCode.D)) {
-						greenSpell();
+						greenSpell(1);
 					}
 				}
 			}
@@ -135,21 +135,28 @@ public class PlayerController : MonoBehaviour {
 		rigidbody2D.velocity = newVelocity;
 		lastMovement = Time.time;
 	}
-	public void blueSpell() {
+	public void blueSpell(int spellLevel) {
 		if(canShoot) {
-			GameInstance.instance.playerCastSpell("blue",transform,direction);
+			GameInstance.instance.playerCastSpell("Blue "+spellLevel,transform,direction);
 			lastSpell = Time.time;
 		}
 	}
-	public void redSpell() {
+	public void redSpell(int spellLevel) {
 		if (canShoot) {
-			GameInstance.instance.playerCastSpell ("red", transform, direction);
+			GameInstance.instance.playerCastSpell ("Red "+spellLevel, transform, direction);
 			lastSpell = Time.time;
 		}
 	}
-	public void greenSpell() {
+	public void greenSpell(int spellLevel) {
 		if(canShoot) {
-			GameInstance.instance.playerCastSpell("green",transform,direction);
+			GameInstance.instance.playerCastSpell("Green "+spellLevel,transform,direction);
+			lastSpell = Time.time;
+		}
+	}
+
+	public void castSpell(string spellColor, int spellLevel) {
+		if(canShoot) {
+			GameInstance.instance.playerCastSpell(spellColor + " " + spellLevel,transform,direction);
 			lastSpell = Time.time;
 		}
 	}

@@ -227,11 +227,22 @@ public class GameInstance : MonoBehaviour
 		}
 	}
 
-	public void playerCastSpell(string spellColor, Transform transform, Vector2 direction) {
+	public bool canCastSpell(string spellColor, int spellLevel) {
+		string spellName = spellColor + " " + spellLevel;
+		JSONNode spell = spells[spellName];
+		if (spell == null) return false;
+		if (mana > spell ["mana"].AsInt) {
+			return true;
+		}
+		return false;
+	}
+
+	public void playerCastSpell(string spellName, Transform transform, Vector2 direction) {
 		//Choose spell
-		string spellName = "";
+		//string spellName = "";
 		int bonusDamage = 0;
 		int secondSpell = 20, thirdSpell = 50;
+		/*
 		switch(spellColor) {
 			case "red": 
 				if(red>thirdSpell) spellName = "Red 3";
@@ -252,6 +263,7 @@ public class GameInstance : MonoBehaviour
 				bonusDamage = Mathf.RoundToInt(blue/15);
 				break;
 		}
+		*/
 		//Check if enough mana and if time has passed
 		if (mana > spells [spellName] ["mana"].AsInt && Time.time>lastSpell+0.3f) {
 				mana -= spells [spellName] ["mana"].AsInt;
