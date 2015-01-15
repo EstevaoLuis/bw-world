@@ -17,7 +17,7 @@ public class ShootingTower : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(Time.time > lastSpell + interval) {
-			GameInstance.instance.castSpell(spellName,transform,direction,"SpellEnemy",0f,0f,0);
+			GameInstance.instance.castSpell(spellName,transform,direction,"SpellEnemy",2f,0f,0);
 			lastSpell = Time.time;
 		}
 	}

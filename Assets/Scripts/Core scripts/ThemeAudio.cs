@@ -24,7 +24,7 @@ public class ThemeAudio : MonoBehaviour {
 		audio2.clip = battleAudio;
 		audio1.Play ();
 		audio1.volume = 1f;
-		fromVolume1 = 0f;
+		fromVolume1 = 1f;
 		toVolume1 = 1f;
 		audio2.Play ();
 		audio2.volume = 0f;

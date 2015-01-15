@@ -31,7 +31,7 @@ public class Colour : MonoBehaviour {
 			lastColor = visible;
 		}
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		if (isTransition() && time <= duration+0.2f) {
