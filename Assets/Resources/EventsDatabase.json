@@ -6,7 +6,9 @@
     	"experience": 0,
     	"targetX": 0,
     	"targetY": 0,
-    	"targetZ": 0
+    	"targetZ": 0,
+    	"scene": "Green World",
+    	"character": "Scout boy"
     },
     "The arrow": {
     	"storyLevel": 2,
@@ -15,7 +17,9 @@
     	"experience": 0,
     	"targetX": 285.98,
     	"targetY": 403.33,
-    	"targetZ": 0
+    	"targetZ": 0,
+		"scene": "Green World",
+    	"character": "Scout boy"
     },
     "Initial story": {
     	"storyLevel": 3,
@@ -24,7 +28,9 @@
     	"experience": 0,
     	"targetX": 235.96,
     	"targetY": 347.69,
-    	"targetZ": 0
+    	"targetZ": 0,
+    	"scene": "Green World",
+    	"character": "The village chief"
     },
     "The prophecy": {
     	"storyLevel": 4,
@@ -33,7 +39,9 @@
     	"experience": 0,
     	"targetX": 278.7509,
     	"targetY": 324.5834,
-    	"targetZ": 0
+    	"targetZ": 0,
+    	"scene": "Green World",
+    	"character": "Scout boy"
     },
     "First enemy": {
     	"storyLevel": 5,
@@ -42,7 +50,9 @@
     	"experience": 0,
     	"targetX": 207,
     	"targetY": 267,
-    	"targetZ": 0
+    	"targetZ": 0,
+    	"scene": "Green World",
+    	"character": "Scout boy"
     },
     "Sanctuary gate": {
     	"storyLevel": 6,
@@ -51,7 +61,9 @@
     	"experience": 0,
     	"targetX": 0,
     	"targetY": 0,
-    	"targetZ": 0
+    	"targetZ": 0,
+    	"scene": "Green World",
+    	"character": "Scout boy"
     },
     "Village under attack": {
     	"storyLevel": 7,
@@ -60,7 +72,9 @@
     	"experience": 0,
     	"targetX": 256.1248,
     	"targetY": 344.8877,
-    	"targetZ": 0
+    	"targetZ": 0,
+    	"scene": "Green World",
+    	"character": "The village chief"
     },
     "Using spells": {
     	"storyLevel": 8,
@@ -69,7 +83,9 @@
     	"experience": 0,
     	"targetX": 330.9749,
     	"targetY": 350.6877,
-    	"targetZ": 0
+    	"targetZ": 0,
+    	"scene": "Green World",
+    	"character": "Scout boy"
     },
     "Kill heavy spider": {
     	"storyLevel": 9,
@@ -78,7 +94,9 @@
     	"experience": 0,
     	"targetX": 330.4,
     	"targetY": 381.3,
-    	"targetZ": 0
+    	"targetZ": 0,
+    	"scene": "Green World",
+    	"character": "Scout boy"
     },
     "Go back to house": {
     	"storyLevel": 10,
@@ -87,7 +105,9 @@
     	"experience": 0,
     	"targetX": 335.4249,
     	"targetY": 353.4877,
-    	"targetZ": 0
+    	"targetZ": 0,
+    	"scene": "Green World",
+    	"character": ""
     },
     "Coloring": {
     	"storyLevel": 11,
@@ -96,7 +116,9 @@
     	"experience": 0,
     	"targetX": 330.9749,
     	"targetY": 355,
-    	"targetZ": 0
+    	"targetZ": 0,
+    	"scene": "Green World",
+    	"character": "Scout boy"
     },
     "Decoloring": {
     	"storyLevel": 12,
@@ -105,7 +127,9 @@
     	"experience": 0,
     	"targetX": 0,
     	"targetY": 0,
-    	"targetZ": 0
+    	"targetZ": 0,
+    	"scene": "Green World",
+    	"character": "Scout boy"
     },
     "To the forest": {
     	"storyLevel": 13,
@@ -114,7 +138,9 @@
     	"experience": 0,
     	"targetX": 338,
     	"targetY": 293,
-    	"targetZ": 0	
+    	"targetZ": 0,
+    	"scene": "Green World",
+    	"character": "Scout boy"
     },
     "To the boss": {
     	"storyLevel": 14,
@@ -123,7 +149,9 @@
     	"experience": 0,
     	"targetX": 361,
     	"targetY": 334,
-    	"targetZ": 0	
+    	"targetZ": 0,
+    	"scene": "Green World",
+    	"character": "Scout boy"
     },
     "The boss": {
     	"storyLevel": 15,
@@ -132,7 +160,9 @@
     	"experience": 0,
     	"targetX": 0,
     	"targetY": 0,
-    	"targetZ": 0	
+    	"targetZ": 0,
+    	"scene": "Green World",
+    	"character": "Scout boy"
     },
         "Welcome to the north": {
     	"storyLevel": 16,
@@ -141,7 +171,9 @@
     	"experience": 0,
      	"targetX": 17.8212,
     	"targetY": 7.261063,
-    	"targetZ": 0	
+    	"targetZ": 0,
+    	"scene": "Blue World",
+    	"character": ""
     },
         "Ice Rangers": {
     	"storyLevel": 17,
@@ -149,7 +181,9 @@
     	"postMessage": "",
     	"targetX": 1.4,
     	"targetY": -40.6,
-    	"targetZ": 0	
+    	"targetZ": 0,
+    	"scene": "Blue World",
+    	"character": ""
     },
         "Survivor": {
     	"storyLevel": 18,
@@ -157,16 +191,19 @@
     	"postMessage": "",
    		"targetX": 17.8212,
     	"targetY": 7.261063,
-    	"targetZ": 0	
+    	"targetZ": 0,
+    	"scene": "Blue World",
+    	"character": ""	
     },
-    
         "Back alive": {
     	"storyLevel": 19,
     	"preMessage": "What? You're alive? As well as our last Ranger? for the Black and White, so many trilights have died entering the old frozen forest Sanctuary...anyway there is no time to waste. Head to the east Ranger, he says wierd sounds have come out from the old timberland",
     	"postMessage": "",
     	"targetX": 85.1,
     	"targetY": 4.5,
-    	"targetZ": 0	
+    	"targetZ": 0,
+    	"scene": "Blue World",
+    	"character": ""	
     },
         "Up the road": {
     	"storyLevel": 20,
@@ -174,7 +211,7 @@
     	"postMessage": "",
     	"targetX": 0,
     	"targetY": 0,
-    	"targetZ": 0	
-    
-    
+    	"targetZ": 0,
+    	"scene": "Blue World",
+    	"character": ""
 }
