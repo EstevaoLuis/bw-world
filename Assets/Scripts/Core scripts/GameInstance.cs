@@ -43,6 +43,9 @@ public class GameInstance : MonoBehaviour
 	//Time variables
 	private float lastSpell, lastRegeneration, lastBattle = 0f;
 
+	//Current save/load slot
+	private int currentSlot = 0;
+
 
 	//Instance management
 	public static GameInstance instance
@@ -319,7 +322,7 @@ public class GameInstance : MonoBehaviour
 	public void saveGame() {
 		Debug.Log ("Saving game...");
 		BinaryFormatter bf = new BinaryFormatter ();
-		FileStream file = File.Open (Application.persistentDataPath + "/playerInfo.dat", FileMode.OpenOrCreate);
+		FileStream file = File.Open (Application.persistentDataPath + "/playerInfo" + currentSlot + ".dat", FileMode.OpenOrCreate);
 		PlayerData data = new PlayerData ();
 		data.level = level;
 		data.scene = Application.loadedLevel;
@@ -339,9 +342,9 @@ public class GameInstance : MonoBehaviour
 
 	public void loadGame() {
 		Debug.Log ("Loading game...");
-		if (File.Exists (Application.persistentDataPath + "/playerInfo.dat")) {
+		if (File.Exists (Application.persistentDataPath + "/playerInfo" + currentSlot + ".dat")) {
 			BinaryFormatter bf = new BinaryFormatter();
-			FileStream file = File.Open(Application.persistentDataPath + "/playerInfo.dat", FileMode.Open);
+			FileStream file = File.Open(Application.persistentDataPath + "/playerInfo" + currentSlot + ".dat", FileMode.Open);
 			PlayerData data = (PlayerData) bf.Deserialize(file);
 			file.Close();
 			Application.LoadLevel (data.scene);
@@ -531,6 +534,10 @@ public class GameInstance : MonoBehaviour
 
 	public void setInBattle() {
 		lastBattle = Time.time;
+	}
+
+	public void setCurrentSlot(int slot) {
+		if(slot < 4) currentSlot = slot;
 	}
 
 	// items management

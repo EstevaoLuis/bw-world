@@ -90,7 +90,7 @@ public class QuestManager : MonoBehaviour {
 			GameInstance.instance.increaseExperience(events[name]["experience"].AsInt);
 			setStoryLevel(events[name]["storyLevel"].AsInt);
 			GameInstance.instance.playAudio("Item3");
-			if(events[name]["postMessage"] != null) UserInterface.instance.displayMessage(events[name]["postMessage"]);
+			if(events[name]["postMessage"] != null) UserInterface.instance.displayMessage(events[name]["character"]+":",'"' + events[name]["postMessage"] + '"');
 			GameInstance.instance.checkpoint();
 			return true;
 		}
@@ -103,7 +103,7 @@ public class QuestManager : MonoBehaviour {
 				Debug.Log ("Event started: " + name);
 				if(events[name]["targetX"].AsFloat>0f || events[name]["targetY"].AsFloat>0f) setNewTarget(new Vector3(events[name]["targetX"].AsFloat,events[name]["targetY"].AsFloat,events[name]["targetZ"].AsFloat));
 				currentEvent = name;
-				if(events[name]["preMessage"] != null) UserInterface.instance.displayMessage(events[name]["preMessage"]);
+				if(events[name]["preMessage"] != null) UserInterface.instance.displayMessage(events[name]["character"]+":",'"' + events[name]["preMessage"] + '"');
 				GameInstance.instance.checkpoint();
 				return true;
 			}
@@ -141,7 +141,7 @@ public class QuestManager : MonoBehaviour {
 			Debug.Log ("Event started: " + name);
 			if(events[name]["targetX"].AsFloat>0f || events[name]["targetY"].AsFloat>0f) setNewTarget(new Vector3(events[name]["targetX"].AsFloat,events[name]["targetY"].AsFloat,events[name]["targetZ"].AsFloat));
 			currentEvent = name;
-			if(events[name]["preMessage"] != null) UserInterface.instance.displayMessage(events[name]["preMessage"]);
+			if(events[name]["preMessage"] != null) UserInterface.instance.displayMessage(events[name]["character"]+":",'"' + events[name]["preMessage"] + '"');
 			return true;
 		}
 		return false;
