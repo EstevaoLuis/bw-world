@@ -29,6 +29,6 @@ public class Ava_Move : MonoBehaviour {
 		transform.position = Vector3.MoveTowards (transform.position, target.transform.position, speed * Time.deltaTime);
 
 		}
-		print (1.0 / Time.deltaTime);
+	//	print (1.0 / Time.deltaTime);
 	}
 }

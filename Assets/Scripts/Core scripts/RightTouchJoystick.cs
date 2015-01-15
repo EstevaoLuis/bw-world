@@ -18,7 +18,7 @@ public class RightTouchJoystick : MonoBehaviour {
 	private Image renderer;
 	private bool isActive = true;
 
-	private float activatedTime;
+	private float activatedTime, lastSpell, spellDelay;
 
 	void Start() {
 		renderer = GetComponent<Image> ();
@@ -31,7 +31,7 @@ public class RightTouchJoystick : MonoBehaviour {
 			int fingerCount = 0;
 			foreach (Touch touch in Input.touches) {
 				//Half screen is 480
-				if(touch.position.x > 560/2) {
+				if(touch.position.x > 560) {
 							if (touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled) {
 									fingerCount++;
 									if (touch.phase == TouchPhase.Began) {
@@ -45,7 +45,7 @@ public class RightTouchJoystick : MonoBehaviour {
 											float deltaY = touch.position.y - lastPosition.y;
 											float distance = Vector2.Distance(touch.position,lastPosition);
 											
-											if(distance > 10 && (deltaX > 10 || deltaY > 10)) {
+											if(distance > 20 && (deltaX > 10 || deltaY > 10)) {
 												string spellColor = "Green";
 												
 												//Select color
@@ -63,14 +63,17 @@ public class RightTouchJoystick : MonoBehaviour {
 												
 												//Select level
 												int spellLevel = 0;
-												if(distance > 50 && GameInstance.instance.canCastSpell(spellColor,3)) {
+												if(distance > 100 && GameInstance.instance.canCastSpell(spellColor,3)) {
 													spellLevel = 3;
-												}
-												else if(distance > 30 && GameInstance.instance.canCastSpell(spellColor,2)) {
+													spellDelay = 1.5f;
+								}
+												else if(distance > 60 && GameInstance.instance.canCastSpell(spellColor,2)) {
 													spellLevel = 2;
+													spellDelay = 0.8f;
 												}
 												else if(GameInstance.instance.canCastSpell(spellColor,1)) {
 													spellLevel = 1;
+													spellDelay = 0.3f;
 												}	
 												
 												//Set correct sprites
@@ -91,8 +94,9 @@ public class RightTouchJoystick : MonoBehaviour {
 												}
 												
 												//Cast spell
-												if(spellLevel > 0) {
+												if(spellLevel > 0 && Time.time > lastSpell + spellDelay) {
 													playerController.castSpell(spellColor,spellLevel);
+													lastSpell = Time.time;
 												}
 												
 											}

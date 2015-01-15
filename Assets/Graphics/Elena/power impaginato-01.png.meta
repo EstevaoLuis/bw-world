@@ -1,7 +1,18 @@
 fileFormatVersion: 2
-guid: 24211af0174b74e40b28e780c68e55b8
+guid: ab9d35e57f5598d459eecbbe0ac4feda
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: power impaginato-01_0
+    21300002: power impaginato-01_1
+    21300004: power impaginato-01_2
+    21300006: power impaginato-01_3
+    21300008: power impaginato-01_4
+    21300010: power impaginato-01_5
+    21300012: power impaginato-01_6
+    21300014: power impaginato-01_7
+    21300016: power impaginato-01_8
+    21300018: power impaginato-01_9
+    21300020: power impaginato-01_10
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -27,7 +38,7 @@ TextureImporter:
     filterMode: -1
     aniso: 16
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -42,6 +53,116 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: power impaginato-01_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2835
+        width: 1417
+        height: 1417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: power impaginato-01_1
+      rect:
+        serializedVersion: 2
+        x: 1417
+        y: 2835
+        width: 1417
+        height: 1417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: power impaginato-01_2
+      rect:
+        serializedVersion: 2
+        x: 2834
+        y: 2835
+        width: 1417
+        height: 1417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: power impaginato-01_3
+      rect:
+        serializedVersion: 2
+        x: 4251
+        y: 2835
+        width: 1417
+        height: 1417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: power impaginato-01_4
+      rect:
+        serializedVersion: 2
+        x: 5668
+        y: 2835
+        width: 1417
+        height: 1417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: power impaginato-01_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1418
+        width: 1417
+        height: 1417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: power impaginato-01_6
+      rect:
+        serializedVersion: 2
+        x: 1417
+        y: 1418
+        width: 1417
+        height: 1417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: power impaginato-01_7
+      rect:
+        serializedVersion: 2
+        x: 2834
+        y: 1418
+        width: 1417
+        height: 1417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: power impaginato-01_8
+      rect:
+        serializedVersion: 2
+        x: 4251
+        y: 1418
+        width: 1417
+        height: 1417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: power impaginato-01_9
+      rect:
+        serializedVersion: 2
+        x: 5668
+        y: 1418
+        width: 1417
+        height: 1417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: power impaginato-01_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 1417
+        height: 1417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

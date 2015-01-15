@@ -242,28 +242,19 @@ public class GameInstance : MonoBehaviour
 		//string spellName = "";
 		int bonusDamage = 0;
 		int secondSpell = 20, thirdSpell = 50;
-		/*
-		switch(spellColor) {
+
+		switch(spells["color"]) {
 			case "red": 
-				if(red>thirdSpell) spellName = "Red 3";
-				else if(red>secondSpell) spellName = "Red 2";
-				else spellName = "Red 1";
 				bonusDamage = Mathf.RoundToInt(red/15);
 				break;
 			case "green": 
-				if(green>thirdSpell) spellName = "Green 3";
-				else if(green>secondSpell) spellName = "Green 2";
-				else spellName = "Green 1";
 				bonusDamage = Mathf.RoundToInt(green/15);
 				break;
 			case "blue": 
-				if(blue>thirdSpell)  spellName = "Blue 3";
-				else if(blue>secondSpell) spellName = "Blue 2";
-				else spellName = "Blue 1";
 				bonusDamage = Mathf.RoundToInt(blue/15);
 				break;
 		}
-		*/
+
 		//Check if enough mana and if time has passed
 		if (mana > spells [spellName] ["mana"].AsInt && Time.time>lastSpell+0.3f) {
 				mana -= spells [spellName] ["mana"].AsInt;

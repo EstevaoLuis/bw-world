@@ -42,7 +42,7 @@
     "Green 1": {
     	"color": "green",
     	"speed": 4,
-        "damage": 10,
+        "damage": 12,
         "duration": 2,
         "mass": 800,
         "mana": 10,
@@ -52,7 +52,7 @@
     "Green 2": {
     	"color": "green",
     	"speed": 5,
-        "damage": 10,
+        "damage": 45,
         "duration": 2,
         "mass": 2000,
         "mana": 25,
@@ -65,7 +65,7 @@
         "damage": 80,
         "duration": 2,
         "mass": 4000,
-        "mana": 60,
+        "mana": 50,
         "area": 2
     },
     
@@ -74,10 +74,30 @@
     	"speed": 4,
         "damage": 15,
         "duration": 1.5,
-        "mass": 1000,
-        "mana": 10,
+        "mass": 800,
+        "mana": 12,
         "area": 0
-    }
+    },
+    
+    "Blue 2": {
+    	"color": "blue",
+    	"speed": 5,
+        "damage": 52,
+        "duration": 1.5,
+        "mass": 1600,
+        "mana": 28,
+        "area": 1
+    },
+    
+    "Blue 3": {
+    	"color": "blue",
+    	"speed": 6,
+        "damage": 90,
+        "duration": 1.5,
+        "mass": 4000,
+        "mana": 55,
+        "area": 2
+    },
     
     "Black 1": {
     	"color": "black",
