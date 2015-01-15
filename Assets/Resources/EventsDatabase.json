@@ -49,8 +49,8 @@
     	"preMessage": "Here you are. This is the Green Sanctuary gate.",
     	"postMessage": "",
     	"experience": 0,
-    	"targetX": 0,
-    	"targetY": 0,
+    	"targetX": 207,
+    	"targetY": 267,
     	"targetZ": 0
     },
     "Village under attack": {
@@ -130,8 +130,8 @@
     	"preMessage": "Beyond that spider net, you'll find the Mother of all spiders. You should prepare for combat, be careful.",
     	"postMessage": "",
     	"experience": 0,
-    	"targetX": 0,
-    	"targetY": 0,
+    	"targetX": 361,
+    	"targetY": 334,
     	"targetZ": 0	
     },
         "Welcome to the north": {
@@ -162,7 +162,7 @@
     
         "Back alive": {
     	"storyLevel": 19,
-    	"preMessage": "What? Your alive? Aswell as our last Ranger? for the Black and White, so many trilights have died entering the old frozen forest Sanctuary...anyway there is no time to waste. Head to the east Ranger, he says wierd sounds have come out from the old timberland",
+    	"preMessage": "What? You're alive? As well as our last Ranger? for the Black and White, so many trilights have died entering the old frozen forest Sanctuary...anyway there is no time to waste. Head to the east Ranger, he says wierd sounds have come out from the old timberland",
     	"postMessage": "",
     	"targetX": 85.1,
     	"targetY": 4.5,
