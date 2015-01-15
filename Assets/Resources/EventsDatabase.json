@@ -112,8 +112,8 @@
     	"preMessage": "As you just saw enemies can be very dangerous. I think you should go to the forest and find where they're coming from. Do you see that the house lost again its colour? Always remember that enemies cand decolor things!!",
     	"postMessage": "",
     	"experience": 0,
-    	"targetX": 324.4,
-    	"targetY": 298.3,
+    	"targetX": 338,
+    	"targetY": 293,
     	"targetZ": 0	
     },
     "To the boss": {
@@ -121,8 +121,8 @@
     	"preMessage": "This place is full of spiders, watch out!!",
     	"postMessage": "",
     	"experience": 0,
-    	"targetX": 324.4,
-    	"targetY": 298.3,
+    	"targetX": 361,
+    	"targetY": 334,
     	"targetZ": 0	
     },
     "The boss": {
@@ -130,8 +130,8 @@
     	"preMessage": "Beyond that spider net, you'll find the Mother of all spiders. You should prepare for combat, be careful.",
     	"postMessage": "",
     	"experience": 0,
-    	"targetX": 361,
-    	"targetY": 334,
+    	"targetX": 0,
+    	"targetY": 0,
     	"targetZ": 0	
     },
         "Welcome to the north": {
