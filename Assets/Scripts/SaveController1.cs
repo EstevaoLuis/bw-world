@@ -5,6 +5,7 @@ public class SaveController1 : MonoBehaviour {
 
 	public GameObject pauseMenu;
 	public GameObject saveMenu;
+	public static int mode; // 0 save; 1 load
 
 	// Use this for initialization
 	void Start () {
@@ -19,8 +20,13 @@ public class SaveController1 : MonoBehaviour {
 	}
 
 	public void Save(int slot){
-		Debug.Log ("Slot-> " + slot);
-		// TODO Real implementation
+		if (mode == 0) {  // save
+			// TODO Real implementation
+			Debug.Log ("Save Slot-> " + slot);
+		} else { //load
+			Debug.Log ("Load Slot-> " + slot);
+			// TODO Real implementation
+		}
 		Resume ();
 	}
 
@@ -29,3 +35,5 @@ public class SaveController1 : MonoBehaviour {
 		pauseMenu.SetActive (true);
 	}
 }
+
+
