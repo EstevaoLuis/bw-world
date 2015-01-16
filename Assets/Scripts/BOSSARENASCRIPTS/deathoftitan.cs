@@ -4,22 +4,19 @@ using System.Collections;
 public class deathoftitan : MonoBehaviour {
 
 	private EnemyController tit;
-	public GameObject cam;
-	private CircleCollider2D r;
+	public GameObject door;
 
 	// Use this for initialization
 	void Start () {
 	
 		tit = this.GetComponent<EnemyController> ();
-		r = cam.GetComponent<CircleCollider2D> ();
+
 
 	}
  	bool titan_death(){
 
 		if (tit.getHealth () <= 0) {
-			Instantiate(cam,transform.position,transform.rotation);
-			r.radius = 10;
-			Destroy (gameObject);
+			Destroy(door);
 			return true;
 		}
 
