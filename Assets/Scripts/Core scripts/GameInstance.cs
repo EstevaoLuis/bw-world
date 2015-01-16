@@ -248,7 +248,7 @@ public class GameInstance : MonoBehaviour
 			storyLevelRequired = 30;
 		}
 
-		if(QuestManager.instance.getStoryLevel() < storyLevelRequired)
+		if (QuestManager.instance.getStoryLevel () < storyLevelRequired) return false;
 
 		if (mana > spell ["mana"].AsInt) {
 			return true;
@@ -320,9 +320,10 @@ public class GameInstance : MonoBehaviour
 	public void playerDeath() {
 		//stopAllScripts ();
 		playAudio ("Death");
-		Time.timeScale = 0.05f;
+		PlayerController playerController = player.GetComponent<PlayerController> ();
+		Time.timeScale = 0.1f;
 		audioController.stopAudio ();
-		Invoke ("gameOver", 0.25f);
+		Invoke ("gameOver", 0.3f);
 	}
 
 	public void gameOver() {

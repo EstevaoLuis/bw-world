@@ -173,7 +173,7 @@
     	"targetY": 7.261063,
     	"targetZ": 0,
     	"scene": "Blue World",
-    	"character": ""
+    	"character": "Villager"
     },
         "Ice Rangers": {
     	"storyLevel": 17,
@@ -183,7 +183,7 @@
     	"targetY": -40.6,
     	"targetZ": 0,
     	"scene": "Blue World",
-    	"character": ""
+    	"character": "Villager"
     },
         "Survivor": {
     	"storyLevel": 18,
@@ -193,7 +193,7 @@
     	"targetY": 7.261063,
     	"targetZ": 0,
     	"scene": "Blue World",
-    	"character": ""	
+    	"character": "Scout boy"	
     },
         "Back alive": {
     	"storyLevel": 19,
@@ -203,15 +203,19 @@
     	"targetY": 4.5,
     	"targetZ": 0,
     	"scene": "Blue World",
-    	"character": ""	
+    	"character": "Scout boy"	
     },
         "Up the road": {
     	"storyLevel": 20,
+<<<<<<< HEAD
     	"preMessage": "Hi there, your the Color Bringer right? Well atleast thats how the Klamers refer to you.Please check whats going on down this road.",
+=======
+    	"preMessage": "Hi there, your the Color Bringer right? Well atleast thats how the Klamers refer to you...Please check whats going on down this road, I'll be back waiting for reinforcements",
+>>>>>>> FETCH_HEAD
     	"postMessage": "",
     	"targetX": 0,
     	"targetY": 0,
     	"targetZ": 0,
     	"scene": "Blue World",
-    	"character": ""
+    	"character": "Scout boy"
 }
