@@ -14,7 +14,7 @@ public class Ava_Move : MonoBehaviour {
 	}
 	void OnCollisionEnter2D (Collision2D other){
 		if (other.gameObject.tag == "Player") {
-				GameInstance.instance.damagePlayer (5);
+				GameInstance.instance.damagePlayer (2);
 		}
 //		if (other.gameObject.name == "DoorBlue") {
 //			GameInstance.instance.damagePlayer (1);
