@@ -30,7 +30,7 @@
     	"targetY": 347.69,
     	"targetZ": 0,
     	"scene": "Green World",
-    	"character": "The village chief"
+    	"character": "The Chief"
     },
     "The prophecy": {
     	"storyLevel": 4,
@@ -74,7 +74,7 @@
     	"targetY": 344.8877,
     	"targetZ": 0,
     	"scene": "Green World",
-    	"character": "The village chief"
+    	"character": "The Chief"
     },
     "Using spells": {
     	"storyLevel": 8,

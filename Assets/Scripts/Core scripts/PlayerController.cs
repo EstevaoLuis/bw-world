@@ -56,13 +56,13 @@ public class PlayerController : MonoBehaviour {
 				
 				if (!useJoystick){
 					if (Input.GetKey (KeyCode.W)) {
-						redSpell(1);
+						if(GameInstance.instance.canCastSpell("Red",1)) redSpell(1);
 					}
 					else if(Input.GetKey (KeyCode.A)) {
-						blueSpell(1);
+						if(GameInstance.instance.canCastSpell("Blue",1)) blueSpell(1);
 					}
 					else if(Input.GetKey (KeyCode.D)) {
-						greenSpell(1);
+						if(GameInstance.instance.canCastSpell("Green",1)) greenSpell(1);
 					}
 				}
 			}
