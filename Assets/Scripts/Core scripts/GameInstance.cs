@@ -248,7 +248,7 @@ public class GameInstance : MonoBehaviour
 			storyLevelRequired = 30;
 		}
 
-		if(QuestManager.instance.getStoryLevel() < storyLevelRequired)
+		if (QuestManager.instance.getStoryLevel () < storyLevelRequired) return false;
 
 		if (mana > spell ["mana"].AsInt) {
 			return true;
