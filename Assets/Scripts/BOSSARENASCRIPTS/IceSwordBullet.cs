@@ -11,7 +11,7 @@ public class IceSwordBullet : MonoBehaviour {
 	void OnCollisionEnter2D (Collision2D other){
 		
 		if (other.gameObject.tag == "Player") {
-			GameInstance.instance.damagePlayer (5);
+			GameInstance.instance.damagePlayer (1);
 		}
 	}
 

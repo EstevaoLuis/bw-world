@@ -25,6 +25,9 @@ public class RightTouchJoystick : MonoBehaviour {
 	void Start() {
 		renderer = GetComponent<Image> ();
 		renderer.color = hidden;
+		redRenderer.color = hidden; 
+		greenRenderer.color = hidden;
+		blueRenderer.color = hidden;
 		playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 	}
 
