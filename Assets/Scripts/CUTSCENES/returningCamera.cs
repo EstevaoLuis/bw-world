@@ -3,6 +3,9 @@ using System.Collections;
 
 public class returningCamera : MonoBehaviour {
 
+	public int setStoryLevel;
+	public string startEvent = "";
+
 	//public GameObject fadeInOut;
 //	public GameObject r = null;
 	public GameObject Cam = null;
@@ -13,6 +16,8 @@ public class returningCamera : MonoBehaviour {
 	private PlayerController pl;
 	private Camera cameratofade;
 	private float timer;
+
+
 
 
 	// Use this for initialization
@@ -65,6 +70,9 @@ public class returningCamera : MonoBehaviour {
 		
 		cameratofade.enabled = true;
 		pl.isAvailable (true);
+		if (setStoryLevel > 0) QuestManager.instance.setStoryLevel (setStoryLevel);
+		if (startEvent != "") QuestManager.instance.startEvent (startEvent);
+		Debug.Log ("Evento iniziato: " + startEvent);
 		//cameratofade.enabled = true;
 		
 	}
