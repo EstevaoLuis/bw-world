@@ -7,7 +7,7 @@ public class cutscene : MonoBehaviour {
 	public float time_scene;
 	private float speed_of_cam =5f;
 	private float speed_of_cam_vib =6f;
-	private float cam_height = -5f;
+	private float cam_height = -7.5f;
 
 	private int counter;
 	int trigger = 0;
