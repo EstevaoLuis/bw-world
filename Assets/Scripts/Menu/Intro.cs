@@ -16,9 +16,9 @@ public class Intro : MonoBehaviour {
 
 	IEnumerator ChangeScreen()
 	{
-		yield return new WaitForSeconds(1);
+		yield return new WaitForSeconds(2);
 		Destroy (panel);
-		yield return new WaitForSeconds(1);
+		yield return new WaitForSeconds(2);
 		Application.LoadLevel ("Main Menu");
 	}
 }

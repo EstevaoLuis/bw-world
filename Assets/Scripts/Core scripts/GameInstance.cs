@@ -386,6 +386,27 @@ public class GameInstance : MonoBehaviour
 
 	}
 
+	public void loadData() {
+		if (File.Exists (Application.persistentDataPath + "/playerInfo" + currentSlot + ".dat")) {
+			BinaryFormatter bf = new BinaryFormatter();
+			FileStream file = File.Open(Application.persistentDataPath + "/playerInfo" + currentSlot + ".dat", FileMode.Open);
+			PlayerData data = (PlayerData) bf.Deserialize(file);
+			file.Close();
+			setPlayerLevel(data.level);
+			player.transform.position = new Vector3(data.xPosition,data.yPosition,0f);
+			cameraSystem.transform.position = new Vector3(data.xPosition,data.yPosition,0f);
+			health = data.health;
+			mana = data.mana;
+			experience = data.experience;
+			red = data.red;
+			green = data.green;
+			blue = data.blue;
+			QuestManager.instance.setStoryLevel(data.storyLevel);
+			QuestManager.instance.restartFromEvent(data.currentEvent);
+			refreshUI();
+		}
+	}
+
 	public void checkpoint() {
 		BinaryFormatter bf = new BinaryFormatter ();
 		FileStream file = File.Open (Application.persistentDataPath + "/checkpoint.dat", FileMode.OpenOrCreate);

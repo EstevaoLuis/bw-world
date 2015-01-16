@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using SimpleJSON;
+using System;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 public class NewGameMenu : MonoBehaviour {
 
@@ -21,12 +24,18 @@ public class NewGameMenu : MonoBehaviour {
 
 	public void loadGame() {
 		audio.Stop ();
-		string gameJsonText = System.IO.File.ReadAllText ("Assets/Resources/GameData.json");
-		gameData = JSONNode.Parse (gameJsonText);
+		BinaryFormatter bf = new BinaryFormatter();
+		FileStream file = File.Open(Application.persistentDataPath + "/playerInfo0.dat", FileMode.Open);
+		PlayerData data = (PlayerData) bf.Deserialize(file);
+		file.Close();
 		//Load scene & set parameters
-		Application.LoadLevel (gameData ["scene"].AsInt);
+		Application.LoadLevel (data.scene);
 		isLoadedGame = true;
 
+	}
+
+	public void quit() {
+		Application.Quit ();
 	}
 
 	void Update() {
@@ -35,9 +44,10 @@ public class NewGameMenu : MonoBehaviour {
 		if (isLoadedGame) {
 			GameObject player = GameObject.FindWithTag ("Player");
 			if(player != null) {
-				player.transform.position = new Vector3(gameData["xPosition"].AsFloat,gameData["yPosition"].AsFloat,0);
-				GameObject cameraSystem = GameObject.FindWithTag ("CameraSystem");
-				cameraSystem.transform.position = new Vector3(gameData["xPosition"].AsFloat,gameData["yPosition"].AsFloat,0);
+				GameInstance.instance.loadData();
+				//player.transform.position = new Vector3(gameData["xPosition"].AsFloat,gameData["yPosition"].AsFloat,0);
+				//GameObject cameraSystem = GameObject.FindWithTag ("CameraSystem");
+				//cameraSystem.transform.position = new Vector3(gameData["xPosition"].AsFloat,gameData["yPosition"].AsFloat,0);
 				isLoadedGame = false;
 				Destroy (this);
 			}
