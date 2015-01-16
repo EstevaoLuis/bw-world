@@ -437,7 +437,7 @@ public class GameInstance : MonoBehaviour
 			FileStream file = File.Open(Application.persistentDataPath + "/checkpoint.dat", FileMode.Open);
 			PlayerData data = (PlayerData) bf.Deserialize(file);
 			file.Close();
-			Application.LoadLevel (data.scene);
+			//Application.LoadLevel (data.scene);
 			setPlayerLevel(data.level);
 			player.transform.position = new Vector3(data.xPosition,data.yPosition,0f);
 			cameraSystem.transform.position = new Vector3(data.xPosition,data.yPosition,0f);
