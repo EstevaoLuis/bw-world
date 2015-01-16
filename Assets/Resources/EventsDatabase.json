@@ -1,29 +1,29 @@
 ﻿{
     "Welcome": {
     	"storyLevel": 1,
-    	"preMessage": "Hey, welcome back to the village! You can move by touching the screen with your left thumb, and then moving it in the direction you want to go.\nNow press 'Ok' and go to speak to the other villagers.",
+    	"preMessage": "Hey, welcome back to the village! You can move by touching the screen with your left thumb, and then moving it in the direction you want to go. Now press 'Ok' and go to speak to the other villagers.",
     	"postMessage": "",
     	"experience": 0,
     	"targetX": 0,
     	"targetY": 0,
     	"targetZ": 0,
     	"scene": "Green World",
-    	"character": "Scout boy"
+    	"character": "Villager"
     },
     "The arrow": {
     	"storyLevel": 2,
-    	"preMessage": "Woo!! That colored scarf!!! It's such a good piece of news, you must tell it right away to the chief of the village!!\nDo you see the arrow on the top of the screen? It will guide you to him.",
+    	"preMessage": "Woo!! That colored scarf!!! It's such a good piece of news, you must tell it right away to the chief of the village!! Do you see the arrow on the top of the screen? It will guide you to him.",
     	"postMessage": "",
     	"experience": 0,
     	"targetX": 285.98,
     	"targetY": 403.33,
     	"targetZ": 0,
 		"scene": "Green World",
-    	"character": "Scout boy"
+    	"character": "Villager"
     },
     "Initial story": {
     	"storyLevel": 3,
-    	"preMessage": "Oh!! I couldn't believe it until I saw it! Do you you know it's been ages since our last colored item was found on this planet?\nWait... it must be a sign... go to the south and speak to the Old Man, he will explain everithing to you. I feel that after your discovery something could change in this world: I put all my hope on you. ",
+    	"preMessage": "Oh!! I couldn't believe it until I saw it! Do you you know it's been ages since our last colored item was found on this planet? Wait... it must be a sign... go to the south and speak to the Old Man, he will explain everithing to you. I feel that after your discovery something could change in this world: I put all my hope on you. ",
     	"postMessage": "",
     	"experience": 0,
     	"targetX": 235.96,
@@ -41,7 +41,7 @@
     	"targetY": 324.5834,
     	"targetZ": 0,
     	"scene": "Green World",
-    	"character": "Scout boy"
+    	"character": "The Old Man"
     },
     "First enemy": {
     	"storyLevel": 5,
@@ -85,7 +85,7 @@
     	"targetY": 350.6877,
     	"targetZ": 0,
     	"scene": "Green World",
-    	"character": "Scout boy"
+    	"character": "Villager"
     },
     "Kill heavy spider": {
     	"storyLevel": 9,
@@ -96,7 +96,7 @@
     	"targetY": 381.3,
     	"targetZ": 0,
     	"scene": "Green World",
-    	"character": "Scout boy"
+    	"character": "Villager"
     },
     "Go back to house": {
     	"storyLevel": 10,
@@ -118,7 +118,7 @@
     	"targetY": 355,
     	"targetZ": 0,
     	"scene": "Green World",
-    	"character": "Scout boy"
+    	"character": "Villager"
     },
     "Decoloring": {
     	"storyLevel": 12,
@@ -129,7 +129,7 @@
     	"targetY": 0,
     	"targetZ": 0,
     	"scene": "Green World",
-    	"character": "Scout boy"
+    	"character": "Villager"
     },
     "To the forest": {
     	"storyLevel": 13,
