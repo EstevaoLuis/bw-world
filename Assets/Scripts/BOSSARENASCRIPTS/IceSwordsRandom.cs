@@ -20,8 +20,8 @@ public class IceSwordsRandom : MonoBehaviour {
 	}
 	void random_generator_ice_sword(){
 
-		Vector3 random_pos = new Vector3 (Random.Range (-5 + target.transform.position.x, target.transform.position.x + 5)
-		                                  , Random.Range (-5 + target.transform.position.y, target.transform.position.y + 5));
+		Vector3 random_pos = new Vector3 (Random.Range (-5 + transform.position.x, target.transform.position.x + 5)
+		                                  , Random.Range (-5 + transform.position.y, target.transform.position.y + 5));
 
 
 		aux = (GameObject)Instantiate (IceSwords,random_pos, transform.rotation);
