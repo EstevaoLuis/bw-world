@@ -18,8 +18,8 @@ public class MagicPassage : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D other){
 		if (other.gameObject.tag == "Player") {
 			Application.LoadLevel(level_name);
-			GameInstance.instance.movePlayer(new Vector3(-220,-359,0));
-			GameInstance.instance.moveCamera(new Vector3(-220,-359,0));
+			GameInstance.instance.movePlayer(new Vector3(0,50,0));
+			GameInstance.instance.moveCamera(new Vector3(0,50,0));
 		}
 	}
 }
