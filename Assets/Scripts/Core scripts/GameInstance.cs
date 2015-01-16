@@ -320,9 +320,10 @@ public class GameInstance : MonoBehaviour
 	public void playerDeath() {
 		//stopAllScripts ();
 		playAudio ("Death");
-		Time.timeScale = 0.05f;
+		PlayerController playerController = player.GetComponent<PlayerController> ();
+		Time.timeScale = 0.1f;
 		audioController.stopAudio ();
-		Invoke ("gameOver", 0.25f);
+		Invoke ("gameOver", 0.3f);
 	}
 
 	public void gameOver() {

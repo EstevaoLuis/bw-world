@@ -66,7 +66,7 @@ public class RightTouchJoystick : MonoBehaviour {
 												if(distance > 100 && GameInstance.instance.canCastSpell(spellColor,3)) {
 													spellLevel = 3;
 													spellDelay = 1.5f;
-								}
+												}
 												else if(distance > 60 && GameInstance.instance.canCastSpell(spellColor,2)) {
 													spellLevel = 2;
 													spellDelay = 0.8f;
