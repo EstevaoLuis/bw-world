@@ -321,13 +321,15 @@ public class GameInstance : MonoBehaviour
 		//stopAllScripts ();
 		playAudio ("Death");
 		PlayerController playerController = player.GetComponent<PlayerController> ();
-		Time.timeScale = 0.1f;
+		playerController.isAvailable (false);
+		//Time.timeScale = 0.1f;
 		audioController.stopAudio ();
-		Invoke ("gameOver", 0.3f);
+		//Invoke ("gameOver", 0.3f);
+		Invoke ("gameOver", 2f);
 	}
 
 	public void gameOver() {
-		Time.timeScale = 1.0f;
+		//Time.timeScale = 1.0f;
 		Application.LoadLevel ("Game Over");
 		Destroy (this.transform.parent.gameObject);
 		Destroy (userInterface.gameObject);
