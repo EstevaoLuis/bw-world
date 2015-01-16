@@ -230,7 +230,26 @@ public class GameInstance : MonoBehaviour
 	public bool canCastSpell(string spellColor, int spellLevel) {
 		string spellName = spellColor + " " + spellLevel;
 		JSONNode spell = spells[spellName];
+
 		if (spell == null) return false;
+
+		int storyLevelRequired = 0;
+		bool levelUnlocked = false;
+
+		if (spellColor == "Green") {
+			if(green < (spellLevel-1)*20) return false;
+			storyLevelRequired = 6;
+		} else if (spellColor == "Blue") {
+			if(blue < (spellLevel-1)*20) return false;
+			storyLevelRequired = 18;
+		}
+		else if (spellColor == "Red") {
+			if(red < (spellLevel-1)*20) return false;
+			storyLevelRequired = 30;
+		}
+
+		if(QuestManager.instance.getStoryLevel() < storyLevelRequired)
+
 		if (mana > spell ["mana"].AsInt) {
 			return true;
 		}
