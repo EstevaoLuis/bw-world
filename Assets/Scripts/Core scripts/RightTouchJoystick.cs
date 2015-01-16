@@ -18,7 +18,9 @@ public class RightTouchJoystick : MonoBehaviour {
 	private Image renderer;
 	private bool isActive = true;
 
-	private float activatedTime, lastSpell, spellDelay;
+	bool greenAvailable = false, blueAvailable = false, redAvailable = false;
+
+	private float activatedTime, lastSpell, spellDelay, lastPowerCheck;
 
 	void Start() {
 		renderer = GetComponent<Image> ();
@@ -98,7 +100,11 @@ public class RightTouchJoystick : MonoBehaviour {
 													playerController.castSpell(spellColor,spellLevel);
 													lastSpell = Time.time;
 												}
-												
+
+												if(!greenAvailable) greenRenderer.sprite = greenSprite[0]; 
+												if(!blueAvailable) blueRenderer.sprite = blueSprite[0]; 
+												if(!redAvailable) redRenderer.sprite = redSprite[0]; 
+								
 											}
 									}
 
@@ -119,6 +125,17 @@ public class RightTouchJoystick : MonoBehaviour {
 				greenRenderer.color = visible;
 				blueRenderer.color = visible;
 			}
+
+			//Check for new powers
+			if(Time.time > lastPowerCheck + 3f) {
+				lastPowerCheck = Time.time;
+				int storyLevel = QuestManager.instance.getStoryLevel();
+				if(storyLevel>=6) greenAvailable = true;
+				else greenAvailable = false;
+				if(storyLevel>=18) redAvailable = true;
+				else greenAvailable = false;
+			}
+
 		}
 	}
 
