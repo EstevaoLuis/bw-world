@@ -1,103 +1,103 @@
 fileFormatVersion: 2
-guid: 6736e0d17c3346b489b102b27ebbc950
+guid: 29797074d9feabf45a986808b12794c2
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Actor1_0
-    21300002: Actor1_1
-    21300004: Actor1_2
-    21300006: Actor1_3
-    21300008: Actor1_4
-    21300010: Actor1_5
-    21300012: Actor1_6
-    21300014: Actor1_7
-    21300016: Actor1_8
-    21300018: Actor1_9
-    21300020: Actor1_10
-    21300022: Actor1_11
-    21300024: Actor1_12
-    21300026: Actor1_13
-    21300028: Actor1_14
-    21300030: Actor1_15
-    21300032: Actor1_16
-    21300034: Actor1_17
-    21300036: Actor1_18
-    21300038: Actor1_19
-    21300040: Actor1_20
-    21300042: Actor1_21
-    21300044: Actor1_22
-    21300046: Actor1_23
-    21300048: Actor1_24
-    21300050: Actor1_25
-    21300052: Actor1_26
-    21300054: Actor1_27
-    21300056: Actor1_28
-    21300058: Actor1_29
-    21300060: Actor1_30
-    21300062: Actor1_31
-    21300064: Actor1_32
-    21300066: Actor1_33
-    21300068: Actor1_34
-    21300070: Actor1_35
-    21300072: Actor1_36
-    21300074: Actor1_37
-    21300076: Actor1_38
-    21300078: Actor1_39
-    21300080: Actor1_40
-    21300082: Actor1_41
-    21300084: Actor1_42
-    21300086: Actor1_43
-    21300088: Actor1_44
-    21300090: Actor1_45
-    21300092: Actor1_46
-    21300094: Actor1_47
-    21300096: Actor1_48
-    21300098: Actor1_49
-    21300100: Actor1_50
-    21300102: Actor1_51
-    21300104: Actor1_52
-    21300106: Actor1_53
-    21300108: Actor1_54
-    21300110: Actor1_55
-    21300112: Actor1_56
-    21300114: Actor1_57
-    21300116: Actor1_58
-    21300118: Actor1_59
-    21300120: Actor1_60
-    21300122: Actor1_61
-    21300124: Actor1_62
-    21300126: Actor1_63
-    21300128: Actor1_64
-    21300130: Actor1_65
-    21300132: Actor1_66
-    21300134: Actor1_67
-    21300136: Actor1_68
-    21300138: Actor1_69
-    21300140: Actor1_70
-    21300142: Actor1_71
-    21300144: Actor1_72
-    21300146: Actor1_73
-    21300148: Actor1_74
-    21300150: Actor1_75
-    21300152: Actor1_76
-    21300154: Actor1_77
-    21300156: Actor1_78
-    21300158: Actor1_79
-    21300160: Actor1_80
-    21300162: Actor1_81
-    21300164: Actor1_82
-    21300166: Actor1_83
-    21300168: Actor1_84
-    21300170: Actor1_85
-    21300172: Actor1_86
-    21300174: Actor1_87
-    21300176: Actor1_88
-    21300178: Actor1_89
-    21300180: Actor1_90
-    21300182: Actor1_91
-    21300184: Actor1_92
-    21300186: Actor1_93
-    21300188: Actor1_94
-    21300190: Actor1_95
+    21300000: SecundarySpells_0
+    21300002: SecundarySpells_1
+    21300004: SecundarySpells_2
+    21300006: SecundarySpells_3
+    21300008: SecundarySpells_4
+    21300010: SecundarySpells_5
+    21300012: SecundarySpells_6
+    21300014: SecundarySpells_7
+    21300016: SecundarySpells_8
+    21300018: SecundarySpells_9
+    21300020: SecundarySpells_10
+    21300022: SecundarySpells_11
+    21300024: SecundarySpells_12
+    21300026: SecundarySpells_13
+    21300028: SecundarySpells_14
+    21300030: SecundarySpells_15
+    21300032: SecundarySpells_16
+    21300034: SecundarySpells_17
+    21300036: SecundarySpells_18
+    21300038: SecundarySpells_19
+    21300040: SecundarySpells_20
+    21300042: SecundarySpells_21
+    21300044: SecundarySpells_22
+    21300046: SecundarySpells_23
+    21300048: SecundarySpells_24
+    21300050: SecundarySpells_25
+    21300052: SecundarySpells_26
+    21300054: SecundarySpells_27
+    21300056: SecundarySpells_28
+    21300058: SecundarySpells_29
+    21300060: SecundarySpells_30
+    21300062: SecundarySpells_31
+    21300064: SecundarySpells_32
+    21300066: SecundarySpells_33
+    21300068: SecundarySpells_34
+    21300070: SecundarySpells_35
+    21300072: SecundarySpells_36
+    21300074: SecundarySpells_37
+    21300076: SecundarySpells_38
+    21300078: SecundarySpells_39
+    21300080: SecundarySpells_40
+    21300082: SecundarySpells_41
+    21300084: SecundarySpells_42
+    21300086: SecundarySpells_43
+    21300088: SecundarySpells_44
+    21300090: SecundarySpells_45
+    21300092: SecundarySpells_46
+    21300094: SecundarySpells_47
+    21300096: SecundarySpells_48
+    21300098: SecundarySpells_49
+    21300100: SecundarySpells_50
+    21300102: SecundarySpells_51
+    21300104: SecundarySpells_52
+    21300106: SecundarySpells_53
+    21300108: SecundarySpells_54
+    21300110: SecundarySpells_55
+    21300112: SecundarySpells_56
+    21300114: SecundarySpells_57
+    21300116: SecundarySpells_58
+    21300118: SecundarySpells_59
+    21300120: SecundarySpells_60
+    21300122: SecundarySpells_61
+    21300124: SecundarySpells_62
+    21300126: SecundarySpells_63
+    21300128: SecundarySpells_64
+    21300130: SecundarySpells_65
+    21300132: SecundarySpells_66
+    21300134: SecundarySpells_67
+    21300136: SecundarySpells_68
+    21300138: SecundarySpells_69
+    21300140: SecundarySpells_70
+    21300142: SecundarySpells_71
+    21300144: SecundarySpells_72
+    21300146: SecundarySpells_73
+    21300148: SecundarySpells_74
+    21300150: SecundarySpells_75
+    21300152: SecundarySpells_76
+    21300154: SecundarySpells_77
+    21300156: SecundarySpells_78
+    21300158: SecundarySpells_79
+    21300160: SecundarySpells_80
+    21300162: SecundarySpells_81
+    21300164: SecundarySpells_82
+    21300166: SecundarySpells_83
+    21300168: SecundarySpells_84
+    21300170: SecundarySpells_85
+    21300172: SecundarySpells_86
+    21300174: SecundarySpells_87
+    21300176: SecundarySpells_88
+    21300178: SecundarySpells_89
+    21300180: SecundarySpells_90
+    21300182: SecundarySpells_91
+    21300184: SecundarySpells_92
+    21300186: SecundarySpells_93
+    21300188: SecundarySpells_94
+    21300190: SecundarySpells_95
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -120,8 +120,8 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 1024
   textureSettings:
-    filterMode: 0
-    aniso: 1
+    filterMode: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -133,13 +133,13 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 30
+  spritePixelsToUnits: 50
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Actor1_0
+    - name: SecundarySpells_0
       rect:
         serializedVersion: 2
         x: 0
@@ -149,7 +149,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_1
+    - name: SecundarySpells_1
       rect:
         serializedVersion: 2
         x: 32
@@ -159,7 +159,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_2
+    - name: SecundarySpells_2
       rect:
         serializedVersion: 2
         x: 64
@@ -169,7 +169,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_3
+    - name: SecundarySpells_3
       rect:
         serializedVersion: 2
         x: 96
@@ -179,7 +179,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_4
+    - name: SecundarySpells_4
       rect:
         serializedVersion: 2
         x: 128
@@ -189,7 +189,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_5
+    - name: SecundarySpells_5
       rect:
         serializedVersion: 2
         x: 160
@@ -199,7 +199,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_6
+    - name: SecundarySpells_6
       rect:
         serializedVersion: 2
         x: 192
@@ -209,7 +209,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_7
+    - name: SecundarySpells_7
       rect:
         serializedVersion: 2
         x: 224
@@ -219,7 +219,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_8
+    - name: SecundarySpells_8
       rect:
         serializedVersion: 2
         x: 256
@@ -229,7 +229,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_9
+    - name: SecundarySpells_9
       rect:
         serializedVersion: 2
         x: 288
@@ -239,7 +239,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_10
+    - name: SecundarySpells_10
       rect:
         serializedVersion: 2
         x: 320
@@ -249,7 +249,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_11
+    - name: SecundarySpells_11
       rect:
         serializedVersion: 2
         x: 352
@@ -259,7 +259,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_12
+    - name: SecundarySpells_12
       rect:
         serializedVersion: 2
         x: 0
@@ -269,7 +269,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_13
+    - name: SecundarySpells_13
       rect:
         serializedVersion: 2
         x: 32
@@ -279,7 +279,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_14
+    - name: SecundarySpells_14
       rect:
         serializedVersion: 2
         x: 64
@@ -289,7 +289,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_15
+    - name: SecundarySpells_15
       rect:
         serializedVersion: 2
         x: 96
@@ -299,7 +299,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_16
+    - name: SecundarySpells_16
       rect:
         serializedVersion: 2
         x: 128
@@ -309,7 +309,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_17
+    - name: SecundarySpells_17
       rect:
         serializedVersion: 2
         x: 160
@@ -319,7 +319,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_18
+    - name: SecundarySpells_18
       rect:
         serializedVersion: 2
         x: 192
@@ -329,7 +329,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_19
+    - name: SecundarySpells_19
       rect:
         serializedVersion: 2
         x: 224
@@ -339,7 +339,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_20
+    - name: SecundarySpells_20
       rect:
         serializedVersion: 2
         x: 256
@@ -349,7 +349,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_21
+    - name: SecundarySpells_21
       rect:
         serializedVersion: 2
         x: 288
@@ -359,7 +359,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_22
+    - name: SecundarySpells_22
       rect:
         serializedVersion: 2
         x: 320
@@ -369,7 +369,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_23
+    - name: SecundarySpells_23
       rect:
         serializedVersion: 2
         x: 352
@@ -379,7 +379,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_24
+    - name: SecundarySpells_24
       rect:
         serializedVersion: 2
         x: 0
@@ -389,7 +389,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_25
+    - name: SecundarySpells_25
       rect:
         serializedVersion: 2
         x: 32
@@ -399,7 +399,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_26
+    - name: SecundarySpells_26
       rect:
         serializedVersion: 2
         x: 64
@@ -409,7 +409,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_27
+    - name: SecundarySpells_27
       rect:
         serializedVersion: 2
         x: 96
@@ -419,7 +419,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_28
+    - name: SecundarySpells_28
       rect:
         serializedVersion: 2
         x: 128
@@ -429,7 +429,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_29
+    - name: SecundarySpells_29
       rect:
         serializedVersion: 2
         x: 160
@@ -439,7 +439,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_30
+    - name: SecundarySpells_30
       rect:
         serializedVersion: 2
         x: 192
@@ -449,7 +449,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_31
+    - name: SecundarySpells_31
       rect:
         serializedVersion: 2
         x: 224
@@ -459,7 +459,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_32
+    - name: SecundarySpells_32
       rect:
         serializedVersion: 2
         x: 256
@@ -469,7 +469,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_33
+    - name: SecundarySpells_33
       rect:
         serializedVersion: 2
         x: 288
@@ -479,7 +479,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_34
+    - name: SecundarySpells_34
       rect:
         serializedVersion: 2
         x: 320
@@ -489,7 +489,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_35
+    - name: SecundarySpells_35
       rect:
         serializedVersion: 2
         x: 352
@@ -499,7 +499,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_36
+    - name: SecundarySpells_36
       rect:
         serializedVersion: 2
         x: 0
@@ -509,7 +509,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_37
+    - name: SecundarySpells_37
       rect:
         serializedVersion: 2
         x: 32
@@ -519,7 +519,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_38
+    - name: SecundarySpells_38
       rect:
         serializedVersion: 2
         x: 64
@@ -529,7 +529,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_39
+    - name: SecundarySpells_39
       rect:
         serializedVersion: 2
         x: 96
@@ -539,7 +539,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_40
+    - name: SecundarySpells_40
       rect:
         serializedVersion: 2
         x: 128
@@ -549,7 +549,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_41
+    - name: SecundarySpells_41
       rect:
         serializedVersion: 2
         x: 160
@@ -559,7 +559,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_42
+    - name: SecundarySpells_42
       rect:
         serializedVersion: 2
         x: 192
@@ -569,7 +569,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_43
+    - name: SecundarySpells_43
       rect:
         serializedVersion: 2
         x: 224
@@ -579,7 +579,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_44
+    - name: SecundarySpells_44
       rect:
         serializedVersion: 2
         x: 256
@@ -589,7 +589,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_45
+    - name: SecundarySpells_45
       rect:
         serializedVersion: 2
         x: 288
@@ -599,7 +599,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_46
+    - name: SecundarySpells_46
       rect:
         serializedVersion: 2
         x: 320
@@ -609,7 +609,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_47
+    - name: SecundarySpells_47
       rect:
         serializedVersion: 2
         x: 352
@@ -619,7 +619,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_48
+    - name: SecundarySpells_48
       rect:
         serializedVersion: 2
         x: 0
@@ -629,7 +629,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_49
+    - name: SecundarySpells_49
       rect:
         serializedVersion: 2
         x: 32
@@ -639,7 +639,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_50
+    - name: SecundarySpells_50
       rect:
         serializedVersion: 2
         x: 64
@@ -649,7 +649,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_51
+    - name: SecundarySpells_51
       rect:
         serializedVersion: 2
         x: 96
@@ -659,7 +659,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_52
+    - name: SecundarySpells_52
       rect:
         serializedVersion: 2
         x: 128
@@ -669,7 +669,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_53
+    - name: SecundarySpells_53
       rect:
         serializedVersion: 2
         x: 160
@@ -679,37 +679,37 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_54
+    - name: SecundarySpells_54
       rect:
         serializedVersion: 2
         x: 192
         y: 96
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .5, y: .75}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_55
+    - name: SecundarySpells_55
       rect:
         serializedVersion: 2
         x: 224
         y: 96
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .5, y: .75}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_56
+    - name: SecundarySpells_56
       rect:
         serializedVersion: 2
         x: 256
         y: 96
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .5, y: .75}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_57
+    - name: SecundarySpells_57
       rect:
         serializedVersion: 2
         x: 288
@@ -719,7 +719,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_58
+    - name: SecundarySpells_58
       rect:
         serializedVersion: 2
         x: 320
@@ -729,7 +729,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_59
+    - name: SecundarySpells_59
       rect:
         serializedVersion: 2
         x: 352
@@ -739,7 +739,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_60
+    - name: SecundarySpells_60
       rect:
         serializedVersion: 2
         x: 0
@@ -749,7 +749,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_61
+    - name: SecundarySpells_61
       rect:
         serializedVersion: 2
         x: 32
@@ -759,7 +759,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_62
+    - name: SecundarySpells_62
       rect:
         serializedVersion: 2
         x: 64
@@ -769,7 +769,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_63
+    - name: SecundarySpells_63
       rect:
         serializedVersion: 2
         x: 96
@@ -779,7 +779,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_64
+    - name: SecundarySpells_64
       rect:
         serializedVersion: 2
         x: 128
@@ -789,7 +789,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_65
+    - name: SecundarySpells_65
       rect:
         serializedVersion: 2
         x: 160
@@ -799,37 +799,37 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_66
+    - name: SecundarySpells_66
       rect:
         serializedVersion: 2
         x: 192
         y: 64
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .5, y: .75}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_67
+    - name: SecundarySpells_67
       rect:
         serializedVersion: 2
         x: 224
         y: 64
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .5, y: .75}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_68
+    - name: SecundarySpells_68
       rect:
         serializedVersion: 2
         x: 256
         y: 64
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .5, y: .75}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_69
+    - name: SecundarySpells_69
       rect:
         serializedVersion: 2
         x: 288
@@ -839,7 +839,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_70
+    - name: SecundarySpells_70
       rect:
         serializedVersion: 2
         x: 320
@@ -849,7 +849,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_71
+    - name: SecundarySpells_71
       rect:
         serializedVersion: 2
         x: 352
@@ -859,7 +859,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_72
+    - name: SecundarySpells_72
       rect:
         serializedVersion: 2
         x: 0
@@ -869,7 +869,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_73
+    - name: SecundarySpells_73
       rect:
         serializedVersion: 2
         x: 32
@@ -879,7 +879,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_74
+    - name: SecundarySpells_74
       rect:
         serializedVersion: 2
         x: 64
@@ -889,7 +889,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_75
+    - name: SecundarySpells_75
       rect:
         serializedVersion: 2
         x: 96
@@ -899,7 +899,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_76
+    - name: SecundarySpells_76
       rect:
         serializedVersion: 2
         x: 128
@@ -909,7 +909,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_77
+    - name: SecundarySpells_77
       rect:
         serializedVersion: 2
         x: 160
@@ -919,7 +919,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_78
+    - name: SecundarySpells_78
       rect:
         serializedVersion: 2
         x: 192
@@ -929,7 +929,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_79
+    - name: SecundarySpells_79
       rect:
         serializedVersion: 2
         x: 224
@@ -939,7 +939,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_80
+    - name: SecundarySpells_80
       rect:
         serializedVersion: 2
         x: 256
@@ -949,7 +949,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_81
+    - name: SecundarySpells_81
       rect:
         serializedVersion: 2
         x: 288
@@ -959,7 +959,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_82
+    - name: SecundarySpells_82
       rect:
         serializedVersion: 2
         x: 320
@@ -969,7 +969,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_83
+    - name: SecundarySpells_83
       rect:
         serializedVersion: 2
         x: 352
@@ -979,7 +979,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_84
+    - name: SecundarySpells_84
       rect:
         serializedVersion: 2
         x: 0
@@ -989,7 +989,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_85
+    - name: SecundarySpells_85
       rect:
         serializedVersion: 2
         x: 32
@@ -999,7 +999,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_86
+    - name: SecundarySpells_86
       rect:
         serializedVersion: 2
         x: 64
@@ -1009,7 +1009,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_87
+    - name: SecundarySpells_87
       rect:
         serializedVersion: 2
         x: 96
@@ -1019,7 +1019,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_88
+    - name: SecundarySpells_88
       rect:
         serializedVersion: 2
         x: 128
@@ -1029,7 +1029,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_89
+    - name: SecundarySpells_89
       rect:
         serializedVersion: 2
         x: 160
@@ -1039,7 +1039,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_90
+    - name: SecundarySpells_90
       rect:
         serializedVersion: 2
         x: 192
@@ -1049,7 +1049,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_91
+    - name: SecundarySpells_91
       rect:
         serializedVersion: 2
         x: 224
@@ -1059,7 +1059,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_92
+    - name: SecundarySpells_92
       rect:
         serializedVersion: 2
         x: 256
@@ -1069,7 +1069,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_93
+    - name: SecundarySpells_93
       rect:
         serializedVersion: 2
         x: 288
@@ -1079,7 +1079,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_94
+    - name: SecundarySpells_94
       rect:
         serializedVersion: 2
         x: 320
@@ -1089,7 +1089,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Actor1_95
+    - name: SecundarySpells_95
       rect:
         serializedVersion: 2
         x: 352

@@ -49,20 +49,43 @@ public class Spell : MonoBehaviour {
 
 	void OnCollisionEnter2D (Collision2D other) {
 		if (!(gameObject.tag == other.gameObject.tag) && !(gameObject.tag == "SpellEnemy" && other.gameObject.tag == "Enemy") && !(gameObject.tag == "Spell" && other.gameObject.tag == "Player")) {
-			if(other.gameObject.tag == "SpellEnemy") {
-				Spell otherSpell = (Spell) other.gameObject.GetComponent<Spell>() as Spell;
-				if(damage > 2*otherSpell.damage) {
-					rigidbody2D.mass = 10*rigidbody2D.mass;
-					return;
+				if (other.gameObject.tag == "SpellEnemy") {
+						Spell otherSpell = (Spell)other.gameObject.GetComponent<Spell> () as Spell;
+						if (damage > 2 * otherSpell.damage) {
+								rigidbody2D.mass = 10 * rigidbody2D.mass;
+								return;
+						}
 				}
-			}
-			GetComponent<SpriteRenderer> ().color = new Color (1, 1, 1, 0);
-			if(!hasHit) {
-					Instantiate (animationGraphics, transform.position, transform.rotation);
-			}
+				GetComponent<SpriteRenderer> ().color = new Color (1, 1, 1, 0);
+				if (!hasHit) {
+						Instantiate (animationGraphics, transform.position, transform.rotation);
+				}
 
-			hasHit = true;
-			hitTime = Time.time;
+				hasHit = true;
+				hitTime = Time.time;
+		} else if (gameObject.tag == "Spell" && other.gameObject.tag == "Spell") {
+			if(transform.localScale.x >= other.gameObject.transform.localScale.x) {
+				Spell otherSpell = other.gameObject.GetComponent<Spell>();
+				Destroy(other.gameObject);
+				float scaleMultiplier = 1.2f;
+				if(color != otherSpell.color) {
+					Animator animator = GetComponent<Animator>();
+					scaleMultiplier = 1.5f;
+					//Cyan
+					if((color == "blue" && otherSpell.color == "green") || (otherSpell.color == "blue" && color == "green")) {
+						RuntimeAnimatorController newController = Resources.Load("Animators/CyanSpell") as RuntimeAnimatorController;
+						color = "cyan";
+						animator.runtimeAnimatorController = newController;
+					}
+
+				}
+				castTime = Time.time;
+				duration = duration + otherSpell.duration / 2f;
+				damage = damage + otherSpell.damage / 2;
+				area = area * 1.2f;
+				if(transform.localScale.x < 4f) transform.localScale = new Vector3(transform.localScale.x * scaleMultiplier, transform.localScale.y * scaleMultiplier, 1f);
+				rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x / 1.1f, rigidbody2D.velocity.y / 1.1f);
+			}
 		}
 	}
 

@@ -41,7 +41,7 @@
     
     "Green 1": {
     	"color": "green",
-    	"speed": 4,
+    	"speed": 5,
         "damage": 12,
         "duration": 2,
         "mass": 800,
@@ -71,7 +71,7 @@
     
     "Blue 1": {
     	"color": "blue",
-    	"speed": 4,
+    	"speed": 4.5,
         "damage": 15,
         "duration": 1.5,
         "mass": 800,
