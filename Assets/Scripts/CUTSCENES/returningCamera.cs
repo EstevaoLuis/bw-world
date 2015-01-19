@@ -3,8 +3,11 @@ using System.Collections;
 
 public class returningCamera : MonoBehaviour {
 
-	public int setStoryLevel;
+	//public int setStoryLevel;
+	public string endEvent = "";
 	public string startEvent = "";
+
+	private bool isActivated = false;
 
 	//public GameObject fadeInOut;
 //	public GameObject r = null;
@@ -30,25 +33,15 @@ public class returningCamera : MonoBehaviour {
 	}
 
 
-	void OnCollisionEnter2D (Collision2D other){
+	void OnTriggerEnter2D (Collider2D other){
 
-		if (other.gameObject.tag == "Player") {
+		if (other.gameObject.tag == "Player" && !isActivated) {
 			Invoke ("off",3);
-			this.collider2D.enabled = false;
+			isActivated = true;
 		}
 
 	}
-
-//	void fade_in(){
-//		if (trigger == 2) {
-//			Invoke ("lights_on",3);
-//			trigger_2 = 1;
-//		}
-//	}
-
-	void fin(){
-
-	}
+	
 
 	void lights_on(){
 
@@ -69,7 +62,8 @@ public class returningCamera : MonoBehaviour {
 		cameratofade.enabled = true;
 		pl.isAvailable (true);
 
-		if (setStoryLevel > 0) QuestManager.instance.setStoryLevel (setStoryLevel);
+		if (endEvent != "") QuestManager.instance.endEvent (endEvent);
+		//if (setStoryLevel > 0) QuestManager.instance.setStoryLevel (setStoryLevel);
 		if (startEvent != "") QuestManager.instance.startEvent (startEvent);
 		//cameratofade.enabled = true;
 		

@@ -10,6 +10,8 @@ public class NewGameMenu : MonoBehaviour {
 	private bool isLoadedGame = false;
 	private JSONNode gameData;
 
+	private AsyncOperation async;
+
 	// Use this for initialization
 	void Start () {
 		DontDestroyOnLoad (this);
@@ -19,7 +21,8 @@ public class NewGameMenu : MonoBehaviour {
 
 	public void startGame() {
 		audio.Stop ();
-		Application.LoadLevel ("Green World");
+		Application.LoadLevel (2);
+		//StartCoroutine(loadAsync());
 	}
 
 	public void loadGame() {
@@ -28,10 +31,15 @@ public class NewGameMenu : MonoBehaviour {
 		FileStream file = File.Open(Application.persistentDataPath + "/playerInfo0.dat", FileMode.Open);
 		PlayerData data = (PlayerData) bf.Deserialize(file);
 		file.Close();
-		//Load scene & set parameters
 		Application.LoadLevel (data.scene);
 		isLoadedGame = true;
 
+	}
+
+	IEnumerator loadAsync() {
+		async = Application.LoadLevelAsync("Green World");
+		yield return async;
+		Debug.Log("Loading complete");
 	}
 
 	public void quit() {
@@ -42,6 +50,7 @@ public class NewGameMenu : MonoBehaviour {
 		if (Input.GetKey (KeyCode.Space)) startGame ();
 
 		if (isLoadedGame) {
+			Debug.Log(async.progress);
 			GameObject player = GameObject.FindWithTag ("Player");
 			if(player != null) {
 				GameInstance.instance.loadData();

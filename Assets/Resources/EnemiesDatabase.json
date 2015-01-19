@@ -18,6 +18,23 @@
     	"experience": 10
     },
     
+    "Spider (Tutorial)": {
+    	"health": 20,
+    	"speed": 2,
+        "attack": 10,
+        "defense": 0,
+        "mass": 1,
+        "scale": 1,
+        "delay": 1.5,
+        "detection": 5,
+    	"spells": [
+    		{"name": "Black 1", "probability": 1}
+		],
+		"melees": [],
+		"behaviour": [1,2,2,0],
+    	"experience": 10
+    },
+    
     "Spider (Noob)": {
     	"health": 10,
     	"speed": 2,

@@ -44,7 +44,7 @@ public class GameInstance : MonoBehaviour
 	private float lastSpell, lastRegeneration, lastBattle = 0f;
 
 	//Current save/load slot
-	private int currentSlot = 0;
+	private int currentSlot = 1;
 
 
 	//Instance management
@@ -56,11 +56,10 @@ public class GameInstance : MonoBehaviour
 		}
 	}
 
-	/*
-	void Update() {
-		Debug.Log (1 / Time.deltaTime);
+	void OnLevelWasLoaded(int level) {
+		Debug.Log ("Caricamento completato");
+		
 	}
-	*/
 
 	void Awake() 
 	{
@@ -351,6 +350,7 @@ public class GameInstance : MonoBehaviour
 		PlayerData data = new PlayerData ();
 		data.level = level;
 		data.scene = Application.loadedLevel;
+		data.sceneName = Application.loadedLevelName;
 		data.xPosition = player.transform.position.x;
 		data.yPosition = player.transform.position.y;
 		data.health = health;
@@ -372,7 +372,7 @@ public class GameInstance : MonoBehaviour
 			FileStream file = File.Open(Application.persistentDataPath + "/playerInfo" + currentSlot + ".dat", FileMode.Open);
 			PlayerData data = (PlayerData) bf.Deserialize(file);
 			file.Close();
-			Application.LoadLevel (data.scene);
+			Application.LoadLevel (data.sceneName);
 			setPlayerLevel(data.level);
 			player.transform.position = new Vector3(data.xPosition,data.yPosition,0f);
 			cameraSystem.transform.position = new Vector3(data.xPosition,data.yPosition,0f);
@@ -416,6 +416,7 @@ public class GameInstance : MonoBehaviour
 		PlayerData data = new PlayerData ();
 		data.level = level;
 		data.scene = Application.loadedLevel;
+		data.sceneName = Application.loadedLevelName;
 		data.xPosition = player.transform.position.x;
 		data.yPosition = player.transform.position.y;
 		data.health = health;
@@ -437,7 +438,7 @@ public class GameInstance : MonoBehaviour
 			FileStream file = File.Open(Application.persistentDataPath + "/checkpoint.dat", FileMode.Open);
 			PlayerData data = (PlayerData) bf.Deserialize(file);
 			file.Close();
-			//Application.LoadLevel (data.scene);
+			Application.LoadLevel (data.sceneName);
 			setPlayerLevel(data.level);
 			player.transform.position = new Vector3(data.xPosition,data.yPosition,0f);
 			cameraSystem.transform.position = new Vector3(data.xPosition,data.yPosition,0f);
@@ -515,7 +516,7 @@ public class GameInstance : MonoBehaviour
 	}
 
 	public GameObject instantiateEnemy(string prefabName, string enemyName, Vector3 newPosition) {
-		GameObject enemyPrefab = Resources.Load("Enemies/"+ enemyName) as GameObject;
+		GameObject enemyPrefab = Resources.Load("Enemies/"+ prefabName) as GameObject;
 		return (GameObject) GameObject.Instantiate (enemyPrefab, newPosition, new Quaternion (0f,0f,0f,1f));
 	}
 
@@ -552,6 +553,10 @@ public class GameInstance : MonoBehaviour
 
 	public int getPlayerLevel() {
 		return level;
+	}
+
+	public GameObject getPlayerGameObject() {
+		return player;
 	}
 
 	public void increaseSpellUsage(string color) {
@@ -598,6 +603,7 @@ public class GameInstance : MonoBehaviour
 [Serializable]
 class PlayerData {
 	public int scene;
+	public string sceneName;
 	public float xPosition;
 	public float yPosition;
 	public int level;

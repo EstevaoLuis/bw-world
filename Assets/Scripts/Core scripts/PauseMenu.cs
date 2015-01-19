@@ -5,7 +5,7 @@ public class PauseMenu : MonoBehaviour {
 
 	public GameObject menuP;
 	public GameObject saveP;
-	private bool status = false;
+	public static bool status = false;
 
 	// Use this for initialization
 	void Start () {

@@ -26,9 +26,9 @@ public class ReturnToMainMenu : MonoBehaviour {
 	}
 
 	public void tryAgain() {
-		if (File.Exists (Application.persistentDataPath + "/playerInfo.dat")) {
+		if (File.Exists (Application.persistentDataPath + "/checkpoint.dat")) {
 			BinaryFormatter bf = new BinaryFormatter();
-			FileStream file = File.Open(Application.persistentDataPath + "/playerInfo.dat", FileMode.Open);
+			FileStream file = File.Open(Application.persistentDataPath + "/checkpoint.dat", FileMode.Open);
 			PlayerData data = (PlayerData) bf.Deserialize(file);
 			file.Close();
 			Application.LoadLevel (data.scene);

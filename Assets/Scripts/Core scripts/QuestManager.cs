@@ -103,6 +103,7 @@ public class QuestManager : MonoBehaviour {
 				Debug.Log ("Event started: " + name);
 				if(events[name]["targetX"].AsFloat>0f || events[name]["targetY"].AsFloat>0f) setNewTarget(new Vector3(events[name]["targetX"].AsFloat,events[name]["targetY"].AsFloat,events[name]["targetZ"].AsFloat));
 				currentEvent = name;
+				//Debug.Log (events[name]["preMessage"]);
 				if(events[name]["preMessage"] != null) UserInterface.instance.displayMessage(events[name]["character"]+":",'"' + events[name]["preMessage"] + '"');
 				GameInstance.instance.checkpoint();
 				return true;
