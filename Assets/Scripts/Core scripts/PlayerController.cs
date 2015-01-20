@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour {
 	
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
 		if(Time.timeScale > 0.2f) {
 			if (!useJoystick) {

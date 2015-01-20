@@ -43,9 +43,6 @@ public class GameInstance : MonoBehaviour
 	//Time variables
 	private float lastSpell, lastRegeneration, lastBattle = 0f;
 
-	//Current save/load slot
-	private int currentSlot = 1;
-
 
 	//Instance management
 	public static GameInstance instance
@@ -54,11 +51,6 @@ public class GameInstance : MonoBehaviour
 		{
 			return _instance;
 		}
-	}
-
-	void OnLevelWasLoaded(int level) {
-		Debug.Log ("Caricamento completato");
-		
 	}
 
 	void Awake() 
@@ -91,8 +83,7 @@ public class GameInstance : MonoBehaviour
 			mana = maxMana;
 			health = maxHealth;
 
-			QuestManager.instance.setStoryLevel(initialStoryLevel);
-			QuestManager.instance.restartFromEvent(initialEvent);
+
 
 			//startAllScripts();
 		}
@@ -107,6 +98,12 @@ public class GameInstance : MonoBehaviour
 
 	void Start() {
 		refreshUI();
+
+		if (ScenesManager.restoreFromCheckpoint) continueFromCheckpoint ();
+		else if (ScenesManager.restoreSavedGame) loadGame ();
+
+		QuestManager.instance.setStoryLevel(initialStoryLevel);
+		QuestManager.instance.restartFromEvent(initialEvent);
 	}
 
 	private void setPlayerLevel (int lev) {
@@ -346,7 +343,7 @@ public class GameInstance : MonoBehaviour
 	public void saveGame() {
 		Debug.Log ("Saving game...");
 		BinaryFormatter bf = new BinaryFormatter ();
-		FileStream file = File.Open (Application.persistentDataPath + "/playerInfo" + currentSlot + ".dat", FileMode.OpenOrCreate);
+		FileStream file = File.Open (Application.persistentDataPath + "/playerInfo" + ScenesManager.currentSlot + ".dat", FileMode.OpenOrCreate);
 		PlayerData data = new PlayerData ();
 		data.level = level;
 		data.scene = Application.loadedLevel;
@@ -365,14 +362,17 @@ public class GameInstance : MonoBehaviour
 		file.Close ();
 	}
 
+	public void destroyInstance() {
+		Destroy(this.gameObject.transform.parent.gameObject);
+	}
+
 	public void loadGame() {
 		Debug.Log ("Loading game...");
-		if (File.Exists (Application.persistentDataPath + "/playerInfo" + currentSlot + ".dat")) {
+		if (File.Exists (Application.persistentDataPath + "/playerInfo" + ScenesManager.currentSlot + ".dat")) {
 			BinaryFormatter bf = new BinaryFormatter();
-			FileStream file = File.Open(Application.persistentDataPath + "/playerInfo" + currentSlot + ".dat", FileMode.Open);
+			FileStream file = File.Open(Application.persistentDataPath + "/playerInfo" + ScenesManager.currentSlot + ".dat", FileMode.Open);
 			PlayerData data = (PlayerData) bf.Deserialize(file);
 			file.Close();
-			Application.LoadLevel (data.sceneName);
 			setPlayerLevel(data.level);
 			player.transform.position = new Vector3(data.xPosition,data.yPosition,0f);
 			cameraSystem.transform.position = new Vector3(data.xPosition,data.yPosition,0f);
@@ -390,9 +390,9 @@ public class GameInstance : MonoBehaviour
 	}
 
 	public void loadData() {
-		if (File.Exists (Application.persistentDataPath + "/playerInfo" + currentSlot + ".dat")) {
+		if (File.Exists (Application.persistentDataPath + "/playerInfo" + ScenesManager.currentSlot + ".dat")) {
 			BinaryFormatter bf = new BinaryFormatter();
-			FileStream file = File.Open(Application.persistentDataPath + "/playerInfo" + currentSlot + ".dat", FileMode.Open);
+			FileStream file = File.Open(Application.persistentDataPath + "/playerInfo" + ScenesManager.currentSlot + ".dat", FileMode.Open);
 			PlayerData data = (PlayerData) bf.Deserialize(file);
 			file.Close();
 			setPlayerLevel(data.level);
@@ -438,7 +438,6 @@ public class GameInstance : MonoBehaviour
 			FileStream file = File.Open(Application.persistentDataPath + "/checkpoint.dat", FileMode.Open);
 			PlayerData data = (PlayerData) bf.Deserialize(file);
 			file.Close();
-			Application.LoadLevel (data.sceneName);
 			setPlayerLevel(data.level);
 			player.transform.position = new Vector3(data.xPosition,data.yPosition,0f);
 			cameraSystem.transform.position = new Vector3(data.xPosition,data.yPosition,0f);
@@ -585,10 +584,6 @@ public class GameInstance : MonoBehaviour
 
 	public void setInBattle() {
 		lastBattle = Time.time;
-	}
-
-	public void setCurrentSlot(int slot) {
-		if(slot < 4) currentSlot = slot;
 	}
 
 	// items management

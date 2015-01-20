@@ -45,19 +45,24 @@ public class SaveController1 : MonoBehaviour {
 	}
 
 	public void Save(int slot){
-		if (mode == 0) {  // save
-			Debug.Log ("Save Slot-> " + slot);
-			GameInstance.instance.setCurrentSlot(slot);
-			GameInstance.instance.saveGame();
-		} else { //load
-			Debug.Log ("Load Slot-> " + slot);
-			GameInstance.instance.setCurrentSlot(slot);
-			GameInstance.instance.loadGame();
-		}
-		updateSlotDescriptions ();
 		saveMenu.SetActive (false);
 		pauseMenu.SetActive (false);
 		PauseMenu.status = false;
+		if (mode == 0) {  // save
+			Debug.Log ("Save Slot-> " + slot);
+			ScenesManager.currentSlot = slot;
+			GameInstance.instance.saveGame();
+		} else { //load
+			Debug.Log ("Load Slot-> " + slot);
+			ScenesManager.currentSlot = slot;
+			if(File.Exists(Application.persistentDataPath + "/playerInfo" + slot + ".dat")) {
+				BinaryFormatter bf = new BinaryFormatter();
+				FileStream file = File.Open(Application.persistentDataPath + "/playerInfo" + slot + ".dat", FileMode.Open);
+				PlayerData data = (PlayerData) bf.Deserialize(file);
+				ScenesManager.instance.loadLevel(data.sceneName);
+			}
+		}
+		updateSlotDescriptions ();
 	}
 
 	public void Resume(){

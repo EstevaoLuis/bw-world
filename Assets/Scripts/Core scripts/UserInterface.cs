@@ -101,4 +101,8 @@ public class UserInterface : MonoBehaviour
 		messagePanel.SetActive (false);
 	}
 
+	public void destroyInstance() {
+		Destroy(this.gameObject);
+	}
+
 }
