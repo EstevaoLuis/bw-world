@@ -62,6 +62,7 @@ public class Colour : MonoBehaviour {
 			case "red": if(compositeColor.r == 0) audio.Play (); compositeColor.r = 255; break;
 			case "green": if(compositeColor.g == 0) audio.Play (); compositeColor.g = 255; break;
 			case "blue": if(compositeColor.b == 0) audio.Play (); compositeColor.b = 255; break;
+			case "cyan": if(compositeColor.g == 0 || compositeColor.b == 0) audio.Play (); compositeColor.g = 255; compositeColor.b = 255; break;
 			}
 			finalColor = compositeColor;//visible;
 		} else {

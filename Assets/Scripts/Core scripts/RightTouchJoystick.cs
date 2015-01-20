@@ -44,13 +44,13 @@ public class RightTouchJoystick : MonoBehaviour {
 											lastPosition = touch.position;
 											transform.position = new Vector3 (lastPosition.x, lastPosition.y, 0f);
 									} else {
-											print ("Spostato in: " + touch.position);
+											//print ("Spostato in: " + touch.position);
 
 											float deltaX = touch.position.x - lastPosition.x;
 											float deltaY = touch.position.y - lastPosition.y;
 											float distance = Vector2.Distance(touch.position,lastPosition);
 											
-											if(distance > 20 && (deltaX > 10 || deltaY > 10)) {
+											if(distance > 20 && (Mathf.Abs(deltaX) > 10 || Mathf.Abs(deltaY) > 10)) {
 												string spellColor = "Green";
 												
 												//Select color
@@ -65,6 +65,8 @@ public class RightTouchJoystick : MonoBehaviour {
 												else if(deltaY < -10) {
 													spellColor = "Blue";
 												} 
+
+												//Debug.Log (spellColor);
 												
 												//Select level
 												int spellLevel = 0;
@@ -103,14 +105,17 @@ public class RightTouchJoystick : MonoBehaviour {
 													playerController.castSpell(spellColor,spellLevel);
 													lastSpell = Time.time;
 												}
-
-												if(!greenAvailable) greenRenderer.sprite = greenSprite[0]; 
-												if(!blueAvailable) blueRenderer.sprite = blueSprite[0]; 
-												if(!redAvailable) redRenderer.sprite = redSprite[0]; 
 								
 											}
+											else {
+												greenRenderer.sprite = greenSprite[1]; 
+												redRenderer.sprite = redSprite[1];
+												blueRenderer.sprite = blueSprite[1];
+											}
+											if(!greenAvailable) greenRenderer.sprite = greenSprite[0]; 
+											if(!blueAvailable) blueRenderer.sprite = blueSprite[0]; 
+											if(!redAvailable) redRenderer.sprite = redSprite[0]; 
 									}
-
 							}
 				
 					}
@@ -135,8 +140,10 @@ public class RightTouchJoystick : MonoBehaviour {
 				int storyLevel = QuestManager.instance.getStoryLevel();
 				if(storyLevel>=6) greenAvailable = true;
 				else greenAvailable = false;
-				if(storyLevel>=18) redAvailable = true;
-				else greenAvailable = false;
+				if(storyLevel>=18) blueAvailable = true;
+				else blueAvailable = false;
+				if(storyLevel>=30) redAvailable = true;
+				else redAvailable = false;
 			}
 
 		}
