@@ -59,6 +59,7 @@ public class SaveController1 : MonoBehaviour {
 				BinaryFormatter bf = new BinaryFormatter();
 				FileStream file = File.Open(Application.persistentDataPath + "/playerInfo" + slot + ".dat", FileMode.Open);
 				PlayerData data = (PlayerData) bf.Deserialize(file);
+				file.Close();
 				ScenesManager.instance.loadLevel(data.sceneName);
 			}
 		}
