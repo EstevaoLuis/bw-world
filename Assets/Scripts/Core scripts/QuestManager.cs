@@ -138,7 +138,7 @@ public class QuestManager : MonoBehaviour {
 
 	public bool restartFromEvent(string name) {
 		if (events [name] != null && name != currentEvent) {
-			storyLevel = events[name]["storyLevel"].AsInt - 1;
+			setStoryLevel(events[name]["storyLevel"].AsInt - 1);
 			Debug.Log ("Event started: " + name);
 			if(events[name]["targetX"].AsFloat>0f || events[name]["targetY"].AsFloat>0f) setNewTarget(new Vector3(events[name]["targetX"].AsFloat,events[name]["targetY"].AsFloat,events[name]["targetZ"].AsFloat));
 			currentEvent = name;

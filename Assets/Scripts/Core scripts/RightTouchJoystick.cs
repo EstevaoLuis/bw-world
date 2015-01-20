@@ -144,6 +144,7 @@ public class RightTouchJoystick : MonoBehaviour {
 				else blueAvailable = false;
 				if(storyLevel>=30) redAvailable = true;
 				else redAvailable = false;
+
 			}
 
 		}
