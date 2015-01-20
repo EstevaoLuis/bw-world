@@ -147,6 +147,42 @@
 		],
 		"behaviour": [2,2,2,0],
     	"experience": 100
+    },
+     "Golem": {
+    	"health": 20,
+    	"speed": 2,
+        "attack": 10,
+        "defense": 0,
+        "mass": 1,
+        "scale": 1,
+        "delay": 1,
+        "detection": 6,
+    	"spells": [
+    		{"name": "Black 1", "probability": 1}
+		],
+		"melees": [
+			{"name": "Melee 1", "probability": 1}
+		],
+		"behaviour": [1,2,2,0],
+    	"experience": 10
+    },
+     "Titan": {
+    	"health": 1000,
+    	"speed": 3,
+        "attack": 30,
+        "defense": 0,
+        "mass": 1,
+        "scale": 1,
+        "delay": 1,
+        "detection": 5,
+    	"spells": [
+    		{"name": "Black 1", "probability": 1}
+		],
+		"melees": [
+			{"name": "Melee 1", "probability": 1}
+		],
+		"behaviour": [2,2,2,0],
+    	"experience": 10
     }
     
 }
