@@ -38,6 +38,8 @@ public class SpiderGenerator : MonoBehaviour {
 
 	void instantiateSpider() {
 		GameObject newSpider = (GameObject) Instantiate(spider, transform.position, Quaternion.Euler(new Vector3(0,0,0)));
+		GameInstance.instance.playAnimation ("Appear", new Vector3(transform.position.x,transform.position.y,0.1f));
+		GameInstance.instance.playAudio ("Darkness6");
 		int randType = Random.Range (0, 2);
 		if(randType > 0) (newSpider.GetComponent ("EnemyController") as EnemyController).enemyName = "Spider (Noob)";
 		else (newSpider.GetComponent ("EnemyController") as EnemyController).enemyName = "Spider";
