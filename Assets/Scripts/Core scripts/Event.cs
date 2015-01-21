@@ -41,7 +41,7 @@ public class Event : MonoBehaviour {
 	}
 
 	void Update() {
-
+		/*
 		if (!isCentered && textObject!=null) {
 			textObject.transform.position = new Vector3(textObject.transform.position.x - (textObject.renderer.bounds.size.x / 2f),textObject.transform.position.y + (textObject.renderer.bounds.size.y) - 0.5f, -1f);
 			isCentered = true;
@@ -56,11 +56,6 @@ public class Event : MonoBehaviour {
 					animation = GameInstance.instance.playAnimation("Dialog",new Vector3(transform.position.x + animationOffsetX, transform.position.y + animationOffsetY , -1f));
 				}
 			}
-			/*
-			if(startEvent != "") {
-				eventState = QuestManager.instance.getEventState (startEvent);
-			}
-			*/
 
 			//Before
 			if(textStatus != 0 && QuestManager.instance.getStoryLevel() < storyLevel1-1) {
@@ -80,6 +75,7 @@ public class Event : MonoBehaviour {
 				isCentered = false;
 			}
 		}
+		*/
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
