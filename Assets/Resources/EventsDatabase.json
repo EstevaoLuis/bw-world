@@ -164,8 +164,19 @@
     	"scene": "Green World",
     	"character": "Scout boy"
     },
-        "Welcome to the north": {
+    "To the new world": {
     	"storyLevel": 16,
+    	"preMessage": "YOU KILLED SPIDER!! Thanks you very much, I knew I could rely on you. I think now you should begin your journey to the other regions of this world, in order to free al the other colors.",
+    	"postMessage": "",
+    	"experience": 0,
+    	"targetX": 392,
+    	"targetY": 394,
+    	"targetZ": 0,
+    	"scene": "Green World",
+    	"character": "Chief"
+    },
+        "Welcome to the north": {
+    	"storyLevel": 17,
     	"preMessage": "No way,so the colors are coming back then? my cousin in the green world told me about this. Although up here in the north theres not that much difference, everything is white HA!.Get moving, go to the sanctuary our rangers are waiting.",
     	"postMessage": "",
     	"experience": 0,
@@ -176,7 +187,7 @@
     	"character": "Villager"
     },
         "Ice Rangers": {
-    	"storyLevel": 17,
+    	"storyLevel": 18,
     	"preMessage": "hey get out of here,this is dangerous. Oh wait that scarf?!I guess your the new one of the greenLand,we are the Ice Rangers.Try to find out whats going on in the old forest.",
     	"postMessage": "",
     	"targetX": 1.4,
@@ -186,7 +197,7 @@
     	"character": "Villager"
     },
         "Survivor": {
-    	"storyLevel": 18,
+    	"storyLevel": 19,
     	"preMessage": "",
     	"postMessage": "",
    		"targetX": 17.8212,
@@ -196,7 +207,7 @@
     	"character": "Gem"	
     },
         "Back alive": {
-    	"storyLevel": 19,
+    	"storyLevel": 20,
     	"preMessage": "What? You're alive? You found a Crystal? For the Black and White!! Anyway there is no time to waste. Head to the east Ranger, he says wierd sounds have come out from the old timberland",
     	"postMessage": "",
     	"targetX": 85.1,
@@ -206,7 +217,7 @@
     	"character": "Scout boy"	
     },
         "Up the road": {
-    	"storyLevel": 20,
+    	"storyLevel": 21,
     	"preMessage": "Hi there, your the Color Bringer right? Well atleast thats how the Klamers refer to you.Please check whats going on down this road.",
     	"postMessage": "",
     	"targetX": 0,

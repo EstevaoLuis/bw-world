@@ -5,7 +5,7 @@
         "damage": 20,
         "duration": 1.5,
         "mass": 1000,
-        "mana": 15,
+        "mana": 10,
         "area": 0
     },
     
@@ -15,7 +15,7 @@
         "damage": 60,
         "duration": 2,
         "mass": 2000,
-        "mana": 35,
+        "mana": 25,
         "area": 1
     },
     
@@ -25,7 +25,7 @@
         "damage": 100,
         "duration": 2,
         "mass": 5000,
-        "mana": 60,
+        "mana": 40,
         "area": 2
     },
     
@@ -35,7 +35,7 @@
         "damage": 200,
         "duration": 4,
         "mass": 10000,
-        "mana": 200,
+        "mana": 100,
         "area": 4
     },
     
@@ -45,7 +45,7 @@
         "damage": 12,
         "duration": 2,
         "mass": 800,
-        "mana": 10,
+        "mana": 5,
         "area": 0
     },
     
@@ -55,7 +55,7 @@
         "damage": 45,
         "duration": 2,
         "mass": 2000,
-        "mana": 25,
+        "mana": 15,
         "area": 1
     },
     
@@ -65,7 +65,7 @@
         "damage": 80,
         "duration": 2,
         "mass": 4000,
-        "mana": 50,
+        "mana": 30,
         "area": 2
     },
     
@@ -75,7 +75,7 @@
         "damage": 15,
         "duration": 1.5,
         "mass": 800,
-        "mana": 12,
+        "mana": 7,
         "area": 0
     },
     
@@ -85,7 +85,7 @@
         "damage": 52,
         "duration": 1.5,
         "mass": 1600,
-        "mana": 28,
+        "mana": 18,
         "area": 1
     },
     
@@ -95,7 +95,7 @@
         "damage": 90,
         "duration": 1.5,
         "mass": 4000,
-        "mana": 55,
+        "mana": 35,
         "area": 2
     },
     
