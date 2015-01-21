@@ -169,9 +169,9 @@
      "Titan": {
     	"health": 1000,
     	"speed": 3,
-        "attack": 30,
+        "attack": 15,
         "defense": 0,
-        "mass": 1,
+        "mass": 1000,
         "scale": 1,
         "delay": 1,
         "detection": 5,
@@ -185,6 +185,7 @@
 		],
 		"behaviour": [2,2,2,0],
     	"experience": 200
+
     }
     
 }
