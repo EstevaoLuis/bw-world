@@ -136,6 +136,13 @@ public class QuestManager : MonoBehaviour {
 		return -1;
 	}
 
+	public int getEventStoryLevel(string name) {
+		if (events [name] != null) {
+			return events[name]["storyLevel"].AsInt;
+		}
+		return -1;
+	}
+
 	public bool restartFromEvent(string name) {
 		if (events [name] != null && name != currentEvent) {
 			setStoryLevel(events[name]["storyLevel"].AsInt - 1);

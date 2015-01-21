@@ -15,7 +15,7 @@
 			{"name": "Melee 1", "probability": 1}
 		],
 		"behaviour": [1,2,2,0],
-    	"experience": 10
+    	"experience": 15
     },
     
     "Spider (Tutorial)": {
@@ -49,7 +49,7 @@
 			{"name": "Melee 1", "probability": 1}
 		],
 		"behaviour": [1,2,2,0],
-    	"experience": 10
+    	"experience": 8
     },
     
     "Spider (Fast)": {
@@ -87,7 +87,7 @@
     		{"name": "Black 2", "probability": 1}
 		],
 		"behaviour": [1,2,2,0],
-    	"experience": 10
+    	"experience": 20
     },
     
     "Spider (Kamikaze)": {
@@ -125,7 +125,7 @@
     		{"name": "Black 2", "probability": 0.5}
 		],
 		"behaviour": [2,2,2,0],
-    	"experience": 10
+    	"experience": 30
     },
     
     "Mantis": {
@@ -146,7 +146,7 @@
     		{"name": "Black 5", "probability": 0.5}
 		],
 		"behaviour": [2,2,2,0],
-    	"experience": 100
+    	"experience": 150
     },
      "Golem": {
     	"health": 20,
@@ -158,13 +158,13 @@
         "delay": 1,
         "detection": 6,
     	"spells": [
-    		{"name": "Black 1", "probability": 1}
+    		{"name": "Black 3", "probability": 1}
 		],
 		"melees": [
-			{"name": "Melee 1", "probability": 1}
+			{"name": "Melee 2", "probability": 1}
 		],
 		"behaviour": [1,2,2,0],
-    	"experience": 10
+    	"experience": 30
     },
      "Titan": {
     	"health": 1000,
@@ -176,13 +176,15 @@
         "delay": 1,
         "detection": 5,
     	"spells": [
-    		{"name": "Black 1", "probability": 1}
+    		{"name": "Black 5", "probability": 0.5},
+    		{"name": "Black 6", "probability": 0.5}
 		],
 		"melees": [
-			{"name": "Melee 1", "probability": 1}
+			{"name": "Melee 3", "probability": 0.5},
+			{"name": "Melee 4", "probability": 0.5}
 		],
 		"behaviour": [2,2,2,0],
-    	"experience": 10
+    	"experience": 200
     }
     
 }
