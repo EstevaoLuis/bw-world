@@ -25,7 +25,7 @@ public class IceSwordsRandom : MonoBehaviour {
 
 
 		aux = (GameObject)Instantiate (IceSwords,random_pos, transform.rotation);
-		aux.rigidbody2D.velocity = (Vector3.left + Vector3.down) * speed;
+
 
 
 		}

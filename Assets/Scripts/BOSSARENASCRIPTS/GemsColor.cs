@@ -7,6 +7,9 @@ public class GemsColor : MonoBehaviour {
 
 	// Use this for initialization
 	private GameObject [] gems;
+	public GameObject boss;
+	private EnemyController enemy;
+	public GameObject Icespell;
 	private Gem [] g;
 	private int numb_of_gems = 4;
 
@@ -59,11 +62,20 @@ public class GemsColor : MonoBehaviour {
 		if ( tr == true && !isActivated) {
 			isActivated = true;
 			Invoke ("decolorGems",2f);
+
 		}
 
 	}
 
 	private void decolorGems() {
+
+		Instantiate(Icespell,boss.transform.position,transform.rotation);
+		enemy = boss.GetComponent<EnemyController>();
+		int damage = 500 + Random.Range(-5,5);
+		enemy.damageEnemy(damage);
+		GameInstance.instance.playAnimation("Hit",boss.transform.position);
+		GameInstance.instance.damageValueAnimation(damage,boss.transform.position);
+
 		col[0].decolor();
 		col[1].decolor();
 		col[2].decolor();
