@@ -83,6 +83,7 @@ public class Spell : MonoBehaviour {
 				duration = duration + otherSpell.duration / 2f;
 				damage = damage + otherSpell.damage / 2;
 				area = area * 1.2f;
+				if(area >= 3f) area = 3f;
 				if(transform.localScale.x < 4f) transform.localScale = new Vector3(transform.localScale.x * scaleMultiplier, transform.localScale.y * scaleMultiplier, 1f);
 				rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x / 1.1f, rigidbody2D.velocity.y / 1.1f);
 			}

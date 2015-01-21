@@ -47,6 +47,7 @@ public class SaveController1 : MonoBehaviour {
 	public void Save(int slot){
 		saveMenu.SetActive (false);
 		pauseMenu.SetActive (false);
+		Time.timeScale = 1f;
 		PauseMenu.status = false;
 		if (mode == 0) {  // save
 			Debug.Log ("Save Slot-> " + slot);
@@ -55,6 +56,7 @@ public class SaveController1 : MonoBehaviour {
 		} else { //load
 			Debug.Log ("Load Slot-> " + slot);
 			ScenesManager.currentSlot = slot;
+			ScenesManager.restoreSavedGame = true;
 			if(File.Exists(Application.persistentDataPath + "/playerInfo" + slot + ".dat")) {
 				BinaryFormatter bf = new BinaryFormatter();
 				FileStream file = File.Open(Application.persistentDataPath + "/playerInfo" + slot + ".dat", FileMode.Open);

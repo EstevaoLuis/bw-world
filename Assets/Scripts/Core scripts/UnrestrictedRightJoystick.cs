@@ -111,9 +111,6 @@ public class UnrestrictedRightJoystick : MonoBehaviour {
 												redRenderer.sprite = redSprite[1];
 												blueRenderer.sprite = blueSprite[1];
 											}
-											if(!greenAvailable) greenRenderer.sprite = greenSprite[0]; 
-											if(!blueAvailable) blueRenderer.sprite = blueSprite[0]; 
-											if(!redAvailable) redRenderer.sprite = redSprite[0]; 
 									}
 							}
 				
