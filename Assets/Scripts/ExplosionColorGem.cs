@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class ExplosionColorGem : MonoBehaviour {
@@ -40,7 +40,7 @@ public class ExplosionColorGem : MonoBehaviour {
 		sprite.color = new Color (red, green, blue);
 
 		if (destructionBool)
-						Invoke ("explode",2f);
+			Invoke ("explode",2f);
 	}
 
 	void OnCollisionEnter2D(Collision2D other){

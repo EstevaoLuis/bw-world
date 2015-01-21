@@ -16,14 +16,11 @@ public class SetStoryOnColor : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (!isActivated && controller.isColored()) {
-			if(endEvent != "") {
+			if(endEvent != "" && startEvent != "") {
 				QuestManager.instance.endEvent(endEvent);
-				
-			}
-			if(startEvent != "") {
 				QuestManager.instance.startEvent(startEvent);
+				isActivated = true;
 			}
-			isActivated = true;
 		}
 	}
 }

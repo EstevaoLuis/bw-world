@@ -83,6 +83,7 @@ public class Colour : MonoBehaviour {
 	
 
 	public bool isColored() {
+		Debug.Log ("isColored: " + isColoured + " " + renderer.color.r + " " + renderer.color.g + " " + renderer.color.b);
 		return isColoured && (renderer.color.r == 255 || renderer.color.g == 255 || renderer.color.b == 255); 
 	}
 
