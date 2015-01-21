@@ -6,6 +6,7 @@ public class GemCannon : MonoBehaviour {
 	public GameObject bullet;
 	private GameObject target;
 	private SpriteRenderer sprite;
+	private SpriteRenderer targetSprite;
 	private float diff_x;
 	private float diff_y;
 	private float speed = 2f;
@@ -16,6 +17,7 @@ public class GemCannon : MonoBehaviour {
 	void Start () {
 		target = GameObject.Find("GemPost_2");
 		sprite = GetComponent<SpriteRenderer> ();
+		targetSprite = target.GetComponent<SpriteRenderer> ();
 	}
 
 	Vector3 compute_startshot(){
@@ -55,7 +57,11 @@ public class GemCannon : MonoBehaviour {
 			Spell spellParameters = (Spell)other.gameObject.GetComponent ("Spell");
 			string kolor = spellParameters.color;
 			if (kolor == "green") colorMe ();
-			if (kolor == "black") deColorMe ();
+			GameInstance.instance.playAnimation ("Hit", gameObject.transform.position);
+		}
+
+		if (other.gameObject.tag == "SpellEnemy") {
+			deColorMe ();
 			GameInstance.instance.playAnimation ("Hit", gameObject.transform.position);
 		}
 	}
@@ -80,6 +86,7 @@ public class GemCannon : MonoBehaviour {
 		//Debug.Log ("RGB: " + red + " " + green + " " + blue);
 
 		sprite.color = new Color (red, green, blue);
+		targetSprite.color = new Color (red, green, blue);
 	}
 
 	void deColorMe(){
@@ -89,19 +96,24 @@ public class GemCannon : MonoBehaviour {
 		
 		//Debug.Log ("RGB: " + red + " " + green + " " + blue);
 		
-		red = red + intensity;
-		blue = blue + intensity;
+		red = red + 3*intensity;
+		blue = blue + 3*intensity;
 		
 		//Debug.Log ("RGB: " + red + " " + green + " " + blue);
 		
 		if (red >= 1f || blue >= 1f) {
-			red = 0f;
-			blue = 0f;
+			red = 1f;
+			blue = 1f;
 		}
 		
 		//Debug.Log ("RGB: " + red + " " + green + " " + blue);
 		
 		sprite.color = new Color (red, green, blue);
+		targetSprite.color = new Color (red, green, blue);
+	}
+
+	public bool isColoured(){
+		return (sprite.color.r != 1f);
 	}
 }
 

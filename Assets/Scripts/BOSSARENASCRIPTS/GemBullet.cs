@@ -4,30 +4,34 @@ using System.Collections;
 public class GemBullet : MonoBehaviour {
 
 	private GameObject target;
+	private GameObject source;
 	private EnemyController enemy;
 	private float speed = 10f;
+	private SpriteRenderer sprite;
 
 	// Use this for initialization
 	void Start () {
-
 		target = GameObject.Find("GemPost_2");
-
+		source = GameObject.Find("GemPost_1");
+		sprite = source.GetComponent<SpriteRenderer> ();
 	}
-	void aimTowardsTarget(){
 
+	void aimTowardsTarget(){
 		transform.position = Vector3.MoveTowards (transform.position, target.transform.position, Time.deltaTime * speed);
-	
 	}
 
 
 	void OnCollisionEnter2D (Collision2D other){
-		if (other.gameObject.tag != "gem") {
+		if (other.gameObject.tag != "gem" && other.gameObject != source) {
 			Destroy (gameObject);
 		}
 
 		if (other.gameObject.tag == "Enemy") {
 			enemy = other.gameObject.GetComponent<EnemyController>();
-			int damage = 50 + Random.Range(-5,5);
+			Debug.Log ("Gem Boy: " + sprite.color.r);
+			float damagef = (float)(75f + Random.Range(-12,12)) * (1.0f - sprite.color.r);
+			Debug.Log(damagef);
+			int damage = Mathf.RoundToInt(damagef);
 			enemy.damageEnemy(damage);
 			GameInstance.instance.playAnimation("Hit",other.gameObject.transform.position);
 			GameInstance.instance.damageValueAnimation(damage,other.gameObject.transform.position);
