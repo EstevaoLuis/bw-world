@@ -3,6 +3,9 @@ using System.Collections;
 
 public class deathoftitan : MonoBehaviour {
 
+	public string teleportPrefabName = "Teleport";
+	public string finalAttackName = "Wind Attack";
+
 	private PlayerController controller;
 	private EnemyController enemy;
 	private bool isActivated = false;
@@ -22,8 +25,8 @@ public class deathoftitan : MonoBehaviour {
 			GameInstance.instance.playAudio("Darkness8");
 			Invoke ("activateTeleport",3f);
 			Debug.Log ("Boss sconfitto");
-			GameInstance.instance.playAnimation("Wind Attack",new Vector3(transform.position.x,transform.position.y-4f,0f));
-			Object prefab2 = Resources.Load("Events/Teleport") as Object;
+			GameInstance.instance.playAnimation(finalAttackName,new Vector3(transform.position.x,transform.position.y-4f,0f));
+			Object prefab2 = Resources.Load("Events/" + teleportPrefabName) as Object;
 			Instantiate(prefab2,new Vector3(transform.position.x,transform.position.y,0.1f), new Quaternion(0f,0f,0f,1f));
 			QuestManager.instance.setNewTarget(new Vector3(transform.position.x,transform.position.y,0.1f));
 		}

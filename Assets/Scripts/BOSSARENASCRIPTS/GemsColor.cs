@@ -71,7 +71,7 @@ public class GemsColor : MonoBehaviour {
 
 		Instantiate(Icespell,boss.transform.position,transform.rotation);
 		enemy = boss.GetComponent<EnemyController>();
-		int damage = 300 + Random.Range(-5,5);
+		int damage = 1000 + Random.Range(-5,5);
 		enemy.damageEnemy(damage);
 		GameInstance.instance.playAnimation("Hit",boss.transform.position);
 		GameInstance.instance.damageValueAnimation(damage,boss.transform.position);

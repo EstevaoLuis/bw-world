@@ -225,4 +225,25 @@
     	"targetZ": 0,
     	"scene": "Blue World",
     	"character": "Scout boy"
-}
+	},
+	    "Titan Slayer": {
+    	"storyLevel": 22,
+    	"preMessage": "You killed the old frozen titan?!? for the grace of the colors you are the chosen one!. Go north and continue your path young hero",
+    	"postMessage": "",
+    	"targetX": 0,
+    	"targetY": 0,
+    	"targetZ": 0,
+    	"scene": "Blue World",
+    	"character": "Villager"
+	},
+	 "The Legend": {
+    	"storyLevel": 23,
+    	"preMessage": "You have saved us all!!!!!",
+    	"postMessage": "",
+    	"targetX": 0,
+    	"targetY": 0,
+    	"targetZ": 0,
+    	"scene": "Blue World",
+    	"character": "Villager"
+	},
+	

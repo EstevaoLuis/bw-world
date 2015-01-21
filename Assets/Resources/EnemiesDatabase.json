@@ -167,14 +167,14 @@
     	"experience": 30
     },
      "Titan": {
-    	"health": 2000,
-    	"speed": 3,
+    	"health": 10,
+    	"speed": 1,
         "attack": 15,
         "defense": 0,
         "mass": 1000,
         "scale": 1,
         "delay": 1,
-        "detection": 10,
+        "detection": 15,
     	"spells": [
     		{"name": "Black 5", "probability": 0.5},
     		{"name": "Black 6", "probability": 0.5}
