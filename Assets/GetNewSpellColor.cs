@@ -3,13 +3,30 @@ using System.Collections;
 
 public class GetNewSpellColor : MonoBehaviour {
 
+	private CircleCollider2D collider;
+	private PlayerController controller;
+	private bool isActivated = false;
+
 	// Use this for initialization
 	void Start () {
-	
+		collider = GetComponent<CircleCollider2D> ();
+		controller = GameInstance.instance.getPlayerController ();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+
+	void OnTriggerEnter2D (Collider2D other) {
+		if (other.gameObject.tag == "Player" && !isActivated) {
+			isActivated = true;
+			Vector3 newPosition = other.gameObject.transform.position;
+			controller.isAvailable(false);
+			GameInstance.instance.playAnimation("NewSpellGreen",new Vector3 (newPosition.x,newPosition.y,1f));
+			GameInstance.instance.playAudio("Up3");
+			Invoke ("showMessage",3f);
+		}
 	}
+
+	public void showMessage() {
+		controller.isAvailable (true);
+	}
+
 }

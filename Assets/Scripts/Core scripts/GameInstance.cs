@@ -561,6 +561,10 @@ public class GameInstance : MonoBehaviour
 		return player;
 	}
 
+	public PlayerController getPlayerController() {
+		return player.GetComponent<PlayerController>();
+	}
+
 	public void increaseSpellUsage(string color) {
 		if (color == "red") red++;
 		else if (color == "green") green++;
