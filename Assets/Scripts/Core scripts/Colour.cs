@@ -34,11 +34,13 @@ public class Colour : MonoBehaviour {
 
 	public bool getColoured(){
 
-		return isColored;
+		return isColoured;
 	}
+
 	public void setColoured(bool c){
 
-		isColored = c;
+		this.isColoured = c;
+
 	}
 	// Update is called once per frame
 	void Update () {
@@ -79,7 +81,7 @@ public class Colour : MonoBehaviour {
 		time = 0f;
 	}
 
-	void decolor() {
+	public void decolor() {
 		lastColor = renderer.color;
 		if (isColoured) {
 			finalColor = hidden;
