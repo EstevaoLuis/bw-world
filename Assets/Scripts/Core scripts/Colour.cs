@@ -80,6 +80,7 @@ public class Colour : MonoBehaviour {
 		}
 		time = 0f;
 	}
+	
 
 	public bool isColored() {
 		return isColoured && (renderer.color.r == 255 || renderer.color.g == 255 || renderer.color.b == 255); 

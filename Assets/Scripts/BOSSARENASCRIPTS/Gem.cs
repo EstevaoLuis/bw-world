@@ -4,7 +4,7 @@ using System.Collections;
 public class Gem : MonoBehaviour {
 
 	private Colour Col;
-	private bool trigger;
+	public bool trigger = false;
 //	private Spell sp;
 //	private float timer;
 
