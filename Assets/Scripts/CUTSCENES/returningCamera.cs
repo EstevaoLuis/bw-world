@@ -11,7 +11,7 @@ public class returningCamera : MonoBehaviour {
 
 	//public GameObject fadeInOut;
 //	public GameObject r = null;
-	public GameObject Cam = null;
+	private GameObject Cam = null;
 	private int trigger = 0;
 	private int trigger_2 = 0;
 	public Vector3 desirePosition;
@@ -27,6 +27,7 @@ public class returningCamera : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag("Player");
 		pl = player.GetComponent <PlayerController> ();
 
+		Cam = GameObject.FindWithTag ("MainCamera");
 		cameratofade = Cam.GetComponent<Camera> ();
 
 

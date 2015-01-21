@@ -32,16 +32,6 @@ public class Colour : MonoBehaviour {
 		}
 	}
 
-	public bool getColoured(){
-
-		return isColoured;
-	}
-
-	public void setColoured(bool c){
-
-		this.isColoured = c;
-
-	}
 	// Update is called once per frame
 	void Update () {
 		if (isTransition() && time <= duration+0.2f) {
