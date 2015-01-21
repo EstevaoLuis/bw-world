@@ -11,11 +11,6 @@ public class ExplosionColorGem : MonoBehaviour {
 	void Start () {
 		sprite = GetComponent<SpriteRenderer> ();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 	void kolorMe(){
 		//Color kolor = sprite.color;
@@ -45,8 +40,7 @@ public class ExplosionColorGem : MonoBehaviour {
 		sprite.color = new Color (red, green, blue);
 
 		if (destructionBool)
-			Destroy (gameObject);
-			//gameObject.SetActive (false);
+						Invoke ("explode",2f);
 	}
 
 	void OnCollisionEnter2D(Collision2D other){
@@ -58,5 +52,10 @@ public class ExplosionColorGem : MonoBehaviour {
 				kolorMe();
 			}
 		}
+	}
+
+	void explode() {
+		GameInstance.instance.playAnimation ("Explosion",transform.position);
+		Destroy (gameObject);
 	}
 }
