@@ -41,7 +41,6 @@ public class Event : MonoBehaviour {
 	}
 
 	void Update() {
-		/*
 		if (!isCentered && textObject!=null) {
 			textObject.transform.position = new Vector3(textObject.transform.position.x - (textObject.renderer.bounds.size.x / 2f),textObject.transform.position.y + (textObject.renderer.bounds.size.y) - 0.5f, -1f);
 			isCentered = true;
@@ -75,7 +74,6 @@ public class Event : MonoBehaviour {
 				isCentered = false;
 			}
 		}
-		*/
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
