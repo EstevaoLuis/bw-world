@@ -17,6 +17,7 @@ public class UnrestrictedRightJoystick : MonoBehaviour {
 
 	private Image renderer;
 	private bool isActive = true;
+	private bool validPosition = false;
 
 	bool greenAvailable = false, blueAvailable = false, redAvailable = false;
 
@@ -34,15 +35,16 @@ public class UnrestrictedRightJoystick : MonoBehaviour {
 		if(isActive) {
 			int fingerCount = 0;
 			foreach (Touch touch in Input.touches) {
-				//Half screen is 480
-				if(touch.position.x > 560) {
+				//Half screen is 480, usable is 560
+				if(touch.position.x > 480) {
 							if (touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled) {
 									fingerCount++;
-									if (touch.phase == TouchPhase.Began) {
+									if (touch.phase == TouchPhase.Began && touch.position.x > 560) {
 											print ("Inizio: " + touch.position);
 											lastPosition = touch.position;
 											transform.position = new Vector3 (lastPosition.x, lastPosition.y, 0f);
-									} else {
+											validPosition = true;
+									} else if(validPosition) {
 											//print ("Spostato in: " + touch.position);
 
 											float deltaX = touch.position.x - lastPosition.x;
@@ -113,6 +115,7 @@ public class UnrestrictedRightJoystick : MonoBehaviour {
 											}
 									}
 							}
+							validPosition = false;
 				
 					}
 			}

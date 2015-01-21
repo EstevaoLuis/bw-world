@@ -99,11 +99,14 @@ public class GameInstance : MonoBehaviour
 	void Start() {
 		refreshUI();
 
-		if (ScenesManager.restoreFromCheckpoint) continueFromCheckpoint ();
-		else if (ScenesManager.restoreSavedGame) loadGame ();
-
-		QuestManager.instance.setStoryLevel(initialStoryLevel);
-		QuestManager.instance.restartFromEvent(initialEvent);
+		if (ScenesManager.restoreFromCheckpoint)
+				continueFromCheckpoint ();
+		else if (ScenesManager.restoreSavedGame)
+				loadGame ();
+		else {
+			QuestManager.instance.setStoryLevel(initialStoryLevel);
+			QuestManager.instance.restartFromEvent(initialEvent);
+		}
 	}
 
 	private void setPlayerLevel (int lev) {

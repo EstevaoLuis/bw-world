@@ -6,7 +6,7 @@ public class returningCamera : MonoBehaviour {
 	//public int setStoryLevel;
 	public string endEvent = "";
 	public string startEvent = "";
-
+	public float activateAfterTime = 3f;
 	private bool isActivated = false;
 
 	//public GameObject fadeInOut;
@@ -36,7 +36,7 @@ public class returningCamera : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D other){
 
 		if (other.gameObject.tag == "Player" && !isActivated) {
-			Invoke ("off",3);
+			Invoke ("off",activateAfterTime);
 			isActivated = true;
 		}
 
