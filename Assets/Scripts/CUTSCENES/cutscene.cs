@@ -9,6 +9,7 @@ public class cutscene : MonoBehaviour {
 	private float speed_of_cam_vib =6f;
 	private float cam_height = -7.5f;
 	public bool isBoss;
+	public bool isSpiderQueen;
 
 	private int counter;
 	int trigger = 0;
@@ -38,7 +39,9 @@ public class cutscene : MonoBehaviour {
 		
 	}
 	void move_camera_to_objective(){
-
+		if (isSpiderQueen == true) {
+			cameraObjective = GameObject.Find("Mantis_GreenWorld(Clone)");	
+		}
 		transform.position = Vector3.MoveTowards (transform.position, cameraObjective.transform.position, speed_of_cam * Time.deltaTime);
 		transform.position = new Vector3 (transform.position.x,transform.position.y, cam_height);
 		//original_pos = cameraObjective.transform.position;
