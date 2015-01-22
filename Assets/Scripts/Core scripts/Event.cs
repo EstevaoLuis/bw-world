@@ -33,8 +33,8 @@ public class Event : MonoBehaviour {
 		collider = GetComponent<CircleCollider2D>();
 		collider.radius = radius;
 		collider.isTrigger = true;
-		if(startEvent != null) storyLevel1 = QuestManager.instance.getEventStoryLevel (startEvent);
-		if (endEvent != null) storyLevel2 = QuestManager.instance.getEventStoryLevel (endEvent);
+		if(startEvent != null) storyLevel2 = QuestManager.instance.getEventStoryLevel (startEvent);
+		if (endEvent != null) storyLevel1 = QuestManager.instance.getEventStoryLevel (endEvent);
 		else storyLevel2 = storyLevel1;
 
 		textPosition = new Vector3 (transform.position.x, transform.position.y + collider.bounds.size.y, -1f);
@@ -61,6 +61,15 @@ public class Event : MonoBehaviour {
 				textStatus = 0;
 				if(textObject != null) Destroy(textObject);
 				textObject = GameInstance.instance.showNPCText (beforeMessage, textPosition);
+				fadingText = textObject.GetComponent("FadeObjectInOut") as FadeObjectInOut;
+				isCentered = false;
+			}
+			//During
+			else if(textStatus != 1 && QuestManager.instance.getStoryLevel() == storyLevel2-1) {
+				if(textObject != null) Destroy(textObject);
+				textStatus = 1;
+				textObject = GameInstance.instance.showNPCText (duringMessage, textPosition);
+				Debug.Log (textPosition);
 				fadingText = textObject.GetComponent("FadeObjectInOut") as FadeObjectInOut;
 				isCentered = false;
 			}

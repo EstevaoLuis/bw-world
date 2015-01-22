@@ -10,6 +10,7 @@ public class ColorBox : MonoBehaviour {
 	//public GameObject puzzleMaster = null;
 	//private PuzzleMaster pm;
 	public PuzzleMaster pm = null;
+	public float lastTouch;
 
 	// Use this for initialization
 	void Start () {
@@ -22,7 +23,8 @@ public class ColorBox : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D other){
-		if (pm.active == true && other.gameObject.tag == "Player") {
+		if (pm.active == true && other.gameObject.tag == "Player" && Time.time > lastTouch + 1f) {
+			lastTouch = Time.time;
 			if (color != pm.correctSequence[pm.attempt]){
 				Debug.Log("WRONG! " + pm.attempt);
 				pm.attempt = 0;

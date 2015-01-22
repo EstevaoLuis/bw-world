@@ -18,6 +18,7 @@ public class GemCannon : MonoBehaviour {
 		target = GameObject.Find("GemPost_2");
 		sprite = GetComponent<SpriteRenderer> ();
 		targetSprite = target.GetComponent<SpriteRenderer> ();
+		timer = Time.time;
 	}
 
 	Vector3 compute_startshot(){
