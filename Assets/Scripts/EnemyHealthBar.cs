@@ -9,7 +9,7 @@ public class EnemyHealthBar : MonoBehaviour {
 	public GameObject enemy;
 	private Slider health;
 	//public Canvas canvas;
-	public Camera camera;
+	private Camera camera;
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +26,9 @@ public class EnemyHealthBar : MonoBehaviour {
 		//Debug.Log (controller.getHealth ());
 		health.minValue = 0;
 		health.value = life;
+
+		//camera = (Camera)GameObject.Find ("Camera");
+		camera = Camera.main;
 	}
 	
 	// Update is called once per frame
@@ -35,12 +38,7 @@ public class EnemyHealthBar : MonoBehaviour {
 				Destroy (gameObject);
 		}
 
-		//health.transform.position = enemy.transform.position;
-		//canvas.transform.position = enemy.transform.position;
-		//Vector3 newPosition = (new Vector3(0.0f, -200.0f, 0.0f) + enemy.transform.position);
-		//Vector3 newPosition = enemy.transform.position + new Vector3(0, 3);
 		Vector3 newPosition = enemy.transform.position + 2.8f * Vector3.up;
-		//Vector3 newPosition = (new Vector3(enemy.transform.position.x + 50.0f, enemy.transform.position.y - 200.0f) + enemy.transform.position);
 		health.transform.position = (camera.WorldToScreenPoint (newPosition));
 		health.value = controller.getHealth ();
 	}

@@ -128,7 +128,7 @@
     },
     
     "Mantis": {
-    	"health": 70,
+    	"health": 2500,
     	"speed": 2,
         "attack": 20,
         "defense": 5,
