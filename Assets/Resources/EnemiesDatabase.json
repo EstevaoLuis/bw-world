@@ -121,8 +121,7 @@
 			{"name": "Melee 2", "probability": 0.5}
 		],
     	"spells": [
-    		{"name": "Black 1", "probability": 0.5},
-    		{"name": "Black 2", "probability": 0.5}
+    		{"name": "Black 1", "probability": 1}
 		],
 		"behaviour": [2,2,2,0],
     	"experience": 30

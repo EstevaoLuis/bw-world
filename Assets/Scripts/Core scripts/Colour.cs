@@ -59,10 +59,12 @@ public class Colour : MonoBehaviour {
 		lastColor = renderer.color;
 		if (isColoured) {
 			switch (spellColor) {
-			case "red": if(compositeColor.r == 0) audio.Play (); compositeColor.r = 255; break;
-			case "green": if(compositeColor.g == 0) audio.Play (); compositeColor.g = 255; break;
-			case "blue": if(compositeColor.b == 0) audio.Play (); compositeColor.b = 255; break;
-			case "cyan": if(compositeColor.g == 0 || compositeColor.b == 0) audio.Play (); compositeColor.g = 255; compositeColor.b = 255; break;
+				case "red": if(compositeColor.r == 0) audio.Play (); compositeColor.r = 255; break;
+				case "green": if(compositeColor.g == 0) audio.Play (); compositeColor.g = 255; break;
+				case "blue": if(compositeColor.b == 0) audio.Play (); compositeColor.b = 255; break;
+				case "cyan": if(compositeColor.g == 0 || compositeColor.b == 0) audio.Play (); compositeColor.g = 255; compositeColor.b = 255; break;
+				case "yellow": if(compositeColor.g == 0 || compositeColor.r == 0) audio.Play (); compositeColor.g = 255; compositeColor.r = 255; break;
+				case "magenta": if(compositeColor.r == 0 || compositeColor.b == 0) audio.Play (); compositeColor.r = 255; compositeColor.b = 255; break;
 			}
 			finalColor = compositeColor;//visible;
 		} else {

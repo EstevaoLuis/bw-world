@@ -77,6 +77,18 @@ public class Spell : MonoBehaviour {
 						color = "cyan";
 						animator.runtimeAnimatorController = newController;
 					}
+					//Yellow
+					else if((color == "green" && otherSpell.color == "red") || (otherSpell.color == "green" && color == "red")) {
+						RuntimeAnimatorController newController = Resources.Load("Animators/YellowSpell") as RuntimeAnimatorController;
+						color = "yellow";
+						animator.runtimeAnimatorController = newController;
+					}
+					//Magenta
+					else if((color == "blue" && otherSpell.color == "red") || (otherSpell.color == "blue" && color == "red")) {
+						RuntimeAnimatorController newController = Resources.Load("Animators/MagentaSpell") as RuntimeAnimatorController;
+						color = "magenta";
+						animator.runtimeAnimatorController = newController;
+					}
 
 				}
 				castTime = Time.time;

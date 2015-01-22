@@ -5,7 +5,7 @@ public class Meteor : MonoBehaviour {
 
 	public float hitTime = 0.3f;
 	private float explosionFinishedTime = 1f; 
-	public int meteorDamage = 30;
+	public int meteorDamage = 2;
 
 	private float startTime;
 	private bool explosionActivated = false;
