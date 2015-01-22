@@ -5,9 +5,10 @@ public class cutscene : MonoBehaviour {
 
 	public GameObject cameraObjective;
 	public float time_scene;
-	private float speed_of_cam =5f;
+	public float speed_of_cam;
 	private float speed_of_cam_vib =6f;
 	private float cam_height = -7.5f;
+	public bool isBoss;
 
 	private int counter;
 	int trigger = 0;
@@ -78,7 +79,9 @@ public class cutscene : MonoBehaviour {
 			//vibrationalCamera();
 	
 		if (trigger_2 == 1) {
+			if(isBoss == true){
 			vibrationalCamera();
+			}
 			trigger_3 = 1;
 			Invoke ("delete", time_scene);
 		}
