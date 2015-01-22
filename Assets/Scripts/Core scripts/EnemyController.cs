@@ -536,14 +536,14 @@ public class EnemyController : MonoBehaviour {
 		if(other.gameObject.tag == "Color") {
 			if(other.gameObject == nearestColoredObject) {
 				Colour colourScript = other.gameObject.GetComponent("Colour") as Colour;
-				if(!colourScript.isColored()) {
+				if(colourScript != null && !colourScript.isColored()) {
 					nearestColoredObject = null;
 					Debug.Log("Oggetto decolorato correttamente: " + other.gameObject.transform.position);
 				}
 			}
 			else if(nearestColoredObject == null) {
 				Colour colourScript = other.gameObject.GetComponent("Colour") as Colour;
-				if(colourScript.isColored()) {
+				if(colourScript != null && colourScript.isColored()) {
 					nearestColoredObject = other.gameObject;
 					Debug.Log("Trovato oggetto colorato: " + other.gameObject.transform.position);
 				}

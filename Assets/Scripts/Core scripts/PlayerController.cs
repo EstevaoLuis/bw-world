@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour {
 	void OnTriggerStay2D (Collider2D other) {
 		if(other.gameObject.tag == "Color") {
 			Colour colorScript = other.gameObject.GetComponent("Colour") as Colour;
-			if(colorScript.isColored()) {
+			if(colorScript != null && colorScript.isColored()) {
 				if (Time.time > lastRegeneration + 3.0f) {
 					if(GameInstance.instance.regeneration()) lastRegeneration = Time.time;
 				}

@@ -10,7 +10,7 @@ public class GemCannon : MonoBehaviour {
 	private float diff_x;
 	private float diff_y;
 	private float speed = 2f;
-	private float timer = 0.5f;
+	private float lastShot = 0.5f;
 	private Vector3 direction;
 	public float intensity = 0.1f;
 	// Use this for initialization
@@ -18,7 +18,6 @@ public class GemCannon : MonoBehaviour {
 		target = GameObject.Find("GemPost_2");
 		sprite = GetComponent<SpriteRenderer> ();
 		targetSprite = target.GetComponent<SpriteRenderer> ();
-		timer = Time.time;
 	}
 
 	Vector3 compute_startshot(){
@@ -41,11 +40,11 @@ public class GemCannon : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		direction += compute_startshot ();
-		if (Time.time > timer && sprite.color.r < 1f) {
+		if (Time.time > lastShot + 0.5f && sprite.color.r < 1f && sprite.color.g > 0f) {
+			direction += compute_startshot ();
 			direction.Normalize();
 			Instantiate (bullet, direction+transform.position, transform.rotation);
-			timer = timer + 0.5f;
+			lastShot = Time.time;
 		}
 //		bullet.rigidbody2D.velocity = Vector3.right * speed;
 		//shoot_to_other_portal ();

@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using SimpleJSON;
 using System.Collections;
 
 public class EnemyHealthBar : MonoBehaviour {
@@ -13,12 +12,11 @@ public class EnemyHealthBar : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		//if (enemy == null) enemy = gameObject;
 		controller = enemy.GetComponent<EnemyController> ();
 		health = GetComponent<Slider> ();
 
-		JSONNode parameters = GameInstance.instance.getEnemyParameters (controller.enemyName);
-
-		int life = parameters ["health"].AsInt;
+		int life = controller.getHealth();
 
 		health.maxValue = life;
 		health.minValue = 0;

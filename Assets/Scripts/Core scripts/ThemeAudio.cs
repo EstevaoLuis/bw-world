@@ -11,17 +11,20 @@ public class ThemeAudio : MonoBehaviour {
 	private float toVolume1, toVolume2, toVolume3;
 
 	//Audio
-	private AudioClip sceneAudio, battleAudio;
+	private AudioClip sceneAudio, battleAudio, bossAudio;
 	private bool isBattleTheme = false;
 	private float crossfadeTime;
 	private float transitionTime = 4f;
+	private bool isBossFight = false;
 
 	// Use this for initialization
 	void Start () {
 		sceneAudio = Resources.Load ("Music/Field4") as AudioClip;
 		battleAudio = Resources.Load ("Music/Battle4") as AudioClip;
+		bossAudio = Resources.Load ("Music/Battle3") as AudioClip;
 		audio1.clip = sceneAudio;
 		audio2.clip = battleAudio;
+		audio3.clip = bossAudio;
 		audio1.Play ();
 		audio1.volume = 1f;
 		fromVolume1 = 1f;
@@ -30,17 +33,32 @@ public class ThemeAudio : MonoBehaviour {
 		audio2.volume = 0f;
 		fromVolume2 = 0f;
 		toVolume2 = 0f;
+		audio3.Play ();
+		audio3.volume = 0f;
+		fromVolume3 = 0f;
+		toVolume3 = 0f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (GameInstance.instance.isInBattle ()) {
-			if(!isBattleTheme) playBattleTheme();
-		} else {
-			if(isBattleTheme) playSceneTheme();
+		if (GameInstance.instance.isBossBattle()) {
+			if(!isBossFight) {
+				playBossTheme();
+			}
+		}
+		else {
+			if(isBossFight) {
+				stopBossTheme();
+			}
+			if (GameInstance.instance.isInBattle ()) {
+				if(!isBattleTheme) playBattleTheme();
+			} else {
+				if(isBattleTheme) playSceneTheme();
+			}
 		}
 		audio1.volume = Mathf.Clamp01 (Mathf.Lerp(fromVolume1,toVolume1,(Time.time - crossfadeTime) / transitionTime));
 		audio2.volume = Mathf.Clamp01 (Mathf.Lerp(fromVolume2,toVolume2,(Time.time - crossfadeTime) / transitionTime));
+		audio3.volume = Mathf.Clamp01 (Mathf.Lerp(fromVolume3,toVolume3,(Time.time - crossfadeTime) / transitionTime));
 	}
 	
 	public void stopAudio() {
@@ -69,10 +87,32 @@ public class ThemeAudio : MonoBehaviour {
 		toVolume2 = 1f;
 	}
 
+	public void playBossTheme() {
+		isBossFight = true;
+		toVolume1 = 0f;
+		toVolume2 = 0f;
+		toVolume3 = 1f;
+		fromVolume1 = audio1.volume;
+		fromVolume2 = audio2.volume;
+		fromVolume3 = audio3.volume;
+		crossfadeTime = Time.time;
+	}
+
+	public void stopBossTheme() {
+		isBossFight = false;
+		isBattleTheme = false;
+		toVolume1 = 1f;
+		toVolume2 = 0f;
+		toVolume3 = 0f;
+		fromVolume1 = audio1.volume;
+		fromVolume2 = audio2.volume;
+		fromVolume3 = audio3.volume;
+		crossfadeTime = Time.time;
+	}
+
 	public void playTheme(string name) {
 		AudioClip newTheme = Resources.Load ("Music/" + name) as AudioClip;
 		Debug.Log (newTheme);
-
-
 	}
+
 }

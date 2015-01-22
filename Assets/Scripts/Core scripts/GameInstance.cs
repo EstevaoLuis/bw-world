@@ -42,7 +42,7 @@ public class GameInstance : MonoBehaviour
 
 	//Time variables
 	private float lastSpell, lastRegeneration, lastBattle = 0f;
-
+	private bool bossBattle = false;
 
 	//Instance management
 	public static GameInstance instance
@@ -516,6 +516,14 @@ public class GameInstance : MonoBehaviour
 		//displayText.transform.position.x -= displayText.renderer.bounds.size.x / 2f;
 		//GameObject finalText = displayText;
 		return displayText;
+	}
+
+	public bool isBossBattle() {
+		return bossBattle;
+	}
+
+	public void setBossBattle(bool value) {
+		bossBattle = value;
 	}
 
 	public GameObject instantiateEnemy(string prefabName, string enemyName, Vector3 newPosition) {

@@ -25,6 +25,7 @@ public class deathoftitan : MonoBehaviour {
 			GameInstance.instance.playAudio("Darkness8");
 			Invoke ("activateTeleport",3f);
 			Debug.Log ("Boss sconfitto");
+			GameInstance.instance.setBossBattle(false);
 			GameInstance.instance.playAnimation(finalAttackName,new Vector3(transform.position.x,transform.position.y-4f,0f));
 			Object prefab2 = Resources.Load("Events/" + teleportPrefabName) as Object;
 			Instantiate(prefab2,new Vector3(transform.position.x,transform.position.y,0.1f), new Quaternion(0f,0f,0f,1f));

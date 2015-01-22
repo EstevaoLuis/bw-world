@@ -28,6 +28,6 @@ public class Cloud : MonoBehaviour {
 		float newY = initialY + Random.Range (-area,area);
 		target = new Vector2 (newX,newY);
 		rigidbody2D.velocity = new Vector2 (target.x-transform.position.x,target.y-transform.position.y) / 10f ;
-		Debug.Log (rigidbody2D.velocity);
+		//Debug.Log (rigidbody2D.velocity);
 	}
 }

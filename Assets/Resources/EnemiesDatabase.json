@@ -72,7 +72,7 @@
     },
     
     "Spider (Heavy)": {
-    	"health": 60,
+    	"health": 200,
     	"speed": 1,
         "attack": 10,
         "defense": 5,
@@ -121,7 +121,8 @@
 			{"name": "Melee 2", "probability": 0.5}
 		],
     	"spells": [
-    		{"name": "Black 1", "probability": 1}
+    		{"name": "Black 1", "probability": 0.5},
+    		{"name": "Black 2", "probability": 0.5}
 		],
 		"behaviour": [2,2,2,0],
     	"experience": 30
@@ -131,11 +132,11 @@
     	"health": 2500,
     	"speed": 2,
         "attack": 20,
-        "defense": 5,
+        "defense": 15,
         "mass": 5000,
         "scale": 0.8,
         "delay": 2,
-        "detection": 10,
+        "detection": 15,
         "melees": [
 			{"name": "Melee 3", "probability": 0.5},
 			{"name": "Melee 4", "probability": 0.5}
