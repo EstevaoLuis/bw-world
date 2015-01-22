@@ -166,7 +166,7 @@
     	"experience": 30
     },
      "Titan": {
-    	"health": 10,
+    	"health": 2000,
     	"speed": 1,
         "attack": 15,
         "defense": 0,

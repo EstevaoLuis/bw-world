@@ -220,28 +220,48 @@
     	"storyLevel": 21,
     	"preMessage": "Hi there, you're the Color Bringer right? Well, at least that´s how the Klamers refer to you. Please check what´s going on down this road.",
     	"postMessage": "",
-    	"targetX": 0,
-    	"targetY": 0,
+    	"targetX": 148.55,
+    	"targetY": 4.81,
     	"targetZ": 0,
     	"scene": "Blue World",
     	"character": "Scout boy"
 	},
-	    "Titan Slayer": {
+	 "Avalanche": {
     	"storyLevel": 22,
+    	"preMessage": "",
+    	"postMessage": "",
+    	"targetX": 165.19,
+    	"targetY": 15.35,
+    	"targetZ": 0,
+    	"scene": "Blue World",
+    	"character": ""
+	},
+	    "BossFightTitan": {
+    	"storyLevel": 23,
+    	"preMessage": "",
+    	"postMessage": "",
+    	"targetX": 11.54,
+    	"targetY": 49.11,
+    	"targetZ": 0,
+    	"scene": "Blue World",
+    	"character": ""
+	},
+	    "Titan Slayer": {
+    	"storyLevel": 24,
     	"preMessage": "You killed the old frozen titan?!? for the grace of the colors you are the chosen one! Go North and continue your path young hero",
     	"postMessage": "",
-    	"targetX": 0,
-    	"targetY": 0,
+    	"targetX": 91.44797,
+    	"targetY": 111.3368,
     	"targetZ": 0,
     	"scene": "Blue World",
     	"character": "Villager"
 	},
 	 "The Legend": {
-    	"storyLevel": 23,
+    	"storyLevel": 25,
     	"preMessage": "You have saved us all!!!!!",
     	"postMessage": "",
-    	"targetX": 0,
-    	"targetY": 0,
+    	"targetX": 91.44797,
+    	"targetY": 111.3368,
     	"targetZ": 0,
     	"scene": "Blue World",
     	"character": "Villager"
