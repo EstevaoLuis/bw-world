@@ -210,24 +210,38 @@
     	"storyLevel": 20,
     	"preMessage": "What? You're alive? You found a Crystal? For the Black and White!! Anyway there is no time to waste. Head to the East Ranger, he says wierd sounds have come out from the old timberland",
     	"postMessage": "",
-    	"targetX": 85.1,
-    	"targetY": 4.5,
+    	"targetX": 122.23,
+    	"targetY": 63.7,
     	"targetZ": 0,
     	"scene": "Blue World",
     	"character": "Scout boy"	
     },
-        "Up the road": {
+    
+        "Learn Cyan": {
     	"storyLevel": 21,
+    	"preMessage": "Cast Cyan. Combining spells will give you more power",
+    	"postMessage": "",
+    	"targetX": 85.1,
+    	"targetY": 4.5,
+    	"targetZ": 0,
+    	"scene": "Blue World",
+    	"character": ""
+    	
+    },
+    	
+        "Up the road": {
+    	"storyLevel": 22,
     	"preMessage": "Hi there, you're the Color Bringer right? Well, at least that´s how the Klamers refer to you. Please check what´s going on down this road.",
     	"postMessage": "",
     	"targetX": 148.55,
     	"targetY": 4.81,
     	"targetZ": 0,
     	"scene": "Blue World",
-    	"character": "Scout boy"
+    	"character": ""
 	},
-	 "Avalanche": {
-    	"storyLevel": 22,
+	
+	 	"Avalanche": {
+    	"storyLevel": 23,
     	"preMessage": "",
     	"postMessage": "",
     	"targetX": 165.19,
@@ -237,7 +251,7 @@
     	"character": ""
 	},
 	    "BossFightTitan": {
-    	"storyLevel": 23,
+    	"storyLevel": 24,
     	"preMessage": "",
     	"postMessage": "",
     	"targetX": 11.54,
@@ -247,7 +261,7 @@
     	"character": ""
 	},
 	    "Titan Slayer": {
-    	"storyLevel": 24,
+    	"storyLevel": 25,
     	"preMessage": "You killed the old frozen titan?!? for the grace of the colors you are the chosen one! Go North and continue your path young hero",
     	"postMessage": "",
     	"targetX": 91.44797,
@@ -257,7 +271,7 @@
     	"character": "Villager"
 	},
 	 "The Legend": {
-    	"storyLevel": 25,
+    	"storyLevel": 26,
     	"preMessage": "You have saved us all!!!!!",
     	"postMessage": "",
     	"targetX": 91.44797,
