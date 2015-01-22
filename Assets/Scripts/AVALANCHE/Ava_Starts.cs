@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Ava_Starts : MonoBehaviour {
 	public GameObject door;
+	public GameObject avalanche;
 	// Use this for initialization
 	void Start () {
 	
@@ -12,7 +13,9 @@ public class Ava_Starts : MonoBehaviour {
 
 		if (other.gameObject.tag == "Player") {
 			Destroy(door);
+			Destroy(avalanche.rigidbody2D);
 			Destroy(gameObject);
+
 		}
 	}
 

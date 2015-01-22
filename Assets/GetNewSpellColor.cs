@@ -6,6 +6,7 @@ public class GetNewSpellColor : MonoBehaviour {
 	private CircleCollider2D collider;
 	private PlayerController controller;
 	private bool isActivated = false;
+	public bool isGreen = true;
 
 	// Use this for initialization
 	void Start () {
@@ -19,7 +20,11 @@ public class GetNewSpellColor : MonoBehaviour {
 			isActivated = true;
 			Vector3 newPosition = other.gameObject.transform.position;
 			controller.isAvailable(false);
-			GameInstance.instance.playAnimation("NewSpellGreen",new Vector3 (newPosition.x,newPosition.y,1f));
+			if(isGreen == true){
+				GameInstance.instance.playAnimation("NewSpellGreen",new Vector3 (newPosition.x,newPosition.y,1f));
+			}else{
+				GameInstance.instance.playAnimation("NewSpellBlue",new Vector3 (newPosition.x,newPosition.y,1f));
+			}
 			GameInstance.instance.playAudio("Up3");
 			Invoke ("showMessage",3f);
 		}

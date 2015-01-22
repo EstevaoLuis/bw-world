@@ -13,17 +13,14 @@ public class Ava_Move : MonoBehaviour {
 		target=GameObject.FindGameObjectWithTag("Player");
 	}
 	void OnCollisionEnter2D (Collision2D other){
-		if (other.gameObject.tag == "Player") {
-			if(Time.time > timer){
-				GameInstance.instance.damagePlayer (5);
-				timer = timer + 1;
-			}
+				if (other.gameObject.tag == "Player") {
+						//rigidbody2D.isKinematic = true;
+						GameInstance.instance.damagePlayer (7);
+				}
 		}
-//		if (other.gameObject.name == "DoorBlue") {
-//			GameInstance.instance.damagePlayer (1);
-//			transform.position = transform.position;
-//		}
-	}
+
+
+
 	
 	// Update is called once per frame
 	void Update () {
