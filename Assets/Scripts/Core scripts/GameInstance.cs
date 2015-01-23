@@ -79,7 +79,7 @@ public class GameInstance : MonoBehaviour
 
 			//Setup player data
 			experience = 0;
-			setPlayerLevel (8); red= 60; green = 60; blue = 60;
+			setPlayerLevel (1);
 			mana = maxMana;
 			health = maxHealth;
 

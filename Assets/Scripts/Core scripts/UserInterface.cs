@@ -7,7 +7,7 @@ public class UserInterface : MonoBehaviour
 {
 	private static UserInterface _instance;
 
-	public GameObject messagePanel;
+	public GameObject messagePanel, minimap;
 	public Text displayedMessage;
 	public Text displayedName;
 
@@ -19,6 +19,8 @@ public class UserInterface : MonoBehaviour
 	private GameObject directionalArrow;
 	private RectTransform arrowTransform;
 	private GameObject textScrollbar;
+
+	private bool isMinimapEnabled = false;
 
 	//Instance management
 	public static UserInterface instance
@@ -103,6 +105,16 @@ public class UserInterface : MonoBehaviour
 
 	public void destroyInstance() {
 		Destroy(this.gameObject);
+	}
+
+	public void minimapSwitch() {
+		if (!isMinimapEnabled) {
+			minimap.SetActive (true);
+			isMinimapEnabled = true;
+		} else {
+			minimap.SetActive (false);
+			isMinimapEnabled = false;
+		}
 	}
 
 }
