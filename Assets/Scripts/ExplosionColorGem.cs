@@ -4,7 +4,7 @@ using System.Collections;
 public class ExplosionColorGem : MonoBehaviour {
 
 	private SpriteRenderer sprite;
-	public string color = "green";
+	public string color;
 	public float intensity = 0.1f;
 
 	// Use this for initialization
