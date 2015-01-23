@@ -177,7 +177,7 @@
     },
         "Welcome to the north": {
     	"storyLevel": 17,
-    	"preMessage": "No way,so the colors are coming back then? My cousin in the green world told me about this. Although up here in the North the difference is not so great since everything is white anyway. HA HA!. Get moving, go to the sanctuary, our rangers are waiting.",
+    	"preMessage": "No way, Colors?! My cousin in the green world told me about this. Although up here in the North the difference is not so great since everything is white anyway. HA HA!. Go to the sanctuary, our rangers are waiting.",
     	"postMessage": "",
     	"experience": 0,
      	"targetX": 17.8212,
@@ -198,8 +198,13 @@
     },
     
         "Back alive": {
+<<<<<<< Updated upstream
     	"storyLevel": 19,
     	"preMessage": "What? You're alive? You found a Crystal? For the Black and White!! Anyway there is no time to waste. Head to the East Ranger, he says wierd sounds have come out from the old timberland",
+=======
+    	"storyLevel": 20,
+    	"preMessage": "What? You found a Crystal? For the Black and White!! Head to the East Ranger, he says wierd sounds have come out from the old timberland",
+>>>>>>> Stashed changes
     	"postMessage": "",
     	"targetX": 122.23,
     	"targetY": 63.7,
