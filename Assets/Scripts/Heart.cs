@@ -22,6 +22,7 @@ public class Heart : MonoBehaviour {
 			GetComponent<SpriteRenderer>().enabled = false;
 			GetComponent<PolygonCollider2D>().enabled = false;
 			//playAnAnimation TODO
+			GameInstance.instance.playAudio("Heal3");
 			GameInstance.instance.regenerateAllHealth();
 			GameInstance.instance.regenerateAllMana();
 			Destroy(gameObject);

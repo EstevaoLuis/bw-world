@@ -15,7 +15,7 @@
 			{"name": "Melee 1", "probability": 1}
 		],
 		"behaviour": [1,2,2,0],
-    	"experience": 15
+    	"experience": 20
     },
     
     "Spider (Tutorial)": {
@@ -32,7 +32,7 @@
 		],
 		"melees": [],
 		"behaviour": [1,2,2,0],
-    	"experience": 10
+    	"experience": 15
     },
     
     "Spider (Noob)": {
@@ -49,7 +49,7 @@
 			{"name": "Melee 1", "probability": 1}
 		],
 		"behaviour": [1,2,2,0],
-    	"experience": 8
+    	"experience": 10
     },
     
     "Spider (Fast)": {
@@ -68,11 +68,11 @@
     		{"name": "Black 1", "probability": 0.5}
 		],
 		"behaviour": [1,2,2,0],
-    	"experience": 20
+    	"experience": 25
     },
     
     "Spider (Heavy)": {
-    	"health": 200,
+    	"health": 150,
     	"speed": 1,
         "attack": 10,
         "defense": 5,
@@ -87,7 +87,7 @@
     		{"name": "Black 2", "probability": 1}
 		],
 		"behaviour": [1,2,2,0],
-    	"experience": 20
+    	"experience": 50
     },
     
     "Spider (Kamikaze)": {
@@ -125,14 +125,14 @@
     		{"name": "Black 2", "probability": 0.5}
 		],
 		"behaviour": [2,2,2,0],
-    	"experience": 30
+    	"experience": 60
     },
     
     "Mantis": {
     	"health": 2500,
     	"speed": 2,
         "attack": 20,
-        "defense": 15,
+        "defense": 10,
         "mass": 5000,
         "scale": 0.8,
         "delay": 2,
@@ -167,7 +167,7 @@
     	"experience": 30
     },
      "Titan": {
-    	"health": 4000,
+    	"health": 3000,
     	"speed": 1,
         "attack": 15,
         "defense": 0,
