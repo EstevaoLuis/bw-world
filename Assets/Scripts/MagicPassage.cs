@@ -18,13 +18,12 @@ public class MagicPassage : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D other){
 		if (other.gameObject.tag == "Player") {
 			if(ScenesManager.instance != null) {
-<<<<<<< HEAD
 				ScenesManager.instance.loadLevel(level_name);
-=======
+
 				ScenesManager.restoreSavedGame = false;
 				ScenesManager.restoreFromCheckpoint = false;
 				ScenesManager.instance.loadLevel("Blue World");
->>>>>>> FETCH_HEAD
+
 			}
 			else {
 				Application.LoadLevel(level_name);
