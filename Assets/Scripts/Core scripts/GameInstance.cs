@@ -492,7 +492,7 @@ public class GameInstance : MonoBehaviour
 	}
 
 	public void regenerateHealth() {
-		health = health + Mathf.RoundToInt(maxHealth / 10);
+		health = health + Mathf.RoundToInt(maxHealth / 6);
 		if (health > maxHealth)	health = maxHealth;
 		updateLifeBar ();
 	}
