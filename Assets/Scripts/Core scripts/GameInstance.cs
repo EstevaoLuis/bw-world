@@ -12,6 +12,7 @@ public class GameInstance : MonoBehaviour
 
 	public int initialStoryLevel;
 	public string initialEvent;
+	public int initialPlayerLevel = 1;
 
 	//Objects database
 	private JSONNode spells;
@@ -79,7 +80,7 @@ public class GameInstance : MonoBehaviour
 
 			//Setup player data
 			experience = 0;
-			setPlayerLevel (1);
+			setPlayerLevel (initialPlayerLevel);
 			mana = maxMana;
 			health = maxHealth;
 
