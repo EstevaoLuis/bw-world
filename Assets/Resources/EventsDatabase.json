@@ -23,7 +23,7 @@
     },
     "Initial story": {
     	"storyLevel": 3,
-    	"preMessage": "Oh!! I couldn't believe it until I saw it! Do you you know it's been ages since the last colored item was found on this planet? Wait... it must be a sign... go to the South and speak to the Old Man, he will explain everything to you. I feel that after your discovery something could change in this world. I put all my hope on you. ",
+    	"preMessage": "Oh!! I couldn't believe it until I saw it! Do you you know it's been ages since the last colored item was found on this planet? Wait... it must be a sign... go to the South and speak to the Old Man, he will explain everything to you. ",
     	"postMessage": "",
     	"experience": 0,
     	"targetX": 235.96,
@@ -34,7 +34,7 @@
     },
     "The prophecy": {
     	"storyLevel": 4,
-    	"preMessage": "So the chief of the village sent you to me, ah? Wait... what do my old eyes see? It's a colored scarf!! What a unique event!! Now I'll tell you a story. In this world there have always been two races: the Trilight, lively and cheerful beings able to control the colors, and the Klamers, loyal and combative beings who protected the Trilight and fed on colors. However, at a certain point this harmony was broken. The Klamers prevailed and stole all the colors from this world, leaving our race heart-sick and unable to be useful to the world.",
+    	"preMessage": "So the chief of the village sent you to me, ah? Wait... what do my old eyes see? It's a colored scarf!! What a unique event!! Now I'll tell you a story. In this world there have always been two races: the Trilight, and the Klamers who protected the Trilight and fed on colors. But the Klamers betrayed us...",
     	"postMessage": "",
     	"experience": 0,
     	"targetX": 278.7509,
@@ -198,13 +198,8 @@
     },
     
         "Back alive": {
-<<<<<<< Updated upstream
     	"storyLevel": 19,
     	"preMessage": "What? You're alive? You found a Crystal? For the Black and White!! Anyway there is no time to waste. Head to the East Ranger, he says wierd sounds have come out from the old timberland",
-=======
-    	"storyLevel": 20,
-    	"preMessage": "What? You found a Crystal? For the Black and White!! Head to the East Ranger, he says wierd sounds have come out from the old timberland",
->>>>>>> Stashed changes
     	"postMessage": "",
     	"targetX": 122.23,
     	"targetY": 63.7,
@@ -270,8 +265,18 @@
     	"storyLevel": 25,
     	"preMessage": "You have saved us all!!",
     	"postMessage": "",
-    	"targetX": 91.44797,
-    	"targetY": 111.3368,
+    	"targetX":  102.76,
+    	"targetY": 157.99,
+    	"targetZ": 0,
+    	"scene": "Blue World",
+    	"character": "Villager"
+	},
+	 "The Last Goodbye": {
+    	"storyLevel": 26,
+    	"preMessage": "Keep going, I think they might need you in other places...",
+    	"postMessage": "",
+    	"targetX": ,
+    	"targetY": ,
     	"targetZ": 0,
     	"scene": "Blue World",
     	"character": "Villager"

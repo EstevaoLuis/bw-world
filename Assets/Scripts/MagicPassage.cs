@@ -18,7 +18,7 @@ public class MagicPassage : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D other){
 		if (other.gameObject.tag == "Player") {
 			if(ScenesManager.instance != null) {
-				ScenesManager.instance.loadLevel("Blue World");
+				ScenesManager.instance.loadLevel(level_name);
 			}
 			else {
 				Application.LoadLevel(level_name);
