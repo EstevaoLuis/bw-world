@@ -196,18 +196,9 @@
     	"scene": "Blue World",
     	"character": "Villager"
     },
-        "Survivor": {
-    	"storyLevel": 19,
-    	"preMessage": "",
-    	"postMessage": "",
-   		"targetX": 17.8212,
-    	"targetY": 7.261063,
-    	"targetZ": 0,
-    	"scene": "Blue World",
-    	"character": "Gem"	
-    },
+    
         "Back alive": {
-    	"storyLevel": 20,
+    	"storyLevel": 19,
     	"preMessage": "What? You're alive? You found a Crystal? For the Black and White!! Anyway there is no time to waste. Head to the East Ranger, he says wierd sounds have come out from the old timberland",
     	"postMessage": "",
     	"targetX": 122.23,
@@ -218,7 +209,7 @@
     },
     
         "Learn Cyan": {
-    	"storyLevel": 21,
+    	"storyLevel": 20,
     	"preMessage": "Cast Cyan. Combining spells will give you more power, it is the only way of getting out of here!!!",
     	"postMessage": "",
     	"targetX": 85.1,
@@ -230,7 +221,7 @@
     },
     	
         "Up the road": {
-    	"storyLevel": 22,
+    	"storyLevel": 21,
     	"preMessage": "Hi there, you're the Color Bringer right? Well, at least that´s how the Klamers refer to you. Please check what´s going on down this road.",
     	"postMessage": "",
     	"targetX": 148.55,
@@ -241,7 +232,7 @@
 	},
 	
 	 	"Avalanche": {
-    	"storyLevel": 23,
+    	"storyLevel": 22,
     	"preMessage": "",
     	"postMessage": "",
     	"targetX": 165.19,
@@ -251,7 +242,7 @@
     	"character": ""
 	},
 	    "BossFightTitan": {
-    	"storyLevel": 24,
+    	"storyLevel": 23,
     	"preMessage": "",
     	"postMessage": "",
     	"targetX": 11.54,
@@ -261,7 +252,7 @@
     	"character": ""
 	},
 	    "Titan Slayer": {
-    	"storyLevel": 25,
+    	"storyLevel": 24,
     	"preMessage": "You killed the old frozen titan?!? For the grace of the colors you are the chosen one! Go North and continue your path young hero",
     	"postMessage": "",
     	"targetX": 91.44797,
@@ -271,7 +262,7 @@
     	"character": "Villager"
 	},
 	 "The Legend": {
-    	"storyLevel": 26,
+    	"storyLevel": 25,
     	"preMessage": "You have saved us all!!",
     	"postMessage": "",
     	"targetX": 91.44797,
