@@ -7,6 +7,8 @@ public class Event : MonoBehaviour {
 	public string endEvent;
 	public string startEvent;
 
+	public bool showAnimation = true;
+
 	public float animationOffsetX = -1;
 	public float animationOffsetY = 2f;
 
@@ -51,7 +53,7 @@ public class Event : MonoBehaviour {
 			int eventState;
 			if(endEvent != "") {
 				eventState = QuestManager.instance.getEventState (endEvent);
-				if(eventState == 1 && animation == null) {
+				if(eventState == 1 && animation == null && showAnimation) {
 					animation = GameInstance.instance.playAnimation("Dialog",new Vector3(transform.position.x + animationOffsetX, transform.position.y + animationOffsetY , -1f));
 				}
 			}

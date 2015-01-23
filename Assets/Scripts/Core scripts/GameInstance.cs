@@ -325,12 +325,13 @@ public class GameInstance : MonoBehaviour
 		//Time.timeScale = 0.1f;
 		audioController.stopAudio ();
 		//Invoke ("gameOver", 0.3f);
-		Invoke ("gameOver", 2f);
+		Application.LoadLevelAsync("Game Over");
+		ScenesManager.restoreFromCheckpoint = true;
+		Invoke ("gameOver", 2f); //Useless?
 	}
 
 	public void gameOver() {
 		//Time.timeScale = 1.0f;
-		Application.LoadLevel ("Game Over");
 		Destroy (this.transform.parent.gameObject);
 		Destroy (userInterface.gameObject);
 	}

@@ -57,6 +57,7 @@ public class SaveController1 : MonoBehaviour {
 			Debug.Log ("Load Slot-> " + slot);
 			ScenesManager.currentSlot = slot;
 			ScenesManager.restoreSavedGame = true;
+			ScenesManager.restoreFromCheckpoint = false;
 			if(File.Exists(Application.persistentDataPath + "/playerInfo" + slot + ".dat")) {
 				BinaryFormatter bf = new BinaryFormatter();
 				FileStream file = File.Open(Application.persistentDataPath + "/playerInfo" + slot + ".dat", FileMode.Open);
