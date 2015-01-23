@@ -1,7 +1,7 @@
 ﻿{
     "Welcome": {
     	"storyLevel": 1,
-    	"preMessage": "Hey, welcome back to the village! You can move by touching the screen with your left thumb, and then moving it in the direction you want to go. Now press 'Ok' and go to speak to the other villagers.",
+    	"preMessage": "Hey, welcome back to the village! You can move by touching the screen with your left thumb, and then moving it in the direction you want to go. Now press 'Ok' and go speak to the other villagers.",
     	"postMessage": "",
     	"experience": 0,
     	"targetX": 0,
@@ -23,7 +23,7 @@
     },
     "Initial story": {
     	"storyLevel": 3,
-    	"preMessage": "Oh!! I couldn't believe it until I saw it! Do you you know it's been ages since our last colored item was found on this planet? Wait... it must be a sign... go to the South and speak to the Old Man, he will explain everything to you. I feel that after your discovery something could change in this world: I put all my hope on you. ",
+    	"preMessage": "Oh!! I couldn't believe it until I saw it! Do you you know it's been ages since the last colored item was found on this planet? Wait... it must be a sign... go to the South and speak to the Old Man, he will explain everything to you. I feel that after your discovery something could change in this world. I put all my hope on you. ",
     	"postMessage": "",
     	"experience": 0,
     	"targetX": 235.96,
@@ -34,7 +34,7 @@
     },
     "The prophecy": {
     	"storyLevel": 4,
-    	"preMessage": "So the chief of the village sent you to me, ah? Wait... what do my old eyes see? It's a colored scarf!! What a unique event!! Now I'll tell you a story. In this world there have always been two races: the Trilight, lively and cheerful beings able to control the colors, and the Klamers, loyal and combative beings who protected the Trilight and fed on colors. However, at a certain point this harmony was broken: the Klamers prevailed and stole all the colors from this world, leaving our race heart-sick and unable to be useful to the world.",
+    	"preMessage": "So the chief of the village sent you to me, ah? Wait... what do my old eyes see? It's a colored scarf!! What a unique event!! Now I'll tell you a story. In this world there have always been two races: the Trilight, lively and cheerful beings able to control the colors, and the Klamers, loyal and combative beings who protected the Trilight and fed on colors. However, at a certain point this harmony was broken. The Klamers prevailed and stole all the colors from this world, leaving our race heart-sick and unable to be useful to the world.",
     	"postMessage": "",
     	"experience": 0,
     	"targetX": 278.7509,
@@ -89,7 +89,7 @@
     },
     "Kill heavy spider": {
     	"storyLevel": 9,
-    	"preMessage": "Spiders are attacking us!! Kill the big one north of our house!!",
+    	"preMessage": "Spiders are attacking us!! Kill the big one North of our house!!",
     	"postMessage": "",
     	"experience": 0,
     	"targetX": 330.4,
@@ -155,7 +155,7 @@
     },
     "The boss": {
     	"storyLevel": 15,
-    	"preMessage": "Beyond that spider net, you'll find the Queen of all spiders. You should prepare for combat, be careful.",
+    	"preMessage": "Beyond that spider web, you'll find the Queen of all spiders. You should prepare for combat. Be careful.",
     	"postMessage": "",
     	"experience": 0,
     	"targetX": 0,
@@ -177,7 +177,7 @@
     },
         "Welcome to the north": {
     	"storyLevel": 17,
-    	"preMessage": "No way,so the colors are coming back then? My cousin in the green world told me about this. Although up here in the north theres not that much difference, everything is white HA!.Get moving, go to the sanctuary our rangers are waiting.",
+    	"preMessage": "No way,so the colors are coming back then? My cousin in the green world told me about this. Although up here in the North the difference is not so great since everything is white anyway. HA HA!. Get moving, go to the sanctuary, our rangers are waiting.",
     	"postMessage": "",
     	"experience": 0,
      	"targetX": 17.8212,
@@ -188,7 +188,7 @@
     },
         "Ice Rangers": {
     	"storyLevel": 18,
-    	"preMessage": "hey get out of here,this is dangerous. Oh wait that scarf?!I guess your the new one of the greenLand,we are the Ice Rangers.Try to find out whats going on in the old forest.",
+    	"preMessage": "Hey get out of here, this is dangerous. Oh wait that scarf?!I guess you're the new one of the GreenLand. We are the Ice Rangers. Try to find out what's going on in the old forest.",
     	"postMessage": "",
     	"targetX": 1.4,
     	"targetY": -40.6,
@@ -219,7 +219,7 @@
     
         "Learn Cyan": {
     	"storyLevel": 21,
-    	"preMessage": "Cast Cyan. Combining spells will give you more power",
+    	"preMessage": "Cast Cyan. Combining spells will give you more power, it is the only way of getting out of here!!!",
     	"postMessage": "",
     	"targetX": 85.1,
     	"targetY": 4.5,
@@ -262,7 +262,7 @@
 	},
 	    "Titan Slayer": {
     	"storyLevel": 25,
-    	"preMessage": "You killed the old frozen titan?!? for the grace of the colors you are the chosen one! Go North and continue your path young hero",
+    	"preMessage": "You killed the old frozen titan?!? For the grace of the colors you are the chosen one! Go North and continue your path young hero",
     	"postMessage": "",
     	"targetX": 91.44797,
     	"targetY": 111.3368,
@@ -272,7 +272,7 @@
 	},
 	 "The Legend": {
     	"storyLevel": 26,
-    	"preMessage": "You have saved us all!!!!!",
+    	"preMessage": "You have saved us all!!",
     	"postMessage": "",
     	"targetX": 91.44797,
     	"targetY": 111.3368,

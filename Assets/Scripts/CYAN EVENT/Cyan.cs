@@ -19,7 +19,7 @@ public class Cyan : MonoBehaviour {
 
 		if (other.gameObject.tag == "Player") {
 
-			aux_1=(GameObject)Instantiate(crystal,new Vector3(115.7191f,52.59612f,0),transform.rotation);
+			aux_1=(GameObject)Instantiate(crystal,new Vector3(113f,49.6f,0),transform.rotation);
 			aux_2 = (GameObject)Instantiate(crystal,new Vector3(110.0972f,53.51508f,0),transform.rotation);
 
 
