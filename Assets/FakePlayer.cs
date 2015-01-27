@@ -5,7 +5,7 @@ using SimpleJSON;
 public class FakePlayer : MonoBehaviour {
 
 	public float speed = 5f;
-	public bool useJoystick = false;
+	private bool useJoystick = false;
 
 	private float lastMovement, lastSpell;
 	private Vector2 direction;
@@ -15,6 +15,7 @@ public class FakePlayer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		useJoystick = Settings.isMobile;
 		animator = GetComponent<Animator> ();
 		TextAsset spellsJson = Resources.Load("SpellsDatabase") as TextAsset;
 		spells = JSONNode.Parse(spellsJson.text);

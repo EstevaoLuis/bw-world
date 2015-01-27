@@ -5,6 +5,8 @@ public class NPC : MonoBehaviour {
 
 	public string message;
 
+	public float yCorrection = 0f;
+
 	private GameObject textObject;
 
 	private bool isCentered = false;
@@ -23,7 +25,7 @@ public class NPC : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (!isCentered) {
-			textObject.transform.position = new Vector3(textObject.transform.position.x - (textObject.renderer.bounds.size.x / 2f),textObject.transform.position.y + (textObject.renderer.bounds.size.y) - 1f, -1f);
+			textObject.transform.position = new Vector3(textObject.transform.position.x - (textObject.renderer.bounds.size.x / 2f),textObject.transform.position.y + (textObject.renderer.bounds.size.y) - 1f + yCorrection, -1f);
 			isCentered = true;
 			textObject.SetActive (false);
 		}

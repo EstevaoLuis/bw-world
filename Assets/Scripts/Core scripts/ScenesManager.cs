@@ -70,7 +70,7 @@ public class ScenesManager : MonoBehaviour {
 
 		while (!async.isDone) {
 			Debug.Log (async.progress);
-			if(async.progress >= 0.9f && !waitingToStart && Time.time > sceneRequested + 2f) {
+			if(async.progress >= 0.9f && !waitingToStart && Time.time > sceneRequested + 3f) {
 				loadingText.SetActive (false);
 				startButton.SetActive (true);
 				waitingToStart = true;
@@ -81,8 +81,8 @@ public class ScenesManager : MonoBehaviour {
 
 
 	public void startLevel() {
-		if (GameInstance.instance != null) GameInstance.instance.destroyInstance ();
-		if (UserInterface.instance != null) UserInterface.instance.destroyInstance ();
+		//if (GameInstance.instance != null) GameInstance.instance.destroyInstance ();
+		//if (UserInterface.instance != null) UserInterface.instance.destroyInstance ();
 		startButton.SetActive (false);
 		loadingScene.SetActive (false);
 		async.allowSceneActivation = true;

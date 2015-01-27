@@ -29,6 +29,7 @@ public class deathoftitan : MonoBehaviour {
 			GameInstance.instance.playAnimation(finalAttackName,new Vector3(transform.position.x,transform.position.y-4f,0f));
 			Object prefab2 = Resources.Load("Events/" + teleportPrefabName) as Object;
 			Instantiate(prefab2,new Vector3(transform.position.x,transform.position.y,0.1f), new Quaternion(0f,0f,0f,1f));
+			GameInstance.instance.playAudio("Victory1");
 			QuestManager.instance.setNewTarget(new Vector3(transform.position.x,transform.position.y,0.1f));
 		}
 

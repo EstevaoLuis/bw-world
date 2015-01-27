@@ -59,8 +59,8 @@
     	"preMessage": "Here you are. This is the Green Sanctuary gate.",
     	"postMessage": "",
     	"experience": 0,
-    	"targetX": 0,
-    	"targetY": 0,
+    	"targetX": 183,
+    	"targetY": 348,
     	"targetZ": 0,
     	"scene": "Green World",
     	"character": "Scout boy"

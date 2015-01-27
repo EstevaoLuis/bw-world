@@ -19,7 +19,8 @@ public class ThemeAudio : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		sceneAudio = Resources.Load ("Music/Field4") as AudioClip;
+		//sceneAudio = Resources.Load ("Music/Field4") as AudioClip;
+		selectSceneAudio ();
 		battleAudio = Resources.Load ("Music/Battle4") as AudioClip;
 		bossAudio = Resources.Load ("Music/Battle3") as AudioClip;
 		audio1.clip = sceneAudio;
@@ -37,6 +38,23 @@ public class ThemeAudio : MonoBehaviour {
 		audio3.volume = 0f;
 		fromVolume3 = 0f;
 		toVolume3 = 0f;
+	}
+
+	void OnLevelWasLoaded(int level) {
+		selectSceneAudio ();
+		audio1.Play ();
+	}
+
+	private void selectSceneAudio() {
+		string audioName;
+		switch (Application.loadedLevelName) {
+		case "Green World": audioName = "Field4"; break;
+		case "Blue World": audioName = "Theme2"; break;
+		case "Red World": audioName = "Dungeon5"; break;
+		default: audioName = "Field4"; break;
+		}
+		sceneAudio = Resources.Load ("Music/" + audioName) as AudioClip;
+		audio1.clip = sceneAudio;
 	}
 	
 	// Update is called once per frame

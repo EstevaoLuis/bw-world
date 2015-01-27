@@ -19,7 +19,7 @@ public class ReturnToMainMenu : MonoBehaviour {
 			file.Close();
 			ScenesManager.restoreFromCheckpoint = true;
 			ScenesManager.restoreSavedGame = false;
-			Application.LoadLevel (data.scene);
+			ScenesManager.instance.loadLevel (data.scene);
 		}
 	}
 }

@@ -482,7 +482,7 @@ public class GameInstance : MonoBehaviour
 	}
 
 	public void regenerateMana() {
-		mana = mana + Mathf.RoundToInt(maxMana / 10);
+		mana = mana + Mathf.RoundToInt(maxMana / 5);
 		if (mana > maxMana)	mana = maxMana;
 		updateManaBar ();
 	}

@@ -16,7 +16,7 @@ public class SanctuaryGateOpening : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) {
 		if(other.gameObject.tag == "Player" && !isActivated) {
 			isActivated = true;
-			GameInstance.instance.playAnimation("Rune", transform.position);
+			GameInstance.instance.playAnimation("Rune", new Vector3(transform.position.x,transform.position.y,0.1f));
 			GameInstance.instance.playAudio("Magic3");
 			renderer.color = new Vector4(255f,255f,255f,0f);
 			Debug.Log ("Opening gate...");

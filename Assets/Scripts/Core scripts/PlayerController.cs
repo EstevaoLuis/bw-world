@@ -3,9 +3,9 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 	
-	public bool useJoystick = false;
+	private bool useJoystick = false;
 	
-	private float speed = 5f;
+	public float speed = 5f;
 	private bool invincibility = false;
 
 	private Animator animator;
@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+		useJoystick = Settings.isMobile;
 		animator = GetComponent<Animator> () as Animator;
 		direction = new Vector2(0.0f,-1.0f);
 	}
