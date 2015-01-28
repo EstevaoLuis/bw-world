@@ -157,7 +157,7 @@ public class GameInstance : MonoBehaviour
 
 		//Instances an energy sphere
 		GameObject spellPrefab = Resources.Load("Spells/" + spellData["color"] + "Spell") as GameObject;
-		Vector3 newPosition = transform.position + (new Vector3(direction.x, direction.y, 0)*distance);
+		Vector3 newPosition = transform.position + (new Vector3(direction.x * distance, direction.y * distance, -0.3f));
 		if(spellTag == "SpellEnemy") {
 			float randomPositionModification = 0f;
 			if(direction.x == 0f) newPosition.x += UnityEngine.Random.Range(-1f, 1f) * distance / 2;

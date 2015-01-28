@@ -105,7 +105,7 @@ public class FakePlayer : MonoBehaviour {
 		
 		//Instances an energy sphere
 		GameObject spellPrefab = Resources.Load("Spells/" + spellData["color"] + "Spell") as GameObject;
-		Vector3 newPosition = transform.position + (new Vector3(direction.x, direction.y, 0)*distance);
+		Vector3 newPosition = transform.position + (new Vector3(direction.x * distance, direction.y * distance, -0.3f));
 		if(spellTag == "SpellEnemy") {
 			float randomPositionModification = 0f;
 			if(direction.x == 0f) newPosition.x += UnityEngine.Random.Range(-1f, 1f) * distance / 2;
@@ -113,6 +113,7 @@ public class FakePlayer : MonoBehaviour {
 		}
 		GameObject energySphere = (GameObject) Instantiate(spellPrefab, newPosition, new Quaternion(0,0,0,1));
 		energySphere.tag = spellTag; 
+		energySphere.transform.localScale = new Vector3 (spellData["scale"].AsFloat,spellData["scale"].AsFloat,1f);
 		
 		//Set spell parameters
 		Spell spellParameters = (Spell) energySphere.GetComponent("Spell");
