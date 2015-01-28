@@ -186,6 +186,33 @@
 		"behaviour": [2,2,2,0],
     	"experience": 200
 
+    },
+    
+    "Lanzi" : {
+    	"health": 10000,
+    	"speed": 4.5,
+        "attack": 30,
+        "defense": 15,
+        "mass": 10000,
+        "scale": 1,
+        "delay": 0.5,
+        "detection": 15,
+    	"spells": [
+    		{"name": "Black 1", "probability": 0.1},
+    		{"name": "Black 2", "probability": 0.1},
+    		{"name": "Black 3", "probability": 0.2},
+    		{"name": "Black 4", "probability": 0.2},
+    		{"name": "Black 5", "probability": 0.2},
+    		{"name": "Black 6", "probability": 0.2}
+		],
+		"melees": [
+			{"name": "Melee 1", "probability": 0.25},
+			{"name": "Melee 2", "probability": 0.25},
+			{"name": "Melee 3", "probability": 0.25},
+			{"name": "Melee 4", "probability": 0.25}
+		],
+		"behaviour": [2,2,2,0],
+    	"experience": 1000    
     }
     
 }

@@ -8,7 +8,7 @@ using System.IO;
 
 public class NewGameMenu : MonoBehaviour {
 
-	public GameObject defaultPanel, loadPanel, mainCanvas;
+	public GameObject defaultPanel, loadPanel, mainCanvas, aboutPanel;
 	public Text slot1,slot2,slot3;
 	
 	private JSONNode gameData;
@@ -88,6 +88,14 @@ public class NewGameMenu : MonoBehaviour {
 		Debug.Log("Loading complete");
 	}
 	*/
+
+	public void about() {
+		aboutPanel.SetActive (true);
+	}
+
+	public void closeAbout() {
+		aboutPanel.SetActive (false);
+	}
 
 	public void quit() {
 		Application.Quit ();

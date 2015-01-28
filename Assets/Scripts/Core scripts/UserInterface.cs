@@ -7,7 +7,7 @@ public class UserInterface : MonoBehaviour
 {
 	private static UserInterface _instance;
 
-	public GameObject messagePanel, minimap;
+	public GameObject messagePanel, minimap, minimapButton;
 	public Text displayedMessage;
 	public Text displayedName;
 
@@ -53,7 +53,11 @@ public class UserInterface : MonoBehaviour
 	}
 
 	void Start() {
-
+		if (Settings.useMinimap) {
+			minimapButton.SetActive (true);
+		} else {
+			minimapButton.SetActive (false);
+		}
 	}
 
 	private void getObjectReferences() {

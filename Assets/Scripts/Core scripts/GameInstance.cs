@@ -165,6 +165,7 @@ public class GameInstance : MonoBehaviour
 		}
 		GameObject energySphere = (GameObject) Instantiate(spellPrefab, newPosition, new Quaternion(0,0,0,1));
 		energySphere.tag = spellTag; 
+		energySphere.transform.localScale = new Vector3 (spellData["scale"].AsFloat,spellData["scale"].AsFloat,1f);
 
 		//Set spell parameters
 		Spell spellParameters = (Spell) energySphere.GetComponent("Spell");
@@ -174,7 +175,6 @@ public class GameInstance : MonoBehaviour
 		spellParameters.color = spellData["color"];
 		spellParameters.area = spellData["area"].AsFloat;
 		spellParameters.rigidbody2D.mass = spellData["mass"].AsInt;
-		spellParameters.transform.localScale = new Vector3 (spellData["scale"].AsFloat,spellData["scale"].AsFloat,1f);
 
 		//Set animation
 		GameObject spellAnimation = Resources.Load("Spells/Animations/" + spellName) as GameObject;
