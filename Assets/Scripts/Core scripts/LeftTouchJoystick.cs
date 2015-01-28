@@ -38,7 +38,8 @@ public class LeftTouchJoystick : MonoBehaviour {
 									if (touch.phase == TouchPhase.Began) {
 											print ("Inizio: " + touch.position);
 											lastPosition = touch.position;
-											if(lastPosition.x > 400) lastPosition.x = 400; 
+											if(lastPosition.x > 400) lastPosition.x = 400;
+											if(lastPosition.x < 80) lastPosition.x = 80;
 											transform.position = new Vector3 (lastPosition.x, lastPosition.y, 0f);
 											renderer.sprite = defaultSprite;
 									} else {

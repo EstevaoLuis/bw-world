@@ -124,7 +124,7 @@ public class ThemeAudio : MonoBehaviour {
 		toVolume3 = 0f;
 		fromVolume1 = audio1.volume;
 		fromVolume2 = audio2.volume;
-		fromVolume3 = audio3.volume;
+		fromVolume3 = 0f;
 		crossfadeTime = Time.time;
 	}
 

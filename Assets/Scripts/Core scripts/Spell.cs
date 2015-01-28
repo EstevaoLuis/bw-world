@@ -58,7 +58,8 @@ public class Spell : MonoBehaviour {
 				}
 				GetComponent<SpriteRenderer> ().color = new Color (1, 1, 1, 0);
 				if (!hasHit) {
-						Instantiate (animationGraphics, transform.position, transform.rotation);
+						GameObject animation = (GameObject) GameObject.Instantiate (animationGraphics, transform.position, transform.rotation);
+						animation.transform.localScale = transform.localScale;
 				}
 
 				hasHit = true;

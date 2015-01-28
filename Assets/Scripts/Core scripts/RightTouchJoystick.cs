@@ -44,6 +44,7 @@ public class RightTouchJoystick : MonoBehaviour {
 											print ("Inizio: " + touch.position);
 											lastPosition = touch.position;
 											if(lastPosition.x < 560) lastPosition.x = 560;
+											if(lastPosition.x > 880) lastPosition.x = 880;
 											transform.position = new Vector3 (lastPosition.x, lastPosition.y, 0f);
 									} else {
 											//print ("Spostato in: " + touch.position);
