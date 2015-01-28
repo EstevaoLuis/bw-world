@@ -32,10 +32,10 @@ public class cutscene : MonoBehaviour {
 			this.camera.enabled = true;
 			trigger = 1;
 			pl.isAvailable (false);
+			this.collider2D.enabled = false;
 //			this.camera.
 		}
 		//Destroy (this.collider2D);
-		this.collider2D.enabled = false;
 		
 	}
 	void move_camera_to_objective(){
