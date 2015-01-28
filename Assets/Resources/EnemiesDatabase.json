@@ -148,23 +148,59 @@
 		"behaviour": [2,2,2,0],
     	"experience": 150
     },
-     "Golem": {
-    	"health": 20,
+      "Golem (Noob)": {
+    	"health": 10,
     	"speed": 2,
+        "attack": 4,
+        "defense": 0,
+        "mass": 1,
+        "scale": 0.25,
+        "delay": 3,
+        "detection": 6,
+    	"spells": [],
+		"melees": [
+			{"name": "Melee 1", "probability": 1}
+		],
+		"behaviour": [1,2,2,0],
+    	"experience": 10
+    },
+    
+    "Golem (Fast)": {
+    	"health": 50,
+    	"speed": 3,
         "attack": 10,
         "defense": 0,
         "mass": 1,
-        "scale": 1,
-        "delay": 1,
-        "detection": 6,
-    	"spells": [
-    		{"name": "Black 3", "probability": 1}
+        "scale": 0.75,
+        "delay": 0.5,
+        "detection": 8,
+        "melees": [
+			{"name": "Melee 1", "probability": 1}
 		],
-		"melees": [
-			{"name": "Melee 2", "probability": 1}
+    	"spells": [
+    		{"name": "Black 1", "probability": 0.5}
 		],
 		"behaviour": [1,2,2,0],
     	"experience": 30
+    },
+    
+    "Golem (Heavy)": {
+    	"health": 150,
+    	"speed": 1,
+        "attack": 10,
+        "defense": 5,
+        "mass": 100,
+        "scale": 1.25,
+        "delay": 1,
+        "detection": 6,
+        "melees": [
+			{"name": "Melee 2", "probability": 1}
+		],
+    	"spells": [
+    		{"name": "Black 2", "probability": 1}
+		],
+		"behaviour": [1,2,2,0],
+    	"experience": 60
     },
      "Titan": {
     	"health": 3000,

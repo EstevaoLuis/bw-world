@@ -6,18 +6,22 @@ public class SpiderGenerator : MonoBehaviour {
 
 	public int maxSpiders = 20;
 	public GameObject door;
-
+	private GameObject player;
 	private int spidersGenerated = 0;
 	private int spidersKilled = 0;
 	private float lastGeneration = 0f;
 	private bool isActive = false;
 	private GameObject spider;
+	public GameObject camera;
+	public bool trigger = true;
+	private bool oneTime = true;
 
 	private IList spiders = new List<GameObject>();
 
 	// Use this for initialization
 	void Start () {
 		spider = Resources.Load ("Enemies/Spider") as GameObject;
+		player = GameObject.FindGameObjectWithTag("Player");
 	}
 	
 	// Update is called once per frame
@@ -71,8 +75,25 @@ public class SpiderGenerator : MonoBehaviour {
 
 		if (spidersKilled == maxSpiders) {
 			GameInstance.instance.playAudio("Magic3");
-			Destroy(door);
-			Destroy(this);
+			settingCamera();
+			if(trigger == true){
+				settingCamera();
+			}
+			if(trigger == false){
+				DestroyingDoor();
+			}
+		}
+	}
+	void DestroyingDoor(){
+		Destroy(door);
+		Destroy(this);
+	}
+	void settingCamera(){
+
+		if (oneTime == true) {
+			Instantiate (camera, player.transform.position, transform.rotation);
+			Invoke ("DestroyingDoor", 4);
+			oneTime = false;
 		}
 	}
 
