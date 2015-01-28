@@ -55,6 +55,7 @@ public class GemCannon : MonoBehaviour {
 		if (other.gameObject.tag == "Spell") {
 			Spell spell = other.gameObject.GetComponent("Spell") as Spell;
 			Spell spellParameters = (Spell)other.gameObject.GetComponent ("Spell");
+			if (spellParameters == null) return;
 			string kolor = spellParameters.color;
 			if (kolor == "green") colorMe ();
 			GameInstance.instance.playAnimation ("Hit", gameObject.transform.position);
