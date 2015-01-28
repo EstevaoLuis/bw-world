@@ -24,7 +24,8 @@ public class Ava_Move : MonoBehaviour {
 
 		if (other.gameObject.tag == "Player") {
 						
-				GameInstance.instance.damagePlayer (10);
+			GameInstance.instance.damagePlayer (10);
+			GameInstance.instance.playAnimation("Hit",target.transform.position);
 						
 			}
 			transform.Translate( Vector3.forward*Time.deltaTime); 
@@ -42,6 +43,7 @@ public class Ava_Move : MonoBehaviour {
 		dist = Vector3.Distance (target.transform.position, transform.position);
 		if(dist < 30){
 		transform.position = Vector3.MoveTowards (transform.position, target.transform.position, speed * Time.deltaTime);
+			transform.position = new Vector3(transform.position.x,transform.position.y,-1);
 //		if(Vector3.Distance(transform.position,target.transform.position) < avoidcatch){
 //				transform.position = transform.position - new Vector3(4,4,0);
 //			}
