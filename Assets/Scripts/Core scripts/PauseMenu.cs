@@ -20,6 +20,7 @@ public class PauseMenu : MonoBehaviour {
 	}
 
 	public void pauseSwitch(){
+		GameInstance.instance.playAudio ("Cancel2");
 		Time.timeScale = 1 - Time.timeScale;
 		status = !status;
 		menuP.SetActive(status);
@@ -30,6 +31,7 @@ public class PauseMenu : MonoBehaviour {
 	public void Resume(){
 		pauseSwitch ();
 		Debug.Log ("Game Resumed");
+		GameInstance.instance.playAudio ("Cancel2");
 	}
 
 	public void Save(){
@@ -37,6 +39,7 @@ public class PauseMenu : MonoBehaviour {
 		SaveController1.mode = 0;
 		menuP.SetActive (false);
 		saveP.SetActive (true);
+		GameInstance.instance.playAudio ("Save");
 	}
 
 	public void Load(){
@@ -44,10 +47,12 @@ public class PauseMenu : MonoBehaviour {
 		SaveController1.mode = 1;
 		menuP.SetActive (false);
 		saveP.SetActive (true);
+		GameInstance.instance.playAudio ("Load");
 	}
 
 	public void Exit(){
 		Application.Quit ();
+		GameInstance.instance.playAudio ("Cancel1");
 	}
 	
 }

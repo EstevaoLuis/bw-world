@@ -18,8 +18,14 @@ public class NewGameMenu : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		loadPanel.SetActive (false);
-		audio.Play ();
+		//audio.Play ();
 		updateSlotDescriptions ();
+	}
+
+	public void playAudio(string name) {
+		AudioClip soundEffect = Resources.Load("Audio/" + name) as AudioClip;
+		audio.clip = soundEffect;
+		audio.Play();
 	}
 
 	public void updateSlotDescriptions() {
@@ -52,18 +58,21 @@ public class NewGameMenu : MonoBehaviour {
 		ScenesManager.currentSlot = 1;
 		ScenesManager.restoreSavedGame = false;
 		ScenesManager.restoreFromCheckpoint = false;
-		ScenesManager.instance.loadLevel (2);
+		ScenesManager.instance.loadLevel ("Green World");
 		mainCanvas.SetActive(false);
+		playAudio ("Save");
 	}
 
 	public void back() {
 		loadPanel.SetActive (false);
 		defaultPanel.SetActive (true);
+		playAudio ("Cancel1");
 	}
 
 	public void loadGame() {
 		loadPanel.SetActive (true);
 		defaultPanel.SetActive (false);
+		playAudio ("Load");
 	}
 
 	public void loadSlot(int slot) {
@@ -78,6 +87,7 @@ public class NewGameMenu : MonoBehaviour {
 			ScenesManager.restoreFromCheckpoint = false;
 			ScenesManager.instance.loadLevel(data.scene);
 			mainCanvas.SetActive(false);
+			playAudio ("Load");
 		}
 	}
 
@@ -91,14 +101,17 @@ public class NewGameMenu : MonoBehaviour {
 
 	public void about() {
 		aboutPanel.SetActive (true);
+		playAudio ("Cancel2");
 	}
 
 	public void closeAbout() {
 		aboutPanel.SetActive (false);
+		playAudio ("Cancel1");
 	}
 
 	public void quit() {
 		Application.Quit ();
+		playAudio ("Cancel1");
 	}
 	/*
 	void Update() {

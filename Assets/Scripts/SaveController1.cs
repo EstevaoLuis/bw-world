@@ -53,6 +53,7 @@ public class SaveController1 : MonoBehaviour {
 			Debug.Log ("Save Slot-> " + slot);
 			ScenesManager.currentSlot = slot;
 			GameInstance.instance.saveGame();
+			GameInstance.instance.playAudio ("Save");
 		} else { //load
 			Debug.Log ("Load Slot-> " + slot);
 			ScenesManager.currentSlot = slot;
@@ -65,6 +66,7 @@ public class SaveController1 : MonoBehaviour {
 				file.Close();
 				ScenesManager.instance.loadLevel(data.sceneName);
 			}
+			GameInstance.instance.playAudio ("Load");
 		}
 		updateSlotDescriptions ();
 	}
@@ -72,6 +74,7 @@ public class SaveController1 : MonoBehaviour {
 	public void Resume(){
 		saveMenu.SetActive (false);
 		pauseMenu.SetActive (true);
+		GameInstance.instance.playAudio ("Cancel1");
 	}
 }
 
