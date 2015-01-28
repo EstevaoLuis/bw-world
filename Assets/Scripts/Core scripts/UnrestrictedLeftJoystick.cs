@@ -23,6 +23,7 @@ public class UnrestrictedLeftJoystick : MonoBehaviour {
 	void Start() {
 		renderer = GetComponent<Image> ();
 		isActive = Settings.isMobile;
+		if (!isActive) renderer.color = hidden;
 	}
 
 	void Update() {

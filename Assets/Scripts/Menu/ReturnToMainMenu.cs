@@ -6,6 +6,7 @@ using System.IO;
 
 public class ReturnToMainMenu : MonoBehaviour {
 	
+	public GameObject GameoverPanel;
 
 	public void backToMainMenu() {
 		Application.LoadLevel ("Main Menu");
@@ -20,6 +21,7 @@ public class ReturnToMainMenu : MonoBehaviour {
 			ScenesManager.restoreFromCheckpoint = true;
 			ScenesManager.restoreSavedGame = false;
 			ScenesManager.instance.loadLevel (data.scene);
+			GameoverPanel.SetActive (false);
 		}
 	}
 }
