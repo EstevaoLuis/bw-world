@@ -148,6 +148,13 @@ public class GameInstance : MonoBehaviour
 		player.transform.position = newPosition;
 	}
 
+	//Move GameSystem
+	public void moveGameSystem(Vector3 newPosition) {
+		player.transform.localPosition = new Vector3 (0f,0f,0f);
+		cameraSystem.transform.localPosition = new Vector3 (0f,0f,0f);
+		this.transform.parent.position = newPosition;
+	}
+
 	//Casts a spell using position and directions as parameters
 	public void castSpell(string spellName, Transform transform, Vector2 direction, string spellTag, float distance, float minSpeed, int bonusDamage) {
 		//Check if spell is available

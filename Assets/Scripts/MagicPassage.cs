@@ -30,8 +30,7 @@ public class MagicPassage : MonoBehaviour {
 			}
 			else {
 				Application.LoadLevel(level_name);
-				GameInstance.instance.movePlayer(newCoordinates);
-				GameInstance.instance.moveCamera(newCoordinates);
+				GameInstance.instance.moveGameSystem(newCoordinates);
 			}
 		}
 	}

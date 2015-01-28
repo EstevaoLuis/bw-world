@@ -36,10 +36,10 @@ public class ScenesManager : MonoBehaviour {
 		startButton.SetActive (true);
 
 		if(restoreCoordinates) {
-			GameInstance.instance.moveCamera(newCoordinates);
-			GameInstance.instance.movePlayer(newCoordinates);
+			GameInstance.instance.moveGameSystem(newCoordinates);
 			restoreCoordinates = false;
 		}
+
 		Debug.Log ("Cambio scena completato");
 
 	}
@@ -93,11 +93,12 @@ public class ScenesManager : MonoBehaviour {
 		startButton.SetActive (false);
 		loadingScene.SetActive (false);
 		async.allowSceneActivation = true;
-		/*
-		mainLight.SetActive (true);
-		mainCamera.SetActive (true);
-		ui.SetActive (true);
-		*/
+		if (GameInstance.instance != null) {
+			mainLight.SetActive (true);
+			mainCamera.SetActive (true);
+			ui.SetActive (true);
+		}
+
 	}
 
 	private void prepareNewScene() {
