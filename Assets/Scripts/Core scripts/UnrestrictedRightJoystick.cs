@@ -16,7 +16,7 @@ public class UnrestrictedRightJoystick : MonoBehaviour {
 	private Vector2 lastPosition;
 
 	private Image renderer;
-	private bool isActive = true;
+	private bool isActive;
 	private bool validPosition = false;
 
 	bool greenAvailable = false, blueAvailable = false, redAvailable = false;
@@ -24,6 +24,7 @@ public class UnrestrictedRightJoystick : MonoBehaviour {
 	private float activatedTime, lastSpell, spellDelay, lastPowerCheck;
 
 	void Start() {
+		isActive = Settings.isMobile;
 		renderer = GetComponent<Image> ();
 		renderer.color = hidden;
 		redRenderer.color = hidden; 

@@ -16,13 +16,14 @@ public class RightTouchJoystick : MonoBehaviour {
 	private Vector2 lastPosition;
 
 	private Image renderer;
-	private bool isActive = true;
+	private bool isActive = false;
 
 	bool greenAvailable = false, blueAvailable = false, redAvailable = false;
 
 	private float activatedTime, lastSpell, spellDelay, lastPowerCheck;
 
 	void Start() {
+		//isActive = Settings.isMobile;
 		renderer = GetComponent<Image> ();
 		renderer.color = hidden;
 		redRenderer.color = hidden; 
@@ -36,12 +37,13 @@ public class RightTouchJoystick : MonoBehaviour {
 			int fingerCount = 0;
 			foreach (Touch touch in Input.touches) {
 				//Half screen is 480
-				if(touch.position.x > 560) {
+				if(touch.position.x > 480) {
 							if (touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled) {
 									fingerCount++;
 									if (touch.phase == TouchPhase.Began) {
 											print ("Inizio: " + touch.position);
 											lastPosition = touch.position;
+											if(lastPosition.x < 560) lastPosition.x = 560;
 											transform.position = new Vector3 (lastPosition.x, lastPosition.y, 0f);
 									} else {
 											//print ("Spostato in: " + touch.position);
