@@ -71,25 +71,39 @@ public class Spell : MonoBehaviour {
 				if(color != otherSpell.color) {
 					Animator animator = GetComponent<Animator>();
 					scaleMultiplier = 1.5f;
+					GameObject spellAnimation = null;
+					AudioClip soundEffect = null;
 					//Cyan
 					if((color == "blue" && otherSpell.color == "green") || (otherSpell.color == "blue" && color == "green")) {
 						RuntimeAnimatorController newController = Resources.Load("Animators/CyanSpell") as RuntimeAnimatorController;
 						color = "cyan";
 						animator.runtimeAnimatorController = newController;
+						spellAnimation = Resources.Load("Spells/Animations/Cyan 1") as GameObject;
+						soundEffect = Resources.Load("Spells/Sound Effects/Cyan 1") as AudioClip;
 					}
 					//Yellow
 					else if((color == "green" && otherSpell.color == "red") || (otherSpell.color == "green" && color == "red")) {
 						RuntimeAnimatorController newController = Resources.Load("Animators/YellowSpell") as RuntimeAnimatorController;
 						color = "yellow";
 						animator.runtimeAnimatorController = newController;
+						spellAnimation = Resources.Load("Spells/Animations/Yellow 2") as GameObject;
+						soundEffect = Resources.Load("Spells/Sound Effects/Yellow 2") as AudioClip;
 					}
 					//Magenta
 					else if((color == "blue" && otherSpell.color == "red") || (otherSpell.color == "blue" && color == "red")) {
 						RuntimeAnimatorController newController = Resources.Load("Animators/MagentaSpell") as RuntimeAnimatorController;
 						color = "magenta";
 						animator.runtimeAnimatorController = newController;
+						spellAnimation = Resources.Load("Spells/Animations/Magenta 1") as GameObject;
+						soundEffect = Resources.Load("Spells/Sound Effects/Magenta 1") as AudioClip;
+
 					}
 
+					if(spellAnimation != null && soundEffect != null) {
+						animationGraphics = spellAnimation;
+						audio.clip = soundEffect;
+						audio.Play();
+					}
 				}
 				castTime = Time.time;
 				duration = duration + otherSpell.duration / 2f;

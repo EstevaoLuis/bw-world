@@ -70,6 +70,7 @@ public class SpiderGenerator : MonoBehaviour {
 			removeSpider(ragno);
 
 		if (spidersKilled == maxSpiders) {
+			GameInstance.instance.playAudio("Magic3");
 			Destroy(door);
 			Destroy(this);
 		}
