@@ -1,7 +1,7 @@
 ﻿{
     "Welcome": {
     	"storyLevel": 1,
-    	"preMessage": "Hey, welcome back to the village! You can move by touching the screen with your left thumb, and then moving it in the direction you want to go. Now press 'Ok' and go speak to the other villagers.",
+    	"preMessage": "Hey, welcome back to the village!! Now press 'Ok' and go speak to the other villagers.",
     	"postMessage": "",
     	"experience": 0,
     	"targetX": 0,
@@ -12,7 +12,7 @@
     },
     "The arrow": {
     	"storyLevel": 2,
-    	"preMessage": "Wow!! That colored scarf!!! It's such good news, you must tell it right away to the chief of the village!! Do you see the arrow on the top of the screen? It will guide you to him.",
+    	"preMessage": "Wow!! That colored scarf!! It's such good news, you must inform to the chief of the village!! The arrow on top of the screen will guide you to him.",
     	"postMessage": "",
     	"experience": 0,
     	"targetX": 285.98,
@@ -23,7 +23,7 @@
     },
     "Initial story": {
     	"storyLevel": 3,
-    	"preMessage": "Oh!! I couldn't believe it until I saw it! Do you you know it's been ages since the last colored item was found on this planet? Wait... it must be a sign... go to the South and speak to the Old Man, he will explain everything to you. ",
+    	"preMessage": "Oh!! I couldn't believe it until I saw it!  Wait... it must be a sign... go to the South and speak to the Old Man, he will explain everything to you. ",
     	"postMessage": "",
     	"experience": 0,
     	"targetX": 235.96,
@@ -34,7 +34,7 @@
     },
     "The prophecy": {
     	"storyLevel": 4,
-    	"preMessage": "So the chief of the village sent you to me, ah? Wait... what do my old eyes see? It's a colored scarf!! What a unique event!! Now I'll tell you a story. In this world there have always been two races: the Trilight, and the Klamers who protected the Trilight and fed on colors. But the Klamers betrayed us...",
+    	"preMessage": "So the chief of the village sent you to me, ah? Wait..what do my old eyes see? It's a colored scarf!! What a unique event!! Now I'll tell you a story. In this world there have always been two races: the Trilight, and the Klamers. But the Klamers betrayed us without any reason...",
     	"postMessage": "",
     	"experience": 0,
     	"targetX": 278.7509,
@@ -133,7 +133,7 @@
     },
     "To the forest": {
     	"storyLevel": 13,
-    	"preMessage": "As you just saw enemies can be very dangerous. I think you should go to the forest and find where they're coming from. Do you see that the house lost its colour again? Always remember that enemies can decolor things!!",
+    	"preMessage": "As you just saw enemies can be very dangerous. I think you should go to the forest and find where they're coming from. Do you see that the house lost its colour again? Always remember that the enemy feeds off color!!",
     	"postMessage": "",
     	"experience": 0,
     	"targetX": 338,
@@ -166,7 +166,7 @@
     },
     "To the new world": {
     	"storyLevel": 16,
-    	"preMessage": "YOU KILLED THE SPIDER!! Thanks very much. I knew I could rely on you. I think now you should begin your journey to the other regions of this world, in order to free al the other colors.",
+    	"preMessage": "YOU KILLED THE SPIDER!! Thanks very much. I knew I could rely on you. I think now you should begin your journey to the other regions of this world, in order to free all the other colors.",
     	"postMessage": "",
     	"experience": 0,
     	"targetX": 392,
@@ -199,7 +199,7 @@
     
         "Back alive": {
     	"storyLevel": 19,
-    	"preMessage": "What? You're alive? You found a Crystal? For the Black and White!! Anyway there is no time to waste. Head to the East Ranger, he says wierd sounds have come out from the old timberland",
+    	"preMessage": "What? You found a Crystal? For the Black and White!! Anyway there is no time to waste. Head to the East Ranger, he says wierd sounds have come out from the old timberland",
     	"postMessage": "",
     	"targetX": 122.23,
     	"targetY": 63.7,
