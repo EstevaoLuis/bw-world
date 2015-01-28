@@ -14,7 +14,7 @@ public class SpiderGenerator : MonoBehaviour {
 	private GameObject spider;
 	public GameObject camera;
 	public bool trigger = true;
-	private bool oneTime = true;
+	private bool isCompleted = false;
 
 	private IList spiders = new List<GameObject>();
 
@@ -36,7 +36,7 @@ public class SpiderGenerator : MonoBehaviour {
 					spidersGenerated++;
 					lastGeneration = Time.time;
 			}
-			checkSpiders ();
+			if(!isCompleted) checkSpiders ();
 		}
 	}
 
@@ -74,8 +74,9 @@ public class SpiderGenerator : MonoBehaviour {
 			removeSpider(ragno);
 
 		if (spidersKilled == maxSpiders) {
-			GameInstance.instance.playAudio("Magic3");
-			settingCamera();
+
+			isCompleted = true;
+			//settingCamera();
 			if(trigger == true){
 				settingCamera();
 			}
@@ -85,16 +86,15 @@ public class SpiderGenerator : MonoBehaviour {
 		}
 	}
 	void DestroyingDoor(){
+		GameInstance.instance.playAudio("Magic3");
 		Destroy(door);
 		Destroy(this);
 	}
 	void settingCamera(){
 
-		if (oneTime == true) {
-			Instantiate (camera, player.transform.position, transform.rotation);
-			Invoke ("DestroyingDoor", 4);
-			oneTime = false;
-		}
+		Instantiate (camera, player.transform.position, transform.rotation);
+		Invoke ("DestroyingDoor", 4);
+
 	}
 
 	public bool getTrigger(){

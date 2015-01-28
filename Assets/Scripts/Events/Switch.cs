@@ -5,7 +5,8 @@ public class Switch : MonoBehaviour {
 
 	public GameObject door = null;
 	public GameObject pressed;
-	public bool isBlueSancLever;
+	public float time;
+	public bool NeedsScene;
 	private bool trigger = false;
 	public GameObject camera;
 	// Use this for initialization
@@ -20,9 +21,9 @@ public class Switch : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D other){
 		if (other.gameObject.tag == "Player") {
-			if(isBlueSancLever == true){
+			if(NeedsScene == true){
 				Instantiate(camera,transform.position,transform.rotation);
-				Invoke ("destroyGameObjects",8f);
+				Invoke ("destroyGameObjects",time);
 				trigger = true;
 			}
 			if(trigger == false){
