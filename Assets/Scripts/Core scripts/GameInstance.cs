@@ -323,16 +323,16 @@ public class GameInstance : MonoBehaviour
 		playAudio ("Death");
 		PlayerController playerController = player.GetComponent<PlayerController> ();
 		playerController.isAvailable (false);
-		//Time.timeScale = 0.1f;
+		Time.timeScale = 0.1f;
 		audioController.stopAudio ();
-		//Invoke ("gameOver", 0.3f);
-		Application.LoadLevelAsync("Game Over");
-		ScenesManager.restoreFromCheckpoint = true;
-		Invoke ("gameOver", 2f); //Useless?
+		Invoke ("gameOver", 0.4f); //Useless?
 	}
 
 	public void gameOver() {
-		//Time.timeScale = 1.0f;
+		Time.timeScale = 1.0f;
+		//ScenesManager.instance.loadLevel("Game Over");
+		Application.LoadLevelAsync("Game Over");
+		ScenesManager.restoreFromCheckpoint = true;
 		Destroy (this.transform.parent.gameObject);
 		Destroy (userInterface.gameObject);
 	}
