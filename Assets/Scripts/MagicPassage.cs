@@ -4,6 +4,7 @@ using System.Collections;
 public class MagicPassage : MonoBehaviour {
 
 	public string level_name;
+	public Vector3 newCoordinates = new Vector3(0f,50f,0f);
 
 	// Use this for initialization
 	void Start () {
@@ -23,12 +24,14 @@ public class MagicPassage : MonoBehaviour {
 				ScenesManager.restoreSavedGame = false;
 				ScenesManager.restoreFromCheckpoint = false;
 				ScenesManager.instance.loadLevel(level_name);
+				ScenesManager.restoreCoordinates = true;
+				ScenesManager.newCoordinates = newCoordinates;
 
 			}
 			else {
 				Application.LoadLevel(level_name);
-				GameInstance.instance.movePlayer(new Vector3(0,50,0));
-				GameInstance.instance.moveCamera(new Vector3(0,50,0));
+				GameInstance.instance.movePlayer(newCoordinates);
+				GameInstance.instance.moveCamera(newCoordinates);
 			}
 		}
 	}

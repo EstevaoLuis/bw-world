@@ -245,8 +245,8 @@
     	"storyLevel": 23,
     	"preMessage": "",
     	"postMessage": "",
-    	"targetX": 11.54,
-    	"targetY": 49.11,
+    	"targetX": 0,
+    	"targetY": 0,
     	"targetZ": 0,
     	"scene": "Blue World",
     	"character": ""

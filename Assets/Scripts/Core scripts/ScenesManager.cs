@@ -10,6 +10,8 @@ public class ScenesManager : MonoBehaviour {
 	public static int currentSlot = 1;
 	public static bool restoreSavedGame = false;
 	public static bool restoreFromCheckpoint = false;
+	public static bool restoreCoordinates = false;
+	public static Vector3 newCoordinates = new Vector3(0f,0f,0f);
 
 	private AsyncOperation async;
 	private bool waitingToStart = false;
@@ -33,6 +35,11 @@ public class ScenesManager : MonoBehaviour {
 		loadingText.SetActive (false);
 		startButton.SetActive (true);
 
+		if(restoreCoordinates) {
+			GameInstance.instance.moveCamera(newCoordinates);
+			GameInstance.instance.movePlayer(newCoordinates);
+			restoreCoordinates = false;
+		}
 		Debug.Log ("Cambio scena completato");
 
 	}
