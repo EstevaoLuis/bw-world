@@ -97,6 +97,9 @@ public class SpiderGenerator : MonoBehaviour {
 		}
 	}
 
+	public bool getTrigger(){
+		return trigger;
+	}
 	void removeSpider(GameObject ragno){
 		spiders.Remove (ragno);
 	}
