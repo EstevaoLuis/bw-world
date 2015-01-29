@@ -23,6 +23,7 @@ public class LockKey : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D other){
 		if (other.gameObject.tag == "Player") {
 			if (totalKeys == keysFound){
+				GameInstance.instance.playAudio("Up1");
 				Destroy (door);
 				Destroy (gameObject);
 			}
@@ -46,6 +47,7 @@ public class LockKey : MonoBehaviour {
 	
 	public void KeyFound(){
 		keysFound++;
+		if (keysFound == totalKeys) GameInstance.instance.playAudio("Up1");
 	}
 
 	public int GetKeyFound(){
