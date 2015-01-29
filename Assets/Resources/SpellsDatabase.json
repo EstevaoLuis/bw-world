@@ -109,6 +109,138 @@
         "area": 2
     },
     
+    "Cyan 1": {
+    	"color": "cyan",
+    	"speed": 4,
+        "damage": 60,
+        "duration": 3,
+        "mass": 3000,
+        "mana": 30,
+        "scale": 1.5,
+        "area": 0
+    },
+    
+    "Cyan 2": {
+    	"color": "cyan",
+    	"speed": 4,
+        "damage": 90,
+        "duration": 3,
+        "mass": 3000,
+        "mana": 50,
+        "scale": 2,
+        "area": 1
+    },
+    
+    "Cyan 3": {
+    	"color": "cyan",
+    	"speed": 4,
+        "damage": 120,
+        "duration": 3,
+        "mass": 3000,
+        "mana": 80,
+        "scale": 2.5,
+        "area": 2
+    },
+    
+    "Magenta 1": {
+    	"color": "magenta",
+    	"speed": 4,
+        "damage": 60,
+        "duration": 3,
+        "mass": 3000,
+        "mana": 30,
+        "scale": 1.5,
+        "area": 0
+    },
+    
+    "Magenta 2": {
+    	"color": "magenta",
+    	"speed": 4,
+        "damage": 90,
+        "duration": 3,
+        "mass": 3000,
+        "mana": 50,
+        "scale": 2,
+        "area": 1
+    },
+    
+    "Magenta 3": {
+    	"color": "magenta",
+    	"speed": 4,
+        "damage": 120,
+        "duration": 3,
+        "mass": 3000,
+        "mana": 80,
+        "scale": 2.5,
+        "area": 2
+    },
+    
+    "Yellow 1": {
+    	"color": "yellow",
+    	"speed": 4,
+        "damage": 60,
+        "duration": 3,
+        "mass": 3000,
+        "mana": 30,
+        "scale": 1.5,
+        "area": 0
+    },
+    
+    "Yellow 2": {
+    	"color": "yellow",
+    	"speed": 4,
+        "damage": 90,
+        "duration": 3,
+        "mass": 3000,
+        "mana": 50,
+        "scale": 2,
+        "area": 1
+    },
+    
+    "Yellow 3": {
+    	"color": "yellow",
+    	"speed": 4,
+        "damage": 120,
+        "duration": 3,
+        "mass": 3000,
+        "mana": 80,
+        "scale": 2.5,
+        "area": 2
+    },
+    
+    "White 1": {
+    	"color": "white",
+    	"speed": 5,
+        "damage": 100,
+        "duration": 3,
+        "mass": 3000,
+        "mana": 50,
+        "scale": 1.5,
+        "area": 0
+    },
+    
+    "White 2": {
+    	"color": "white",
+    	"speed": 7,
+        "damage": 150,
+        "duration": 3,
+        "mass": 3000,
+        "mana": 80,
+        "scale": 2,
+        "area": 1
+    },
+    
+    "White 3": {
+    	"color": "white",
+    	"speed": 7,
+        "damage": 200,
+        "duration": 3,
+        "mass": 10000,
+        "mana": 100,
+        "scale": 2.5,
+        "area": 2
+    },
+    
     "Black 1": {
     	"color": "black",
     	"speed": 3,

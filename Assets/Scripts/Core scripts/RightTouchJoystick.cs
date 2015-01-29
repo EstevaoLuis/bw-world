@@ -141,11 +141,11 @@ public class RightTouchJoystick : MonoBehaviour {
 			if(Time.time > lastPowerCheck + 3f) {
 				lastPowerCheck = Time.time;
 				int storyLevel = QuestManager.instance.getStoryLevel();
-				if(storyLevel>=6) greenAvailable = true;
+				if(storyLevel>=Settings.greenStoryLevel) greenAvailable = true;
 				else greenAvailable = false;
-				if(storyLevel>=18) blueAvailable = true;
+				if(storyLevel>=Settings.blueStoryLevel) blueAvailable = true;
 				else blueAvailable = false;
-				if(storyLevel>=30) redAvailable = true;
+				if(storyLevel>=Settings.redStoryLevel) redAvailable = true;
 				else redAvailable = false;
 
 			}

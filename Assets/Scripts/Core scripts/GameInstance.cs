@@ -33,6 +33,7 @@ public class GameInstance : MonoBehaviour
 
 	//Object references
 	private GameObject player;
+	private PlayerController playerController;
 	private GameObject cameraSystem;
 	private UserInterface userInterface;
 
@@ -122,6 +123,7 @@ public class GameInstance : MonoBehaviour
 
 	private void getObjectReferences() {
 		player = GameObject.FindWithTag ("Player");
+		playerController = player.GetComponent<PlayerController>();
 		audioController = GameObject.FindWithTag ("AudioController").GetComponent("ThemeAudio") as ThemeAudio;
 		BoxCollider2D collider = player.GetComponent<BoxCollider2D> () as BoxCollider2D;
 		playerColliderRadius = Mathf.Max (collider.size.x, collider.size.y);
@@ -153,6 +155,19 @@ public class GameInstance : MonoBehaviour
 		player.transform.localPosition = new Vector3 (0f,0f,0f);
 		cameraSystem.transform.localPosition = new Vector3 (0f,0f,0f);
 		this.transform.parent.position = newPosition;
+	}
+
+	//Maximum spell level
+	public int maxSpellLevel(string color, int tryLevel) {
+		int actualLevel = 0;
+		switch(color) {
+			case "red": actualLevel = red; break;
+			case "green": actualLevel = green; break;
+			case "blue": actualLevel = blue; break;
+		}
+		if (actualLevel >= Settings.thirdSpellLevel) return Mathf.Min(tryLevel,3);
+		else if (actualLevel >= Settings.secondSpellLevel) return Mathf.Min(tryLevel,2);
+		return 1;
 	}
 
 	//Casts a spell using position and directions as parameters
@@ -208,7 +223,15 @@ public class GameInstance : MonoBehaviour
 	}
 
 	public void playAudio(string name) {
+		audio.volume = 1f;
 		AudioClip soundEffect = Resources.Load("Audio/" + name) as AudioClip;
+		audio.clip = soundEffect;
+		audio.Play();
+	}
+
+	public void cancelSpell() {
+		audio.volume = 0.6f;
+		AudioClip soundEffect = Resources.Load("Audio/Cancel1") as AudioClip;
 		audio.clip = soundEffect;
 		audio.Play();
 	}
@@ -246,14 +269,14 @@ public class GameInstance : MonoBehaviour
 
 		if (spellColor == "Green") {
 			if(green < (spellLevel-1)*20) return false;
-			storyLevelRequired = 6;
+			storyLevelRequired = Settings.greenStoryLevel;
 		} else if (spellColor == "Blue") {
 			if(blue < (spellLevel-1)*20) return false;
-			storyLevelRequired = 18;
+			storyLevelRequired = Settings.blueStoryLevel;
 		}
 		else if (spellColor == "Red") {
 			if(red < (spellLevel-1)*20) return false;
-			storyLevelRequired = 30;
+			storyLevelRequired = Settings.redStoryLevel;
 		}
 
 		if (QuestManager.instance.getStoryLevel () < storyLevelRequired) return false;
@@ -264,11 +287,10 @@ public class GameInstance : MonoBehaviour
 		return false;
 	}
 
-	public void playerCastSpell(string spellName, Transform transform, Vector2 direction) {
+	public bool playerCastSpell(string spellName) {
 		//Choose spell
 		//string spellName = "";
 		int bonusDamage = 0;
-		int secondSpell = 20, thirdSpell = 50;
 
 		switch(spells["color"]) {
 			case "red": 
@@ -283,14 +305,17 @@ public class GameInstance : MonoBehaviour
 		}
 
 		//Check if enough mana and if time has passed
-		if (mana > spells [spellName] ["mana"].AsInt && Time.time>lastSpell+0.3f) {
+		if (Time.time>lastSpell+0.3f) {
+			if(mana > spells [spellName] ["mana"].AsInt) {
 				mana -= spells [spellName] ["mana"].AsInt;
 				updateManaBar ();
-				castSpell (spellName, transform, direction, "Spell", playerColliderRadius/2+(playerColliderRadius/10), 0f, bonusDamage);
+				castSpell (spellName, player.transform, playerController.getDirection(), "Spell", playerColliderRadius/2+(playerColliderRadius/10), 0f, bonusDamage);
 				lastSpell = Time.time;
-		} else {
-			//Not enough mana
-		}
+				return true;
+			}
+			else cancelSpell();
+		} 
+		return false;
 	}
 
 	public void updateLifeBar () {
@@ -328,7 +353,6 @@ public class GameInstance : MonoBehaviour
 	public void playerDeath() {
 		//stopAllScripts ();
 		playAudio ("Death");
-		PlayerController playerController = player.GetComponent<PlayerController> ();
 		playerController.isAvailable (false);
 		Time.timeScale = 0.1f;
 		audioController.stopAudio ();
@@ -580,7 +604,7 @@ public class GameInstance : MonoBehaviour
 	}
 
 	public PlayerController getPlayerController() {
-		return player.GetComponent<PlayerController>();
+		return playerController;
 	}
 
 	public void increaseSpellUsage(string color) {

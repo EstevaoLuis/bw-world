@@ -35,6 +35,12 @@ public class ScenesManager : MonoBehaviour {
 		loadingText.SetActive (false);
 		startButton.SetActive (true);
 
+		if (GameInstance.instance != null) {
+			mainLight.SetActive (true);
+			mainCamera.SetActive (true);
+			ui.SetActive (true);
+		}
+
 		if(restoreCoordinates) {
 			GameInstance.instance.moveGameSystem(newCoordinates);
 			restoreCoordinates = false;
@@ -90,14 +96,10 @@ public class ScenesManager : MonoBehaviour {
 	public void startLevel() {
 		//if (GameInstance.instance != null) GameInstance.instance.destroyInstance ();
 		//if (UserInterface.instance != null) UserInterface.instance.destroyInstance ();
+		audio.Play ();
 		startButton.SetActive (false);
 		loadingScene.SetActive (false);
 		async.allowSceneActivation = true;
-		if (GameInstance.instance != null) {
-			mainLight.SetActive (true);
-			mainCamera.SetActive (true);
-			ui.SetActive (true);
-		}
 
 	}
 

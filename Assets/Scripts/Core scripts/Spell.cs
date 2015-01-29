@@ -16,7 +16,7 @@ public class Spell : MonoBehaviour {
 	private bool hasHit = false;
 	private float hitTime, castTime;
 	private CircleCollider2D collider;
-	private float initialRadius;
+	private float initialRadius, finalRadius;
 
 	// Use this for initialization
 	void Start () {
@@ -29,7 +29,7 @@ public class Spell : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (hasHit) {
-			if(area>0f) collider.radius = Mathf.Lerp(initialRadius,initialRadius + area, (Time.time - hitTime)/0.1f);
+			if(area>0f) collider.radius = Mathf.Lerp(initialRadius,finalRadius, (Time.time - hitTime)/0.1f);
 			if(Time.time > hitTime+0.1) {
 				Destroy (gameObject);
 			}
@@ -64,7 +64,10 @@ public class Spell : MonoBehaviour {
 
 				hasHit = true;
 				hitTime = Time.time;
-		} else if (gameObject.tag == "Spell" && other.gameObject.tag == "Spell") {
+				finalRadius = initialRadius + area;
+				if(finalRadius > 3f) finalRadius = 3f;
+		} 
+		else if (gameObject.tag == "Spell" && other.gameObject.tag == "Spell") {
 			if(transform.localScale.x >= other.gameObject.transform.localScale.x) {
 				Spell otherSpell = other.gameObject.GetComponent<Spell>();
 				Destroy(other.gameObject);
@@ -98,6 +101,19 @@ public class Spell : MonoBehaviour {
 						spellAnimation = Resources.Load("Spells/Animations/Magenta 1") as GameObject;
 						soundEffect = Resources.Load("Spells/Sound Effects/Magenta 1") as AudioClip;
 
+					}
+					//White
+					else if(
+						(color == "cyan" && otherSpell.color == "magenta") || (otherSpell.color == "cyan" && color == "magenta") ||
+					    (color == "magenta" && otherSpell.color == "yellow") || (otherSpell.color == "magenta" && color == "yellow") ||
+						(color == "cyan" && otherSpell.color == "yellow") || (otherSpell.color == "cyan" && color == "yellow")
+						) {
+						RuntimeAnimatorController newController = Resources.Load("Animators/WhiteSpell") as RuntimeAnimatorController;
+						color = "white";
+						animator.runtimeAnimatorController = newController;
+						spellAnimation = Resources.Load("Spells/Animations/White 1") as GameObject;
+						soundEffect = Resources.Load("Spells/Sound Effects/White 1") as AudioClip;
+						
 					}
 
 					if(spellAnimation != null && soundEffect != null) {
