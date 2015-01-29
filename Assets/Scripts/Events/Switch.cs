@@ -9,9 +9,10 @@ public class Switch : MonoBehaviour {
 	public bool NeedsScene;
 	private bool trigger = false;
 	public GameObject camera;
+	private Vector3 save_position;
 	// Use this for initialization
 	void Start () {
-	
+		save_position = transform.position;
 	}
 	
 	// Update is called once per frame
@@ -22,9 +23,12 @@ public class Switch : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D other){
 		if (other.gameObject.tag == "Player") {
 			if(NeedsScene == true){
+				//save_position = other.transform.position;
 				Instantiate(camera,transform.position,transform.rotation);
 				Invoke ("destroyGameObjects",time);
+				//other.transform.position = save_position;
 				trigger = true;
+				other.gameObject.transform.position = save_position;
 			}
 			if(trigger == false){
 				Destroy(door);
@@ -34,6 +38,7 @@ public class Switch : MonoBehaviour {
 			}
 			GameInstance.instance.playAudio("Switch2");
 		}
+
 	}
 	private void destroyGameObjects() {
 		Destroy(door);

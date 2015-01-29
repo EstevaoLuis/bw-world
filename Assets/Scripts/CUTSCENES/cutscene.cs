@@ -11,6 +11,7 @@ public class cutscene : MonoBehaviour {
 	public bool isBoss;
 	public bool isSpiderQueen;
 
+
 	private int counter;
 	int trigger = 0;
 	int trigger_2 = 0;
@@ -29,12 +30,14 @@ public class cutscene : MonoBehaviour {
 
 	void OnCollisionEnter2D (Collision2D other){
 		if (other.gameObject.tag == "Player") {
+//			other.gameObject.rigidbody2D.isKinematic = true;
 			this.camera.enabled = true;
 			trigger = 1;
 			pl.isAvailable (false);
 			this.collider2D.enabled = false;
 //			this.camera.
 		}
+
 		//Destroy (this.collider2D);
 		
 	}
