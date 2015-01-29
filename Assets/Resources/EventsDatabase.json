@@ -139,7 +139,6 @@
     	"targetX": 338,
     	"targetY": 293,
     	"targetZ": 0,
-    	"scene": "Green World",
     	"character": "Scout boy"
     },
     "To the boss": {
@@ -177,7 +176,7 @@
     },
         "Welcome to the north": {
     	"storyLevel": 17,
-    	"preMessage": "No way, Colors?! My cousin in the green world told me about this. Although up here in the North the difference is not so great since everything is white anyway. HA HA!. Go to the sanctuary, our rangers are waiting.",
+    	"preMessage": "No way, Colors?! My cousin in the green world told me about this. Although up here in the North the difference is not so great since everything is white anyway. Go to the sanctuary, our rangers are waiting.",
     	"postMessage": "",
     	"experience": 0,
      	"targetX": 17.8212,
@@ -243,7 +242,7 @@
 	},
 	    "BossFightTitan": {
     	"storyLevel": 23,
-    	"preMessage": "",
+    	"preMessage": "Watchout!!!! The ancient frozen titan is here!!!!",
     	"postMessage": "",
     	"targetX": 0,
     	"targetY": 0,

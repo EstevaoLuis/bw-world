@@ -7,11 +7,13 @@ public class Cyan : MonoBehaviour {
 	private GameObject aux_1;
 	private GameObject aux_2;
 	private Spell sp_cyan;
+	private GameObject spell;
 
 	// Use this for initialization
 	void Start () {
 	
 		crystal = GameObject.Find ("Crystal");
+
 		//two = GameObject.Find("Crystal");
 
 	}
@@ -24,20 +26,29 @@ public class Cyan : MonoBehaviour {
 
 
 		}
-
-		if (other.gameObject.tag == "Spell") {
-			sp_cyan = other.gameObject.GetComponent<Spell>();
-			if(sp_cyan.color ==  "cyan"){
-			Destroy(aux_1);
-			Destroy(aux_2);
-			}
-			
-		}
+//
+//		if (other.gameObject.tag == "Spell") {
+//			sp_cyan = other.gameObject.GetComponent<Spell>();
+//			if(sp_cyan.color ==  "cyan"){
+//			Destroy(aux_1);
+//			Destroy(aux_2);
+//			}
+//			
+//		}
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
+				spell = GameObject.Find ("Cyan 1(Clone)");
+				if (spell != null) {
+						if (Vector3.Distance (spell.transform.position, transform.position) < 5f) {
+								if (aux_1 != null && aux_2 != null) {
+										Destroy (aux_1);
+										Destroy (aux_2);
+										Destroy(gameObject);
+								}
+						}
+				}
+		}
 }
