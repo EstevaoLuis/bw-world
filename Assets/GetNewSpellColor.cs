@@ -7,6 +7,7 @@ public class GetNewSpellColor : MonoBehaviour {
 	private PlayerController controller;
 	private bool isActivated = false;
 	public bool isGreen = true;
+	public bool isRed = false;
 
 	// Use this for initialization
 	void Start () {
@@ -22,8 +23,10 @@ public class GetNewSpellColor : MonoBehaviour {
 			controller.isAvailable(false);
 			if(isGreen == true){
 				GameInstance.instance.playAnimation("NewSpellGreen",new Vector3 (newPosition.x,newPosition.y,1f));
-			}else{
+			}else if (!isRed){
 				GameInstance.instance.playAnimation("NewSpellBlue",new Vector3 (newPosition.x,newPosition.y,1f));
+			}else{
+				GameInstance.instance.playAnimation("NewSpellRed",new Vector3 (newPosition.x,newPosition.y,1f));
 			}
 			GameInstance.instance.playAudio("Up3");
 			Invoke ("showMessage",3f);

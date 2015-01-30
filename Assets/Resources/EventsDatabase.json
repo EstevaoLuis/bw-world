@@ -283,8 +283,8 @@
 	
 	"Red World": {
     	"storyLevel": 27,
-    	"preMessage": "Welcome to Red World. The Red Sanctuary is closed by a lock",
-    	"postMessage": "Search for the keys",
+    	"preMessage": "Welcome to Red World.",
+    	"postMessage": "Welcome to Red World. The Red Sanctuary is closed by a lock. Search for the keys",
     	"targetX": -6.88,
     	"targetY": 0,
     	"targetZ": 0,
