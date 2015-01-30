@@ -24,6 +24,8 @@ public class GameInstance : MonoBehaviour
 	public GameObject mainLight;
 	public Camera mainCamera;
 
+	public GameObject recoverAnimation;
+
 	//Music
 	private ThemeAudio audioController;
 
@@ -586,6 +588,10 @@ public class GameInstance : MonoBehaviour
 		updateLifeBar ();
 	}
 
+	private void hideRecoverAnimation() {
+		if(Time.time > lastRegeneration + 3f) recoverAnimation.SetActive (false);
+	}
+
 	public void regenerateAllHealth() {
 		health = maxHealth;
 		updateLifeBar ();
@@ -679,6 +685,8 @@ public class GameInstance : MonoBehaviour
 			if(mana < maxMana) regenerateMana();
 			if(health < maxHealth) regenerateHealth ();
 			lastRegeneration = Time.time;
+			recoverAnimation.SetActive (true);
+			Invoke ("hideRecoverAnimation",3.5f);
 			return true;
 		}
 		return false;
