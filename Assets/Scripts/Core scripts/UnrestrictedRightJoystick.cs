@@ -37,12 +37,15 @@ public class UnrestrictedRightJoystick : MonoBehaviour {
 			int fingerCount = 0;
 			foreach (Touch touch in Input.touches) {
 				//Half screen is 480, usable is 560
-				if(touch.position.x > 560) {
+				if(touch.position.x > 480) {
 							if (touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled) {
 									fingerCount++;
 									if (touch.phase == TouchPhase.Began) {
 											print ("Inizio: " + touch.position);
 											lastPosition = touch.position;
+											if(lastPosition.x < 560) lastPosition.x = 560;
+											if(lastPosition.x > 880) lastPosition.x = 880;
+											if(lastPosition.y < 80) lastPosition.y = 80;
 											transform.position = new Vector3 (lastPosition.x, lastPosition.y, 0f);
 											//validPosition = true;
 									} else {

@@ -17,8 +17,14 @@ public class RightTouchJoystick : MonoBehaviour {
 
 	private Image renderer;
 	private bool isActive = false;
+	private int loadedLevel;
+
+	private bool isLoading = false;
+	private float startLoadingTime;
 
 	bool greenAvailable = false, blueAvailable = false, redAvailable = false;
+
+	private bool isRed = false, isBlue = false, isGreen = false;
 
 	private float activatedTime, lastSpell, spellDelay, lastPowerCheck;
 
@@ -37,16 +43,21 @@ public class RightTouchJoystick : MonoBehaviour {
 			int fingerCount = 0;
 			foreach (Touch touch in Input.touches) {
 				//Half screen is 480
-				if(touch.position.x > 480) {
+				if(touch.position.x > 480 && touch.position.y < 450) {
 							if (touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled) {
 									fingerCount++;
 									if (touch.phase == TouchPhase.Began) {
+
 											print ("Inizio: " + touch.position);
 											lastPosition = touch.position;
 											if(lastPosition.x < 560) lastPosition.x = 560;
 											if(lastPosition.x > 880) lastPosition.x = 880;
+											if(lastPosition.y < 80) lastPosition.y = 80;
 											transform.position = new Vector3 (lastPosition.x, lastPosition.y, 0f);
-									} else {
+											isLoading = true;
+											startLoadingTime = Time.time;
+
+									} else if(isLoading) {
 											//print ("Spostato in: " + touch.position);
 
 											float deltaX = touch.position.x - lastPosition.x;
@@ -54,87 +65,57 @@ public class RightTouchJoystick : MonoBehaviour {
 											float distance = Vector2.Distance(touch.position,lastPosition);
 											
 											if(distance > 20 && (Mathf.Abs(deltaX) > 10 || Mathf.Abs(deltaY) > 10)) {
-												string spellColor = "Green";
 												
 												//Select color
 												if(deltaY > 10) {
 													if(deltaX < -10) {
-														spellColor = "Red";															
+														isRed = true;
 													}
 													else if(deltaX > 10) {
-														spellColor = "Green";
+														isGreen = true;
 													}
 												}
 												else if(deltaY < -10) {
-													spellColor = "Blue";
+													isBlue = true;
 												} 
-
-												//Debug.Log (spellColor);
-												
-												//Select level
-												int spellLevel = 0;
-												if(distance > 100 && GameInstance.instance.canCastSpell(spellColor,3)) {
-													spellLevel = 3;
-													spellDelay = 1.5f;
-												}
-												else if(distance > 60 && GameInstance.instance.canCastSpell(spellColor,2)) {
-													spellLevel = 2;
-													spellDelay = 0.8f;
-												}
-												else if(GameInstance.instance.canCastSpell(spellColor,1)) {
-													spellLevel = 1;
-													spellDelay = 0.3f;
-												}	
-												
-												//Set correct sprites
-												if(spellColor == "Green") {
-													greenRenderer.sprite = greenSprite[spellLevel+1]; 
-													redRenderer.sprite = redSprite[1];
-													blueRenderer.sprite = blueSprite[1];
-												}
-												else if(spellColor == "Blue") {
-													greenRenderer.sprite = greenSprite[1]; 
-													redRenderer.sprite = redSprite[1];
-													blueRenderer.sprite = blueSprite[spellLevel+1];
-												}
-												else {
-													greenRenderer.sprite = greenSprite[1]; 
-													redRenderer.sprite = redSprite[spellLevel+1];
-													blueRenderer.sprite = blueSprite[1];
-												}
-												
-												//Cast spell
-												if(spellLevel > 0 && Time.time > lastSpell + spellDelay) {
-													playerController.castSpell(spellColor,spellLevel);
-													lastSpell = Time.time;
-												}
 								
 											}
-											else {
-												greenRenderer.sprite = greenSprite[1]; 
-												redRenderer.sprite = redSprite[1];
-												blueRenderer.sprite = blueSprite[1];
-											}
-											if(!greenAvailable) greenRenderer.sprite = greenSprite[0]; 
-											if(!blueAvailable) blueRenderer.sprite = blueSprite[0]; 
-											if(!redAvailable) redRenderer.sprite = redSprite[0]; 
+											
+											//Select loaded level
+											if(Time.time > startLoadingTime + 1.5f) loadedLevel = 3;
+											else if(Time.time > startLoadingTime + 0.75f) loadedLevel = 2;
+											else loadedLevel = 1;
+											
+											//Show correct colors
+											if(isBlue) blueRenderer.sprite = blueSprite[1 + GameInstance.instance.maxSpellLevel("blue",loadedLevel)];
+											else blueRenderer.sprite = blueSprite[1];
+											if(isRed) redRenderer.sprite = redSprite[1 + GameInstance.instance.maxSpellLevel("red",loadedLevel)];
+											else redRenderer.sprite = redSprite[1];
+											if(isGreen) greenRenderer.sprite = greenSprite[1 + GameInstance.instance.maxSpellLevel("green",loadedLevel)];
+											else greenRenderer.sprite = greenSprite[1];
 									}
 							}
-				
+							//Cast spell
+							else if(isLoading) {
+								string spellName = GameInstance.instance.selectAvailableSpell (isRed && redAvailable, isGreen && greenAvailable, isBlue && blueAvailable, loadedLevel);
+								bool status = GameInstance.instance.playerCastSpell (spellName);
+								isLoading = false;
+								resetColors();
+							}
+							
+							//reset if not availables
+							if(!greenAvailable) greenRenderer.sprite = greenSprite[0];
+							if(!blueAvailable) blueRenderer.sprite = blueSprite[0];
+							if(!redAvailable) redRenderer.sprite = redSprite[0];
+
 					}
 			}
 
 			if(fingerCount == 0) {
-				//renderer.color = hidden;
-				redRenderer.color = hidden; 
-				greenRenderer.color = hidden;
-				blueRenderer.color = hidden;
+				hide ();
 			}
 			else {
-				//renderer.color = visible;
-				redRenderer.color = visible; 
-				greenRenderer.color = visible;
-				blueRenderer.color = visible;
+				show ();
 			}
 
 			//Check for new powers
@@ -151,6 +132,27 @@ public class RightTouchJoystick : MonoBehaviour {
 			}
 
 		}
+	}
+
+	private void show() {
+		redRenderer.color = visible; 
+		greenRenderer.color = visible;
+		blueRenderer.color = visible;
+	}
+
+	private void hide() {
+		redRenderer.color = hidden; 
+		greenRenderer.color = hidden;
+		blueRenderer.color = hidden;
+	}
+
+	private void resetColors() {
+		isBlue = false;
+		isRed = false;
+		isGreen = false;
+		blueRenderer.sprite = blueSprite[1];
+		redRenderer.sprite = redSprite[1];
+		greenRenderer.sprite = greenSprite[1];
 	}
 
 	public void setActive(bool active) {

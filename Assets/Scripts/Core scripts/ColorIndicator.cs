@@ -21,7 +21,7 @@ public class ColorIndicator : MonoBehaviour {
 
 	private bool isBlue = false, isGreen = false, isRed = false;
 	private bool greenAvailable, blueAvailable, redAvailable;
-	private float lastPowerCheck = - 5f;
+	private float lastPowerCheck = -6f;
 
 	private Vector4 visible = new Vector4(255,255,255,255);
 	private Vector4 hidden = new Vector4(255,255,255,0);

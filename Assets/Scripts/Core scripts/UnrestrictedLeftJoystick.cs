@@ -31,12 +31,15 @@ public class UnrestrictedLeftJoystick : MonoBehaviour {
 			int fingerCount = 0;
 			foreach (Touch touch in Input.touches) {
 				//Half screen is 480
-				if(touch.position.x < 400) {
+				if(touch.position.x < 480 && touch.position.y < 450) {
 							if (touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled) {
 									fingerCount++;
 									if (touch.phase == TouchPhase.Began) {
 											print ("Inizio: " + touch.position);
 											lastPosition = touch.position;
+											if(lastPosition.x > 400) lastPosition.x = 400;
+											if(lastPosition.x < 80) lastPosition.x = 80;
+											if(lastPosition.y < 80) lastPosition.y = 80;
 											transform.position = new Vector3 (lastPosition.x, lastPosition.y, 0f);
 											renderer.sprite = defaultSprite;
 									} else {
