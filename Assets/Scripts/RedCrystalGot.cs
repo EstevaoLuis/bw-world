@@ -16,7 +16,9 @@ public class RedCrystalGot : MonoBehaviour {
 	void OnTriggerExit2D (Collider2D other) {
 		if (other.gameObject.tag == "Player") {
 			//GameInstance.instance.movePlayer (new Vector3 (0, 0));
+			QuestManager.instance.endEvent("Red Gem");
 			GameInstance.instance.moveGameSystem (new Vector3 (0, 0));
+			QuestManager.instance.endEvent("Final Boss");
 		}
 	}
 

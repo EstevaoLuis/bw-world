@@ -9,7 +9,7 @@ public class Settings : MonoBehaviour {
 
 	public static int greenStoryLevel = 6;
 	public static int blueStoryLevel = 18;
-	public static int redStoryLevel = 30;
+	public static int redStoryLevel = 27;
 
 	public static int secondSpellLevel = 20;
 	public static int thirdSpellLevel = 40;

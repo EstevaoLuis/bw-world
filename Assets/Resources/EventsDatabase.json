@@ -281,3 +281,35 @@
     	"character": "Villager"
 	},
 	
+	"Red World": {
+    	"storyLevel": 27,
+    	"preMessage": "Welcome to Red World. The Red Sanctuary is closed by a lock",
+    	"postMessage": "Search for the keys",
+    	"targetX": -6.88,
+    	"targetY": 0,
+    	"targetZ": 0,
+    	"scene": "Red World",
+    	"character": "Villager"
+	},
+	"Red Gem": {
+    	"storyLevel": 28,
+    	"preMessage": "",
+    	"postMessage": "",
+    	"targetX": 24.71,
+    	"targetY": 34.27,
+    	"targetZ": 0,
+    	"scene": "Red World",
+    	"character": ""
+	},
+	"Final Boss": {
+    	"storyLevel": 29,
+    	"preMessage": "",
+    	"postMessage": "",
+    	"targetX": -10.6,
+    	"targetY": 57.9,
+    	"targetZ": 0,
+    	"scene": "Red World",
+    	"character": ""
+	},
+	
+	
