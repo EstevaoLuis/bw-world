@@ -12,6 +12,7 @@ public class QuestManager : MonoBehaviour {
 	private GameObject player;
 	private JSONNode events;
 	private string currentEvent;
+	private string currentEventDescription = "";
 	private static int storyLevel = 0;
 	private RightTouchJoystick colorSpells;
 
@@ -85,6 +86,7 @@ public class QuestManager : MonoBehaviour {
 	public bool endEvent(string name) {
 		if(events[name] != null && name == currentEvent) {
 			currentEvent = "";
+			currentEventDescription = "";
 			Debug.Log ("Event ended: " + name);
 			cancelTarget ();
 			GameInstance.instance.increaseExperience(events[name]["experience"].AsInt);
@@ -103,8 +105,12 @@ public class QuestManager : MonoBehaviour {
 				Debug.Log ("Event started: " + name);
 				if(events[name]["targetX"].AsFloat>0f || events[name]["targetY"].AsFloat>0f) setNewTarget(new Vector3(events[name]["targetX"].AsFloat,events[name]["targetY"].AsFloat,events[name]["targetZ"].AsFloat));
 				currentEvent = name;
+				//currentEventDescription = "";
 				//Debug.Log (events[name]["preMessage"]);
-				if(events[name]["preMessage"] != null) UserInterface.instance.displayMessage(events[name]["character"]+":",'"' + events[name]["preMessage"] + '"');
+				if(events[name]["preMessage"] != null) {
+					UserInterface.instance.displayMessage(events[name]["character"]+":",'"' + events[name]["preMessage"] + '"');
+					currentEventDescription = '"' + events[name]["preMessage"] + '"';
+				}
 				GameInstance.instance.checkpoint();
 				return true;
 			}
@@ -114,6 +120,10 @@ public class QuestManager : MonoBehaviour {
 
 	public int getStoryLevel() {
 		return storyLevel;
+	}
+
+	public string getEventDescription() {
+		return currentEventDescription;
 	}
 
 	public void setStoryLevel(int lv) {

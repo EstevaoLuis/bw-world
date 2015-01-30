@@ -129,5 +129,9 @@ public class ColorIndicator : MonoBehaviour {
 		if(storyLevel>=Settings.redStoryLevel) redAvailable = true;
 		else redAvailable = false;
 	}
-	
+
+	public void showStatsPanel() {
+
+	}
+
 }

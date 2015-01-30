@@ -39,7 +39,7 @@ public class GameInstance : MonoBehaviour
 
 	//Player data
 	private int level, health, maxHealth, mana, maxMana, experience, maxExperience;
-	private int red = 0, green = 0, blue = 0;
+	public int red = 0, green = 0, blue = 0;
 	private float playerColliderRadius;
 
 	//Time variables
@@ -698,6 +698,20 @@ public class GameInstance : MonoBehaviour
 	public int star_tot = 0;
 	public float star_prev_mass;
 
+	public PlayerStats getPlayerStats() {
+		PlayerStats stats = new PlayerStats ();
+		stats.level = level;
+		stats.exp = experience;
+		stats.maxExp = maxExperience;
+		stats.red = red;
+		stats.blue = blue;
+		stats.green = green;
+		stats.health = health;
+		stats.maxHealth = maxHealth;
+		stats.mana = mana;
+		stats.maxMana = maxMana;
+		return stats;
+	}
 
 }
 

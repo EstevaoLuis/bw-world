@@ -138,4 +138,9 @@ public class UserInterface : MonoBehaviour
 		tutorialPanel.SetActive (false);
 	}
 
+	public void showStatsPanel() {
+		string currentEvent = QuestManager.instance.getEventDescription ();
+		PlayerStats stats = GameInstance.instance.getPlayerStats ();
+	}
+
 }
