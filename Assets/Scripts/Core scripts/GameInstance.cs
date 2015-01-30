@@ -170,6 +170,62 @@ public class GameInstance : MonoBehaviour
 		return 1;
 	}
 
+	//Select spell among availables
+	public string selectAvailableSpell(bool hasRed, bool hasGreen, bool hasBlue, int tryLevel) {
+		string color = "";
+		int actualLevel = 1;
+		if (hasBlue && hasGreen && hasRed) {
+				color = "White";
+				actualLevel = Mathf.Min(maxSpellLevel ("green", tryLevel),maxSpellLevel ("blue", tryLevel),maxSpellLevel ("red", tryLevel));
+		} else if (hasBlue && hasRed) {
+				color = "Magenta";
+				actualLevel = Mathf.Min(maxSpellLevel ("red", tryLevel),maxSpellLevel ("blue", tryLevel));
+		} else if (hasBlue && hasGreen) {
+				color = "Cyan";
+				actualLevel = Mathf.Min(maxSpellLevel ("green", tryLevel),maxSpellLevel ("blue", tryLevel));
+		} else if (hasGreen && hasRed) {
+				color = "Yellow";
+				actualLevel = Mathf.Min(maxSpellLevel ("green", tryLevel),maxSpellLevel ("red", tryLevel));
+		} else if (hasRed) {
+				color = "Red";
+				actualLevel = maxSpellLevel ("red", tryLevel);
+		} else if (hasBlue) {
+				color = "Blue";
+				actualLevel = maxSpellLevel ("blue", tryLevel);
+		} else if (hasGreen) {
+				color = "Green";
+				actualLevel = maxSpellLevel ("green", tryLevel);
+		} else {
+				return null;
+		}
+		return color + " " + actualLevel;
+	}
+
+	//Same without checking
+	public string selectSpell(bool hasRed, bool hasGreen, bool hasBlue, int tryLevel) {
+		string color = "";
+		int actualLevel = tryLevel;
+		if (hasBlue && hasGreen && hasRed) {
+			color = "White";
+		} else if (hasBlue && hasRed) {
+			color = "Magenta";
+		} else if (hasBlue && hasGreen) {
+			color = "Cyan";
+		} else if (hasGreen && hasRed) {
+			color = "Yellow";
+		} else if (hasRed) {
+			color = "Red";
+		} else if (hasBlue) {
+			color = "Blue";
+		} else if (hasGreen) {
+			color = "Green";
+		} else {
+			return null;
+		}
+		return color + " " + actualLevel;
+	}
+	
+	
 	//Casts a spell using position and directions as parameters
 	public void castSpell(string spellName, Transform transform, Vector2 direction, string spellTag, float distance, float minSpeed, int bonusDamage) {
 		//Check if spell is available
@@ -288,8 +344,9 @@ public class GameInstance : MonoBehaviour
 	}
 
 	public bool playerCastSpell(string spellName) {
-		//Choose spell
-		//string spellName = "";
+
+		if (spellName == null) return false;
+
 		int bonusDamage = 0;
 
 		switch(spells["color"]) {

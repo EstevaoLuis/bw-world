@@ -10,6 +10,7 @@ public class UserInterface : MonoBehaviour
 	public GameObject messagePanel, minimap, minimapButton;
 	public Text displayedMessage;
 	public Text displayedName;
+	public GameObject tutorialPanel;
 
 	//UI objects
 	private Slider healthBar;
@@ -119,6 +120,22 @@ public class UserInterface : MonoBehaviour
 			minimap.SetActive (false);
 			isMinimapEnabled = false;
 		}
+	}
+
+	public void showTutorial(string imageName) {
+		Time.timeScale = 0f;
+		GameInstance.instance.playAudio ("Cancel2");
+		tutorialPanel.SetActive (true);
+		Sprite newSprite = Resources.Load<Sprite>("Tutorial/" + imageName);
+		Debug.Log ("Tutorial/" + imageName + ": " + newSprite);
+		Image image = tutorialPanel.GetComponent<Image> ();
+		image.sprite = newSprite;
+	}
+
+	public void hideTutorial() {
+		Time.timeScale = 1f;
+		GameInstance.instance.playAudio ("Cancel2");
+		tutorialPanel.SetActive (false);
 	}
 
 }

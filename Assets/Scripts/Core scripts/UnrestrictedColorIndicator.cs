@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class ColorIndicator : MonoBehaviour {
+public class UnrestrictedColorIndicator : MonoBehaviour {
 
 	private bool isActive;
 	private bool canShoot = true;
@@ -20,7 +20,7 @@ public class ColorIndicator : MonoBehaviour {
 	private int loadedLevel = 0;
 
 	private bool isBlue = false, isGreen = false, isRed = false;
-	private bool greenAvailable, blueAvailable, redAvailable;
+	private bool greenAvailable = true, blueAvailable = true, redAvailable = true;
 	private float lastPowerCheck = - 5f;
 
 	private Vector4 visible = new Vector4(255,255,255,255);
@@ -31,7 +31,6 @@ public class ColorIndicator : MonoBehaviour {
 		isActive = !Settings.isMobile;
 		player = GameInstance.instance.getPlayerGameObject ();
 		controller = GameInstance.instance.getPlayerController ();
-		checkColors ();
 		hide ();
 	}
 	
@@ -72,15 +71,6 @@ public class ColorIndicator : MonoBehaviour {
 			if(isGreen) greenRenderer.sprite = greenSprite[1 + GameInstance.instance.maxSpellLevel("green",loadedLevel)];
 			else greenRenderer.sprite = greenSprite[1];
 
-			if(!greenAvailable) greenRenderer.sprite = greenSprite[0];
-			if(!blueAvailable) blueRenderer.sprite = blueSprite[0];
-			if(!redAvailable) redRenderer.sprite = redSprite[0];
-
-		}
-
-		//Check for new powers
-		if(Time.time > lastPowerCheck + 5f) {
-			checkColors();			
 		}
 	}
 
@@ -108,7 +98,7 @@ public class ColorIndicator : MonoBehaviour {
 	}
 
 	private void castAvailableSpell() {
-		string spellName = GameInstance.instance.selectAvailableSpell (isRed && redAvailable, isGreen && greenAvailable, isBlue && blueAvailable, loadedLevel);
+		string spellName = GameInstance.instance.selectSpell (isRed && redAvailable, isGreen && greenAvailable, isBlue && blueAvailable, loadedLevel);
 		bool status = GameInstance.instance.playerCastSpell (spellName);
 	}
 
@@ -118,16 +108,5 @@ public class ColorIndicator : MonoBehaviour {
 		greenRenderer.sprite = greenSprite[1];
 	}
 
-	//Check for new powers
-	void checkColors() {
-		lastPowerCheck = Time.time;
-		int storyLevel = QuestManager.instance.getStoryLevel();
-		if(storyLevel>=Settings.greenStoryLevel) greenAvailable = true;
-		else greenAvailable = false;
-		if(storyLevel>=Settings.blueStoryLevel) blueAvailable = true;
-		else blueAvailable = false;
-		if(storyLevel>=Settings.redStoryLevel) redAvailable = true;
-		else redAvailable = false;
-	}
-	
+
 }
