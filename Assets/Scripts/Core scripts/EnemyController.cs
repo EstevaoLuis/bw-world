@@ -420,7 +420,7 @@ public class EnemyController : MonoBehaviour {
 			newDirection = new Vector2 (x, y);
 		}
 		if (minChangeDuration > 3f) {
-			Debug.Log ("Ho sbattuto! Durata sospetta: " + minChangeDuration + ", oggetto di dimensioni " + obstaclePath.x + "x" +obstaclePath.y);
+			//Debug.Log ("Ho sbattuto! Durata sospetta: " + minChangeDuration + ", oggetto di dimensioni " + obstaclePath.x + "x" +obstaclePath.y);
 			minChangeDuration = 1f;
 		}
 		//Debug.Log ("Ho sbattuto! Durata " + minChangeDuration);

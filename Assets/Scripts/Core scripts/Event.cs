@@ -51,10 +51,18 @@ public class Event : MonoBehaviour {
 
 		if(Time.time > lastCheck + controlPeriod) {
 			int eventState;
-			if(endEvent != "") {
-				eventState = QuestManager.instance.getEventState (endEvent);
-				if(eventState == 1 && animation == null && showAnimation) {
-					animation = GameInstance.instance.playAnimation("Dialog",new Vector3(transform.position.x + animationOffsetX, transform.position.y + animationOffsetY , -1f));
+			if(showAnimation && animation == null) {
+				if((endEvent == "" || endEvent == null) && startEvent != "") {
+					eventState = QuestManager.instance.getEventState (startEvent);
+					if(eventState == 0) {
+						animation = GameInstance.instance.playAnimation("Dialog",new Vector3(transform.position.x + animationOffsetX, transform.position.y + animationOffsetY , -1f));
+					}
+				}
+				else if(endEvent != ""){
+					eventState = QuestManager.instance.getEventState (endEvent);
+					if(eventState == 1) {
+						animation = GameInstance.instance.playAnimation("Dialog",new Vector3(transform.position.x + animationOffsetX, transform.position.y + animationOffsetY , -1f));
+					}
 				}
 			}
 
@@ -80,7 +88,7 @@ public class Event : MonoBehaviour {
 				if(textObject != null) Destroy(textObject);
 				textStatus = 2;
 				textObject = GameInstance.instance.showNPCText (afterMessage, textPosition);
-				Debug.Log (textPosition);
+				//Debug.Log (textPosition);
 				fadingText = textObject.GetComponent("FadeObjectInOut") as FadeObjectInOut;
 				isCentered = false;
 			}

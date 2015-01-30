@@ -31,7 +31,7 @@ public class EnemyHealthBar : MonoBehaviour {
 				Debug.Log ("killed!");	
 				Destroy (health);
 		}
-
+		if(camera == null) camera = Camera.main;
 		Vector3 newPosition = enemy.transform.position + barPosition * Vector3.up;
 		health.transform.position = (camera.WorldToScreenPoint (newPosition));
 		health.value = controller.getHealth ();

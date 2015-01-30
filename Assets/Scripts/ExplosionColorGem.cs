@@ -21,7 +21,7 @@ public class ExplosionColorGem : MonoBehaviour {
 		bool destructionBool = false;
 
 
-		Debug.Log ("RGB: " + red + " " + green + " " + blue);
+		//Debug.Log ("RGB: " + red + " " + green + " " + blue);
 
 		if (color != "red")	red = red - intensity;
 		if (color != "blue") blue = blue - intensity;
@@ -35,7 +35,7 @@ public class ExplosionColorGem : MonoBehaviour {
 			destructionBool = true;
 		}
 
-		Debug.Log ("RGB: " + red + " " + green + " " + blue);
+		//Debug.Log ("RGB: " + red + " " + green + " " + blue);
 
 		sprite.color = new Color (red, green, blue);
 

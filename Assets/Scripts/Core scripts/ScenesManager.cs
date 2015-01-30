@@ -66,7 +66,7 @@ public class ScenesManager : MonoBehaviour {
 		async.allowSceneActivation = false;
 		
 		while (!async.isDone) {
-			Debug.Log (async.progress);
+			//Debug.Log (async.progress);
 			if(async.progress >= 0.9f && !waitingToStart && Time.time > sceneRequested + 3f) {
 				loadingText.SetActive (false);
 				startButton.SetActive (true);

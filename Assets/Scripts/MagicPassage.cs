@@ -4,6 +4,7 @@ using System.Collections;
 public class MagicPassage : MonoBehaviour {
 
 	public string level_name;
+	public string endEvent;
 	public Vector3 newCoordinates = new Vector3(0f,50f,0f);
 
 	// Use this for initialization
@@ -18,6 +19,9 @@ public class MagicPassage : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D other){
 		if (other.gameObject.tag == "Player") {
+			if(endEvent != null && endEvent != "") {
+				QuestManager.instance.endEvent(endEvent);
+			}
 			if(ScenesManager.instance != null) {
 
 
