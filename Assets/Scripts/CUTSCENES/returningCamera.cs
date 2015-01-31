@@ -34,8 +34,15 @@ public class returningCamera : MonoBehaviour {
 	}
 	void update(){
 
-		Cam = GameObject.Find ("Main Camera");
+		Cam = GameObject.Find ("Camera");
 		cameratofade = Cam.GetComponent<Camera> ();
+
+		if (cameratofade == null) {
+
+			cameratofade = Camera.main;
+		}
+//		Cam = GameObject.Find ("Camera");
+//		cameratofade = Cam.GetComponent<Camera> ();
 
 	}
 
