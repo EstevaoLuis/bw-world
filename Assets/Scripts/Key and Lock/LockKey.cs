@@ -24,7 +24,8 @@ public class LockKey : MonoBehaviour {
 		if (other.gameObject.tag == "Player") {
 			if (totalKeys == keysFound){
 				GameInstance.instance.playAudio("Up1");
-				Destroy (door);
+				//Destroy (door);
+				door.SetActive(false);
 				Destroy (gameObject);
 			}
 			else{

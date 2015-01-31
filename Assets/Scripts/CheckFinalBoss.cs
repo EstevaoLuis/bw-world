@@ -19,6 +19,8 @@ public class CheckFinalBoss : MonoBehaviour {
 	IEnumerator ChangeScreen()
 	{
 		yield return new WaitForSeconds(3);
+		GameInstance.instance.destroyInstance ();
+		UserInterface.instance.destroyInstance ();
 		Application.LoadLevel ("FinalScene");
 	}
 }
