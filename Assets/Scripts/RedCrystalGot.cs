@@ -3,6 +3,8 @@ using System.Collections;
 
 public class RedCrystalGot : MonoBehaviour {
 
+	public GameObject meteor;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -15,7 +17,7 @@ public class RedCrystalGot : MonoBehaviour {
 
 	void OnTriggerExit2D (Collider2D other) {
 		if (other.gameObject.tag == "Player") {
-			//GameInstance.instance.movePlayer (new Vector3 (0, 0));
+			meteor.SetActive(false);
 			QuestManager.instance.endEvent("Red Gem");
 			GameInstance.instance.moveGameSystem (new Vector3 (0, 0));
 			QuestManager.instance.startEvent("Final Boss");

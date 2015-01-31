@@ -227,7 +227,7 @@
     },
     
     "Lanzi" : {
-    	"health": 8000,
+    	"health": 9000,
     	"speed": 4.5,
         "attack": 30,
         "defense": 15,
