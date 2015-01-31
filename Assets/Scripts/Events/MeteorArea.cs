@@ -20,7 +20,7 @@ public class MeteorArea : MonoBehaviour {
 	void Update () {
 		if (Time.time > lastGeneration + generationPeriod) {
 			newPosition = new Vector3(transform.position.x + Random.Range(-areaSize,areaSize)+4f,transform.position.y + Random.Range(-areaSize,areaSize)+6f,-2f);
-			//GameInstance.instance.playAnimation("Target",new Vector3(newPosition.x-4f,newPosition.y-6.5f,-1f));
+			GameInstance.instance.playAnimation("Target",new Vector3(newPosition.x-4f,newPosition.y-6.5f,-1f));
 			Invoke("instantiateMeteor",waitBeforeInstantiating);
 			lastGeneration = Time.time;
 		}

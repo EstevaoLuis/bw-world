@@ -14,20 +14,29 @@ public class MovingGear : MonoBehaviour {
 	private bool isMoving = false;
 	private bool isVertical = false;
 
+
+	private bool isActive = false;
+	public float activationTime = 6f;
+
 	// Use this for initialization
 	void Start () {
-		if (initialDirection.y != 0) isVertical = true;
-		rigidbody2D.velocity = initialDirection * speed;
+		Invoke ("activate",activationTime);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Time.time > time + period) {
+		if (isActive && Time.time > time + period) {
 			rigidbody2D.velocity = new Vector2 (-rigidbody2D.velocity.x, -rigidbody2D.velocity.y);
 			time = Time.time;
 		}
 	}
 
+	private void activate() {
+		if (initialDirection.y != 0) isVertical = true;
+		rigidbody2D.velocity = initialDirection * speed;
+		time = Time.time;
+		isActive = true;
+	}
 
 	void OnCollisionStay2D(Collision2D other) {
 		if (other.gameObject.tag == "Player") {

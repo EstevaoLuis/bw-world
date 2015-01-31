@@ -24,26 +24,19 @@ public class returningCamera : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 	
-		player = GameObject.FindGameObjectWithTag("Player");
+		player = GameInstance.instance.getPlayerGameObject();
 		pl = player.GetComponent <PlayerController> ();
 
-		Cam = GameObject.Find ("Camera");
-		cameratofade = Cam.GetComponent<Camera> ();
-
+		selectCamera ();
 
 	}
-	void update(){
 
+	private void selectCamera() {
+		/*
 		Cam = GameObject.Find ("Camera");
 		cameratofade = Cam.GetComponent<Camera> ();
-
-		if (cameratofade == null) {
-
-			cameratofade = Camera.main;
-		}
-//		Cam = GameObject.Find ("Camera");
-//		cameratofade = Cam.GetComponent<Camera> ();
-
+		*/
+		cameratofade = Camera.main;
 	}
 
 
@@ -63,6 +56,9 @@ public class returningCamera : MonoBehaviour {
 
 	}
 	void off(){
+		if (cameratofade == null) {
+			selectCamera();
+		}
 		if (cameratofade.enabled == true) {
 					cameratofade.enabled = false;
 					pl.isAvailable (false);
