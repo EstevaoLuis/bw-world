@@ -18,7 +18,7 @@ public class RedCrystalGot : MonoBehaviour {
 			//GameInstance.instance.movePlayer (new Vector3 (0, 0));
 			QuestManager.instance.endEvent("Red Gem");
 			GameInstance.instance.moveGameSystem (new Vector3 (0, 0));
-			QuestManager.instance.endEvent("Final Boss");
+			QuestManager.instance.startEvent("Final Boss");
 		}
 	}
 
