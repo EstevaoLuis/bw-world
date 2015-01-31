@@ -26,10 +26,6 @@ public class ThemeAudio : MonoBehaviour {
 		audio1.clip = sceneAudio;
 		audio2.clip = battleAudio;
 		audio3.clip = bossAudio;
-		audio1.Play ();
-		audio1.volume = 1f;
-		fromVolume1 = 1f;
-		toVolume1 = 1f;
 		audio2.Play ();
 		audio2.volume = 0f;
 		fromVolume2 = 0f;
@@ -42,7 +38,6 @@ public class ThemeAudio : MonoBehaviour {
 
 	void OnLevelWasLoaded(int level) {
 		selectSceneAudio ();
-		audio1.Play ();
 	}
 
 	private void selectSceneAudio() {
@@ -54,7 +49,13 @@ public class ThemeAudio : MonoBehaviour {
 		default: audioName = "Field4"; break;
 		}
 		sceneAudio = Resources.Load ("Music/" + audioName) as AudioClip;
-		audio1.clip = sceneAudio;
+		if(audio1.clip != sceneAudio) {
+			audio1.clip = sceneAudio;
+			audio1.Play ();
+			audio1.volume = 1f;
+			fromVolume1 = 1f;
+			toVolume1 = 1f;
+		}
 	}
 	
 	// Update is called once per frame

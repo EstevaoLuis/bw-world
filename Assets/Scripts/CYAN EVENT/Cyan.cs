@@ -9,6 +9,8 @@ public class Cyan : MonoBehaviour {
 	private Spell sp_cyan;
 	private GameObject spell;
 
+	private bool isActivated = false;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -19,36 +21,27 @@ public class Cyan : MonoBehaviour {
 	}
 	void OnCollisionEnter2D (Collision2D other){
 
-		if (other.gameObject.tag == "Player") {
-
+		if (!isActivated && other.gameObject.tag == "Player") {
+			isActivated = true;
+			GameInstance.instance.playAudio ("Magic3");
 			aux_1=(GameObject)Instantiate(crystal,new Vector3(113f,49.6f,0),transform.rotation);
 			aux_2 = (GameObject)Instantiate(crystal,new Vector3(110.0972f,53.51508f,0),transform.rotation);
 
-
 		}
-//
-//		if (other.gameObject.tag == "Spell") {
-//			sp_cyan = other.gameObject.GetComponent<Spell>();
-//			if(sp_cyan.color ==  "cyan"){
-//			Destroy(aux_1);
-//			Destroy(aux_2);
-//			}
-//			
-//		}
+
+		else if (other.gameObject.tag == "Spell") {
+			Spell spell = other.gameObject.GetComponent<Spell>();
+			if(spell.color == "cyan") {
+				Invoke ("destroyCrystals", 0.5f);
+			}
+		}
 
 	}
-	
-	// Update is called once per frame
-	void Update () {
-				spell = GameObject.Find ("Cyan 1(Clone)");
-				if (spell != null) {
-						if (Vector3.Distance (spell.transform.position, transform.position) < 5f) {
-								if (aux_1 != null && aux_2 != null) {
-										Destroy (aux_1);
-										Destroy (aux_2);
-										Destroy(gameObject);
-								}
-						}
-				}
-		}
+
+	private void destroyCrystals () {
+		GameInstance.instance.playAudio ("Magic1");
+		Destroy (aux_1);
+		Destroy (aux_2);
+		Destroy(gameObject);
+	}
 }
