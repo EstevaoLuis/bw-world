@@ -106,7 +106,7 @@ public class UserInterface : MonoBehaviour
 
 	public void closeMessagePanel() {
 		messagePanel.SetActive (false);
-		GameInstance.instance.playAudio ("Cancel2");
+		if(GameInstance.instance != null) GameInstance.instance.playAudio ("Cancel2");
 	}
 
 	public void destroyInstance() {
