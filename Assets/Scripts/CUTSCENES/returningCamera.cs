@@ -27,9 +27,15 @@ public class returningCamera : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag("Player");
 		pl = player.GetComponent <PlayerController> ();
 
-		Cam = GameObject.FindWithTag ("MainCamera");
+		Cam = GameObject.Find ("Camera");
 		cameratofade = Cam.GetComponent<Camera> ();
 
+
+	}
+	void update(){
+
+		Cam = GameObject.Find ("Main Camera");
+		cameratofade = Cam.GetComponent<Camera> ();
 
 	}
 
@@ -50,12 +56,13 @@ public class returningCamera : MonoBehaviour {
 
 	}
 	void off(){
-
-		cameratofade.enabled = false;
-		pl.isAvailable (false);
-		GameInstance.instance.movePlayer (desirePosition);
-		GameInstance.instance.moveCamera (desirePosition);
-		Invoke ("on",3);
+		if (cameratofade.enabled == true) {
+					cameratofade.enabled = false;
+					pl.isAvailable (false);
+					GameInstance.instance.movePlayer (desirePosition);
+					GameInstance.instance.moveCamera (desirePosition);
+					Invoke ("on", 3);
+				}
 
 	}
 	void on(){
