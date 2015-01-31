@@ -122,6 +122,14 @@ public class UserInterface : MonoBehaviour
 		}
 	}
 
+	//Close panels
+	void Update() {
+		if (Input.GetKeyDown (KeyCode.Return)) {
+			if(messagePanel.activeSelf) closeMessagePanel();
+			if(tutorialPanel.activeSelf) hideTutorial();
+		}
+	}
+
 	public void showTutorial(string imageName) {
 		Time.timeScale = 0f;
 		GameInstance.instance.playAudio ("Cancel2");

@@ -17,9 +17,11 @@ public class SetStoryOnColor : MonoBehaviour {
 	void Update () {
 		if (!isActivated && controller.isColored()) {
 			if(endEvent != "" && startEvent != "") {
-				QuestManager.instance.endEvent(endEvent);
-				QuestManager.instance.startEvent(startEvent);
-				isActivated = true;
+				bool status = QuestManager.instance.endEvent(endEvent);
+				if(status) {
+					QuestManager.instance.startEvent(startEvent);
+					isActivated = true;
+				}
 			}
 		}
 	}

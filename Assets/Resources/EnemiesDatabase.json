@@ -156,7 +156,7 @@
         "mass": 1,
         "scale": 0.25,
         "delay": 3,
-        "detection": 6,
+        "detection": 7,
     	"spells": [],
 		"melees": [
 			{"name": "Melee 1", "probability": 1}
@@ -173,12 +173,13 @@
         "mass": 1,
         "scale": 0.75,
         "delay": 0.5,
-        "detection": 8,
+        "detection": 10,
         "melees": [
 			{"name": "Melee 1", "probability": 1}
 		],
     	"spells": [
-    		{"name": "Black 1", "probability": 0.5}
+    		{"name": "Black 2", "probability": 0.5},
+    		{"name": "Black 3", "probability": 0.5}
 		],
 		"behaviour": [1,2,2,0],
     	"experience": 30
@@ -186,18 +187,19 @@
     
     "Golem (Heavy)": {
     	"health": 150,
-    	"speed": 1,
+    	"speed": 2.5,
         "attack": 10,
         "defense": 5,
         "mass": 100,
         "scale": 1.25,
         "delay": 1,
-        "detection": 6,
+        "detection": 10,
         "melees": [
 			{"name": "Melee 2", "probability": 1}
 		],
     	"spells": [
-    		{"name": "Black 2", "probability": 1}
+    		{"name": "Black 2", "probability": 0.5},
+    		{"name": "Black 6", "probability": 0.5}
 		],
 		"behaviour": [1,2,2,0],
     	"experience": 60

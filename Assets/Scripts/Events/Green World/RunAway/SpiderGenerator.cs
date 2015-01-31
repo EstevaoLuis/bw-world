@@ -15,6 +15,7 @@ public class SpiderGenerator : MonoBehaviour {
 	public GameObject camera;
 	public bool trigger = true;
 	private bool isCompleted = false;
+	public float area = 2f;
 
 	private IList spiders = new List<GameObject>();
 
@@ -41,7 +42,8 @@ public class SpiderGenerator : MonoBehaviour {
 	}
 
 	void instantiateSpider() {
-		GameObject newSpider = (GameObject) Instantiate(spider, transform.position, Quaternion.Euler(new Vector3(0,0,0)));
+		Vector3 newPosition = new Vector3 (transform.position.x + Random.Range(-area,+area), transform.position.y + Random.Range(-area,+area), 0f);
+		GameObject newSpider = (GameObject) Instantiate(spider, newPosition, Quaternion.Euler(new Vector3(0,0,0)));
 		GameInstance.instance.playAnimation ("Appear", new Vector3(transform.position.x,transform.position.y,0.1f));
 		GameInstance.instance.playAudio ("Darkness6");
 		int randType = Random.Range (0, 2);

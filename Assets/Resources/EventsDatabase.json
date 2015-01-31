@@ -12,7 +12,7 @@
     },
     "The arrow": {
     	"storyLevel": 2,
-    	"preMessage": "Wow!! That colored scarf!! It's such good news, you must inform to the chief of the village!! The arrow on top of the screen will guide you to him.",
+    	"preMessage": "Wow!! That colored scarf!! That's great news, you must inform the chief of the village!! The arrow on top of the screen will guide you to him.",
     	"postMessage": "",
     	"experience": 0,
     	"targetX": 285.98,
@@ -34,7 +34,7 @@
     },
     "The prophecy": {
     	"storyLevel": 4,
-    	"preMessage": "A coloured scarf?! What a unique event!! Now I'll tell you a story. In this world there have always been two races: the Trilight, and the Klamers. But the Klamers betrayed us without any reason.",
+    	"preMessage": "A coloured scarf?! What a unique event!! Now I'll tell you a story. In this world there have always been two races: the Trilight, and the Klamers. But the Klamers betrayed us long ago.",
     	"postMessage": "",
     	"experience": 0,
     	"targetX": 278.7509,
@@ -56,7 +56,7 @@
     },
     "Sanctuary gate": {
     	"storyLevel": 6,
-    	"preMessage": "Here you are. This is the Green Sanctuary gate.",
+    	"preMessage": "Here you are. This is the Green Sanctuary gate. As far as I know, nobody has entered there since the Old Times.",
     	"postMessage": "",
     	"experience": 0,
     	"targetX": 183,
@@ -78,7 +78,7 @@
     },
     "Using spells": {
     	"storyLevel": 8,
-    	"preMessage": "You'll have to use your new spell!! Use your right thumb to cast spells against enemies!!",
+    	"preMessage": "You'll have to use your new spell!! Cast it against the enemies!!",
     	"postMessage": "",
     	"experience": 0,
     	"targetX": 330.9749,
@@ -165,7 +165,7 @@
     },
     "To the new world": {
     	"storyLevel": 16,
-    	"preMessage": "YOU KILLED THE SPIDER!! Thanks very much. I knew I could rely on you. I think now you should begin your journey to the other regions of this world, in order to free all the other colors.",
+    	"preMessage": "YOU KILLED IT!! Thanks very much. I knew I could rely on you. I think now you should begin your journey to the other regions of this world, in order to free all the other colors.",
     	"postMessage": "",
     	"experience": 0,
     	"targetX": 392,
@@ -176,7 +176,7 @@
     },
         "Welcome to the north": {
     	"storyLevel": 17,
-    	"preMessage": "No way, Colors?! My cousin in the green world told me about this. Although up here in the North the difference is not so great since everything is white anyway. Go to the sanctuary, our rangers are waiting.",
+    	"preMessage": "No way, Colors?! My cousin in the green world told me about this. Go to the sanctuary, our rangers are waiting for you.",
     	"postMessage": "",
     	"experience": 0,
      	"targetX": 17.8212,
@@ -187,7 +187,7 @@
     },
         "Ice Rangers": {
     	"storyLevel": 18,
-    	"preMessage": "Hey get out of here, this is dangerous. Oh wait that scarf?!I guess you're the new one of the GreenLand. We are the Ice Rangers. Try to find out what's going on in the old forest.",
+    	"preMessage": "Hey get out of here, here is dangerous. Oh wait that scarf?! I guess you're the new one of the GreenLand. We are the Ice Rangers. Try to find out what's going on in the Old Forest.",
     	"postMessage": "",
     	"targetX": 1.4,
     	"targetY": -40.6,
@@ -198,7 +198,7 @@
     
         "Back alive": {
     	"storyLevel": 19,
-    	"preMessage": "What? You found a Crystal? For the Black and White!! Anyway there is no time to waste. Head to the East Ranger, he says wierd sounds have come out from the old timberland",
+    	"preMessage": "What? You found a Crystal? For the Black and White!! Anyway there's no time to waste. Head to the East Ranger, he says weird sounds have come out from the old timberland",
     	"postMessage": "",
     	"targetX": 122.23,
     	"targetY": 63.7,
@@ -221,7 +221,7 @@
     	
         "Up the road": {
     	"storyLevel": 21,
-    	"preMessage": "Hi there, you're the Color Bringer right? Well, at least that´s how the Klamers refer to you. Please check what´s going on down this road.",
+    	"preMessage": "Hi there, you're the Color Bringer right? Well, at least that´s how the Klamers refer to you. Please check what's going on down this road.",
     	"postMessage": "",
     	"targetX": 148.55,
     	"targetY": 4.81,

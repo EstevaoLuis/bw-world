@@ -67,9 +67,9 @@ public class Spell : MonoBehaviour {
 				finalRadius = initialRadius + area;
 				if(finalRadius > 3f) finalRadius = 3f;
 		} 
-		else if (gameObject.tag == "Spell" && other.gameObject.tag == "Spell") {
-			if(transform.localScale.x >= other.gameObject.transform.localScale.x) {
-				Spell otherSpell = other.gameObject.GetComponent<Spell>();
+		else if (gameObject.tag == "Spell" && other.gameObject.tag == "Spell" && !hasHit) {
+			Spell otherSpell = other.gameObject.GetComponent<Spell>();
+			if(transform.localScale.x >= other.gameObject.transform.localScale.x && !otherSpell.hasAlreadyHit()) {
 				Destroy(other.gameObject);
 				float scaleMultiplier = 1.2f;
 				if(color != otherSpell.color) {
@@ -131,6 +131,10 @@ public class Spell : MonoBehaviour {
 				rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x / 1.1f, rigidbody2D.velocity.y / 1.1f);
 			}
 		}
+	}
+
+	public bool hasAlreadyHit() {
+		return hasHit;
 	}
 
 }
