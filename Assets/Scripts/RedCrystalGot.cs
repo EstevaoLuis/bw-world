@@ -4,6 +4,7 @@ using System.Collections;
 public class RedCrystalGot : MonoBehaviour {
 
 	public GameObject meteor;
+	public GameObject door;
 
 	// Use this for initialization
 	void Start () {
@@ -21,6 +22,7 @@ public class RedCrystalGot : MonoBehaviour {
 			QuestManager.instance.endEvent("Red Gem");
 			GameInstance.instance.moveGameSystem (new Vector3 (0, 0));
 			QuestManager.instance.startEvent("Final Boss");
+			door.SetActive(true);
 		}
 	}
 
