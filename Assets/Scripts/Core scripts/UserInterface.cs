@@ -122,10 +122,18 @@ public class UserInterface : MonoBehaviour
 			isMinimapEnabled = false;
 		}
 	}
+	 /*
+	void OnGUI() {
+		//if(GUI.changed) 
+
+	}
+	*/
 
 	//Close panels
 	void Update() {
+		GUI.UnfocusWindow();
 		if (Input.GetKeyDown (KeyCode.Return)) {
+			GUI.UnfocusWindow();
 			if(messagePanel.activeSelf) closeMessagePanel();
 			if(tutorialPanel.activeSelf) hideTutorial();
 		}
