@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class BattlehordeGen : MonoBehaviour {
 
 	private int number_enemies_to_gen = 1;
@@ -8,12 +9,19 @@ public class BattlehordeGen : MonoBehaviour {
 	public GameObject [] enemies_to_create;
 	private GameObject [] enemies_on_game;
 	public GameObject player;
+	public Font f;
+
+
+	private bool display;
+	//public GameObject text;
+
 	int type_of_enemy;
 
 
 	// Use this for initialization
 	void Start () {
 		create_Random_swarm ();
+		//text = this.GetComponent<GUIText>();
 	}
 
 	void create_Random_swarm (){
@@ -64,22 +72,38 @@ public class BattlehordeGen : MonoBehaviour {
 
 		int i;
 		int dead_guys = 0;
+		display = true;
 		for (i=0; i<number_enemies_to_gen; i++) {
 			if(enemies_on_game[i] == null ){
 				dead_guys++;
 			}
 		}
 		if (dead_guys == number_enemies_to_gen) {
+			//text.guiText.text = "SWARM";
+			//display = true;
 			number_enemies_to_gen++;
 			create_Random_swarm();
 		}
 	}
-	
+	void turnOff(){
+		GUI.enabled = false;
+	}
+	void OnGUI(){
+
+		if (display == true) {
+			GUI.color=Color.black;
+			//GUI.skin.label.fontSize = 18;
+			GUI.skin.font = f;
+			GUI.Label(new Rect(Screen.width / 2,(Screen.height / 2)-230  , 200f, 200f) , "HORDE " + number_enemies_to_gen);
+
+		}
+	}
 		
 	// Update is called once per frame
 	void Update () {
 
 	 check_status ();
-
+	 //Invoke("turnOff",3f);
+		
 	}
 }
